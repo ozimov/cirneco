@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.cirneco</groupId>
+    <artifactId>cirneco-core</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>Cirneco (Parent)</name>
+    <description>A toolkit to make unit test easier.</description>
+
+    <inceptionYear>2015</inceptionYear>
+
+    <modules>
+        <module>hamcrest-extensions</module>
+        <module>truth-extensions</module>
+    </modules>
+    <scm>
+        <connection>scm:git:git@github.com:cirneco/cirneco.git</connection>
+        <developerConnection>scm:git:git@github.com:cirneco/cirneco.git</developerConnection>
+        <url>git@github.com:cirneco/cirneco.git</url>
+    </scm>
+    <issueManagement>
+        <system>GitHub Issue Tracking</system>
+        <url />
+    </issueManagement>
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.7</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <unit-tests.skip>true</unit-tests.skip>
+
+        <com.google.guava>18.0</com.google.guava>
+        <org.slf4j-api>1.7.13</org.slf4j-api>
+        <junit>4.12</junit>
+        <mockito-all>1.10.19</mockito-all>
+
+        <maven-compiler-plugin>3.3</maven-compiler-plugin>
+    </properties>
+
+    <developers>
+        <developer>
+            <id>rtrunfio</id>
+            <name>Roberto Trunfio</name>
+            <email>roberto.trunfio@zalando.de</email>
+            <organization>Zalando SE</organization>
+            <organizationUrl>http://www.zalando.de</organizationUrl>
+            <roles>
+                <role>developer</role>
+            </roles>
+            <timezone>+1</timezone>
+        </developer>
+    </developers>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>2.5</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+    <profiles>
+        <profile>
+            <id>disable-java8-doclint</id>
+            <activation>
+                <jdk>[1.8,)</jdk>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <configuration>
+                            <additionalparam>-Xdoclint:none</additionalparam>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>
