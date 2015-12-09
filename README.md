@@ -1,4 +1,6 @@
-# Cirneco API
+# ![Cirneco logo](https://raw.github.com/cirneco/cirneco/master/Cirneco.png) Cirneco
+
+***Easy-to-use extensions for testing libraries***
 
 Cirneco is a collection of libraries aimed to make the unit test cleaner and easier.
 The more code you have to write, the highest is the probability to do a mistake. Moreover,
@@ -9,7 +11,8 @@ Hence, in Cirneco we extended the most valuable unit testing toolkits to provide
 to the developers and code tester.
 
 # JDK compatibility
-The API is JDK5 compatible. There are dedicated matchers for JDK8 provided in a complementary API.
+The API is JDK7 compatible.
+There are dedicated matchers for JDK8 provided in a complementary API.
 
 
 # Extended libraries
