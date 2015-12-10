@@ -4,7 +4,8 @@ import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
-import static java.lang.Math.abs;
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkNotNull;
 
 
 /**
@@ -15,9 +16,29 @@ public class IsBetween<T extends Comparable<T>> extends TypeSafeMatcher<T> {
     private final T from;
     private final T to;
 
-    public IsBetween(final T from, final T to){
-        this.from =from;
+    /**
+     * Creates and instance of the matcher. Observe that <code>from</code> and <code>to</code> cannot be null and
+     * <code>from.compareTo(to)</code> must be negative.
+     */
+    public IsBetween(final T from, final T to) {
+        checkNotNull(from);
+        checkNotNull(to);
+        checkArgument(from.compareTo(to) < 0, "from must be before to");
+
+        this.from = from;
         this.to = to;
+    }
+
+    /**
+     * Creates a matcher for {@code T}s that matches when the <code>compareTo()</code> method returns
+     * a value between <code>from</code> and <code>to</code>, both excluded.
+     * <p/>
+     * For example:
+     * <pre>assertThat(10, between(10, 11))</pre>
+     * will return false.
+     */
+    public static <T extends Comparable<T>> Matcher<T> between(final T from, final T to) {
+        return new IsBetween<>(from, to);
     }
 
     @Override
@@ -41,17 +62,5 @@ public class IsBetween<T extends Comparable<T>> extends TypeSafeMatcher<T> {
                 .appendText(" and ")
                 .appendValue(to)
                 .appendText(", both excluded");
-    }
-
-    /**
-     * Creates a matcher for {@code T}s that matches when the <code>compareTo()</code> method returns
-     * a value between <code>from</code> and <code>to</code>, both excluded.
-     * <p>
-     *     For example:
-     *      <pre>assertThat(10, between(10, 11))</pre>
-     *      will return false.
-     */
-    public static <T extends Comparable<T>> Matcher<T> between(final T from, final T to){
-        return new IsBetween<>(from, to);
     }
 }

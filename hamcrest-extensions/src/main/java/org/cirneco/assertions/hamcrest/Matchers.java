@@ -7,11 +7,10 @@ package org.cirneco.assertions.hamcrest;
  * sometimes there may be conflicts with third-party static methods (e.g. from
  * Mockito, PowerMock or EasyMock).
  */
-public class Matchers extends org.hamcrest.Matchers {
+public class Matchers {//extends org.hamcrest.Matchers {
 
-    private Matchers(){}
-
-
+    private Matchers() {
+    }
 
 
 }

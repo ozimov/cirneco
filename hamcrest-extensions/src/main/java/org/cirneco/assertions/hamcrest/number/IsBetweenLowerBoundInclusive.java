@@ -4,6 +4,9 @@ import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkNotNull;
+
 
 /**
  * Is the value a number between two numbers, lower bound included?
@@ -13,9 +16,32 @@ public class IsBetweenLowerBoundInclusive<T extends Comparable<T>> extends TypeS
     private final T from;
     private final T to;
 
-    public IsBetweenLowerBoundInclusive(final T from, final T to){
-        this.from =from;
+    /**
+     * Creates and instance of the matcher. Observe that <code>from</code> and <code>to</code> cannot be null and
+     * <code>from.compareTo(to)</code> must be negative.
+     */
+    public IsBetweenLowerBoundInclusive(final T from, final T to) {
+        checkNotNull(from);
+        checkNotNull(to);
+        checkArgument(from.compareTo(to) < 0, "from must be before to");
+
+        this.from = from;
         this.to = to;
+    }
+
+    /**
+     * Creates a matcher for {@code T}s that matches when the <code>compareTo()</code> method returns
+     * a value between <code>from</code> and <code>to</code>, both included.
+     * <p/>
+     * For example:
+     * <pre>assertThat(10, betweenLowerBoundInclusive(10, 11))</pre>
+     * will return true.
+     * while:
+     * <pre>assertThat(11, betweenLowerBoundInclusive(10, 11))</pre>
+     * will return false.
+     */
+    public static <T extends Comparable<T>> Matcher<T> betweenLowerBoundInclusive(final T from, final T to) {
+        return new IsBetweenLowerBoundInclusive(from, to);
     }
 
     @Override
@@ -39,21 +65,6 @@ public class IsBetweenLowerBoundInclusive<T extends Comparable<T>> extends TypeS
                 .appendText(" included and ")
                 .appendValue(to)
                 .appendText(" excluded");
-    }
-
-    /**
-     * Creates a matcher for {@code T}s that matches when the <code>compareTo()</code> method returns
-     * a value between <code>from</code> and <code>to</code>, both included.
-     * <p>
-     *     For example:
-     *      <pre>assertThat(10, betweenLowerBoundInclusive(10, 11))</pre>
-     *      will return true.
-     *     while:
-     *      <pre>assertThat(11, betweenLowerBoundInclusive(10, 11))</pre>
-     *      will return false.
-     */
-    public static <T extends Comparable<T>> Matcher<T> betweenLowerBoundInclusive(final T from, final T to){
-        return new IsBetweenLowerBoundInclusive(from, to);
     }
 
 }

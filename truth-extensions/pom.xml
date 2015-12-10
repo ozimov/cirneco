@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -18,6 +18,11 @@
     <description>An extension to make unit test easier with Google Truth.</description>
 
     <dependencies>
+        <dependency>
+            <groupId>com.google.truth</groupId>
+            <artifactId>truth</artifactId>
+            <version>0.28</version>
+        </dependency>
 
         <!--  OTHER DEPENDENCIES  -->
         <dependency>
@@ -38,16 +43,13 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-all</artifactId>
             <version>${mockito-all}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.truth</groupId>
-            <artifactId>truth</artifactId>
-            <version>0.28</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -61,7 +63,9 @@
             </resource>
         </resources>
         <testResources>
-            <testResource><directory>src/test/java</directory></testResource>
+            <testResource>
+                <directory>src/test/java</directory>
+            </testResource>
         </testResources>
         <plugins>
             <plugin>
