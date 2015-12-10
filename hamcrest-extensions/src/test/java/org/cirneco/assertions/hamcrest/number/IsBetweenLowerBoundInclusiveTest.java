@@ -11,7 +11,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.fail;
 
-public class IsBetweenTest extends BaseMatcherTest {
+public class IsBetweenLowerBoundInclusiveTest extends BaseMatcherTest {
 
     public Matcher<Integer> isBetweenMatcher;
 
@@ -19,7 +19,7 @@ public class IsBetweenTest extends BaseMatcherTest {
     public ExpectedException thrown = ExpectedException.none();
 
     public String getMatcherSimpleName() {
-        return IsBetween.class.getSimpleName();
+        return IsBetweenLowerBoundInclusive.class.getSimpleName();
     }
 
     @Before
@@ -27,7 +27,7 @@ public class IsBetweenTest extends BaseMatcherTest {
         //Arrange
         final Integer from = 10;
         final Integer to = 12;
-        isBetweenMatcher = IsBetween.between(from, to);
+        isBetweenMatcher = IsBetweenLowerBoundInclusive.betweenLowerBoundInclusive(from, to);
     }
 
     @Test
@@ -36,7 +36,7 @@ public class IsBetweenTest extends BaseMatcherTest {
         thrown.expect(NullPointerException.class);
 
         //Act
-        IsBetween.between(null, "");
+        IsBetweenLowerBoundInclusive.betweenLowerBoundInclusive(null, "");
 
         //Assert
         fail("NullPointerException expected but not thrown");
@@ -48,7 +48,7 @@ public class IsBetweenTest extends BaseMatcherTest {
         thrown.expect(NullPointerException.class);
 
         //Act
-        IsBetween.between("", null);
+        IsBetweenLowerBoundInclusive.betweenLowerBoundInclusive("", null);
 
         //Assert
         fail("NullPointerException expected but not thrown");
@@ -60,7 +60,7 @@ public class IsBetweenTest extends BaseMatcherTest {
         thrown.expect(IllegalArgumentException.class);
 
         //Act
-        IsBetween.between("Z", "A");
+        IsBetweenLowerBoundInclusive.betweenLowerBoundInclusive("Z", "A");
 
         //Assert
         fail("IllegalArgumentException expected but not thrown");
@@ -68,46 +68,53 @@ public class IsBetweenTest extends BaseMatcherTest {
 
     @Test
     public void testDescribeMismatchSafely() throws Exception {
-        assertHasMismatchDescription("<9> is not between <10> and <12>, both excluded",
+        assertHasMismatchDescription("<9> is not between <10> included and <12> excluded",
                 isBetweenMatcher, 9);
-        assertHasMismatchDescription("<10> is not between <10> and <12>, both excluded",
-                isBetweenMatcher, 10);
-        assertHasMismatchDescription("<12> is not between <10> and <12>, both excluded",
+        assertHasMismatchDescription("<12> is not between <10> included and <12> excluded",
                 isBetweenMatcher, 12);
-        assertHasMismatchDescription("<13> is not between <10> and <12>, both excluded",
+        assertHasMismatchDescription("<13> is not between <10> included and <12> excluded",
                 isBetweenMatcher, 13);
     }
 
     @Test
     public void testDescribeTo() throws Exception {
-        assertIsDescribedTo("a value between <10> and <12>, both excluded", isBetweenMatcher);
+        assertIsDescribedTo("a value between <10> included and <12> excluded", isBetweenMatcher);
     }
 
     @Test
-    public void testGivenNumberEqualsToLowerBound_WhenBetween_ThenReturnFalse() throws Exception {
+    public void testGivenNumberSmallerThanLowerBound_WhenBetween_ThenReturnTrue() throws Exception {
         //Act
-        final boolean isBetween = isBetweenMatcher.matches(10);
+        final boolean isBetweenLowerBoundInclusive = isBetweenMatcher.matches(9);
 
         //Assert
-        assertThat(isBetween, is(false));
+        assertThat(isBetweenLowerBoundInclusive, is(false));
+    }
+
+    @Test
+    public void testGivenNumberEqualsToLowerBound_WhenBetween_ThenReturnTrue() throws Exception {
+        //Act
+        final boolean isBetweenLowerBoundInclusive = isBetweenMatcher.matches(10);
+
+        //Assert
+        assertThat(isBetweenLowerBoundInclusive, is(true));
     }
 
     @Test
     public void testGivenNumberBetween_WhenBetween_ThenReturnTrue() throws Exception {
         //Act
-        final boolean isBetween = isBetweenMatcher.matches(11);
+        final boolean isBetweenLowerBoundInclusive = isBetweenMatcher.matches(11);
 
         //Assert
-        assertThat(isBetween, is(true));
+        assertThat(isBetweenLowerBoundInclusive, is(true));
     }
 
     @Test
-    public void testGivenNumberEqualsToUpperBound_WhenBetween_ThenReturnFalse() throws Exception {
+    public void testGivenNumberEqualsToUpperBound_WhenBetween_ThenReturnTrue() throws Exception {
         //Act
-        final boolean isBetween = isBetweenMatcher.matches(12);
+        final boolean isBetweenLowerBoundInclusive = isBetweenMatcher.matches(12);
 
         //Assert
-        assertThat(isBetween, is(false));
+        assertThat(isBetweenLowerBoundInclusive, is(false));
     }
 
 }

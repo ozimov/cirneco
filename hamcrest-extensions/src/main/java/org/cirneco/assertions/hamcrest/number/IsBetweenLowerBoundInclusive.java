@@ -55,7 +55,7 @@ public class IsBetweenLowerBoundInclusive<T extends Comparable<T>> extends TypeS
                 .appendValue(from)
                 .appendText(" included and ")
                 .appendValue(to)
-                .appendText(", excluded");
+                .appendText(" excluded");
     }
 
     @Override

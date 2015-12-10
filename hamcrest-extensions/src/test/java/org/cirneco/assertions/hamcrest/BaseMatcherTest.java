@@ -19,7 +19,7 @@ public abstract class BaseMatcherTest {
         final String actualDescription = descriptionFromMatcher(matcher);
 
         //Assert
-        assertThat("Exptected description does not match the one returned by the Matcher " + getSimpleName(matcher),
+        assertThat("Expected description does not match the one returned by the Matcher " + getSimpleName(matcher),
                 expectedDescription, equalTo(actualDescription));
     }
 
