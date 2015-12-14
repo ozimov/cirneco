@@ -2,13 +2,25 @@
 
 ***Easy-to-use extensions for testing libraries***
 
-Cirneco is a collection of libraries aimed to make the unit test cleaner and easier.
-The more code you have to write, the highest is the probability to do a mistake. Moreover,
-we like easy-to-read code, where the method name already embeds all the semantics that you
-need to explain what you are doing.
+**Main Website:** *[github.com/cirneco/cirneco](http://github.com/cirneco/cirneco/)*
+<br /> **Latest Release:** *0.0.1* &nbsp;
+**Latest Artifacts:** *org.cirneco:hamcrest-extensions-jdk7:jar:0.0.1*, *org.cirneco:hamcrest-extensions-jdk8:jar:0.0.1* <br />
+**Continuous Integration:** <br />
+[![Build Status](https://travis-ci.org/cirneco/cirneco.svg?branch=master)](https://travis-ci.org/cirneco/cirneco) [![Coverage Status](https://coveralls.io/repos/cirneco/cirneco/badge.svg?branch=master&service=github)](https://coveralls.io/github/cirneco/cirneco?branch=master) [![codecov.io](https://codecov.io/github/cirneco/cirneco/coverage.svg?branch=master)](https://codecov.io/github/cirneco/cirneco?branch=master)
+[![Codacy Badge](https://api.codacy.com/project/badge/grade/7a4364b93df6473fb18a597e900edceb)](https://www.codacy.com/app/roberto-trunfio/cirneco)
 
-Hence, in Cirneco we extended the most valuable unit testing toolkits to provide a better experience
+![codecov.io](https://codecov.io/github/cirneco/cirneco/branch.svg?branch=master)
+
+## What is Cirneco?
+
+Cirneco is a collection of libraries aimed to make unit test in Java cleaner and easier.
+The more code you have to write, the highest is the probability to do a mistake. Moreover,
+we like easy-to-read and concise code, where the method name already embeds all the semantics that you
+need to explain what you are asserting.
+
+Hence, in Cirneco we aim to extend the most valuable unit testing toolkits to provide a better experience
 to the developers and code tester.
+The current version (*Cirneco 0.0.1*) provides some extensions fo Hamcrest for Java
 
 # JDK compatibility
 The API is JDK7 compatible.

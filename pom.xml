@@ -37,9 +37,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.7</java.version>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <java7.version>1.7</java7.version>
+        <java8.version>1.8</java8.version>
         <unit-tests.skip>true</unit-tests.skip>
 
         <com.google.guava>18.0</com.google.guava>
@@ -64,6 +63,29 @@
         </developer>
     </developers>
 
+    <dependencies>
+        <!-- LOGGING DEPENDENCIES  -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${org.slf4j-api}</version>
+        </dependency>
+
+        <!--  TESTING DEPENDENCIES  -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>${mockito-all}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
     <build>
         <pluginManagement>
             <plugins>
@@ -73,6 +95,35 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.7.5.201505241946</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+             <groupId>org.eluder.coveralls</groupId>
+             <artifactId>coveralls-maven-plugin</artifactId>
+             <version>4.1.0</version>
+             <configuration>
+                 <repoToken>GbaOJEvQB1eY5dna6AMXVj2EO9ofkaVe1</repoToken>
+             </configuration>
+         </plugin>
+      </plugins>
     </build>
     <profiles>
         <profile>

@@ -1,0 +1,30 @@
+language: java
+
+sudo: false # faster builds
+
+jdk:
+    - oraclejdk8
+    - oraclejdk7
+
+install:
+    true
+
+before_script:
+  - pip install --user codecov && codecov --token=65930963-27c0-4315-b14c-643704eef04a
+
+script:
+  - jdk_switcher use oraclejdk8
+    - mvn -U -B -V test --fail-at-end -Dsource.skip=true -Dmaven.javadoc.skip=true
+  - jdk_switcher use oraclejdk7
+    - mvn -U -B -V test --fail-at-end -Dsource.skip=true -Dmaven.javadoc.skip=true -pl !:hamcrest-extensions-jdk8
+
+after_success:
+  - codecov
+  - jdk_switcher use oraclejdk8
+  - mvn clean test jacoco:report coveralls:report
+  - jdk_switcher use oraclejdk7
+  - mvn clean test jacoco:report coveralls:report -pl !:hamcrest-extensions-jdk8
+  
+notifications:
+    email:
+      on_failure: change

@@ -5,23 +5,23 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>cirneco-core</artifactId>
+        <artifactId>hamcrest-extensions</artifactId>
         <groupId>org.cirneco</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>truth-extensions</artifactId>
+    <artifactId>hamcrest-extensions-jdk7</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Cirneco's Google Truth Extensions</name>
-    <description>An extension to make unit test easier with Google Truth.</description>
+    <name>Cirneco's Hamcrest Extensions for JDK7</name>
+    <description>An extension to make unit test easier with Hamcrest and Guava.</description>
 
     <dependencies>
         <dependency>
-            <groupId>com.google.truth</groupId>
-            <artifactId>truth</artifactId>
-            <version>0.28</version>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-all</artifactId>
+            <version>1.3</version>
         </dependency>
 
         <!--  OTHER DEPENDENCIES  -->
@@ -31,26 +31,6 @@
             <version>${com.google.guava}</version>
         </dependency>
 
-        <!-- LOGGING DEPENDENCIES  -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${org.slf4j-api}</version>
-        </dependency>
-
-        <!--  TESTING DEPENDENCIES  -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-all</artifactId>
-            <version>${mockito-all}</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 
     <build>
