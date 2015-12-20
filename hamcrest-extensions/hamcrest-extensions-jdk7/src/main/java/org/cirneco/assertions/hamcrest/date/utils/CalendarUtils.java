@@ -13,7 +13,6 @@ import static java.util.Calendar.MINUTE;
 import static java.util.Calendar.MONTH;
 import static java.util.Calendar.SECOND;
 import static java.util.Calendar.YEAR;
-import static java.util.Calendar.getInstance;
 
 public class CalendarUtils {
 
@@ -21,7 +20,10 @@ public class CalendarUtils {
     }
 
     public static Calendar fromDateToCalendar(final Date date) {
-        final Calendar cal = getInstance();
+        final Calendar cal = new GregorianCalendar();
+        cal.clear();
+        cal.setMinimalDaysInFirstWeek(4);
+        cal.setFirstDayOfWeek(Calendar.MONDAY);
         cal.setTime(date);
         return cal;
     }
@@ -30,8 +32,26 @@ public class CalendarUtils {
         return fromDateToCalendar(date).get(DAY_OF_WEEK);
     }
 
+    /**
+     * Returns the month from the day, i.e. a number between 1 (January) and 12 (December).
+     */
     public static int month(final Date date) {
-        return fromDateToCalendar(date).get(MONTH);
+        return fromDateToCalendar(date).get(MONTH) + 1;
+    }
+
+    /**
+     * Returns the week fo the year according to the ISO 8601 standard
+     */
+    public static int weekOfYear(final Date date) {
+        return fromDateToCalendar(date).get(Calendar.WEEK_OF_YEAR);
+    }
+
+    public static int day(final Date date) {
+        return fromDateToCalendar(date).get(Calendar.DAY_OF_MONTH);
+    }
+
+    public static int dayOfYear(final Date date) {
+        return fromDateToCalendar(date).get(Calendar.DAY_OF_YEAR);
     }
 
     public static int year(final Date date) {

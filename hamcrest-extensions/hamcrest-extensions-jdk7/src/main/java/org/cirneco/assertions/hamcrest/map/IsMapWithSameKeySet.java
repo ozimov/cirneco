@@ -1,4 +1,4 @@
-package org.cirneco.assertions.hamcrest.collection;
+package org.cirneco.assertions.hamcrest.map;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;

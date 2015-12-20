@@ -1,4 +1,4 @@
-package org.cirneco.assertions.hamcrest.collection;
+package org.cirneco.assertions.hamcrest.map;
 
 import com.google.common.collect.ImmutableMap;
 import org.cirneco.assertions.hamcrest.BaseMatcherTest;
@@ -10,21 +10,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
-
 public class IsMapWithSameKeySetTest extends BaseMatcherTest {
 
     public Matcher<Map<? extends Integer, ?>> isMapWithSameKeySetMatcher;
 
     public ImmutableMap<Integer, String> comparisonMap;
 
-    public String getMatcherSimpleName() {
-        return IsMapWithSameKeySet.class.getSimpleName();
-    }
-
     @Before
-    public void setup() {
+    public void setUp() {
         //Arrange
         comparisonMap = ImmutableMap.of(
                 1, "1",
@@ -56,10 +49,10 @@ public class IsMapWithSameKeySetTest extends BaseMatcherTest {
         }
 
         //Act
-        boolean hasSameKeyset = isMapWithSameKeySetMatcher.matches(assertedMap);
+        boolean matches = isMapWithSameKeySetMatcher.matches(assertedMap);
 
         //Assert
-        assertThat("Expected to have same key set", hasSameKeyset, is(true));
+        assertMatches("Expected to have same key set", matches);
     }
 
     @Test
@@ -68,9 +61,9 @@ public class IsMapWithSameKeySetTest extends BaseMatcherTest {
         final Map<Integer, String> assertedMap = new HashMap<>();
 
         //Act
-        boolean hasSameKeyset = isMapWithSameKeySetMatcher.matches(assertedMap);
+        boolean matches = isMapWithSameKeySetMatcher.matches(assertedMap);
 
         //Assert
-        assertThat("Expected to have different key set", hasSameKeyset, is(false));
+        assertDoesNotMatch("Expected to have different key set", matches);
     }
 }

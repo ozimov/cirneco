@@ -1,6 +1,5 @@
-package org.cirneco.assertions.hamcrest.hamcrest;
+package org.cirneco.assertions.hamcrest;
 
-import org.cirneco.assertions.hamcrest.CirnecoMatchersJ8;
 import org.cirneco.assertions.hamcrest.base.IsEmptyOptional;
 import org.junit.Test;
 

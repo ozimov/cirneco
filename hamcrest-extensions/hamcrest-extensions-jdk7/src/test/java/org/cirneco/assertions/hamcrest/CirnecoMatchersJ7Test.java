@@ -3,7 +3,8 @@ package org.cirneco.assertions.hamcrest;
 import com.google.common.base.Equivalence;
 import org.cirneco.assertions.hamcrest.base.IsEmptyGuavaOptional;
 import org.cirneco.assertions.hamcrest.base.IsEquivalent;
-import org.cirneco.assertions.hamcrest.collection.IsMapWithSameKeySet;
+import org.cirneco.assertions.hamcrest.base.IsSame;
+import org.cirneco.assertions.hamcrest.map.IsMapWithSameKeySet;
 import org.cirneco.assertions.hamcrest.number.IsBetween;
 import org.cirneco.assertions.hamcrest.number.IsBetweenInclusive;
 import org.cirneco.assertions.hamcrest.number.IsBetweenLowerBoundInclusive;
@@ -21,7 +22,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.Map;
 
-import static org.cirneco.assertions.hamcrest.collection.IsIterableWithSizeTest.createIterableWithSize;
+import static org.cirneco.assertions.hamcrest.iterable.IsIterableWithSizeTest.createIterableWithSize;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsInstanceOf.instanceOf;
 import static org.junit.Assert.assertThat;
@@ -47,6 +48,11 @@ public class CirnecoMatchersJ7Test {
     @Test
     public void testEquivalentTo() throws Exception {
         assertThat(CirnecoMatchersJ7.equivalentTo(object, equivalence), instanceOf(IsEquivalent.class));
+    }
+
+    @Test
+    public void testSameInstance() throws Exception {
+        assertThat(CirnecoMatchersJ7.sameInstance(object), instanceOf(IsSame.class));
     }
 
     @Test

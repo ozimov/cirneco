@@ -1,4 +1,4 @@
-package org.cirneco.assertions.hamcrest.collection;
+package org.cirneco.assertions.hamcrest.iterable;
 
 import org.cirneco.assertions.hamcrest.BaseMatcherTest;
 import org.hamcrest.Matcher;
@@ -20,9 +20,6 @@ public class IsIterableWithSizeTest extends BaseMatcherTest {
         return iterable;
     }
 
-    public String getMatcherSimpleName() {
-        return IsIterableWithSize.class.getSimpleName();
-    }
 
     @Test
     public void testHasSizeOne() throws Exception {
@@ -31,14 +28,14 @@ public class IsIterableWithSizeTest extends BaseMatcherTest {
         final Iterable<Object> iterableWithExpectedSize = createIterableWithSize(expectedSize);
         final Iterable<Object> iterableWithDifferentSize = createIterableWithSize(expectedSize + 1);
         final Matcher<Iterable<Object>> isIterableWithSizeMatcher = IsIterableWithSize.hasSizeOne();
-        //Act
 
-        final boolean hasGivenSize = isIterableWithSizeMatcher.matches(iterableWithExpectedSize);
-        final boolean hasNotGivenSize = isIterableWithSizeMatcher.matches(iterableWithDifferentSize);
+        //Act
+        final boolean matchesOnSameSize = isIterableWithSizeMatcher.matches(iterableWithExpectedSize);
+        final boolean matchesOnDifferentSize = isIterableWithSizeMatcher.matches(iterableWithDifferentSize);
 
         //Assert
-        assertThat(hasGivenSize, is(true));
-        assertThat(hasNotGivenSize, is(false));
+        assertMatches(matchesOnSameSize);
+        assertDoesNotMatch(matchesOnDifferentSize);
     }
 
     @Test
@@ -48,14 +45,14 @@ public class IsIterableWithSizeTest extends BaseMatcherTest {
         final Iterable<Object> iterableWithExpectedSize = createIterableWithSize(expectedSize);
         final Iterable<Object> iterableWithDifferentSize = createIterableWithSize(expectedSize + 1);
         final Matcher<Iterable<Object>> isIterableWithSizeMatcher = IsIterableWithSize.hasSizeTwo();
-        //Act
 
-        final boolean hasGivenSize = isIterableWithSizeMatcher.matches(iterableWithExpectedSize);
-        final boolean hasNotGivenSize = isIterableWithSizeMatcher.matches(iterableWithDifferentSize);
+        //Act
+        final boolean matchesOnSameSize = isIterableWithSizeMatcher.matches(iterableWithExpectedSize);
+        final boolean matchesOnDifferentSize = isIterableWithSizeMatcher.matches(iterableWithDifferentSize);
 
         //Assert
-        assertThat(hasGivenSize, is(true));
-        assertThat(hasNotGivenSize, is(false));
+        assertMatches(matchesOnSameSize);
+        assertDoesNotMatch(matchesOnDifferentSize);
     }
 
     @Test
@@ -65,14 +62,14 @@ public class IsIterableWithSizeTest extends BaseMatcherTest {
         final Iterable<Object> iterableWithExpectedSize = createIterableWithSize(expectedSize);
         final Iterable<Object> iterableWithDifferentSize = createIterableWithSize(expectedSize + 1);
         final Matcher<Iterable<Object>> isIterableWithSizeMatcher = IsIterableWithSize.hasSizeThree();
-        //Act
 
-        final boolean hasGivenSize = isIterableWithSizeMatcher.matches(iterableWithExpectedSize);
-        final boolean hasNotGivenSize = isIterableWithSizeMatcher.matches(iterableWithDifferentSize);
+        //Act
+        final boolean matchesOnSameSize = isIterableWithSizeMatcher.matches(iterableWithExpectedSize);
+        final boolean matchesOnDifferentSize = isIterableWithSizeMatcher.matches(iterableWithDifferentSize);
 
         //Assert
-        assertThat(hasGivenSize, is(true));
-        assertThat(hasNotGivenSize, is(false));
+        assertMatches(matchesOnSameSize);
+        assertDoesNotMatch(matchesOnDifferentSize);
     }
 
     @Test
@@ -82,14 +79,14 @@ public class IsIterableWithSizeTest extends BaseMatcherTest {
         final Iterable<Object> iterableWithExpectedSize = createIterableWithSize(expectedSize);
         final Iterable<Object> iterableWithDifferentSize = createIterableWithSize(expectedSize + 1);
         final Matcher<Iterable<Object>> isIterableWithSizeMatcher = IsIterableWithSize.hasSizeFour();
-        //Act
 
-        final boolean hasGivenSize = isIterableWithSizeMatcher.matches(iterableWithExpectedSize);
-        final boolean hasNotGivenSize = isIterableWithSizeMatcher.matches(iterableWithDifferentSize);
+        //Act
+        final boolean matchesOnSameSize = isIterableWithSizeMatcher.matches(iterableWithExpectedSize);
+        final boolean matchesOnDifferentSize = isIterableWithSizeMatcher.matches(iterableWithDifferentSize);
 
         //Assert
-        assertThat(hasGivenSize, is(true));
-        assertThat(hasNotGivenSize, is(false));
+        assertMatches(matchesOnSameSize);
+        assertDoesNotMatch(matchesOnDifferentSize);
     }
 
     @Test
@@ -99,14 +96,14 @@ public class IsIterableWithSizeTest extends BaseMatcherTest {
         final Iterable<Object> iterableWithExpectedSize = createIterableWithSize(expectedSize);
         final Iterable<Object> iterableWithDifferentSize = createIterableWithSize(expectedSize + 1);
         final Matcher<Iterable<Object>> isIterableWithSizeMatcher = IsIterableWithSize.hasSizeFive();
-        //Act
 
-        final boolean hasGivenSize = isIterableWithSizeMatcher.matches(iterableWithExpectedSize);
-        final boolean hasNotGivenSize = isIterableWithSizeMatcher.matches(iterableWithDifferentSize);
+        //Act
+        final boolean matchesOnSameSize = isIterableWithSizeMatcher.matches(iterableWithExpectedSize);
+        final boolean matchesOnDifferentSize = isIterableWithSizeMatcher.matches(iterableWithDifferentSize);
 
         //Assert
-        assertThat(hasGivenSize, is(true));
-        assertThat(hasNotGivenSize, is(false));
+        assertMatches(matchesOnSameSize);
+        assertDoesNotMatch(matchesOnDifferentSize);
     }
 
     @Test
@@ -116,14 +113,14 @@ public class IsIterableWithSizeTest extends BaseMatcherTest {
         final Iterable<Object> iterableWithExpectedSize = createIterableWithSize(expectedSize);
         final Iterable<Object> iterableWithDifferentSize = createIterableWithSize(expectedSize + 1);
         final Matcher<Iterable<Object>> isIterableWithSizeMatcher = IsIterableWithSize.hasSize(expectedSize);
-        //Act
 
-        final boolean hasGivenSize = isIterableWithSizeMatcher.matches(iterableWithExpectedSize);
-        final boolean hasNotGivenSize = isIterableWithSizeMatcher.matches(iterableWithDifferentSize);
+        //Act
+        final boolean matchesOnSameSize = isIterableWithSizeMatcher.matches(iterableWithExpectedSize);
+        final boolean matchesOnDifferentSize = isIterableWithSizeMatcher.matches(iterableWithDifferentSize);
 
         //Assert
-        assertThat(hasGivenSize, is(true));
-        assertThat(hasNotGivenSize, is(false));
+        assertMatches(matchesOnSameSize);
+        assertDoesNotMatch(matchesOnDifferentSize);
     }
 
     @Test
@@ -132,8 +129,8 @@ public class IsIterableWithSizeTest extends BaseMatcherTest {
         final int expectedSize = 100;
         final Iterable<Object> iterableWithExpectedSize = createIterableWithSize(expectedSize);
         final IsIterableWithSize<Object> isIterableWithSizeMatcher = new IsIterableWithSize(expectedSize);
-        //Act
 
+        //Act
         final int calculatedSize = isIterableWithSizeMatcher.featureValueOf(iterableWithExpectedSize);
 
         //Assert

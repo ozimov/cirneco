@@ -7,16 +7,9 @@ import org.junit.Test;
 
 import java.util.Optional;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
-
 public class IsEmptyOptionalTest extends BaseMatcherTest {
 
     public Matcher<Optional> isEmptyOptionalMatcher;
-
-    public String getMatcherSimpleName() {
-        return IsEmptyOptional.class.getSimpleName();
-    }
 
     @Before
     public void setUp() {
@@ -41,10 +34,10 @@ public class IsEmptyOptionalTest extends BaseMatcherTest {
         final Optional emptyOptional = Optional.empty();
 
         //Act
-        boolean isEmpty = isEmptyOptionalMatcher.matches(emptyOptional);
+        final boolean matches = isEmptyOptionalMatcher.matches(emptyOptional);
 
         //Assert
-        assertThat("Expected to be empty", isEmpty, is(true));
+        assertMatches("Expected to be empty", matches);
     }
 
     @Test
@@ -53,10 +46,10 @@ public class IsEmptyOptionalTest extends BaseMatcherTest {
         final Optional nonEmptyOptional = Optional.of("");
 
         //Act
-        boolean isEmpty = isEmptyOptionalMatcher.matches(nonEmptyOptional);
+        final boolean matches = isEmptyOptionalMatcher.matches(nonEmptyOptional);
 
         //Assert
-        assertThat("Expected to contains an object", isEmpty, is(false));
+        assertDoesNotMatch("Expected to contains an object", matches);
     }
 
 }

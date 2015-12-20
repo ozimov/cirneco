@@ -11,6 +11,7 @@ install:
 
 before_script:
   - pip install --user codecov
+  - curl http://www.jpm4j.org/install/script | sh
 
 script:
   - jdk_switcher use oraclejdk8
@@ -25,7 +26,7 @@ after_success:
   - jdk_switcher use oraclejdk7
   - mvn clean test jacoco:report coveralls:report -pl !:hamcrest-extensions-jdk8
   - codecov -b "$TRAVIS_JOB_NUMBER-jdk7"
-  
+
 notifications:
     email:
       on_failure: change

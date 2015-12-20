@@ -116,14 +116,14 @@
                 </executions>
             </plugin>
             <plugin>
-             <groupId>org.eluder.coveralls</groupId>
-             <artifactId>coveralls-maven-plugin</artifactId>
-             <version>4.1.0</version>
-             <configuration>
-                 <repoToken>GbaOJEvQB1eY5dna6AMXVj2EO9ofkaVe1</repoToken>
-             </configuration>
-         </plugin>
-      </plugins>
+                <groupId>org.eluder.coveralls</groupId>
+                <artifactId>coveralls-maven-plugin</artifactId>
+                <version>4.1.0</version>
+                <configuration>
+                    <repoToken>GbaOJEvQB1eY5dna6AMXVj2EO9ofkaVe1</repoToken>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
     <profiles>
         <profile>

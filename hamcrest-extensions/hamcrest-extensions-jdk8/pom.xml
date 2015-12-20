@@ -22,6 +22,19 @@
             <groupId>org.cirneco</groupId>
             <artifactId>hamcrest-extensions-jdk7</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>joda-time</groupId>
+                    <artifactId>joda-time</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.cirneco</groupId>
+            <artifactId>hamcrest-extensions-jdk7</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>test</scope>
+            <classifier>tests</classifier>
         </dependency>
     </dependencies>
 

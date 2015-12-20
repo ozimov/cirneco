@@ -4,8 +4,9 @@ import com.google.common.base.Equivalence;
 import com.google.common.base.Optional;
 import org.cirneco.assertions.hamcrest.base.IsEmptyGuavaOptional;
 import org.cirneco.assertions.hamcrest.base.IsEquivalent;
-import org.cirneco.assertions.hamcrest.collection.IsIterableWithSize;
-import org.cirneco.assertions.hamcrest.collection.IsMapWithSameKeySet;
+import org.cirneco.assertions.hamcrest.base.IsSame;
+import org.cirneco.assertions.hamcrest.iterable.IsIterableWithSize;
+import org.cirneco.assertions.hamcrest.map.IsMapWithSameKeySet;
 import org.cirneco.assertions.hamcrest.number.IsBetween;
 import org.cirneco.assertions.hamcrest.number.IsBetweenInclusive;
 import org.cirneco.assertions.hamcrest.number.IsBetweenLowerBoundInclusive;
@@ -44,6 +45,14 @@ public class CirnecoMatchersJ7 {
      */
     public static <T> Matcher<T> equivalentTo(final T expected, final Equivalence<T> equivalence) {
         return IsEquivalent.equivalentTo(expected, equivalence);
+    }
+
+    /**
+     * Creates a matcher that matches only when the examined {@linkplain Object} is the same instance as
+     * the provided <code>target</code> {@linkplain Object}.
+     */
+    public static Matcher sameInstance(final Object target) {
+        return IsSame.sameInstance(target);
     }
 
     //COLLECTION

@@ -20,11 +20,11 @@ import static org.cirneco.assertions.hamcrest.date.utils.CalendarUtils.second;
  */
 public class IsDateWithTime extends TypeSafeMatcher<Date> {
 
-    private Integer hour;
-    private Integer min;
-    private Integer sec;
-    private Integer millis;
-    private ClockPeriod clockPeriod;
+    private final Integer hour;
+    private final Integer min;
+    private final Integer sec;
+    private final Integer millis;
+    private final ClockPeriod clockPeriod;
 
     public IsDateWithTime(final Integer hour, final Integer min, final Integer sec, final Integer millis) {
         this(hour, ClockPeriod.TWENTYFOUR_HOURS, min, sec, millis);
@@ -111,7 +111,7 @@ public class IsDateWithTime extends TypeSafeMatcher<Date> {
      * <code>sec</code>.
      */
     public static Matcher<Date> hasHourMinAndSec(final Integer hour,
-                                                 final Integer minute, final Integer second, final Integer millisecond) {
+                                                 final Integer minute, final Integer second) {
         return new IsDateWithTime(hour, minute, second, null);
     }
 
@@ -121,7 +121,7 @@ public class IsDateWithTime extends TypeSafeMatcher<Date> {
      * <code>sec</code>.
      */
     public static Matcher<Date> hasHourMinAndSec(final Integer hour, final ClockPeriod clockPeriod,
-                                                 final Integer minute, final Integer second, final Integer millisecond) {
+                                                 final Integer minute, final Integer second) {
         return new IsDateWithTime(hour, clockPeriod, minute, second, null);
     }
 
@@ -158,6 +158,7 @@ public class IsDateWithTime extends TypeSafeMatcher<Date> {
                     break;
                 default:
                     matches = hour == hour24(date);
+                    break;
             }
         }
         if (matches && min != null) {
@@ -187,15 +188,15 @@ public class IsDateWithTime extends TypeSafeMatcher<Date> {
     }
 
     private void expectedMatching(Description description) {
-        boolean first = false;
+        boolean first = true;
         if (hour != null) {
             description.appendText(" hour ");
             switch (clockPeriod) {
                 case AM:
-                    description.appendValue(String.format("%d AM", hour));
+                    description.appendText(String.format("<%d AM>", hour));
                     break;
                 case PM:
-                    description.appendValue(String.format("%d PM", hour));
+                    description.appendText(String.format("<%d PM>", hour));
                     break;
                 default:
                     description.appendValue(hour);

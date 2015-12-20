@@ -3,9 +3,7 @@ package org.cirneco.assertions.hamcrest.number;
 import org.cirneco.assertions.hamcrest.BaseMatcherTest;
 import org.hamcrest.Matcher;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -19,15 +17,8 @@ public class IsInfinityTest extends BaseMatcherTest {
 
     public Matcher<Number> isInfinityMatcher;
 
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
-
-    public String getMatcherSimpleName() {
-        return IsInfinity.class.getSimpleName();
-    }
-
     @Before
-    public void setup() {
+    public void setUp() {
         //Arrange
         isInfinityMatcher = IsInfinity.infinity();
     }

@@ -17,12 +17,8 @@ public class IsPositiveInfinityTest extends BaseMatcherTest {
 
     public Matcher<Number> isPositiveInfinityMatcher;
 
-    public String getMatcherSimpleName() {
-        return IsPositiveInfinity.class.getSimpleName();
-    }
-
     @Before
-    public void setup() {
+    public void setUp() {
         //Arrange
         isPositiveInfinityMatcher = IsPositiveInfinity.positiveInfinity();
     }

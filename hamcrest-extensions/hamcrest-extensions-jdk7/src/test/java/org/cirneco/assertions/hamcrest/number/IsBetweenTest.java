@@ -3,9 +3,7 @@ package org.cirneco.assertions.hamcrest.number;
 import org.cirneco.assertions.hamcrest.BaseMatcherTest;
 import org.hamcrest.Matcher;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -15,15 +13,8 @@ public class IsBetweenTest extends BaseMatcherTest {
 
     public Matcher<Integer> isBetweenMatcher;
 
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
-
-    public String getMatcherSimpleName() {
-        return IsBetween.class.getSimpleName();
-    }
-
     @Before
-    public void setup() {
+    public void setUp() {
         //Arrange
         final Integer from = 10;
         final Integer to = 12;

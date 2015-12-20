@@ -24,7 +24,7 @@ public class IsDateInDay extends TypeSafeMatcher<Date> {
     public IsDateInDay(final int weekDay) {
         final Optional<DayOfWeek> dayOfWeekOptional = DayOfWeek.fromId(weekDay);
         checkArgument(dayOfWeekOptional.isPresent(),
-                String.format("The month %d is not a valid value (admitted values are [1,2,...,7] for Sunday, Monday,..., Saturday, respectively)",
+                String.format("The id %d is not a valid value (admitted values are [1,2,...,7] for Sunday, Monday,..., Saturday, respectively)",
                         weekDay));
         dayOfWeek = dayOfWeekOptional.get();
     }
@@ -133,15 +133,15 @@ public class IsDateInDay extends TypeSafeMatcher<Date> {
         FRIDAY(Calendar.FRIDAY),
         SATURDAY(Calendar.SATURDAY);
 
-        int weekDay;
+        final int id;
 
-        DayOfWeek(final int weekDay) {
-            this.weekDay = weekDay;
+        DayOfWeek(final int id) {
+            this.id = id;
         }
 
         static Optional<DayOfWeek> fromId(final int weekDay) {
             for (DayOfWeek dayOfWeek : values()) {
-                if (dayOfWeek.weekDay == weekDay) {
+                if (dayOfWeek.id == weekDay) {
                     return Optional.of(dayOfWeek);
                 }
             }

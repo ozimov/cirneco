@@ -3,16 +3,39 @@ package org.cirneco.assertions.hamcrest;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.StringDescription;
+import org.junit.Rule;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static java.lang.String.format;
+import static junit.framework.TestCase.assertFalse;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(MockitoJUnitRunner.class)
 public abstract class BaseMatcherTest {
+
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
+
+    public static <T> void assertMatches(final String message, final boolean matches) {
+        assertTrue(message, matches);
+    }
+
+    public static <T> void assertMatches(final boolean matches) {
+        assertMatches("Expected to match, but mismatched", matches);
+    }
+
+    public static <T> void assertDoesNotMatch(final String message, final boolean matches) {
+        assertFalse(message, matches);
+    }
+
+    public static <T> void assertDoesNotMatch(final boolean matches) {
+        assertDoesNotMatch("Unexpected matching", matches);
+    }
 
     public static void assertIsDescribedTo(final String expectedDescription, final Matcher<?> matcher) {
         //Act

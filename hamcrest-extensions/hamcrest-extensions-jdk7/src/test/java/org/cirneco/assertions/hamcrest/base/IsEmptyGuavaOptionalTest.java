@@ -6,19 +6,12 @@ import org.hamcrest.Matcher;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
-
 public class IsEmptyGuavaOptionalTest extends BaseMatcherTest {
 
     public Matcher<Optional> isEmptyGuavaOptionalMatcher;
 
-    public String getMatcherSimpleName() {
-        return IsEmptyGuavaOptional.class.getSimpleName();
-    }
-
     @Before
-    public void setup() {
+    public void setUp() {
         //Arrange
         isEmptyGuavaOptionalMatcher = IsEmptyGuavaOptional.emptyOptional();
     }
@@ -40,10 +33,10 @@ public class IsEmptyGuavaOptionalTest extends BaseMatcherTest {
         final Optional emptyOptional = Optional.absent();
 
         //Act
-        boolean isEmpty = isEmptyGuavaOptionalMatcher.matches(emptyOptional);
+        final boolean matches = isEmptyGuavaOptionalMatcher.matches(emptyOptional);
 
         //Assert
-        assertThat("Expected to be empty", isEmpty, is(true));
+        assertMatches("Expected to be empty", matches);
     }
 
     @Test
@@ -52,10 +45,10 @@ public class IsEmptyGuavaOptionalTest extends BaseMatcherTest {
         final Optional nonEmptyOptional = Optional.of("");
 
         //Act
-        boolean isEmpty = isEmptyGuavaOptionalMatcher.matches(nonEmptyOptional);
+        final boolean matches = isEmptyGuavaOptionalMatcher.matches(nonEmptyOptional);
 
         //Assert
-        assertThat("Expected to contains an object", isEmpty, is(false));
+        assertDoesNotMatch("Expected to contains an object", matches);
     }
 
 }

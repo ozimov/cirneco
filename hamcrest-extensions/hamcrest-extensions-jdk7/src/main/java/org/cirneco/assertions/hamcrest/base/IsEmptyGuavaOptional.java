@@ -11,6 +11,7 @@ import org.hamcrest.TypeSafeMatcher;
  */
 public class IsEmptyGuavaOptional extends TypeSafeMatcher<Optional> {
 
+
     /**
      * Creates a matcher that matches when the examined {@linkplain Optional}
      * contains no object.

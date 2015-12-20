@@ -4,9 +4,7 @@ import com.google.common.base.Equivalence;
 import org.cirneco.assertions.hamcrest.BaseMatcherTest;
 import org.hamcrest.Matcher;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.mockito.Mock;
 
 import static org.hamcrest.Matchers.is;
@@ -24,9 +22,6 @@ public class IsEquivalentTest extends BaseMatcherTest {
     public Matcher<Object> isEquivalentMatcher;
     public Matcher<Object> isEquivalentMatcherForNullValue;
 
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
-
     @Mock
     public Object assertedObject;
 
@@ -36,12 +31,8 @@ public class IsEquivalentTest extends BaseMatcherTest {
     @Mock
     public Equivalence<Object> equivalence;
 
-    public String getMatcherSimpleName() {
-        return IsEquivalent.class.getSimpleName();
-    }
-
     @Before
-    public void setup() {
+    public void setUp() {
         //Arrange
         isEquivalentMatcher = IsEquivalent.equivalentTo(comparisonObject, equivalence);
         isEquivalentMatcherForNullValue = IsEquivalent.equivalentTo(null, equivalence);
@@ -104,10 +95,10 @@ public class IsEquivalentTest extends BaseMatcherTest {
         when(equivalence.equivalent(assertedObject, comparisonObject)).thenReturn(true);
 
         //Act
-        boolean isEquivalent = isEquivalentMatcher.matches(assertedObject);
+        final boolean matches = isEquivalentMatcher.matches(assertedObject);
 
         //Assert
-        assertThat("Expected to be equivalent", isEquivalent, is(true));
+        assertMatches("Expected to be equivalent", matches);
     }
 
     @Test
@@ -116,10 +107,10 @@ public class IsEquivalentTest extends BaseMatcherTest {
         when(equivalence.equivalent(assertedObject, comparisonObject)).thenReturn(false);
 
         //Act
-        boolean isEquivalent = isEquivalentMatcher.matches(assertedObject);
+        final boolean matches = isEquivalentMatcher.matches(assertedObject);
 
         //Assert
-        assertThat("Expected to be equivalent", isEquivalent, is(false));
+        assertDoesNotMatch("Expected to be equivalent", matches);
     }
 
 }

@@ -17,12 +17,8 @@ public class IsNotANumberTest extends BaseMatcherTest {
 
     public Matcher<Number> isNotANumberMatcher;
 
-    public String getMatcherSimpleName() {
-        return IsNotANumber.class.getSimpleName();
-    }
-
     @Before
-    public void setup() {
+    public void setUp() {
         //Arrange
         isNotANumberMatcher = IsNotANumber.notANumber();
     }
