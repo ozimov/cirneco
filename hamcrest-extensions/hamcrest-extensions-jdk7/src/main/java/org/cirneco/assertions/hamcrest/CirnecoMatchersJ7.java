@@ -5,7 +5,15 @@ import com.google.common.base.Optional;
 import org.cirneco.assertions.hamcrest.base.IsEmptyGuavaOptional;
 import org.cirneco.assertions.hamcrest.base.IsEquivalent;
 import org.cirneco.assertions.hamcrest.base.IsSame;
+import org.cirneco.assertions.hamcrest.date.IsDate;
+import org.cirneco.assertions.hamcrest.date.IsDateInDay;
+import org.cirneco.assertions.hamcrest.date.IsDateInLeapYear;
+import org.cirneco.assertions.hamcrest.date.IsDateInMonth;
+import org.cirneco.assertions.hamcrest.date.IsDateWithTime;
+import org.cirneco.assertions.hamcrest.date.utils.ClockPeriod;
 import org.cirneco.assertions.hamcrest.iterable.IsIterableWithSize;
+import org.cirneco.assertions.hamcrest.iterable.IsSortedIterable;
+import org.cirneco.assertions.hamcrest.iterable.IsSortedIterableWithComparator;
 import org.cirneco.assertions.hamcrest.map.IsMapWithSameKeySet;
 import org.cirneco.assertions.hamcrest.number.IsBetween;
 import org.cirneco.assertions.hamcrest.number.IsBetweenInclusive;
@@ -16,7 +24,10 @@ import org.cirneco.assertions.hamcrest.number.IsNegativeInfinity;
 import org.cirneco.assertions.hamcrest.number.IsNotANumber;
 import org.cirneco.assertions.hamcrest.number.IsPositiveInfinity;
 import org.hamcrest.Matcher;
+import org.hamcrest.Matchers;
 
+import java.util.Comparator;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -55,7 +66,387 @@ public class CirnecoMatchersJ7 {
         return IsSame.sameInstance(target);
     }
 
-    //COLLECTION
+    /**
+     * Creates a matcher of a {@link Comparable} object that matches when the examined object is
+     * after the given <code>value</code>, as reported by the <code>compareTo</code> method of the
+     * <b>examined</b> object.
+     * <p>
+     * E.g.:
+     * <code>
+     * Date past;
+     * Date now;
+     * assertThat(now, after(past));
+     * </code>
+     * <p>
+     * <p>
+     * The matcher renames the Hamcrest matcher obtained with {@linkplain org.hamcrest.Matchers#greaterThan(Comparable)}.
+     */
+    public static <T extends Comparable<T>> org.hamcrest.Matcher<T> after(final T value) {
+        return Matchers.greaterThan(value);
+    }
+
+    /**
+     * Creates a matcher of {@link Comparable} object that matches when the examined object is
+     * after or equal with respect to object <code>value</code>, as reported by the <code>compareTo</code> method
+     * of the <b>examined</b> object.
+     * <p>
+     * E.g.:
+     * <code>
+     * Date past;
+     * Date now;
+     * assertThat(now, afterOrEqual(now));
+     * assertThat(now, afterOrEqual(past));
+     * </code>
+     * <p>
+     * <p>
+     * The matcher renames the Hamcrest matcher obtained with {@linkplain org.hamcrest.Matchers#greaterThanOrEqualTo(Comparable)}.
+     */
+    public static <T extends java.lang.Comparable<T>> org.hamcrest.Matcher<T> afterOrEqual(final T value) {
+        return Matchers.greaterThanOrEqualTo(value);
+    }
+
+    /**
+     * Creates a matcher of {@link Comparable} object that matches when the examined object is
+     * before the given <code>value</code>, as reported by the <code>compareTo</code> method of the
+     * <b>examined</b> object.
+     * <p>
+     * E.g.:
+     * <code>
+     * Date past;
+     * Date now;
+     * assertThat(past, before(now));
+     * </code>
+     * <p>
+     * <p>
+     * The matcher renames the Hamcrest matcher obtained with {@linkplain org.hamcrest.Matchers#lessThan(Comparable)}.
+     */
+    public static <T extends java.lang.Comparable<T>> org.hamcrest.Matcher<T> before(final T value) {
+        return Matchers.lessThan(value);
+    }
+
+    /**
+     * Creates a matcher of {@link Comparable} object that matches when the examined object is
+     * before or equal with respect to object <code>value</code>, as reported by the <code>compareTo</code> method
+     * of the <b>examined</b> object.
+     * <p>
+     * E.g.:
+     * <code>
+     * Date past;
+     * Date now;
+     * assertThat(now, beforeOrEqual(now));
+     * assertThat(past, beforeOrEqual(now));
+     * </code>
+     * <p>
+     * <p>
+     * The matcher renames the Hamcrest matcher obtained with {@linkplain org.hamcrest.Matchers#lessThanOrEqualTo(Comparable)}.
+     */
+    public static <T extends java.lang.Comparable<T>> org.hamcrest.Matcher<T> beforeOrEqual(final T value) {
+        return Matchers.lessThanOrEqualTo(value);
+    }
+
+
+    //DATE
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * has the given <code>year</code>.
+     */
+    public static Matcher<Date> hasYear(final int year) {
+        return IsDate.hasYear(year);
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * has the given <code>id</code>.
+     */
+    public static Matcher<Date> hasMonth(final Integer month) {
+        return IsDate.hasMonth(month);
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * has the given <code>day</code>.
+     */
+    public static Matcher<Date> hasDay(final Integer day) {
+        return IsDate.hasDay(day);
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * has the given values <code>year</code> and <code>id</code>.
+     */
+    public static Matcher<Date> hasYearAndMonth(final int year, final int month) {
+        return IsDate.hasYearAndMonth(year, month);
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * has the given values <code>year</code>, <code>id</code> and
+     * <code>day</code>.
+     */
+    public static Matcher<Date> hasYearMonthAndDay(final Integer year,
+                                                   final Integer month, final Integer day) {
+        return IsDate.hasYearMonthAndDay(year, month, day);
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * has the given <code>hour</code> in a 24 hours clock period.
+     */
+    public static Matcher<Date> hasHour(final int hour) {
+        return IsDateWithTime.hasHour(hour);
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * has the given values <code>hour</code> and <code>ClockPeriod</code> (e.g. <em>AM</em>).
+     */
+    public static Matcher<Date> hasHour(final int hour, final ClockPeriod clockPeriod) {
+        return IsDateWithTime.hasHour(hour, clockPeriod);
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * has the given <code>minute</code>.
+     */
+    public static Matcher<Date> hasMinute(final Integer minute) {
+        return IsDateWithTime.hasMinute(minute);
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * has the given <code>sec</code>.
+     */
+    public static Matcher<Date> hasSecond(final Integer second) {
+        return IsDateWithTime.hasSecond(second);
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * has the given  <code>millis</code>.
+     */
+    public static Matcher<Date> hasMillisecond(final Integer millisecond) {
+        return IsDateWithTime.hasMillisecond(millisecond);
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * has the given values <code>hour</code> in a 24 hours clock period and <code>minute</code>.
+     */
+    public static Matcher<Date> hasHourAndMin(final int hour, final int minute) {
+        return IsDateWithTime.hasHourAndMin(hour, minute);
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * has the given values <code>hour</code>, <code>ClockPeriod</code> (e.g. <em>AM</em>) and <code>minute</code>.
+     */
+    public static Matcher<Date> hasHourAndMin(final int hour, final ClockPeriod clockPeriod, final int minute) {
+        return IsDateWithTime.hasHourAndMin(hour, clockPeriod, minute);
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * has the given values <code>hour</code> in a 24 hours clock period, <code>minute</code> and
+     * <code>sec</code>.
+     */
+    public static Matcher<Date> hasHourMinAndSec(final Integer hour,
+                                                 final Integer minute, final Integer second) {
+        return IsDateWithTime.hasHourMinAndSec(hour, minute, second);
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * has the given values <code>hour</code>, <code>ClockPeriod</code> (e.g. <em>AM</em>), <code>minute</code> and
+     * <code>sec</code>.
+     */
+    public static Matcher<Date> hasHourMinAndSec(final Integer hour, final ClockPeriod clockPeriod,
+                                                 final Integer minute, final Integer second) {
+        return IsDateWithTime.hasHourMinAndSec(hour, clockPeriod, minute, second);
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * has the given values <code>hour</code> in a 24 hours clock period, <code>minute</code>,
+     * <code>sec</code> and <code>millis</code>.
+     */
+    public static Matcher<Date> hasHourMinSecAndMillis(final Integer hour,
+                                                       final Integer minute, final Integer second, final Integer millisecond) {
+        return IsDateWithTime.hasHourMinSecAndMillis(hour, minute, second, millisecond);
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * has the given values <code>hour</code>, <code>ClockPeriod</code> (e.g. <em>AM</em>), <code>minute</code>,
+     * <code>sec</code> and <code>millis</code>.
+     */
+    public static Matcher<Date> hasHourMinSecAndMillis(final Integer hour, final ClockPeriod clockPeriod,
+                                                       final Integer minute, final Integer second, final Integer millisecond) {
+        return IsDateWithTime.hasHourMinSecAndMillis(hour, clockPeriod, minute, second, millisecond);
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * represents a leap year.
+     */
+    public static Matcher<Date> leapYear() {
+        return IsDateInLeapYear.leapYear();
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * represents the id <em>January</em>.
+     */
+    public static Matcher<Date> january() {
+        return IsDateInMonth.january();
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * represents the id <em>February</em>.
+     */
+    public static Matcher<Date> february() {
+        return IsDateInMonth.february();
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * represents the id <em>March</em>.
+     */
+    public static Matcher<Date> march() {
+        return IsDateInMonth.march();
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * represents the id <em>April</em>.
+     */
+    public static Matcher<Date> april() {
+        return IsDateInMonth.april();
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * represents the id <em>May</em>.
+     */
+    public static Matcher<Date> may() {
+        return IsDateInMonth.may();
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * represents the id <em>June</em>.
+     */
+    public static Matcher<Date> june() {
+        return IsDateInMonth.june();
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * represents the id <em>July</em>.
+     */
+    public static Matcher<Date> july() {
+        return IsDateInMonth.july();
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * represents the id <em>August</em>.
+     */
+    public static Matcher<Date> august() {
+        return IsDateInMonth.august();
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * represents the id <em>September</em>.
+     */
+    public static Matcher<Date> september() {
+        return IsDateInMonth.september();
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * represents the id <em>October</em>.
+     */
+    public static Matcher<Date> october() {
+        return IsDateInMonth.october();
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * represents the id <em>November</em>.
+     */
+    public static Matcher<Date> november() {
+        return IsDateInMonth.november();
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * represents the id <em>December</em>.
+     */
+    public static Matcher<Date> december() {
+        return IsDateInMonth.december();
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * represents a <em>Sunday</em>.
+     */
+    public static Matcher<Date> sunday() {
+        return IsDateInDay.sunday();
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * represents a <em>Monday</em>.
+     */
+    public static Matcher<Date> monday() {
+        return IsDateInDay.monday();
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * represents a <em>Tuesday</em>.
+     */
+    public static Matcher<Date> tuesday() {
+        return IsDateInDay.tuesday();
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * represents a <em>Wednesday</em>.
+     */
+    public static Matcher<Date> wednesday() {
+        return IsDateInDay.wednesday();
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * represents a <em>Thursday</em>.
+     */
+    public static Matcher<Date> thursday() {
+        return IsDateInDay.thursday();
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * represents a <em>Friday</em>.
+     */
+    public static Matcher<Date> friday() {
+        return IsDateInDay.friday();
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * represents a <em>Saturday</em>.
+     */
+    public static Matcher<Date> saturday() {
+        return IsDateInDay.saturday();
+    }
+
+
+    //ITERABLE
 
     /**
      * Creates a matcher for {@link Iterable}s that matches when the
@@ -130,6 +521,42 @@ public class CirnecoMatchersJ7 {
     }
 
     /**
+     * Creates a matcher for {@link Iterable}s matching when the examined {@linkplain Iterable} has
+     * the elements of type <code>K</code> that extends {@linkplain Comparable} and the elements
+     * are sorted according to the natural ordering.
+     */
+    public static <K> Matcher<Iterable<K>> sorted() {
+        return IsSortedIterable.sorted();
+    }
+
+    /**
+     * Creates a matcher for {@link Iterable}s matching when the examined {@linkplain Iterable} has
+     * the elements of type <code>K</code> that extends {@linkplain Comparable} and the elements
+     * are sorted according to the inverse of natural ordering.
+     */
+    public static <K> Matcher<Iterable<K>> sortedReversed() {
+        return IsSortedIterable.sortedReversed();
+    }
+
+    /**
+     * Creates a matcher for {@link Iterable}s matching when the examined {@linkplain Iterable} has
+     * the elements sorted according to the given {@linkplain Comparator}.
+     */
+    public static <K> Matcher<Iterable<K>> sorted(final Comparator<K> comparator) {
+        return IsSortedIterableWithComparator.sorted(comparator);
+    }
+
+    /**
+     * Creates a matcher for {@link Iterable}s matching when the examined {@linkplain Iterable} has
+     * the elements sorted according to the given {@linkplain Comparator}, but in a reverse order.
+     */
+    public static <K> Matcher<Iterable<K>> sortedReversed(final Comparator<K> comparator) {
+        return IsSortedIterableWithComparator.sortedReversed(comparator);
+    }
+
+    //MAP
+
+    /**
      * Creates a matcher for {@link java.util.Map}s matching when the examined {@link java.util.Map} has exactly
      * the same key set of the given map.
      * For example:
@@ -138,8 +565,6 @@ public class CirnecoMatchersJ7 {
     public static <K> Matcher<Map<? extends K, ?>> hasSameKeySet(final Map<? extends K, ?> comparisonMap) {
         return IsMapWithSameKeySet.hasSameKeySet(comparisonMap);
     }
-
-    //DATE
 
     //NUMBER
 

@@ -7,11 +7,11 @@
     <parent>
         <artifactId>cirneco-core</artifactId>
         <groupId>org.cirneco</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.1-SNAPSHOT</version>
     </parent>
 
     <artifactId>hamcrest-extensions</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Cirneco's Hamcrest Extensions</name>

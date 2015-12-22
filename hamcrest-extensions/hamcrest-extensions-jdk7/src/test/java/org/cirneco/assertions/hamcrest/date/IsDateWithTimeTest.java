@@ -1,5 +1,6 @@
 package org.cirneco.assertions.hamcrest.date;
 
+import org.cirneco.assertions.hamcrest.date.utils.ClockPeriod;
 import org.hamcrest.Matcher;
 import org.joda.time.DateTime;
 import org.junit.Before;
@@ -8,9 +9,9 @@ import org.junit.Test;
 import java.util.Date;
 
 import static java.lang.String.format;
-import static org.cirneco.assertions.hamcrest.date.IsDateWithTime.ClockPeriod.AM;
-import static org.cirneco.assertions.hamcrest.date.IsDateWithTime.ClockPeriod.PM;
-import static org.cirneco.assertions.hamcrest.date.IsDateWithTime.ClockPeriod.TWENTYFOUR_HOURS;
+import static org.cirneco.assertions.hamcrest.date.utils.ClockPeriod.AM;
+import static org.cirneco.assertions.hamcrest.date.utils.ClockPeriod.PM;
+import static org.cirneco.assertions.hamcrest.date.utils.ClockPeriod.TWENTYFOUR_HOURS;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
@@ -519,7 +520,7 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
         assertThat(dateMatches, is(expectedMatching));
     }
 
-    private void testMatchesHourAndMinute(final Integer dateHour, final IsDateWithTime.ClockPeriod clockPeriod,
+    private void testMatchesHourAndMinute(final Integer dateHour, final ClockPeriod clockPeriod,
                                           final Integer dateMinute, final Date date,
                                           final boolean expectedMatching) {
         //Arrange
@@ -544,7 +545,7 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
         assertThat(dateMatches, is(expectedMatching));
     }
 
-    private void testMatchesHourMinuteAndSecond(final Integer dateHour, final IsDateWithTime.ClockPeriod clockPeriod,
+    private void testMatchesHourMinuteAndSecond(final Integer dateHour, final ClockPeriod clockPeriod,
                                                 final Integer dateMinute, final Integer dateSecond, final Date date,
                                                 final boolean expectedMatching) {
         //Arrange
@@ -571,7 +572,7 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
         assertThat(dateMatches, is(expectedMatching));
     }
 
-    private void testMatchesHourMinuteSecondAndMillisecond(final Integer dateHour, final IsDateWithTime.ClockPeriod clockPeriod,
+    private void testMatchesHourMinuteSecondAndMillisecond(final Integer dateHour, final ClockPeriod clockPeriod,
                                                            final Integer dateMinute, final Integer dateSecond, final Integer dateMillisecond, final Date date,
                                                            final boolean expectedMatching) {
         //Arrange

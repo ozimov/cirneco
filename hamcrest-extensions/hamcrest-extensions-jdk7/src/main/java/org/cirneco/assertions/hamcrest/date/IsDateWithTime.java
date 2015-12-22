@@ -1,5 +1,6 @@
 package org.cirneco.assertions.hamcrest.date;
 
+import org.cirneco.assertions.hamcrest.date.utils.ClockPeriod;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
@@ -14,6 +15,7 @@ import static org.cirneco.assertions.hamcrest.date.utils.CalendarUtils.isPM;
 import static org.cirneco.assertions.hamcrest.date.utils.CalendarUtils.millisecond;
 import static org.cirneco.assertions.hamcrest.date.utils.CalendarUtils.minute;
 import static org.cirneco.assertions.hamcrest.date.utils.CalendarUtils.second;
+import static org.cirneco.assertions.hamcrest.date.utils.ClockPeriod.TWENTYFOUR_HOURS;
 
 /**
  * Is {@linkplain Date} in a given week day?
@@ -27,7 +29,7 @@ public class IsDateWithTime extends TypeSafeMatcher<Date> {
     private final ClockPeriod clockPeriod;
 
     public IsDateWithTime(final Integer hour, final Integer min, final Integer sec, final Integer millis) {
-        this(hour, ClockPeriod.TWENTYFOUR_HOURS, min, sec, millis);
+        this(hour, TWENTYFOUR_HOURS, min, sec, millis);
     }
 
     public IsDateWithTime(final Integer hour, final ClockPeriod clockPeriod,
@@ -35,7 +37,7 @@ public class IsDateWithTime extends TypeSafeMatcher<Date> {
         checkArgument(hour != null || min != null || sec != null || millis != null,
                 "The matcher need one between hour, min, sec and millis to be non null");
         checkArgument(hour == null ||
-                        (hour >= 0 && hour <= 23 && clockPeriod == ClockPeriod.TWENTYFOUR_HOURS) ||
+                        (hour >= 0 && hour <= 23 && clockPeriod == TWENTYFOUR_HOURS) ||
                         (hour >= 0 && hour <= 12),
                 "The value hour must be null or a number between 0 and 23 in a 24hours clock period or between 0 and 11 in a 12hours clock period");
         checkArgument(min == null || (min >= 0 && min <= 59), "The value min must be null or a number between 0 and 59");
@@ -223,7 +225,4 @@ public class IsDateWithTime extends TypeSafeMatcher<Date> {
         }
     }
 
-    public enum ClockPeriod {
-        AM, PM, TWENTYFOUR_HOURS;
-    }
 }
