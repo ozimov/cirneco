@@ -81,7 +81,7 @@ public class CirnecoMatchersJ7 {
      * <p>
      * The matcher renames the Hamcrest matcher obtained with {@linkplain org.hamcrest.Matchers#greaterThan(Comparable)}.
      */
-    public static <T extends Comparable<T>> org.hamcrest.Matcher<T> after(final T value) {
+    public static <T extends Comparable<T>> Matcher<T> after(final T value) {
         return Matchers.greaterThan(value);
     }
 
@@ -101,7 +101,7 @@ public class CirnecoMatchersJ7 {
      * <p>
      * The matcher renames the Hamcrest matcher obtained with {@linkplain org.hamcrest.Matchers#greaterThanOrEqualTo(Comparable)}.
      */
-    public static <T extends java.lang.Comparable<T>> org.hamcrest.Matcher<T> afterOrEqual(final T value) {
+    public static <T extends java.lang.Comparable<T>> Matcher<T> afterOrEqual(final T value) {
         return Matchers.greaterThanOrEqualTo(value);
     }
 
@@ -120,7 +120,7 @@ public class CirnecoMatchersJ7 {
      * <p>
      * The matcher renames the Hamcrest matcher obtained with {@linkplain org.hamcrest.Matchers#lessThan(Comparable)}.
      */
-    public static <T extends java.lang.Comparable<T>> org.hamcrest.Matcher<T> before(final T value) {
+    public static <T extends java.lang.Comparable<T>> Matcher<T> before(final T value) {
         return Matchers.lessThan(value);
     }
 
@@ -140,7 +140,7 @@ public class CirnecoMatchersJ7 {
      * <p>
      * The matcher renames the Hamcrest matcher obtained with {@linkplain org.hamcrest.Matchers#lessThanOrEqualTo(Comparable)}.
      */
-    public static <T extends java.lang.Comparable<T>> org.hamcrest.Matcher<T> beforeOrEqual(final T value) {
+    public static <T extends java.lang.Comparable<T>> Matcher<T> beforeOrEqual(final T value) {
         return Matchers.lessThanOrEqualTo(value);
     }
 
