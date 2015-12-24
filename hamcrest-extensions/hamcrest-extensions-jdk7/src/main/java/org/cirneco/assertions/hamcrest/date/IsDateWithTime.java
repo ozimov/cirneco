@@ -19,6 +19,8 @@ import static org.cirneco.assertions.hamcrest.date.utils.ClockPeriod.TWENTYFOUR_
 
 /**
  * Is {@linkplain Date} in a given week day?
+ *
+ * @since 0.1
  */
 public class IsDateWithTime extends TypeSafeMatcher<Date> {
 

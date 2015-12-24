@@ -13,6 +13,8 @@ import static org.cirneco.assertions.hamcrest.date.utils.CalendarUtils.month;
 
 /**
  * Is {@linkplain Date} in a given id?
+ *
+ * @since 0.1
  */
 public class IsDateInMonth extends TypeSafeMatcher<Date> {
 

@@ -10,6 +10,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * Is the value a number between two numbers, upper bound included?
+ *
+ * @since 0.1
  */
 public class IsBetweenUpperBoundInclusive<T extends Comparable<T>> extends TypeSafeMatcher<T> {
 

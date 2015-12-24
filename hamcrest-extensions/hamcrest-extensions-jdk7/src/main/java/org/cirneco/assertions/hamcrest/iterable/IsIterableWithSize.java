@@ -4,6 +4,7 @@ import org.hamcrest.Matcher;
 
 import java.util.Collection;
 
+import static com.google.common.base.Preconditions.checkArgument;
 import static org.hamcrest.core.IsEqual.equalTo;
 
 /**
@@ -12,6 +13,8 @@ import static org.hamcrest.core.IsEqual.equalTo;
  * The matcher first check if the given {@code Iterable} is a
  * {@linkplain Collection} (to get some speedup by using the {@linkplain Collection#size()} method, otherwise iterates
  * all the elements to get the size of the {@code Iterable}.
+ *
+ * @since 0.1
  */
 public class IsIterableWithSize<E> extends org.hamcrest.collection.IsIterableWithSize<E> {
 
@@ -91,6 +94,8 @@ public class IsIterableWithSize<E> extends org.hamcrest.collection.IsIterableWit
      * returns <code>true</code>.
      */
     public static <E> Matcher<Iterable<E>> hasSize(final int size) {
+        checkArgument(size >= 0, "Size cannot be negative");
+
         return new IsIterableWithSize(size);
     }
 

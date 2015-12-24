@@ -14,6 +14,8 @@ import java.math.BigDecimal;
  * Observe that for Cirneco, only {@linkplain Double} and {@linkplain Float} admit an
  * infinite value according to the JDK 6 and superior (included {@linkplain BigDecimal}).
  * Any third party implementation of a <code>Number</code> is not handled.
+ *
+ * @since 0.1
  */
 public class IsInfinity<N extends Number> extends TypeSafeMatcher<N> {
 

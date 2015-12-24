@@ -13,6 +13,8 @@ import static org.cirneco.assertions.hamcrest.date.utils.CalendarUtils.weekDay;
 
 /**
  * Is {@linkplain Date} in a given week day?
+ *
+ * @since 0.1
  */
 public class IsDateInDay extends TypeSafeMatcher<Date> {
 

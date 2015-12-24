@@ -12,6 +12,8 @@ import static com.google.common.base.Preconditions.checkArgument;
 
 /**
  * Is {@linkplain Date} in a given week day?
+ *
+ * @since 0.1
  */
 public class IsDate extends TypeSafeMatcher<Date> {
 

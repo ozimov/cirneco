@@ -17,6 +17,8 @@ import static org.cirneco.assertions.hamcrest.iterable.utils.IterableUtils.sorte
  * <p>
  * Observe that the matcher can be used also with an instance of {@linkplain com.google.common.collect.Ordering},
  * thus enabling for powerful assertions based on that extension of <code>Comparator</code>.
+ *
+ * @since 0.1
  */
 public class IsSortedIterableWithComparator<K> extends TypeSafeMatcher<Iterable<K>> {
 

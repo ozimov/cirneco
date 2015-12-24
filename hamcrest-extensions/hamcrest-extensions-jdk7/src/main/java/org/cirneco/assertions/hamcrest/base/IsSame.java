@@ -20,6 +20,8 @@ import org.hamcrest.Matcher;
  * </code>
  * <p>
  * This is in general very useful with any interface and one of its actual implementations.
+ *
+ * @since 0.1
  */
 public class IsSame extends BaseMatcher<Object> {
 

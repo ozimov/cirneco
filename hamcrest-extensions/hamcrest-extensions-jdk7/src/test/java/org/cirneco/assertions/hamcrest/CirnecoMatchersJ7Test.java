@@ -9,6 +9,7 @@ import org.cirneco.assertions.hamcrest.date.IsDateInDay;
 import org.cirneco.assertions.hamcrest.date.IsDateInLeapYear;
 import org.cirneco.assertions.hamcrest.date.IsDateInMonth;
 import org.cirneco.assertions.hamcrest.date.IsDateWithTime;
+import org.cirneco.assertions.hamcrest.iterable.IsEmptyIterable;
 import org.cirneco.assertions.hamcrest.iterable.IsSortedIterable;
 import org.cirneco.assertions.hamcrest.iterable.IsSortedIterableWithComparator;
 import org.cirneco.assertions.hamcrest.map.IsMapWithSameKeySet;
@@ -32,7 +33,7 @@ import java.util.Comparator;
 import java.util.Map;
 
 import static org.cirneco.assertions.hamcrest.date.utils.ClockPeriod.AM;
-import static org.cirneco.assertions.hamcrest.iterable.IsIterableWithSizeTest.createIterableWithSize;
+import static org.cirneco.assertions.hamcrest.iterable.BaseIterableMatcherTest.createIterableWithSize;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsInstanceOf.instanceOf;
 import static org.junit.Assert.assertThat;
@@ -270,6 +271,11 @@ public class CirnecoMatchersJ7Test {
     @Test
     public void testBeforeOrEqual() throws Exception {
         assertThat(CirnecoMatchersJ7.beforeOrEqual(comparable), instanceOf(OrderingComparison.class));
+    }
+
+    @Test
+    public void testEmpty() throws Exception {
+        assertThat(CirnecoMatchersJ7.empty(), instanceOf(IsEmptyIterable.class));
     }
 
     @Test

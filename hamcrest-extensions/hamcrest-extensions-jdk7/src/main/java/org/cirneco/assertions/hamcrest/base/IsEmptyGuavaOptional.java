@@ -8,6 +8,8 @@ import org.hamcrest.TypeSafeMatcher;
 
 /**
  * Is the given {@linkplan Optional} instance empty?
+ *
+ * @since 0.1
  */
 public class IsEmptyGuavaOptional extends TypeSafeMatcher<Optional> {
 

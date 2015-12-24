@@ -10,6 +10,8 @@ import static org.cirneco.assertions.hamcrest.date.utils.CalendarUtils.isLeapYea
 
 /**
  * Is {@linkplain Date} in a leap year?
+ *
+ * @since 0.1
  */
 public class IsDateInLeapYear extends TypeSafeMatcher<Date> {
 

@@ -11,6 +11,7 @@ import org.cirneco.assertions.hamcrest.date.IsDateInLeapYear;
 import org.cirneco.assertions.hamcrest.date.IsDateInMonth;
 import org.cirneco.assertions.hamcrest.date.IsDateWithTime;
 import org.cirneco.assertions.hamcrest.date.utils.ClockPeriod;
+import org.cirneco.assertions.hamcrest.iterable.IsEmptyIterable;
 import org.cirneco.assertions.hamcrest.iterable.IsIterableWithSize;
 import org.cirneco.assertions.hamcrest.iterable.IsSortedIterable;
 import org.cirneco.assertions.hamcrest.iterable.IsSortedIterableWithComparator;
@@ -447,6 +448,18 @@ public class CirnecoMatchersJ7 {
 
 
     //ITERABLE
+
+    /**
+     * Creates a matcher for {@link Iterable}s that matches when the
+     * examined {@link Iterable} has no items.
+     * <p>
+     * For example:
+     * <pre>assertThat(new ArrayList<>(), empty())</pre>
+     * returns <code>true</code>.
+     */
+    public static <E> Matcher<Iterable<? extends E>> empty() {
+        return IsEmptyIterable.empty();
+    }
 
     /**
      * Creates a matcher for {@link Iterable}s that matches when the

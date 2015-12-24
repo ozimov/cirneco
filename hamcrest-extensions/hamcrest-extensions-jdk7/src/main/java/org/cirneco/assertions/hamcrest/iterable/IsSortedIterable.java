@@ -12,6 +12,8 @@ import static org.cirneco.assertions.hamcrest.iterable.utils.IterableUtils.sorte
 
 /**
  * Is the {@linkplain Iterable} sorted according to natural ordering?
+ *
+ * @since 0.1
  */
 public class IsSortedIterable<K extends Comparable> extends TypeSafeMatcher<Iterable<K>> {
 

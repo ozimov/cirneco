@@ -7,6 +7,8 @@ import org.hamcrest.TypeSafeMatcher;
 
 /**
  * Is the numeric value a number?
+ *
+ * @since 0.1
  */
 public class IsNotANumber<N extends Number> extends TypeSafeMatcher<N> {
 
