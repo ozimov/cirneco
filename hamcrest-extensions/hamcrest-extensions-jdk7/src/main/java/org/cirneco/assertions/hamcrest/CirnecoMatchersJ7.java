@@ -16,10 +16,10 @@ import org.cirneco.assertions.hamcrest.iterable.IsIterableWithSize;
 import org.cirneco.assertions.hamcrest.iterable.IsSortedIterable;
 import org.cirneco.assertions.hamcrest.iterable.IsSortedIterableWithComparator;
 import org.cirneco.assertions.hamcrest.map.IsMapWithSameKeySet;
-import org.cirneco.assertions.hamcrest.number.IsBetween;
-import org.cirneco.assertions.hamcrest.number.IsBetweenInclusive;
-import org.cirneco.assertions.hamcrest.number.IsBetweenLowerBoundInclusive;
-import org.cirneco.assertions.hamcrest.number.IsBetweenUpperBoundInclusive;
+import org.cirneco.assertions.hamcrest.base.IsBetween;
+import org.cirneco.assertions.hamcrest.base.IsBetweenInclusive;
+import org.cirneco.assertions.hamcrest.base.IsBetweenLowerBoundInclusive;
+import org.cirneco.assertions.hamcrest.base.IsBetweenUpperBoundInclusive;
 import org.cirneco.assertions.hamcrest.number.IsInfinity;
 import org.cirneco.assertions.hamcrest.number.IsNegativeInfinity;
 import org.cirneco.assertions.hamcrest.number.IsNotANumber;
@@ -39,6 +39,61 @@ import java.util.Map;
 public class CirnecoMatchersJ7 {
 
     //BASE
+
+
+    /**
+     * Creates a matcher for {@code T}s that matches when the <code>compareTo()</code> method returns
+     * a value between <code>from</code> and <code>to</code>, both excluded.
+     * <p>
+     * For example:
+     * <pre>assertThat(10, between(10, 11))</pre>
+     * will return false.
+     */
+    public static <T extends Comparable<T>> Matcher<T> between(final T from, final T to) {
+        return IsBetween.between(from, to);
+    }
+
+    /**
+     * Creates a matcher for {@code T}s that matches when the <code>compareTo()</code> method returns
+     * a value between <code>from</code> and <code>to</code>, both included.
+     * <p>
+     * For example:
+     * <pre>assertThat(10, betweenInclusive(10, 11))</pre>
+     * will return true.
+     */
+    public static <T extends Comparable<T>> Matcher<T> betweenInclusive(final T from, final T to) {
+        return IsBetweenInclusive.betweenInclusive(from, to);
+    }
+
+    /**
+     * Creates a matcher for {@code T}s that matches when the <code>compareTo()</code> method returns
+     * a value between <code>from</code> and <code>to</code>, both included.
+     * <p>
+     * For example:
+     * <pre>assertThat(10, betweenLowerBoundInclusive(10, 11))</pre>
+     * will return true.
+     * while:
+     * <pre>assertThat(11, betweenLowerBoundInclusive(10, 11))</pre>
+     * will return false.
+     */
+    public static <T extends Comparable<T>> Matcher<T> betweenLowerBoundInclusive(final T from, final T to) {
+        return IsBetweenLowerBoundInclusive.betweenLowerBoundInclusive(from, to);
+    }
+
+    /**
+     * Creates a matcher for {@code T}s that matches when the <code>compareTo()</code> method returns
+     * a value between <code>from</code> and <code>to</code>, both included.
+     * <p>
+     * For example:
+     * <pre>assertThat(11, betweenUpperBoundInclusive(10, 11))</pre>
+     * will return true.
+     * while:
+     * <pre>assertThat(10, betweenUpperBoundInclusive(10, 11))</pre>
+     * will return false.
+     */
+    public static <T extends Comparable<T>> Matcher<T> betweenUpperBoundInclusive(final T from, final T to) {
+        return IsBetweenUpperBoundInclusive.betweenUpperBoundInclusive(from, to);
+    }
 
     /**
      * Creates a matcher that matches when the examined {@linkplain Optional}
@@ -580,60 +635,6 @@ public class CirnecoMatchersJ7 {
     }
 
     //NUMBER
-
-    /**
-     * Creates a matcher for {@code T}s that matches when the <code>compareTo()</code> method returns
-     * a value between <code>from</code> and <code>to</code>, both excluded.
-     * <p>
-     * For example:
-     * <pre>assertThat(10, between(10, 11))</pre>
-     * will return false.
-     */
-    public static <T extends Comparable<T>> Matcher<T> between(final T from, final T to) {
-        return IsBetween.between(from, to);
-    }
-
-    /**
-     * Creates a matcher for {@code T}s that matches when the <code>compareTo()</code> method returns
-     * a value between <code>from</code> and <code>to</code>, both included.
-     * <p>
-     * For example:
-     * <pre>assertThat(10, betweenInclusive(10, 11))</pre>
-     * will return true.
-     */
-    public static <T extends Comparable<T>> Matcher<T> betweenInclusive(final T from, final T to) {
-        return IsBetweenInclusive.betweenInclusive(from, to);
-    }
-
-    /**
-     * Creates a matcher for {@code T}s that matches when the <code>compareTo()</code> method returns
-     * a value between <code>from</code> and <code>to</code>, both included.
-     * <p>
-     * For example:
-     * <pre>assertThat(10, betweenLowerBoundInclusive(10, 11))</pre>
-     * will return true.
-     * while:
-     * <pre>assertThat(11, betweenLowerBoundInclusive(10, 11))</pre>
-     * will return false.
-     */
-    public static <T extends Comparable<T>> Matcher<T> betweenLowerBoundInclusive(final T from, final T to) {
-        return IsBetweenLowerBoundInclusive.betweenLowerBoundInclusive(from, to);
-    }
-
-    /**
-     * Creates a matcher for {@code T}s that matches when the <code>compareTo()</code> method returns
-     * a value between <code>from</code> and <code>to</code>, both included.
-     * <p>
-     * For example:
-     * <pre>assertThat(11, betweenUpperBoundInclusive(10, 11))</pre>
-     * will return true.
-     * while:
-     * <pre>assertThat(10, betweenUpperBoundInclusive(10, 11))</pre>
-     * will return false.
-     */
-    public static <T extends Comparable<T>> Matcher<T> betweenUpperBoundInclusive(final T from, final T to) {
-        return IsBetweenUpperBoundInclusive.betweenUpperBoundInclusive(from, to);
-    }
 
     /**
      * Creates a matcher for {@code T}s that matches when the number is a {@linkplain Double}

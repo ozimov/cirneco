@@ -1,6 +1,7 @@
-package org.cirneco.assertions.hamcrest.number;
+package org.cirneco.assertions.hamcrest.base;
 
 import org.cirneco.assertions.hamcrest.BaseMatcherTest;
+import org.cirneco.assertions.hamcrest.base.IsBetweenLowerBoundInclusive;
 import org.hamcrest.Matcher;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,16 +10,16 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.fail;
 
-public class IsBetweenInclusiveTest extends BaseMatcherTest {
+public class IsBetweenLowerBoundInclusiveTest extends BaseMatcherTest {
 
-    public Matcher<Integer> isBetweenInclusiveMatcher;
+    public Matcher<Integer> isBetweenLowerBoundInclusiveMatcher;
 
     @Before
     public void setUp() {
         //Arrange
         final Integer from = 10;
         final Integer to = 12;
-        isBetweenInclusiveMatcher = IsBetweenInclusive.betweenInclusive(from, to);
+        isBetweenLowerBoundInclusiveMatcher = IsBetweenLowerBoundInclusive.betweenLowerBoundInclusive(from, to);
     }
 
     @Test
@@ -27,7 +28,7 @@ public class IsBetweenInclusiveTest extends BaseMatcherTest {
         thrown.expect(NullPointerException.class);
 
         //Act
-        IsBetweenInclusive.betweenInclusive(null, "");
+        IsBetweenLowerBoundInclusive.betweenLowerBoundInclusive(null, "");
 
         //Assert
         fail("NullPointerException expected but not thrown");
@@ -39,7 +40,7 @@ public class IsBetweenInclusiveTest extends BaseMatcherTest {
         thrown.expect(NullPointerException.class);
 
         //Act
-        IsBetweenInclusive.betweenInclusive("", null);
+        IsBetweenLowerBoundInclusive.betweenLowerBoundInclusive("", null);
 
         //Assert
         fail("NullPointerException expected but not thrown");
@@ -51,7 +52,7 @@ public class IsBetweenInclusiveTest extends BaseMatcherTest {
         thrown.expect(IllegalArgumentException.class);
 
         //Act
-        IsBetweenInclusive.betweenInclusive("Z", "A");
+        IsBetweenLowerBoundInclusive.betweenLowerBoundInclusive("Z", "A");
 
         //Assert
         fail("IllegalArgumentException expected but not thrown");
@@ -59,60 +60,53 @@ public class IsBetweenInclusiveTest extends BaseMatcherTest {
 
     @Test
     public void testDescribeMismatchSafely() throws Exception {
-        assertHasMismatchDescription("<9> is not between <10> and <12>, both included",
-                isBetweenInclusiveMatcher, 9);
-        assertHasMismatchDescription("<13> is not between <10> and <12>, both included",
-                isBetweenInclusiveMatcher, 13);
+        assertHasMismatchDescription("<9> is not between <10> included and <12> excluded",
+                isBetweenLowerBoundInclusiveMatcher, 9);
+        assertHasMismatchDescription("<12> is not between <10> included and <12> excluded",
+                isBetweenLowerBoundInclusiveMatcher, 12);
+        assertHasMismatchDescription("<13> is not between <10> included and <12> excluded",
+                isBetweenLowerBoundInclusiveMatcher, 13);
     }
 
     @Test
     public void testDescribeTo() throws Exception {
-        assertIsDescribedTo("a value between <10> and <12>, both included", isBetweenInclusiveMatcher);
+        assertIsDescribedTo("a value between <10> included and <12> excluded", isBetweenLowerBoundInclusiveMatcher);
     }
 
     @Test
     public void testGivenNumberSmallerThanLowerBoundWhenMatchesIsCalledThenReturnTrue() throws Exception {
         //Act
-        final boolean isBetweenInclusive = isBetweenInclusiveMatcher.matches(9);
+        final boolean isBetweenLowerBoundInclusive = isBetweenLowerBoundInclusiveMatcher.matches(9);
 
         //Assert
-        assertThat(isBetweenInclusive, is(false));
+        assertThat(isBetweenLowerBoundInclusive, is(false));
     }
 
     @Test
     public void testGivenNumberEqualsToLowerBoundWhenMatchesIsCalledThenReturnTrue() throws Exception {
         //Act
-        final boolean isBetweenInclusive = isBetweenInclusiveMatcher.matches(10);
+        final boolean isBetweenLowerBoundInclusive = isBetweenLowerBoundInclusiveMatcher.matches(10);
 
         //Assert
-        assertThat(isBetweenInclusive, is(true));
+        assertThat(isBetweenLowerBoundInclusive, is(true));
     }
 
     @Test
     public void testGivenNumberBetweenWhenMatchesIsCalledThenReturnTrue() throws Exception {
         //Act
-        final boolean isBetweenInclusive = isBetweenInclusiveMatcher.matches(11);
+        final boolean isBetweenLowerBoundInclusive = isBetweenLowerBoundInclusiveMatcher.matches(11);
 
         //Assert
-        assertThat(isBetweenInclusive, is(true));
+        assertThat(isBetweenLowerBoundInclusive, is(true));
     }
 
     @Test
     public void testGivenNumberEqualsToUpperBoundWhenMatchesIsCalledThenReturnTrue() throws Exception {
         //Act
-        final boolean isBetweenInclusive = isBetweenInclusiveMatcher.matches(12);
+        final boolean isBetweenLowerBoundInclusive = isBetweenLowerBoundInclusiveMatcher.matches(12);
 
         //Assert
-        assertThat(isBetweenInclusive, is(true));
-    }
-
-    @Test
-    public void testGivenNumberBiggerThanLowerBoundWhenMatchesIsCalledThenReturnTrue() throws Exception {
-        //Act
-        final boolean isBetweenInclusive = isBetweenInclusiveMatcher.matches(13);
-
-        //Assert
-        assertThat(isBetweenInclusive, is(false));
+        assertThat(isBetweenLowerBoundInclusive, is(false));
     }
 
 }

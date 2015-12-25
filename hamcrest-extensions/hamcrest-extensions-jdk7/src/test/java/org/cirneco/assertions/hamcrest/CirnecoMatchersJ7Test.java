@@ -13,10 +13,10 @@ import org.cirneco.assertions.hamcrest.iterable.IsEmptyIterable;
 import org.cirneco.assertions.hamcrest.iterable.IsSortedIterable;
 import org.cirneco.assertions.hamcrest.iterable.IsSortedIterableWithComparator;
 import org.cirneco.assertions.hamcrest.map.IsMapWithSameKeySet;
-import org.cirneco.assertions.hamcrest.number.IsBetween;
-import org.cirneco.assertions.hamcrest.number.IsBetweenInclusive;
-import org.cirneco.assertions.hamcrest.number.IsBetweenLowerBoundInclusive;
-import org.cirneco.assertions.hamcrest.number.IsBetweenUpperBoundInclusive;
+import org.cirneco.assertions.hamcrest.base.IsBetween;
+import org.cirneco.assertions.hamcrest.base.IsBetweenInclusive;
+import org.cirneco.assertions.hamcrest.base.IsBetweenLowerBoundInclusive;
+import org.cirneco.assertions.hamcrest.base.IsBetweenUpperBoundInclusive;
 import org.cirneco.assertions.hamcrest.number.IsInfinity;
 import org.cirneco.assertions.hamcrest.number.IsNegativeInfinity;
 import org.cirneco.assertions.hamcrest.number.IsNotANumber;
@@ -57,6 +57,25 @@ public class CirnecoMatchersJ7Test {
     @Mock
     public Equivalence<Object> equivalence;
 
+    @Test
+    public void testBetween() throws Exception {
+        assertThat(CirnecoMatchersJ7.between(0, 100), instanceOf(IsBetween.class));
+    }
+
+    @Test
+    public void testBetweenInclusive() throws Exception {
+        assertThat(CirnecoMatchersJ7.betweenInclusive(0, 100), instanceOf(IsBetweenInclusive.class));
+    }
+
+    @Test
+    public void testBetweenLowerBoundInclusive() throws Exception {
+        assertThat(CirnecoMatchersJ7.betweenLowerBoundInclusive(0, 100), instanceOf(IsBetweenLowerBoundInclusive.class));
+    }
+
+    @Test
+    public void testBetweenUpperBoundInclusive() throws Exception {
+        assertThat(CirnecoMatchersJ7.betweenUpperBoundInclusive(0, 100), instanceOf(IsBetweenUpperBoundInclusive.class));
+    }
 
     @Test
     public void testEmptyGuavaOptional() throws Exception {
@@ -391,27 +410,6 @@ public class CirnecoMatchersJ7Test {
     @Test
     public void testHasSameKeySet() throws Exception {
         assertThat(CirnecoMatchersJ7.hasSameKeySet(map), instanceOf(IsMapWithSameKeySet.class));
-    }
-
-
-    @Test
-    public void testBetween() throws Exception {
-        assertThat(CirnecoMatchersJ7.between(0, 100), instanceOf(IsBetween.class));
-    }
-
-    @Test
-    public void testBetweenInclusive() throws Exception {
-        assertThat(CirnecoMatchersJ7.betweenInclusive(0, 100), instanceOf(IsBetweenInclusive.class));
-    }
-
-    @Test
-    public void testBetweenLowerBoundInclusive() throws Exception {
-        assertThat(CirnecoMatchersJ7.betweenLowerBoundInclusive(0, 100), instanceOf(IsBetweenLowerBoundInclusive.class));
-    }
-
-    @Test
-    public void testBetweenUpperBoundInclusive() throws Exception {
-        assertThat(CirnecoMatchersJ7.betweenUpperBoundInclusive(0, 100), instanceOf(IsBetweenUpperBoundInclusive.class));
     }
 
     @Test

@@ -1,4 +1,4 @@
-package org.cirneco.assertions.hamcrest.number;
+package org.cirneco.assertions.hamcrest.base;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
