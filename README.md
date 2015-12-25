@@ -3,6 +3,7 @@
 ***Easy-to-use extensions for testing libraries***
 
 **Main Website:** *[github.com/cirneco/cirneco](http://github.com/cirneco/cirneco/)*
+**Wiki:** *[github.com/cirneco/cirneco/wiki](http://github.com/cirneco/cirneco/wiki)*
 <br /> **Latest Release:** *0.1* &nbsp;
 **Latest Artifacts:** *org.cirneco:hamcrest-extensions-jdk7:jar:0.1*, *org.cirneco:hamcrest-extensions-jdk8:jar:0.1* <br />
 **Continuous Integration:** <br />
