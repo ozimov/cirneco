@@ -13,14 +13,14 @@ import org.hamcrest.TypeSafeMatcher;
 public class IsNotANumber<N extends Number> extends TypeSafeMatcher<N> {
 
     /**
-     * Creates a matcher for {@code T}s that matches when the number is a {@linkplain Double}
+     * Creates a matcher for {@code N} that matches when the number is a {@linkplain Double}
      * or {@linkplain Float} such that a call to method <code>isNaN()</code> returns true.
      * <p>
      * For example:
      * <pre>assertThat((1.0/.0D), notANumber())</pre>
      * will return true.
      */
-    public static <T extends Number> Matcher<T> notANumber() {
+    public static <N extends Number> Matcher<N> notANumber() {
         return new IsNotANumber<>();
     }
 

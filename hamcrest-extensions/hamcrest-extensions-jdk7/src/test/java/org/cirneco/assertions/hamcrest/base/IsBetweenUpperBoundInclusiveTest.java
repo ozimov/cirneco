@@ -1,7 +1,6 @@
 package org.cirneco.assertions.hamcrest.base;
 
 import org.cirneco.assertions.hamcrest.BaseMatcherTest;
-import org.cirneco.assertions.hamcrest.base.IsBetweenUpperBoundInclusive;
 import org.hamcrest.Matcher;
 import org.junit.Before;
 import org.junit.Test;

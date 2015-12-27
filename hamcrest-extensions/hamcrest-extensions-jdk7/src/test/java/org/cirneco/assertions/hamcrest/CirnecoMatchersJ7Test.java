@@ -1,6 +1,10 @@
 package org.cirneco.assertions.hamcrest;
 
 import com.google.common.base.Equivalence;
+import org.cirneco.assertions.hamcrest.base.IsBetween;
+import org.cirneco.assertions.hamcrest.base.IsBetweenInclusive;
+import org.cirneco.assertions.hamcrest.base.IsBetweenLowerBoundInclusive;
+import org.cirneco.assertions.hamcrest.base.IsBetweenUpperBoundInclusive;
 import org.cirneco.assertions.hamcrest.base.IsEmptyGuavaOptional;
 import org.cirneco.assertions.hamcrest.base.IsEquivalent;
 import org.cirneco.assertions.hamcrest.base.IsSame;
@@ -13,14 +17,11 @@ import org.cirneco.assertions.hamcrest.iterable.IsEmptyIterable;
 import org.cirneco.assertions.hamcrest.iterable.IsSortedIterable;
 import org.cirneco.assertions.hamcrest.iterable.IsSortedIterableWithComparator;
 import org.cirneco.assertions.hamcrest.map.IsMapWithSameKeySet;
-import org.cirneco.assertions.hamcrest.base.IsBetween;
-import org.cirneco.assertions.hamcrest.base.IsBetweenInclusive;
-import org.cirneco.assertions.hamcrest.base.IsBetweenLowerBoundInclusive;
-import org.cirneco.assertions.hamcrest.base.IsBetweenUpperBoundInclusive;
 import org.cirneco.assertions.hamcrest.number.IsInfinity;
 import org.cirneco.assertions.hamcrest.number.IsNegativeInfinity;
 import org.cirneco.assertions.hamcrest.number.IsNotANumber;
 import org.cirneco.assertions.hamcrest.number.IsPositiveInfinity;
+import org.cirneco.assertions.hamcrest.web.IsEmail;
 import org.hamcrest.Matcher;
 import org.hamcrest.collection.IsIterableWithSize;
 import org.hamcrest.number.OrderingComparison;
@@ -431,4 +432,10 @@ public class CirnecoMatchersJ7Test {
     public void testPositiveInfinity() throws Exception {
         assertThat(CirnecoMatchersJ7.positiveInfinity(), instanceOf(IsPositiveInfinity.class));
     }
+
+    @Test
+    public void testEmail() throws Exception {
+        assertThat(CirnecoMatchersJ7.email(), instanceOf(IsEmail.class));
+    }
+
 }

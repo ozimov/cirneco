@@ -2,6 +2,10 @@ package org.cirneco.assertions.hamcrest;
 
 import com.google.common.base.Equivalence;
 import com.google.common.base.Optional;
+import org.cirneco.assertions.hamcrest.base.IsBetween;
+import org.cirneco.assertions.hamcrest.base.IsBetweenInclusive;
+import org.cirneco.assertions.hamcrest.base.IsBetweenLowerBoundInclusive;
+import org.cirneco.assertions.hamcrest.base.IsBetweenUpperBoundInclusive;
 import org.cirneco.assertions.hamcrest.base.IsEmptyGuavaOptional;
 import org.cirneco.assertions.hamcrest.base.IsEquivalent;
 import org.cirneco.assertions.hamcrest.base.IsSame;
@@ -16,14 +20,11 @@ import org.cirneco.assertions.hamcrest.iterable.IsIterableWithSize;
 import org.cirneco.assertions.hamcrest.iterable.IsSortedIterable;
 import org.cirneco.assertions.hamcrest.iterable.IsSortedIterableWithComparator;
 import org.cirneco.assertions.hamcrest.map.IsMapWithSameKeySet;
-import org.cirneco.assertions.hamcrest.base.IsBetween;
-import org.cirneco.assertions.hamcrest.base.IsBetweenInclusive;
-import org.cirneco.assertions.hamcrest.base.IsBetweenLowerBoundInclusive;
-import org.cirneco.assertions.hamcrest.base.IsBetweenUpperBoundInclusive;
 import org.cirneco.assertions.hamcrest.number.IsInfinity;
 import org.cirneco.assertions.hamcrest.number.IsNegativeInfinity;
 import org.cirneco.assertions.hamcrest.number.IsNotANumber;
 import org.cirneco.assertions.hamcrest.number.IsPositiveInfinity;
+import org.cirneco.assertions.hamcrest.web.IsEmail;
 import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
 
@@ -695,5 +696,18 @@ public class CirnecoMatchersJ7 {
      */
     public static <T extends Number> Matcher<T> positiveInfinity() {
         return IsPositiveInfinity.positiveInfinity();
+    }
+
+    //Web
+
+    /**
+     * Creates a matcher for {@code T}s that matches when the {@code toString()} method of
+     * the given object returns a valid email address.
+     * <p>
+     * For example:
+     * <pre>assertThat("john.doe@test.test", email())</pre>
+     */
+    public static <T> Matcher<T> email() {
+        return IsEmail.email();
     }
 }

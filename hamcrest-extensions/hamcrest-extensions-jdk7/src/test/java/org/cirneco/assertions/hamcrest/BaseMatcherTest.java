@@ -50,7 +50,7 @@ public abstract class BaseMatcherTest {
                                                         final Matcher<? super T> matcher,
                                                         final T matcherArgument) {
         //Assert
-        assertThat(format("The given matcher has no mismatch with value %s", matcherArgument),
+        assertThat(format("The given matcher has no mismatch with value \"%s\"", matcherArgument),
                 matcher.matches(matcherArgument), is(false));
 
         //Act

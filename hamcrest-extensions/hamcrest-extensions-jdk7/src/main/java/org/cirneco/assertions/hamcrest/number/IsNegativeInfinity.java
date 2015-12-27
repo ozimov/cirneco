@@ -13,7 +13,7 @@ import org.hamcrest.TypeSafeMatcher;
 public class IsNegativeInfinity<N extends Number> extends TypeSafeMatcher<N> {
 
     /**
-     * Creates a matcher for {@code T}s that matches when the number is a {@linkplain Double}
+     * Creates a matcher for {@code N} that matches when the number is a {@linkplain Double}
      * or {@linkplain Float} with value equal to <code>NEGATIVE_INFINITY</code>.
      * <p>
      * For example:
@@ -24,7 +24,7 @@ public class IsNegativeInfinity<N extends Number> extends TypeSafeMatcher<N> {
      * <pre>assertThat(Double.PositiveInfinity, negativeInfinity())</pre>
      * will both return <code>false</code>.
      */
-    public static <T extends Number> Matcher<T> negativeInfinity() {
+    public static <N extends Number> Matcher<N> negativeInfinity() {
         return new IsNegativeInfinity<>();
     }
 

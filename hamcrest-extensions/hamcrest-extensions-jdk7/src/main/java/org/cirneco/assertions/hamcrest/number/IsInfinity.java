@@ -20,7 +20,7 @@ import java.math.BigDecimal;
 public class IsInfinity<N extends Number> extends TypeSafeMatcher<N> {
 
     /**
-     * Creates a matcher for {@code T}s that matches when the number is a {@linkplain Double}
+     * Creates a matcher for {@code N} that matches when the number is a {@linkplain Double}
      * or {@linkplain Float} with value equal to either <code>POSITIVE_INFINITY</code> or <code>NEGATIVE_INFINITY</code>.
      * <p>
      * For example:
@@ -31,7 +31,7 @@ public class IsInfinity<N extends Number> extends TypeSafeMatcher<N> {
      * <pre>assertThat(Float.NegativeInfinity, negativeInfinity())</pre>
      * will both return true.
      */
-    public static <T extends Number> Matcher<T> infinity() {
+    public static <N extends Number> Matcher<N> infinity() {
         return new IsInfinity<>();
     }
 
