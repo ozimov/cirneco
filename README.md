@@ -1,16 +1,16 @@
-# ![Cirneco logo](https://raw.github.com/cirneco/cirneco/master/Cirneco.png) Cirneco
+# ![Cirneco logo](https://raw.github.com/ozimov/cirneco/master/Cirneco.png) Cirneco
 
 ***Easy-to-use extensions for testing libraries***
 
-**Main Website:** *[github.com/cirneco/cirneco](http://github.com/cirneco/cirneco/)*
-**Wiki:** *[github.com/cirneco/cirneco/wiki](http://github.com/cirneco/cirneco/wiki)*
+**Main Website:** *[github.com/ozimov/cirneco](http://github.com/ozimov/cirneco/)*
+**Wiki:** *[github.com/ozimov/cirneco/wiki](http://github.com/ozimov/cirneco/wiki)*
 <br /> **Latest Release:** *0.1* &nbsp;
-**Latest Artifacts:** *org.cirneco:hamcrest-extensions-jdk7:jar:0.1*, *org.cirneco:hamcrest-extensions-jdk8:jar:0.1* <br />
+**Latest Artifacts:** *it.ozimov:cirneco-hamcrest-jdk7:jar:0.1*, *it.ozimov:cirneco-hamcrest-jdk8:jar:0.1* <br />
 **Continuous Integration:** <br />
-[![Build Status](https://travis-ci.org/cirneco/cirneco.svg?branch=master)](https://travis-ci.org/cirneco/cirneco) [![Coverage Status](https://coveralls.io/repos/cirneco/cirneco/badge.svg?branch=master&service=github)](https://coveralls.io/github/cirneco/cirneco?branch=master) [![codecov.io](https://codecov.io/github/cirneco/cirneco/coverage.svg?branch=master)](https://codecov.io/github/cirneco/cirneco?branch=master)
+[![Build Status](https://travis-ci.org/ozimov/cirneco.svg?branch=master)](https://travis-ci.org/ozimov/cirneco) [![Coverage Status](https://coveralls.io/repos/ozimov/cirneco/badge.svg?branch=master&service=github)](https://coveralls.io/github/ozimov/cirneco?branch=master) [![codecov.io](https://codecov.io/github/ozimov/cirneco/coverage.svg?branch=master)](https://codecov.io/github/ozimov/cirneco?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/grade/7a4364b93df6473fb18a597e900edceb)](https://www.codacy.com/app/roberto-trunfio/cirneco)
 
-![codecov.io](https://codecov.io/github/cirneco/cirneco/branch.svg?branch=master)
+![codecov.io](https://codecov.io/github/ozimov/cirneco/branch.svg?branch=master)
 
 ## What is Cirneco?
 
@@ -35,8 +35,8 @@ There are some interesting matchers based on [Guava](https://github.com/google/g
 To use the extensions for a project JDK7 compliant, you can embed the following dependency in your `pom.xml`
 ```xml
 <dependency>
-  <artifactId>org.cirneco</artifactId>
-  <artifactId>hamcrest-extensions-jdk7</artifactId>
+  <artifactId>it.ozimov</artifactId>
+  <artifactId>cirneco-hamcrest-jdk7</artifactId>
   <version>LATEST</version>
 </dependency>
 ```
@@ -44,8 +44,8 @@ and if you use JDK8, add the following dependency:
 
 ```xml
 <dependency>
-  <artifactId>org.cirneco</artifactId>
-  <artifactId>hamcrest-extensions-jdk8</artifactId>
+  <artifactId>it.ozimov</artifactId>
+  <artifactId>cirneco-hamcrest-jdk8</artifactId>
   <version>LATEST</version>
 </dependency>
 ```

@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.cirneco</groupId>
+    <groupId>it.ozimov</groupId>
     <artifactId>cirneco-core</artifactId>
     <version>0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -15,13 +15,13 @@
     <inceptionYear>2015</inceptionYear>
 
     <modules>
-        <module>hamcrest-extensions</module>
-        <module>truth-extensions</module>
+        <module>cirneco-hamcrest</module>
+        <module>cirneco-truth</module>
     </modules>
     <scm>
-        <connection>scm:git:git@github.com:cirneco/cirneco.git</connection>
-        <developerConnection>scm:git:git@github.com:cirneco/cirneco.git</developerConnection>
-        <url>git@github.com:cirneco/cirneco.git</url>
+        <connection>scm:git:git@github.com:ozimov/cirneco.git</connection>
+        <developerConnection>scm:git:git@github.com:ozimov/cirneco.git</developerConnection>
+        <url>git@github.com:ozimov/cirneco.git</url>
     </scm>
     <issueManagement>
         <system>GitHub Issue Tracking</system>
