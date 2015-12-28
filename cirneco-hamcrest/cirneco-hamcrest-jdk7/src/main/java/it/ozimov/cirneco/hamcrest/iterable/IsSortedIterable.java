@@ -60,7 +60,7 @@ public class IsSortedIterable<K extends Comparable> extends TypeSafeMatcher<Iter
     @Override
     public void describeMismatchSafely(final Iterable<K> iterable, final Description mismatchDescription) {
         mismatchDescription.appendText("iterable was ").appendValueList("[", ", ", "]", listCopy(iterable))
-                .appendText(", while expected iterable with ordering was ")
+                .appendText(", while expected ordering was ")
                 .appendValueList("[", ", ", "]",
                         reversed ? IterableUtils.sortedReversedListCopy(iterable) : sortedListCopy(iterable));
     }

@@ -106,9 +106,9 @@ public class IsSortedIterableWithComparatorTest extends BaseMatcherTest {
 
     @Test
     public void testDescribeMismatchSafely() throws Exception {
-        assertHasMismatchDescription("iterable was [<100>, <1>, <10>], while expected iterable with ordering [<100>, <10>, <1>]",
+        assertHasMismatchDescription("iterable was [<100>, <1>, <10>], while expected ordering [<100>, <10>, <1>]",
                 isSortedIterableMatcher, unsortedIterable);
-        assertHasMismatchDescription("iterable was [<100>, <1>, <10>], while expected iterable with ordering [<1>, <10>, <100>]",
+        assertHasMismatchDescription("iterable was [<100>, <1>, <10>], while expected ordering [<1>, <10>, <100>]",
                 isReversedSortedIterableMatcher, unsortedIterable);
     }
 

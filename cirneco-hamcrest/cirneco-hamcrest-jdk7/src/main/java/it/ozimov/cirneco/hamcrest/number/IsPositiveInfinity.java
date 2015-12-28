@@ -41,12 +41,12 @@ public class IsPositiveInfinity<N extends Number> extends TypeSafeMatcher<N> {
     @Override
     protected void describeMismatchSafely(final N item, final Description mismatchDescription) {
         mismatchDescription.appendValue(item)
-                .appendText(" is not positive notANumber");
+                .appendText(" is not positive infinity");
     }
 
     @Override
     public void describeTo(final Description description) {
-        description.appendText("a value equals to positive notANumber");
+        description.appendText("a value equals to positive infinity");
     }
 
 }

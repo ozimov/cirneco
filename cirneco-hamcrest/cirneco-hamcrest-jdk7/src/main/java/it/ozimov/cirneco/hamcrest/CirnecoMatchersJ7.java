@@ -2,6 +2,8 @@ package it.ozimov.cirneco.hamcrest;
 
 import com.google.common.base.Equivalence;
 import com.google.common.base.Optional;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Multiset;
 import it.ozimov.cirneco.hamcrest.base.IsBetween;
 import it.ozimov.cirneco.hamcrest.base.IsBetweenInclusive;
 import it.ozimov.cirneco.hamcrest.base.IsBetweenLowerBoundInclusive;
@@ -17,9 +19,13 @@ import it.ozimov.cirneco.hamcrest.date.IsDateWithTime;
 import it.ozimov.cirneco.hamcrest.date.utils.ClockPeriod;
 import it.ozimov.cirneco.hamcrest.iterable.IsEmptyIterable;
 import it.ozimov.cirneco.hamcrest.iterable.IsIterableWithSize;
+import it.ozimov.cirneco.hamcrest.iterable.IsMultisetElementWithCount;
 import it.ozimov.cirneco.hamcrest.iterable.IsSortedIterable;
 import it.ozimov.cirneco.hamcrest.iterable.IsSortedIterableWithComparator;
 import it.ozimov.cirneco.hamcrest.map.IsMapWithSameKeySet;
+import it.ozimov.cirneco.hamcrest.map.IsMultimapKeyWithCollectionSize;
+import it.ozimov.cirneco.hamcrest.map.IsMultimapWithKeySet;
+import it.ozimov.cirneco.hamcrest.map.IsMultimapWithKeySetSize;
 import it.ozimov.cirneco.hamcrest.number.IsInfinity;
 import it.ozimov.cirneco.hamcrest.number.IsNegativeInfinity;
 import it.ozimov.cirneco.hamcrest.number.IsNotANumber;
@@ -28,9 +34,11 @@ import it.ozimov.cirneco.hamcrest.web.IsEmail;
 import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
 
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * The {@code CirnecoMatchersJ7} class groups all the matchers
@@ -590,6 +598,14 @@ public class CirnecoMatchersJ7 {
     }
 
     /**
+     * Creates a matcher for {@linkplain Multiset} matching when the examined object <code>E</code>
+     * has <code>size</code> occurrences.
+     */
+    public static <E> Matcher<Multiset<E>> elementWithCount(final E element, final int size) {
+        return IsMultisetElementWithCount.elementWithCount(element, size);
+    }
+
+    /**
      * Creates a matcher for {@link Iterable}s matching when the examined {@linkplain Iterable} has
      * the elements of type <code>K</code> that extends {@linkplain Comparable} and the elements
      * are sorted according to the natural ordering.
@@ -633,6 +649,45 @@ public class CirnecoMatchersJ7 {
      */
     public static <K> Matcher<Map<? extends K, ?>> hasSameKeySet(final Map<? extends K, ?> comparisonMap) {
         return IsMapWithSameKeySet.hasSameKeySet(comparisonMap);
+    }
+
+    /**
+     * Creates a matcher for {@linkplain Multimap} matching when the examined object <code>K</code> in the key set
+     * has <code>size</code> elements in the retained {@linkplain Collection}.
+     */
+    public static <K> Matcher<Multimap<K, ?>> keyWithSize(final K element, final int size) {
+        return IsMultimapKeyWithCollectionSize.keyWithSize(element, size);
+    }
+
+    /**
+     * Creates a matcher for {@linkplain  Multimap} matching when the examined object has exactly
+     * the same key set of the given comparison {@code Multimap}.
+     */
+    public static <K> Matcher<Multimap<K, ?>> hasSameKeySet(final Multimap<K, ?> comparison) {
+        return IsMultimapWithKeySet.hasSameKeySet(comparison.keySet());
+    }
+
+    /**
+     * Creates a matcher for {@linkplain Multimap} matching when the examined object has a key set exactly
+     * equals to the given {@linkplain Set}.
+     */
+    public static <K> Matcher<Multimap<K, ?>> hasSameKeySet(final Set<K> comparison) {
+        return IsMultimapWithKeySet.hasSameKeySet(comparison);
+    }
+
+    /**
+     * Creates a matcher for {@linkplain Multimap} matching when the examined object has an empty key set.
+     */
+    public static <K> Matcher<Multimap<K, ?>> emptyKeySet() {
+        return IsMultimapWithKeySetSize.emptyKeySet();
+    }
+
+    /**
+     * Creates a matcher for {@linkplain Multimap} matching when the examined object has a key set with
+     * size equals to <code>size</code>.
+     */
+    public static <K> Matcher<Multimap<K, ?>> keySetWithSize(final int size) {
+        return IsMultimapWithKeySetSize.keySetWithSize(size);
     }
 
     //NUMBER
@@ -710,4 +765,5 @@ public class CirnecoMatchersJ7 {
     public static <T> Matcher<T> email() {
         return IsEmail.email();
     }
+
 }

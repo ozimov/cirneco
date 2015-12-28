@@ -51,7 +51,7 @@ public class IsMultimapWithKeySet<K> extends TypeSafeMatcher<Multimap<K, ?>> {
 
     @Override
     public void describeTo(final Description description) {
-        description.appendText("Multimap containing same key set as ")
+        description.appendText("a Multimap containing same key set as ")
                 .appendValueList("[", ", ", "]", comparisonSet);
     }
 

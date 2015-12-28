@@ -7,10 +7,11 @@
 <br /> **Latest Release:** *0.1* &nbsp;
 **Latest Artifacts:** *it.ozimov:cirneco-hamcrest-jdk7:jar:0.1*, *it.ozimov:cirneco-hamcrest-jdk8:jar:0.1* <br />
 **Continuous Integration:** <br />
-[![Build Status](https://travis-ci.org/ozimov/cirneco.svg?branch=master)](https://travis-ci.org/ozimov/cirneco) [![Coverage Status](https://coveralls.io/repos/ozimov/cirneco/badge.svg?branch=master&service=github)](https://coveralls.io/github/ozimov/cirneco?branch=master) [![codecov.io](https://codecov.io/github/ozimov/cirneco/coverage.svg?branch=master)](https://codecov.io/github/ozimov/cirneco?branch=master)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/it.ozimov/cirneco-parent/badge.svg)](https://maven-badges.herokuapp.com/maven-central/it.ozimov/cirneco-parent)
+<br />
+[![Build Status](https://travis-ci.org/ozimov/cirneco.svg?branch=master)](https://travis-ci.org/ozimov/cirneco) [![Coverage Status](https://coveralls.io/repos/ozimov/cirneco/badge.svg?branch=master&service=github)](https://coveralls.io/github/ozimov/cirneco?branch=master) 
 [![Codacy Badge](https://api.codacy.com/project/badge/grade/7a4364b93df6473fb18a597e900edceb)](https://www.codacy.com/app/roberto-trunfio/cirneco)
 
-![codecov.io](https://codecov.io/github/ozimov/cirneco/branch.svg?branch=master)
 
 ## What is Cirneco?
 
@@ -37,7 +38,7 @@ To use the extensions for a project JDK7 compliant, you can embed the following 
 <dependency>
   <artifactId>it.ozimov</artifactId>
   <artifactId>cirneco-hamcrest-jdk7</artifactId>
-  <version>LATEST</version>
+  <version>0.1</version>
 </dependency>
 ```
 and if you use JDK8, add the following dependency:
@@ -46,7 +47,7 @@ and if you use JDK8, add the following dependency:
 <dependency>
   <artifactId>it.ozimov</artifactId>
   <artifactId>cirneco-hamcrest-jdk8</artifactId>
-  <version>LATEST</version>
+  <version>0.1</version>
 </dependency>
 ```
 

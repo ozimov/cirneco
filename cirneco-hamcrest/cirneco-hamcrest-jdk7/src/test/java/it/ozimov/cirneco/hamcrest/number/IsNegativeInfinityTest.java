@@ -25,36 +25,36 @@ public class IsNegativeInfinityTest extends BaseMatcherTest {
 
     @Test
     public void testDescribeMismatchSafely() throws Exception {
-        assertHasMismatchDescription("<0> is not negative notANumber",
+        assertHasMismatchDescription("<0> is not negative infinity",
                 isNegativeInfinityMatcher, (byte) 0);
-        assertHasMismatchDescription("<0s> is not negative notANumber",
+        assertHasMismatchDescription("<0s> is not negative infinity",
                 isNegativeInfinityMatcher, (short) 0);
-        assertHasMismatchDescription("<0> is not negative notANumber",
+        assertHasMismatchDescription("<0> is not negative infinity",
                 isNegativeInfinityMatcher, 0);
-        assertHasMismatchDescription("<0L> is not negative notANumber",
+        assertHasMismatchDescription("<0L> is not negative infinity",
                 isNegativeInfinityMatcher, 0L);
-        assertHasMismatchDescription("<0> is not negative notANumber",
+        assertHasMismatchDescription("<0> is not negative infinity",
                 isNegativeInfinityMatcher, new BigInteger("0"));
-        assertHasMismatchDescription("<0> is not negative notANumber",
+        assertHasMismatchDescription("<0> is not negative infinity",
                 isNegativeInfinityMatcher, new AtomicInteger(0));
-        assertHasMismatchDescription("<0> is not negative notANumber",
+        assertHasMismatchDescription("<0> is not negative infinity",
                 isNegativeInfinityMatcher, new AtomicLong(0L));
 
-        assertHasMismatchDescription("<0.0F> is not negative notANumber",
+        assertHasMismatchDescription("<0.0F> is not negative infinity",
                 isNegativeInfinityMatcher, .0F);
-        assertHasMismatchDescription("<0.0> is not negative notANumber",
+        assertHasMismatchDescription("<0.0> is not negative infinity",
                 isNegativeInfinityMatcher, .0D);
-        assertHasMismatchDescription("<InfinityF> is not negative notANumber",
+        assertHasMismatchDescription("<InfinityF> is not negative infinity",
                 isNegativeInfinityMatcher, Float.POSITIVE_INFINITY);
-        assertHasMismatchDescription("<Infinity> is not negative notANumber",
+        assertHasMismatchDescription("<Infinity> is not negative infinity",
                 isNegativeInfinityMatcher, Double.POSITIVE_INFINITY);
-        assertHasMismatchDescription("<0.0> is not negative notANumber",
+        assertHasMismatchDescription("<0.0> is not negative infinity",
                 isNegativeInfinityMatcher, new BigDecimal(".0"));
     }
 
     @Test
     public void testDescribeTo() throws Exception {
-        assertIsDescribedTo("a value equals to negative notANumber", isNegativeInfinityMatcher);
+        assertIsDescribedTo("a value equals to negative infinity", isNegativeInfinityMatcher);
     }
 
     @Test

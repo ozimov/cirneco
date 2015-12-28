@@ -8,16 +8,14 @@ import org.hamcrest.TypeSafeMatcher;
 import java.util.Collection;
 
 import static com.google.common.base.Preconditions.checkArgument;
-import static com.google.common.base.Preconditions.checkNotNull;
 
 
-public class IsMultimapElementWithCount<K> extends TypeSafeMatcher<Multimap<K, ?>> {
+public class IsMultimapKeyWithCollectionSize<K> extends TypeSafeMatcher<Multimap<K, ?>> {
 
     private final K comparison;
     private final int size;
 
-    public IsMultimapElementWithCount(final K comparison, final int size) {
-        checkNotNull(comparison);
+    public IsMultimapKeyWithCollectionSize(final K comparison, final int size) {
         checkArgument(size >= 0, "size cannot be negative");
 
         this.comparison = comparison;
@@ -26,18 +24,10 @@ public class IsMultimapElementWithCount<K> extends TypeSafeMatcher<Multimap<K, ?
 
     /**
      * Creates a matcher for {@linkplain Multimap} matching when the examined object <code>K</code> in the key set
-     * has one element in the retained {@linkplain Collection}.
-     */
-    public static <K> Matcher<Multimap<K, ?>> elementCollectionWithSizeOne(final K element) {
-        return new IsMultimapElementWithCount(element, 1);
-    }
-
-    /**
-     * Creates a matcher for {@linkplain Multimap} matching when the examined object <code>K</code> in the key set
      * has <code>size</code> elements in the retained {@linkplain Collection}.
      */
-    public static <K> Matcher<Multimap<K, ?>> elementCollectionWithSize(final K element, final int size) {
-        return new IsMultimapElementWithCount(element, size);
+    public static <K> Matcher<Multimap<K, ?>> keyWithSize(final K element, final int size) {
+        return new IsMultimapKeyWithCollectionSize(element, size);
     }
 
     @Override
@@ -54,7 +44,7 @@ public class IsMultimapElementWithCount<K> extends TypeSafeMatcher<Multimap<K, ?
             mismatchDescription
                     .appendText("Multimap had element ")
                     .appendValue(comparison)
-                    .appendText(" with count ")
+                    .appendText(" with collection size ")
                     .appendValue(multimap.get(comparison).size());
         }
     }
@@ -63,7 +53,7 @@ public class IsMultimapElementWithCount<K> extends TypeSafeMatcher<Multimap<K, ?
     public void describeTo(final Description description) {
         description.appendText("a Multimap with element ")
                 .appendValue(comparison)
-                .appendText(" with count ")
+                .appendText(" with collection size ")
                 .appendValue(size);
     }
 

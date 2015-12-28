@@ -1,6 +1,7 @@
 package it.ozimov.cirneco.hamcrest;
 
 import com.google.common.base.Equivalence;
+import com.google.common.collect.Multimap;
 import it.ozimov.cirneco.hamcrest.base.IsBetween;
 import it.ozimov.cirneco.hamcrest.base.IsBetweenInclusive;
 import it.ozimov.cirneco.hamcrest.base.IsBetweenLowerBoundInclusive;
@@ -15,9 +16,13 @@ import it.ozimov.cirneco.hamcrest.date.IsDateInMonth;
 import it.ozimov.cirneco.hamcrest.date.IsDateWithTime;
 import it.ozimov.cirneco.hamcrest.iterable.BaseIterableMatcherTest;
 import it.ozimov.cirneco.hamcrest.iterable.IsEmptyIterable;
+import it.ozimov.cirneco.hamcrest.iterable.IsMultisetElementWithCount;
 import it.ozimov.cirneco.hamcrest.iterable.IsSortedIterable;
 import it.ozimov.cirneco.hamcrest.iterable.IsSortedIterableWithComparator;
 import it.ozimov.cirneco.hamcrest.map.IsMapWithSameKeySet;
+import it.ozimov.cirneco.hamcrest.map.IsMultimapKeyWithCollectionSize;
+import it.ozimov.cirneco.hamcrest.map.IsMultimapWithKeySet;
+import it.ozimov.cirneco.hamcrest.map.IsMultimapWithKeySetSize;
 import it.ozimov.cirneco.hamcrest.number.IsInfinity;
 import it.ozimov.cirneco.hamcrest.number.IsNegativeInfinity;
 import it.ozimov.cirneco.hamcrest.number.IsNotANumber;
@@ -33,6 +38,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.Comparator;
 import java.util.Map;
+import java.util.Set;
 
 import static it.ozimov.cirneco.hamcrest.date.utils.ClockPeriod.AM;
 import static org.hamcrest.core.Is.is;
@@ -54,6 +60,12 @@ public class CirnecoMatchersJ7Test {
 
     @Mock
     public Map map;
+
+    @Mock
+    public Multimap multimap;
+
+    @Mock
+    public Set set;
 
     @Mock
     public Equivalence<Object> equivalence;
@@ -389,6 +401,11 @@ public class CirnecoMatchersJ7Test {
     }
 
     @Test
+    public void testIsElementWithCount() throws Exception {
+        assertThat(CirnecoMatchersJ7.elementWithCount(object, 10), instanceOf(IsMultisetElementWithCount.class));
+    }
+
+    @Test
     public void testIsSorted() throws Exception {
         assertThat(CirnecoMatchersJ7.sorted(), instanceOf(IsSortedIterable.class));
     }
@@ -409,9 +426,35 @@ public class CirnecoMatchersJ7Test {
     }
 
     @Test
-    public void testHasSameKeySet() throws Exception {
+    public void testHasSameKeySetForMap() throws Exception {
         assertThat(CirnecoMatchersJ7.hasSameKeySet(map), instanceOf(IsMapWithSameKeySet.class));
     }
+
+    @Test
+    public void testKeyWithSize() throws Exception {
+        assertThat(CirnecoMatchersJ7.keyWithSize(object, 1), instanceOf(IsMultimapKeyWithCollectionSize.class));
+    }
+
+    @Test
+    public void testHasSameKeySetForMultimap() throws Exception {
+        assertThat(CirnecoMatchersJ7.hasSameKeySet(multimap), instanceOf(IsMultimapWithKeySet.class));
+    }
+
+    @Test
+    public void testHasSameKeySetForMultimapWithSet() throws Exception {
+        assertThat(CirnecoMatchersJ7.hasSameKeySet(set), instanceOf(IsMultimapWithKeySet.class));
+    }
+
+    @Test
+    public void testEmptyKeySet() throws Exception {
+        assertThat(CirnecoMatchersJ7.emptyKeySet(), instanceOf(IsMultimapWithKeySetSize.class));
+    }
+
+    @Test
+    public void testKeySetWithSize() throws Exception {
+        assertThat(CirnecoMatchersJ7.keySetWithSize(1), instanceOf(IsMultimapWithKeySetSize.class));
+    }
+
 
     @Test
     public void testInfinity() throws Exception {

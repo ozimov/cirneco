@@ -19,14 +19,6 @@ public class IsMultimapWithKeySetSize<K> extends TypeSafeMatcher<Multimap<K, ?>>
     }
 
     /**
-     * Creates a matcher for {@linkplain Multimap} matching when the examined object has a key set with
-     * size <code>1</code>.
-     */
-    public static <K> Matcher<Multimap<K, ?>> keySetWithSizeOne() {
-        return new IsMultimapWithKeySetSize(1);
-    }
-
-    /**
      * Creates a matcher for {@linkplain Multimap} matching when the examined object has an empty key set.
      */
     public static <K> Matcher<Multimap<K, ?>> emptyKeySet() {
@@ -49,19 +41,19 @@ public class IsMultimapWithKeySetSize<K> extends TypeSafeMatcher<Multimap<K, ?>>
     @Override
     public void describeMismatchSafely(final Multimap<K, ?> multimap, final Description mismatchDescription) {
         mismatchDescription
-                .appendText("Multimap had")
+                .appendText(" Multimap had key set with ")
                 .appendValue(multimap.keySet().size())
-                .appendText("with no elements ");
+                .appendText(" elements");
     }
 
     @Override
     public void describeTo(final Description description) {
         if (size == 0) {
             description
-                    .appendText("Multimap with no elements ");
+                    .appendText("a Multimap with no elements");
         } else {
             description
-                    .appendText("Multimap with ").appendValue(size).appendText(" elements ");
+                    .appendText("a Multimap with ").appendValue(size).appendText(" elements");
 
         }
     }
