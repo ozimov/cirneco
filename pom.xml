@@ -4,7 +4,7 @@
 
     <groupId>it.ozimov</groupId>
     <artifactId>cirneco-parent</artifactId>
-    <version>0.1-SNAPSHOT</version>
+   <version>0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Cirneco (Parent)</name>
@@ -20,8 +20,7 @@
         <connection>scm:git:git@github.com:ozimov/cirneco.git</connection>
         <developerConnection>scm:git:git@github.com:ozimov/cirneco.git</developerConnection>
         <url>https://github.com/ozimov/cirneco</url>
-      <tag>cirneco-parent-0.1</tag>
-  </scm>
+    </scm>
     <issueManagement>
         <system>GitHub Issue Tracking</system>
         <url />
