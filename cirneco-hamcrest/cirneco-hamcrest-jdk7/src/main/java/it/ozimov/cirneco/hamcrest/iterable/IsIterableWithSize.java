@@ -14,7 +14,7 @@ import static org.hamcrest.core.IsEqual.equalTo;
  * {@linkplain Collection} (to get some speedup by using the {@linkplain Collection#size()} method, otherwise iterates
  * all the elements to get the size of the {@code Iterable}.
  *
- * @since 0.1
+ * @since version 0.1 for JDK7
  */
 public class IsIterableWithSize<E> extends org.hamcrest.collection.IsIterableWithSize<E> {
 

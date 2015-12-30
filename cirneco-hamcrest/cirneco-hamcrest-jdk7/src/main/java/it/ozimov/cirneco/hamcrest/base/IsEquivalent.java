@@ -11,7 +11,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 /**
  * Is the value equivalent to another value as specified by the provided {@linkplain Equivalence}?
  *
- * @since 0.1
+ * @since version 0.1 for JDK7
  */
 public class IsEquivalent<T> extends TypeSafeMatcher<T> {
 

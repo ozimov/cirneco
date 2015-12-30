@@ -13,7 +13,7 @@ import static it.ozimov.cirneco.hamcrest.iterable.utils.IterableUtils.sortedList
 /**
  * Is the {@linkplain Iterable} sorted according to natural ordering?
  *
- * @since 0.1
+ * @since version 0.1 for JDK7
  */
 public class IsSortedIterable<K extends Comparable> extends TypeSafeMatcher<Iterable<K>> {
 

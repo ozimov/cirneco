@@ -11,7 +11,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 /**
  * Is the value a number between two numbers, bounds inclusive?
  *
- * @since 0.1
+ * @since version 0.1 for JDK7
  */
 public class IsBetweenInclusive<T extends Comparable<T>> extends TypeSafeMatcher<T> {
 

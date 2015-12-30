@@ -13,7 +13,7 @@ import static com.google.common.base.Preconditions.checkArgument;
 /**
  * Is {@linkplain Date} in a given week day?
  *
- * @since 0.1
+ * @since version 0.1 for JDK7
  */
 public class IsDate extends TypeSafeMatcher<Date> {
 
@@ -47,7 +47,7 @@ public class IsDate extends TypeSafeMatcher<Date> {
      * Creates a matcher that matches when the examined {@linkplain Date}
      * has the given <code>id</code>.
      */
-    public static Matcher<Date> hasMonth(final Integer month) {
+    public static Matcher<Date> hasMonth(final int month) {
         return new IsDate(null, month, null);
     }
 
@@ -55,7 +55,7 @@ public class IsDate extends TypeSafeMatcher<Date> {
      * Creates a matcher that matches when the examined {@linkplain Date}
      * has the given <code>day</code>.
      */
-    public static Matcher<Date> hasDay(final Integer day) {
+    public static Matcher<Date> hasDay(final int day) {
         return new IsDate(null, null, day);
     }
 
@@ -72,8 +72,8 @@ public class IsDate extends TypeSafeMatcher<Date> {
      * has the given values <code>year</code>, <code>id</code> and
      * <code>day</code>.
      */
-    public static Matcher<Date> hasYearMonthAndDay(final Integer year,
-                                                   final Integer month, final Integer day) {
+    public static Matcher<Date> hasYearMonthAndDay(final int year,
+                                                   final int month, final int day) {
         return new IsDate(year, month, day);
     }
 

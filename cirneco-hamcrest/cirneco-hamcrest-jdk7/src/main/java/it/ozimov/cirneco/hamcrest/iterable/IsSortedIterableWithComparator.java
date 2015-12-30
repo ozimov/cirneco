@@ -18,7 +18,7 @@ import static it.ozimov.cirneco.hamcrest.iterable.utils.IterableUtils.sortedReve
  * Observe that the matcher can be used also with an instance of {@linkplain com.google.common.collect.Ordering},
  * thus enabling for powerful assertions based on that extension of <code>Comparator</code>.
  *
- * @since 0.1
+ * @since version 0.1 for JDK7
  */
 public class IsSortedIterableWithComparator<K> extends TypeSafeMatcher<Iterable<K>> {
 

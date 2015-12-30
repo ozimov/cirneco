@@ -44,6 +44,8 @@ import java.util.Set;
  * The {@code CirnecoMatchersJ7} class groups all the matchers
  * introduced by Cirneco's Hamcrest extension for Java 7.
  * Suggested use would be to import all the static methods of this class in a unit tes.
+ *
+ * @since version 0.1 for JDK7
  */
 public class CirnecoMatchersJ7 {
 

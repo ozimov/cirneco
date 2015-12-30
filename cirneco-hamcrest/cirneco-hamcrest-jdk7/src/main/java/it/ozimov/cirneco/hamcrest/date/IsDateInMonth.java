@@ -14,7 +14,7 @@ import static com.google.common.base.Preconditions.checkArgument;
 /**
  * Is {@linkplain Date} in a given id?
  *
- * @since 0.1
+ * @since version 0.1 for JDK7
  */
 public class IsDateInMonth extends TypeSafeMatcher<Date> {
 

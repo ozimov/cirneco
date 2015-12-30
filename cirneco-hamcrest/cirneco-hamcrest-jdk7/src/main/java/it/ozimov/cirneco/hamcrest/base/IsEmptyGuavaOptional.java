@@ -7,9 +7,9 @@ import org.hamcrest.TypeSafeMatcher;
 
 
 /**
- * Is the given {@linkplan Optional} instance empty?
+ * Is the given {@linkplain Optional} instance empty?
  *
- * @since 0.1
+ * @since version 0.1 for JDK7
  */
 public class IsEmptyGuavaOptional extends TypeSafeMatcher<Optional> {
 

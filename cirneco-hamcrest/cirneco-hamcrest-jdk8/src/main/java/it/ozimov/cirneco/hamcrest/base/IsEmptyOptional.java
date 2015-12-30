@@ -8,7 +8,9 @@ import java.util.Optional;
 
 
 /**
- * Is the given {@linkplan Optional} instance empty?
+ * Is the given {@linkplain Optional} instance empty?
+ *
+ * @since version 0.1 for JDK8
  */
 public class IsEmptyOptional extends TypeSafeMatcher<Optional> {
 

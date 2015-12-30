@@ -13,7 +13,7 @@ import java.util.Collection;
  * {@linkplain Collection} (to get some speedup by using the {@linkplain Collection#isEmpty()}} method, otherwise
  * get the iterator from the {@code Iterable} and check if has a next item.
  *
- * @since 0.1
+ * @since version 0.1 for JDK7
  */
 public class IsEmptyIterable<E> extends TypeSafeMatcher<Iterable<? extends E>> {
 

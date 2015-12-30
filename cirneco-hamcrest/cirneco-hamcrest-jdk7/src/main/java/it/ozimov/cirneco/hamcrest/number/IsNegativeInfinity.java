@@ -8,7 +8,7 @@ import org.hamcrest.TypeSafeMatcher;
 /**
  * Is the value a number with negative infinite value?
  *
- * @since 0.1
+ * @since version 0.1 for JDK7
  */
 public class IsNegativeInfinity<N extends Number> extends TypeSafeMatcher<N> {
 

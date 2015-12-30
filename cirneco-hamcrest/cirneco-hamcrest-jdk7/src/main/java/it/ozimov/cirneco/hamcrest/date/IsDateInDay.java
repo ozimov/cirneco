@@ -14,7 +14,7 @@ import static it.ozimov.cirneco.hamcrest.date.utils.CalendarUtils.weekDay;
 /**
  * Is {@linkplain Date} in a given week day?
  *
- * @since 0.1
+ * @since version 0.1 for JDK7
  */
 public class IsDateInDay extends TypeSafeMatcher<Date> {
 

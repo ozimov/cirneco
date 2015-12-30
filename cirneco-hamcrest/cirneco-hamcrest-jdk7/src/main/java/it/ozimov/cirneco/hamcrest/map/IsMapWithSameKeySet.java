@@ -12,7 +12,7 @@ import java.util.TreeSet;
  * Does the map has the same key set of another? {@linkplain com.google.common.base.Equivalence} can be used in the
  * key set comparison.
  *
- * @since 0.1
+ * @since version 0.1 for JDK7
  */
 public class IsMapWithSameKeySet<K> extends TypeSafeMatcher<Map<? extends K, ?>> {
 

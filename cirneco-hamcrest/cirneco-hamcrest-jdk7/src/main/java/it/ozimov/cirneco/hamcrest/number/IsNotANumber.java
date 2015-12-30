@@ -8,7 +8,7 @@ import org.hamcrest.TypeSafeMatcher;
 /**
  * Is the numeric value a number?
  *
- * @since 0.1
+ * @since version 0.1 for JDK7
  */
 public class IsNotANumber<N extends Number> extends TypeSafeMatcher<N> {
 
@@ -18,7 +18,7 @@ public class IsNotANumber<N extends Number> extends TypeSafeMatcher<N> {
      * <p>
      * For example:
      * <pre>assertThat((1.0/.0D), notANumber())</pre>
-     * will return true.
+     * will return <code>true</code>.
      */
     public static <N extends Number> Matcher<N> notANumber() {
         return new IsNotANumber<>();

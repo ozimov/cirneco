@@ -13,7 +13,7 @@ import static com.google.common.base.Preconditions.checkArgument;
 /**
  * Is {@linkplain Date} in a given week day?
  *
- * @since 0.1
+ * @since version 0.1 for JDK7
  */
 public class IsDateWithTime extends TypeSafeMatcher<Date> {
 
@@ -66,7 +66,7 @@ public class IsDateWithTime extends TypeSafeMatcher<Date> {
      * Creates a matcher that matches when the examined {@linkplain Date}
      * has the given <code>minute</code>.
      */
-    public static Matcher<Date> hasMinute(final Integer minute) {
+    public static Matcher<Date> hasMinute(final int minute) {
         return new IsDateWithTime(null, minute, null, null);
     }
 
@@ -74,7 +74,7 @@ public class IsDateWithTime extends TypeSafeMatcher<Date> {
      * Creates a matcher that matches when the examined {@linkplain Date}
      * has the given <code>sec</code>.
      */
-    public static Matcher<Date> hasSecond(final Integer second) {
+    public static Matcher<Date> hasSecond(final int second) {
         return new IsDateWithTime(null, null, second, null);
     }
 
@@ -82,7 +82,7 @@ public class IsDateWithTime extends TypeSafeMatcher<Date> {
      * Creates a matcher that matches when the examined {@linkplain Date}
      * has the given  <code>millis</code>.
      */
-    public static Matcher<Date> hasMillisecond(final Integer millisecond) {
+    public static Matcher<Date> hasMillisecond(final int millisecond) {
         return new IsDateWithTime(null, null, null, millisecond);
     }
 
@@ -107,8 +107,8 @@ public class IsDateWithTime extends TypeSafeMatcher<Date> {
      * has the given values <code>hour</code> in a 24 hours clock period, <code>minute</code> and
      * <code>sec</code>.
      */
-    public static Matcher<Date> hasHourMinAndSec(final Integer hour,
-                                                 final Integer minute, final Integer second) {
+    public static Matcher<Date> hasHourMinAndSec(final int hour,
+                                                 final int minute, final int second) {
         return new IsDateWithTime(hour, minute, second, null);
     }
 
@@ -117,8 +117,8 @@ public class IsDateWithTime extends TypeSafeMatcher<Date> {
      * has the given values <code>hour</code>, <code>ClockPeriod</code> (e.g. <em>AM</em>), <code>minute</code> and
      * <code>sec</code>.
      */
-    public static Matcher<Date> hasHourMinAndSec(final Integer hour, final ClockPeriod clockPeriod,
-                                                 final Integer minute, final Integer second) {
+    public static Matcher<Date> hasHourMinAndSec(final int hour, final ClockPeriod clockPeriod,
+                                                 final int minute, final int second) {
         return new IsDateWithTime(hour, clockPeriod, minute, second, null);
     }
 
@@ -127,8 +127,8 @@ public class IsDateWithTime extends TypeSafeMatcher<Date> {
      * has the given values <code>hour</code> in a 24 hours clock period, <code>minute</code>,
      * <code>sec</code> and <code>millis</code>.
      */
-    public static Matcher<Date> hasHourMinSecAndMillis(final Integer hour,
-                                                       final Integer minute, final Integer second, final Integer millisecond) {
+    public static Matcher<Date> hasHourMinSecAndMillis(final int hour,
+                                                       final int minute, final int second, final int millisecond) {
         return new IsDateWithTime(hour, minute, second, millisecond);
     }
 
@@ -137,8 +137,8 @@ public class IsDateWithTime extends TypeSafeMatcher<Date> {
      * has the given values <code>hour</code>, <code>ClockPeriod</code> (e.g. <em>AM</em>), <code>minute</code>,
      * <code>sec</code> and <code>millis</code>.
      */
-    public static Matcher<Date> hasHourMinSecAndMillis(final Integer hour, final ClockPeriod clockPeriod,
-                                                       final Integer minute, final Integer second, final Integer millisecond) {
+    public static Matcher<Date> hasHourMinSecAndMillis(final int hour, final ClockPeriod clockPeriod,
+                                                       final int minute, final int second, final int millisecond) {
         return new IsDateWithTime(hour, clockPeriod, minute, second, millisecond);
     }
 

@@ -11,7 +11,7 @@ import static it.ozimov.cirneco.hamcrest.date.utils.CalendarUtils.isLeapYear;
 /**
  * Is {@linkplain Date} in a leap year?
  *
- * @since 0.1
+ * @since version 0.1 for JDK7
  */
 public class IsDateInLeapYear extends TypeSafeMatcher<Date> {
 

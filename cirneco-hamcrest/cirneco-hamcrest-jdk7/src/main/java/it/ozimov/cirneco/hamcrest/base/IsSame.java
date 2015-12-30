@@ -21,7 +21,7 @@ import org.hamcrest.Matcher;
  * <p>
  * This is in general very useful with any interface and one of its actual implementations.
  *
- * @since 0.1
+ * @since version 0.1 for JDK7
  */
 public class IsSame extends BaseMatcher<Object> {
 

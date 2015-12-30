@@ -1,13 +1,15 @@
 # ![Cirneco logo](https://raw.github.com/ozimov/cirneco/master/Cirneco.png) Cirneco
 
-***Easy-to-use extensions for testing libraries***
+***Easy-to-use extensions for unit test libraries***
 
 **Source Website:** *[github.com/ozimov/cirneco](http://github.com/ozimov/cirneco/)*<br />
 **JavaDoc Website:** *[ozimov.github.io/cirneco/](http://ozimov.github.io/cirneco/)*<br />
-**Wiki Website:** *[github.com/ozimov/cirneco/wiki](http://github.com/ozimov/cirneco/wiki)*<br />
-**Latest Release:** *0.1* &nbsp;
+**Wiki Website:** *[github.com/ozimov/cirneco/wiki](http://github.com/ozimov/cirneco/wiki)
+<br />
+**Latest Release:** *0.1*
 **Latest Artifacts:** *it.ozimov:cirneco-hamcrest-jdk7:jar:0.1*, *it.ozimov:cirneco-hamcrest-jdk8:jar:0.1* <br />
-**Continuous Integration:** <br />
+**Continuous Integration:**
+<br />
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/it.ozimov/cirneco-parent/badge.svg)](https://maven-badges.herokuapp.com/maven-central/it.ozimov/cirneco-parent)
 <br />
 [![Build Status](https://travis-ci.org/ozimov/cirneco.svg?branch=master)](https://travis-ci.org/ozimov/cirneco) [![Coverage Status](https://coveralls.io/repos/ozimov/cirneco/badge.svg?branch=master&service=github)](https://coveralls.io/github/ozimov/cirneco?branch=master) 

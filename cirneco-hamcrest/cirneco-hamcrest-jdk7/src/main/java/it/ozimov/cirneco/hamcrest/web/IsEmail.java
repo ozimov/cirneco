@@ -15,7 +15,7 @@ import org.hamcrest.TypeSafeMatcher;
  * <code>email@123.123.123.123</code> and <code>user@[IPv6:2001:db8::1]</code> would be invalid, while they are
  * absolutely valid). Please, refer to Apache Commons documentation for <code>EmailValidator</code> for more details.
  *
- * @since 0.1
+ * @since version 0.1 for JDK7
  */
 public class IsEmail<T> extends TypeSafeMatcher<T> {
 
