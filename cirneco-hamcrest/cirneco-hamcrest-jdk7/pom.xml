@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>cirneco-hamcrest-jdk7</artifactId>
-   <version>0.1-SNAPSHOT</version>
+    <version>0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Cirneco's Hamcrest Extensions for JDK7</name>
