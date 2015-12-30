@@ -2,9 +2,10 @@
 
 ***Easy-to-use extensions for testing libraries***
 
-**Main Website:** *[github.com/ozimov/cirneco](http://github.com/ozimov/cirneco/)*
-**Wiki:** *[github.com/ozimov/cirneco/wiki](http://github.com/ozimov/cirneco/wiki)*
-<br /> **Latest Release:** *0.1* &nbsp;
+**Source Website:** *[github.com/ozimov/cirneco](http://github.com/ozimov/cirneco/)*<br />
+**JavaDoc Website:** *[ozimov.github.io/cirneco/](http://ozimov.github.io/cirneco/)*<br />
+**Wiki Website:** *[github.com/ozimov/cirneco/wiki](http://github.com/ozimov/cirneco/wiki)*<br />
+**Latest Release:** *0.1* &nbsp;
 **Latest Artifacts:** *it.ozimov:cirneco-hamcrest-jdk7:jar:0.1*, *it.ozimov:cirneco-hamcrest-jdk8:jar:0.1* <br />
 **Continuous Integration:** <br />
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/it.ozimov/cirneco-parent/badge.svg)](https://maven-badges.herokuapp.com/maven-central/it.ozimov/cirneco-parent)
