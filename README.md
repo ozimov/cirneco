@@ -4,15 +4,14 @@
 
 **Source Website:** *[github.com/ozimov/cirneco](http://github.com/ozimov/cirneco/)*<br />
 **JavaDoc Website:** *[ozimov.github.io/cirneco/](http://ozimov.github.io/cirneco/)*<br />
-**Wiki Website:** *[github.com/ozimov/cirneco/wiki](http://github.com/ozimov/cirneco/wiki)
-<br />
-**Latest Release:** *0.1*
+**Wiki Website:** *[github.com/ozimov/cirneco/wiki](http://github.com/ozimov/cirneco/wiki)*<br />
+
+**Latest Release:** *0.1*<br />
 **Latest Artifacts:** *it.ozimov:cirneco-hamcrest-jdk7:jar:0.1*, *it.ozimov:cirneco-hamcrest-jdk8:jar:0.1* <br />
-**Continuous Integration:**
-<br />
+**Continuous Integration:**<br />
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/it.ozimov/cirneco-parent/badge.svg)](https://maven-badges.herokuapp.com/maven-central/it.ozimov/cirneco-parent)
 <br />
-[![Build Status](https://travis-ci.org/ozimov/cirneco.svg?branch=master)](https://travis-ci.org/ozimov/cirneco) [![Coverage Status](https://coveralls.io/repos/ozimov/cirneco/badge.svg?branch=master&service=github)](https://coveralls.io/github/ozimov/cirneco?branch=master) 
+[![Build Status](https://travis-ci.org/ozimov/cirneco.svg?branch=master)](https://travis-ci.org/ozimov/cirneco) [![Coverage Status](https://coveralls.io/repos/ozimov/cirneco/badge.svg?branch=master&service=github)](https://coveralls.io/github/ozimov/cirneco?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/grade/7a4364b93df6473fb18a597e900edceb)](https://www.codacy.com/app/roberto-trunfio/cirneco)
 
 
