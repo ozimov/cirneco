@@ -27,8 +27,10 @@ import it.ozimov.cirneco.hamcrest.map.IsMultimapKeyWithCollectionSize;
 import it.ozimov.cirneco.hamcrest.map.IsMultimapWithKeySet;
 import it.ozimov.cirneco.hamcrest.map.IsMultimapWithKeySetSize;
 import it.ozimov.cirneco.hamcrest.number.IsInfinity;
+import it.ozimov.cirneco.hamcrest.number.IsNegative;
 import it.ozimov.cirneco.hamcrest.number.IsNegativeInfinity;
 import it.ozimov.cirneco.hamcrest.number.IsNotANumber;
+import it.ozimov.cirneco.hamcrest.number.IsPositive;
 import it.ozimov.cirneco.hamcrest.number.IsPositiveInfinity;
 import it.ozimov.cirneco.hamcrest.web.IsEmail;
 import org.hamcrest.Matcher;
@@ -58,7 +60,7 @@ public class CirnecoMatchersJ7 {
      * <p>
      * For example:
      * <pre>assertThat(10, between(10, 11))</pre>
-     * will return false.
+     * will return <code>false</code>.
      */
     public static <T extends Comparable<T>> Matcher<T> between(final T from, final T to) {
         return IsBetween.between(from, to);
@@ -70,7 +72,7 @@ public class CirnecoMatchersJ7 {
      * <p>
      * For example:
      * <pre>assertThat(10, betweenInclusive(10, 11))</pre>
-     * will return true.
+     * will return <code>true</code>.
      */
     public static <T extends Comparable<T>> Matcher<T> betweenInclusive(final T from, final T to) {
         return IsBetweenInclusive.betweenInclusive(from, to);
@@ -82,10 +84,10 @@ public class CirnecoMatchersJ7 {
      * <p>
      * For example:
      * <pre>assertThat(10, betweenLowerBoundInclusive(10, 11))</pre>
-     * will return true.
+     * will return <code>true</code>.
      * while:
      * <pre>assertThat(11, betweenLowerBoundInclusive(10, 11))</pre>
-     * will return false.
+     * will return <code>false</code>.
      */
     public static <T extends Comparable<T>> Matcher<T> betweenLowerBoundInclusive(final T from, final T to) {
         return IsBetweenLowerBoundInclusive.betweenLowerBoundInclusive(from, to);
@@ -97,10 +99,10 @@ public class CirnecoMatchersJ7 {
      * <p>
      * For example:
      * <pre>assertThat(11, betweenUpperBoundInclusive(10, 11))</pre>
-     * will return true.
+     * will return <code>true</code>.
      * while:
      * <pre>assertThat(10, betweenUpperBoundInclusive(10, 11))</pre>
-     * will return false.
+     * will return <code>false</code>.
      */
     public static <T extends Comparable<T>> Matcher<T> betweenUpperBoundInclusive(final T from, final T to) {
         return IsBetweenUpperBoundInclusive.betweenUpperBoundInclusive(from, to);
@@ -695,16 +697,38 @@ public class CirnecoMatchersJ7 {
     //NUMBER
 
     /**
+     * Creates a matcher for {@code N} that matches when the it has a value that is greater than zero.
+     * <p>
+     * For example:
+     * <pre>assertThat(100, positive())</pre>
+     * will return <code>true</code>.
+     */
+    public static <N extends Number> Matcher<N> positive() {
+        return IsPositive.positive();
+    }
+
+    /**
+     * Creates a matcher for {@code N} that matches when the it has a value that is less than zero.
+     * <p>
+     * For example:
+     * <pre>assertThat(-100, negative())</pre>
+     * will return <code>true</code>.
+     */
+    public static <N extends Number> Matcher<N> negative() {
+        return IsNegative.negative();
+    }
+
+    /**
      * Creates a matcher for {@code T}s that matches when the number is a {@linkplain Double}
      * or {@linkplain Float} with value equal to either <code>POSITIVE_INFINITY</code> or <code>NEGATIVE_INFINITY</code>.
      * <p>
      * For example:
      * <pre>assertThat(10, negativeInfinity())</pre>
-     * will return false.
+     * will return <code>false</code>.
      * while:
      * <pre>assertThat(Double.PositiveInfinity, negativeInfinity())</pre>
      * <pre>assertThat(Float.NegativeInfinity, negativeInfinity())</pre>
-     * will both return true.
+     * will both return <code>true</code>.
      */
     public static <T extends Number> Matcher<T> infinity() {
         return IsInfinity.infinity();
@@ -732,7 +756,7 @@ public class CirnecoMatchersJ7 {
      * <p>
      * For example:
      * <pre>assertThat((1.0/.0D), notANumber())</pre>
-     * will return true.
+     * will return <code>true</code>.
      */
     public static <T extends Number> Matcher<T> notANumber() {
         return IsNotANumber.notANumber();

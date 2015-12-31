@@ -24,8 +24,10 @@ import it.ozimov.cirneco.hamcrest.map.IsMultimapKeyWithCollectionSize;
 import it.ozimov.cirneco.hamcrest.map.IsMultimapWithKeySet;
 import it.ozimov.cirneco.hamcrest.map.IsMultimapWithKeySetSize;
 import it.ozimov.cirneco.hamcrest.number.IsInfinity;
+import it.ozimov.cirneco.hamcrest.number.IsNegative;
 import it.ozimov.cirneco.hamcrest.number.IsNegativeInfinity;
 import it.ozimov.cirneco.hamcrest.number.IsNotANumber;
+import it.ozimov.cirneco.hamcrest.number.IsPositive;
 import it.ozimov.cirneco.hamcrest.number.IsPositiveInfinity;
 import it.ozimov.cirneco.hamcrest.web.IsEmail;
 import org.hamcrest.Matcher;
@@ -455,6 +457,15 @@ public class CirnecoMatchersJ7Test {
         assertThat(CirnecoMatchersJ7.keySetWithSize(1), instanceOf(IsMultimapWithKeySetSize.class));
     }
 
+    @Test
+    public void testPositive() throws Exception {
+        assertThat(CirnecoMatchersJ7.positive(), instanceOf(IsPositive.class));
+    }
+
+    @Test
+    public void testNegative() throws Exception {
+        assertThat(CirnecoMatchersJ7.negative(), instanceOf(IsNegative.class));
+    }
 
     @Test
     public void testInfinity() throws Exception {
