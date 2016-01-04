@@ -3,7 +3,7 @@
 # using maven-release-plugin goals
 
 
-sh ascii_deploy_release.sh
+echo "Release started"
 
 set -e
 
@@ -25,7 +25,7 @@ sh release-javadoc.sh
 
 
 # next development version
-sh ascii_next_iteration.sh
+echo "Next iteration started"
 
 echo "When at prompt, type the SNAPSHOT version (e.g. from 1.0 to 2.0-SNAPSHOT)\n"
 mvn --settings ~/.m2/home-settings.xml versions:set

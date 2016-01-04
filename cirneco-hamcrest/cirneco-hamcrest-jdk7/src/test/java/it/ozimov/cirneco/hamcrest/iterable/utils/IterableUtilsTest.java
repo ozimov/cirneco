@@ -132,4 +132,14 @@ public class IterableUtilsTest {
         assertThat(copy, contains(backedList.get(1), backedList.get(2), backedList.get(0)));
     }
 
+    @Test
+    public void testSize() throws Exception {
+        //Arrange
+
+        //Act
+        final int size = IterableUtils.size(iterable);
+
+        //Assert
+        assertThat(size, is(3));
+    }
 }

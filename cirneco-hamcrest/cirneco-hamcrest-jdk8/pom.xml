@@ -6,11 +6,11 @@
     <parent>
         <groupId>it.ozimov</groupId>
         <artifactId>cirneco-hamcrest-parent</artifactId>
-        <version>0.1.1-SNAPSHOT</version>
+        <version>0.3-SNAPSHOT</version>
     </parent>
 
     <artifactId>cirneco-hamcrest-jdk8</artifactId>
-    <version>0.1.1-SNAPSHOT</version>
+    <version>0.3-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Cirneco's Hamcrest Extensions for JDK8</name>
@@ -20,7 +20,7 @@
         <dependency>
             <groupId>it.ozimov</groupId>
             <artifactId>cirneco-hamcrest-jdk7</artifactId>
-            <version>0.1.1-SNAPSHOT</version>
+            <version>0.3-SNAPSHOT</version>
             <exclusions>
                 <exclusion>
                     <groupId>joda-time</groupId>
@@ -31,7 +31,7 @@
         <dependency>
             <groupId>it.ozimov</groupId>
             <artifactId>cirneco-hamcrest-jdk7</artifactId>
-            <version>0.1.1-SNAPSHOT</version>
+            <version>0.3-SNAPSHOT</version>
             <scope>test</scope>
             <classifier>tests</classifier>
         </dependency>

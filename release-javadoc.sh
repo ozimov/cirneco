@@ -1,8 +1,8 @@
 #!/bin/bash
 
-sh ascii_deploy_javadoc.sh
+echo 'Javadoc deploy started'
 
-mvn --settings ~/.m2/home-settings.xml javadoc:javadoc
+mvn --settings ~/.m2/home-settings.xml javadoc:aggregate
 cd target/site/apidocs/
 git init
 git remote add javadoc git@github.com:ozimov/cirneco.git

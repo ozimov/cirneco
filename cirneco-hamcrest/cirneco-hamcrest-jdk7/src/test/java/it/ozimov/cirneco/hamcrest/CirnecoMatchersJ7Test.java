@@ -17,6 +17,7 @@ import it.ozimov.cirneco.hamcrest.date.IsDateInWeekOfYear;
 import it.ozimov.cirneco.hamcrest.date.IsDateWithTime;
 import it.ozimov.cirneco.hamcrest.iterable.BaseIterableMatcherTest;
 import it.ozimov.cirneco.hamcrest.iterable.IsEmptyIterable;
+import it.ozimov.cirneco.hamcrest.iterable.IsIterableWithDistinctElements;
 import it.ozimov.cirneco.hamcrest.iterable.IsMultisetElementWithCount;
 import it.ozimov.cirneco.hamcrest.iterable.IsSortedIterable;
 import it.ozimov.cirneco.hamcrest.iterable.IsSortedIterableWithComparator;
@@ -316,6 +317,11 @@ public class CirnecoMatchersJ7Test {
     @Test
     public void testEmpty() throws Exception {
         assertThat(CirnecoMatchersJ7.empty(), instanceOf(IsEmptyIterable.class));
+    }
+
+    @Test
+    public void testHasDistinctElements() throws Exception {
+        assertThat(CirnecoMatchersJ7.hasDistinctElements(), instanceOf(IsIterableWithDistinctElements.class));
     }
 
     @Test
