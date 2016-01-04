@@ -4,10 +4,14 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.2] - 2016-01-04
 ### Added
+- New matcher in package `it.ozimov.cirneco.hamcrest.iterable`, i.e. `IsIterableWithDistinctElements`
+- New matcher in package `it.ozimov.cirneco.hamcrest.date`, i.e. `IsDateWithInWeekOfYear`
 - New matchers in package `it.ozimov.cirneco.hamcrest.number`, i.e. `IsPositive` and  `IsNegative`
 to match positive and negative numbers, respectively.
 - Updated class `it.ozimov.cirneco.hamcrest.CirnecoMatchersJ7` to expose the new matchers.
+- Minor refactoring in unit tests.
 - Script for JavaDoc release.
 - JavaDoc website on GitHub Pages.
 
