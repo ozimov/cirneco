@@ -6,11 +6,11 @@
     <parent>
         <groupId>it.ozimov</groupId>
         <artifactId>cirneco-parent</artifactId>
-        <version>0.3-SNAPSHOT</version>
+        <version>0.2-SNAPSHOT</version>
     </parent>
 
     <artifactId>cirneco-hamcrest-parent</artifactId>
-    <version>0.3-SNAPSHOT</version>
+    <version>0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Cirneco's Hamcrest Extensions</name>

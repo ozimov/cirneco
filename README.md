@@ -6,8 +6,8 @@
 **JavaDoc Website:** *[ozimov.github.io/cirneco/](http://ozimov.github.io/cirneco/)*<br />
 **Wiki Website:** *[github.com/ozimov/cirneco/wiki](http://github.com/ozimov/cirneco/wiki)*<br />
 
-**Latest Release:** *0.1*<br />
-**Latest Artifacts:** *it.ozimov:cirneco-hamcrest-jdk7:jar:0.1*, *it.ozimov:cirneco-hamcrest-jdk8:jar:0.1* <br />
+**Latest Release:** *0.2*<br />
+**Latest Artifacts:** *it.ozimov:cirneco-hamcrest-jdk7:jar:0.2*, *it.ozimov:cirneco-hamcrest-jdk8:jar:0.2* <br />
 **Continuous Integration:**<br />
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/it.ozimov/cirneco-parent/badge.svg)](https://maven-badges.herokuapp.com/maven-central/it.ozimov/cirneco-parent)
 <br />
@@ -23,7 +23,7 @@ we like easy-to-read and concise code, where the method name already embeds all 
 need to explain what you are assuming/asserting.
 
 Hence, in Cirneco we aim to extend the most valuable toolkits for  unit test to provide a better developing experience.
-The current version (*Cirneco 0.1*) only provides some extensions for Hamcrest for Java.
+The current version (*Cirneco 0.2*) only provides some extensions for Hamcrest for Java.
 
 # JDK compatibility
 The API is JDK7 compatible.
@@ -40,7 +40,7 @@ To use the extensions for a project JDK7 compliant, you can embed the following 
 <dependency>
   <artifactId>it.ozimov</artifactId>
   <artifactId>cirneco-hamcrest-jdk7</artifactId>
-  <version>0.1</version>
+  <version>0.2</version>
 </dependency>
 ```
 and if you use JDK8, add the following dependency:
@@ -49,7 +49,7 @@ and if you use JDK8, add the following dependency:
 <dependency>
   <artifactId>it.ozimov</artifactId>
   <artifactId>cirneco-hamcrest-jdk8</artifactId>
-  <version>0.1</version>
+  <version>0.2</version>
 </dependency>
 ```
 
