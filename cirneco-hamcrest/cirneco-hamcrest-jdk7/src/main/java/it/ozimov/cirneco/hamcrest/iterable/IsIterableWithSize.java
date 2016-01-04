@@ -1,5 +1,6 @@
 package it.ozimov.cirneco.hamcrest.iterable;
 
+import it.ozimov.cirneco.hamcrest.iterable.utils.IterableUtils;
 import org.hamcrest.Matcher;
 
 import java.util.Collection;
@@ -10,7 +11,7 @@ import static org.hamcrest.core.IsEqual.equalTo;
 /**
  * Does the {@linkplain Iterable} has a given size?
  * <p>
- * The matcher first check if the given {@code Iterable} is a
+ * The matcher first checks if the given {@code Iterable} is a
  * {@linkplain Collection} (to get some speedup by using the {@linkplain Collection#size()} method, otherwise iterates
  * all the elements to get the size of the {@code Iterable}.
  *
@@ -101,11 +102,7 @@ public class IsIterableWithSize<E> extends org.hamcrest.collection.IsIterableWit
 
     @Override
     protected Integer featureValueOf(final Iterable<E> actual) {
-        if (actual instanceof Collection) {
-            return ((Collection) actual).size();
-        } else {
-            return super.featureValueOf(actual);
-        }
+        return IterableUtils.size(actual);
     }
 
 }

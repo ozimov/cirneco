@@ -19,6 +19,7 @@ import it.ozimov.cirneco.hamcrest.date.IsDateInWeekOfYear;
 import it.ozimov.cirneco.hamcrest.date.IsDateWithTime;
 import it.ozimov.cirneco.hamcrest.date.utils.ClockPeriod;
 import it.ozimov.cirneco.hamcrest.iterable.IsEmptyIterable;
+import it.ozimov.cirneco.hamcrest.iterable.IsIterableWithDistinctElements;
 import it.ozimov.cirneco.hamcrest.iterable.IsIterableWithSize;
 import it.ozimov.cirneco.hamcrest.iterable.IsMultisetElementWithCount;
 import it.ozimov.cirneco.hamcrest.iterable.IsSortedIterable;
@@ -536,6 +537,18 @@ public class CirnecoMatchersJ7 {
      */
     public static <E> Matcher<Iterable<? extends E>> empty() {
         return IsEmptyIterable.empty();
+    }
+
+    /**
+     * Creates a matcher for {@link Iterable}s that matches when the
+     * examined {@link Iterable} has only distinct elements.
+     * <p>
+     * For example:
+     * <pre>assertThat(new ArrayList<>(), empty())</pre>
+     * returns <code>true</code>.
+     */
+    public static <E> Matcher<Iterable<? extends E>> hasDistinctElements() {
+        return IsIterableWithDistinctElements.hasDistinctElements();
     }
 
     /**

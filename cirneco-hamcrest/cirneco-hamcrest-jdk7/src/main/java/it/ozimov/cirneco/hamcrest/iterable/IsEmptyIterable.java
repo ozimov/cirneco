@@ -9,7 +9,7 @@ import java.util.Collection;
 /**
  * Is the {@linkplain Iterable} empty?
  * <p>
- * The matcher first check if the given {@code Iterable} is a
+ * The matcher first checks if the given {@code Iterable} is a
  * {@linkplain Collection} (to get some speedup by using the {@linkplain Collection#isEmpty()}} method, otherwise
  * get the iterator from the {@code Iterable} and check if has a next item.
  *

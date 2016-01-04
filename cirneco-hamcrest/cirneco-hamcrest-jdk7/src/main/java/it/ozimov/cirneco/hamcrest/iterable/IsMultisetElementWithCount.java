@@ -7,7 +7,11 @@ import org.hamcrest.TypeSafeMatcher;
 
 import static com.google.common.base.Preconditions.checkArgument;
 
-
+/**
+ * Is the element of the {@linkplain Multiset} with the given count?
+ *
+ * @since version 0.1 for JDK7
+ */
 public class IsMultisetElementWithCount<E> extends TypeSafeMatcher<Multiset<E>> {
 
     private final E comparison;

@@ -14,7 +14,7 @@ public class IsEmptyIterableTest extends BaseIterableMatcherTest {
     }
 
     @Test
-    public void testIsEmpty() throws Exception {
+    public void testGivenEmptyIterableWhenMatchesForSortedMatcherIsCalledThenTrueIsReturned() throws Exception {
         //Arrange
         final int expectedSize = 0;
         final Iterable<Object> emptyIterable = createIterableWithSize(expectedSize);
@@ -27,7 +27,7 @@ public class IsEmptyIterableTest extends BaseIterableMatcherTest {
     }
 
     @Test
-    public void testIsNotEmpty() throws Exception {
+    public void testGivenNonEmptyIterableWhenMatchesForSortedMatcherIsCalledThenFalseIsReturned() throws Exception {
         //Arrange
         final int expectedSize = 1;
         final Iterable<Object> nonEmptyIterable = createIterableWithSize(expectedSize);

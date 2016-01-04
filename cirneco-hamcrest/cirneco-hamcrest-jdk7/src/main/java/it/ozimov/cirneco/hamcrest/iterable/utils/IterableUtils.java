@@ -1,8 +1,10 @@
 package it.ozimov.cirneco.hamcrest.iterable.utils;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -60,6 +62,23 @@ public class IterableUtils {
         final List<K> list = sortedListCopy(iterable, comparator);
         Collections.reverse(list);
         return list;
+    }
+
+    public static <K> int size(final Iterable<? extends K> iterable) {
+        checkNotNull(iterable);
+
+        if (iterable instanceof Collection) {
+            return ((Collection) iterable).size();
+        } else {
+            int size = 0;
+            final Iterator iterator = iterable.iterator();
+
+            while (iterator.hasNext()) {
+                ++size;
+                iterator.next();
+            }
+            return size;
+        }
     }
 
 }
