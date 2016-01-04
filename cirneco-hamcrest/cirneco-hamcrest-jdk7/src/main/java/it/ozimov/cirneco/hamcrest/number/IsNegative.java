@@ -8,7 +8,7 @@ import org.hamcrest.TypeSafeMatcher;
 /**
  * Is the value a {@linkplain Number} with negative  value?
  *
- * @since version 0.1.1 for JDK7
+ * @since version 0.2 for JDK7
  */
 public class IsNegative<N extends Number> extends TypeSafeMatcher<N> {
 

@@ -13,6 +13,7 @@ import it.ozimov.cirneco.hamcrest.date.IsDate;
 import it.ozimov.cirneco.hamcrest.date.IsDateInDay;
 import it.ozimov.cirneco.hamcrest.date.IsDateInLeapYear;
 import it.ozimov.cirneco.hamcrest.date.IsDateInMonth;
+import it.ozimov.cirneco.hamcrest.date.IsDateInWeekOfYear;
 import it.ozimov.cirneco.hamcrest.date.IsDateWithTime;
 import it.ozimov.cirneco.hamcrest.iterable.BaseIterableMatcherTest;
 import it.ozimov.cirneco.hamcrest.iterable.IsEmptyIterable;
@@ -185,6 +186,11 @@ public class CirnecoMatchersJ7Test {
     @Test
     public void testHasHourMinSecAndMillisWithClockPeriod() throws Exception {
         assertThat(CirnecoMatchersJ7.hasHourMinSecAndMillis(11, AM, 0, 0, 0), instanceOf(IsDateWithTime.class));
+    }
+
+    @Test
+    public void testInWeekOfYear() throws Exception {
+        assertThat(CirnecoMatchersJ7.inWeekOfYear(1), instanceOf(IsDateInWeekOfYear.class));
     }
 
     @Test

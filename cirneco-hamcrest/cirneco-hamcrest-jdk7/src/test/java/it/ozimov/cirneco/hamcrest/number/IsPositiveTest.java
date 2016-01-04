@@ -44,7 +44,7 @@ public class IsPositiveTest extends BaseMatcherTest {
 
         final boolean isFloatAPositiveValue = isPositiveMatcher.matches(100f);
         final boolean isDoubleAPositiveValue = isPositiveMatcher.matches(100D);
-        final boolean isBigDecimalAPositiveValue = isPositiveMatcher.matches(new BigDecimal(100D));
+        final boolean isBigDecimalAPositiveValue = isPositiveMatcher.matches(new BigDecimal("100.0"));
 
         //Assert
         assertMatches(isFloatAPositiveValue);
@@ -73,7 +73,7 @@ public class IsPositiveTest extends BaseMatcherTest {
 
         final boolean isFloatAPositiveValue = isPositiveMatcher.matches(-100.0f);
         final boolean isDoubleAPositiveValue = isPositiveMatcher.matches(-100.0D);
-        final boolean isBigDecimalAPositiveValue = isPositiveMatcher.matches(new BigDecimal(-100.0D));
+        final boolean isBigDecimalAPositiveValue = isPositiveMatcher.matches(new BigDecimal("-100.0"));
 
         //Assert
         assertDoesNotMatch(isFloatAPositiveValue);
@@ -102,7 +102,7 @@ public class IsPositiveTest extends BaseMatcherTest {
 
         final boolean isFloatAPositiveValue = isPositiveMatcher.matches(.0f);
         final boolean isDoubleAPositiveValue = isPositiveMatcher.matches(.0D);
-        final boolean isBigDecimalAPositiveValue = isPositiveMatcher.matches(new BigDecimal(.0D));
+        final boolean isBigDecimalAPositiveValue = isPositiveMatcher.matches(new BigDecimal(".0"));
 
         //Assert
         assertDoesNotMatch(isFloatAPositiveValue);

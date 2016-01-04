@@ -15,6 +15,7 @@ import it.ozimov.cirneco.hamcrest.date.IsDate;
 import it.ozimov.cirneco.hamcrest.date.IsDateInDay;
 import it.ozimov.cirneco.hamcrest.date.IsDateInLeapYear;
 import it.ozimov.cirneco.hamcrest.date.IsDateInMonth;
+import it.ozimov.cirneco.hamcrest.date.IsDateInWeekOfYear;
 import it.ozimov.cirneco.hamcrest.date.IsDateWithTime;
 import it.ozimov.cirneco.hamcrest.date.utils.ClockPeriod;
 import it.ozimov.cirneco.hamcrest.iterable.IsEmptyIterable;
@@ -352,6 +353,14 @@ public class CirnecoMatchersJ7 {
     public static Matcher<Date> hasHourMinSecAndMillis(final Integer hour, final ClockPeriod clockPeriod,
                                                        final Integer minute, final Integer second, final Integer millisecond) {
         return IsDateWithTime.hasHourMinSecAndMillis(hour, clockPeriod, minute, second, millisecond);
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Date}
+     * is in the given weekOfYear of the year.
+     */
+    public static Matcher<Date> inWeekOfYear(final int week) {
+        return IsDateInWeekOfYear.inWeekOfYear(week);
     }
 
     /**

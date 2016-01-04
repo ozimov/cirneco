@@ -44,7 +44,6 @@ public class IsDateTest extends BaseDateMatcherTest {
         date = new DateTime(dateYear, dateMonth, dateDay, 0, 0, 0, TIME_ZONE).toDate();
     }
 
-
     @Test
     public void testGivenAMonthGreaterThan12WhenCreateInstanceThenIllegalArgumentExceptionIsThrown() throws Exception {
         //Arrange
