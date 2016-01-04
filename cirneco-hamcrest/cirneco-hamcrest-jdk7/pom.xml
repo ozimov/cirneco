@@ -6,11 +6,11 @@
     <parent>
         <groupId>it.ozimov</groupId>
         <artifactId>cirneco-hamcrest-parent</artifactId>
-        <version>0.2-SNAPSHOT</version>
+        <version>0.2</version>
     </parent>
 
     <artifactId>cirneco-hamcrest-jdk7</artifactId>
-    <version>0.2-SNAPSHOT</version>
+    <version>0.2</version>
     <packaging>jar</packaging>
 
     <name>Cirneco's Hamcrest Extensions for JDK7</name>
