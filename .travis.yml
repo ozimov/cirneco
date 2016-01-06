@@ -3,8 +3,8 @@ language: java
 sudo: false # faster builds
 
 jdk:
-    - oraclejdk8
-    - oraclejdk7
+  - oraclejdk8
+  - oraclejdk7
 
 install:
     true
@@ -17,14 +17,14 @@ script:
   - jdk_switcher use oraclejdk8
     - mvn -U -B -V test --fail-at-end -Dsource.skip=true -Dmaven.javadoc.skip=true
   - jdk_switcher use oraclejdk7
-    - mvn -U -B -V test --fail-at-end -Dsource.skip=true -Dmaven.javadoc.skip=true -pl !:cirneco-hamcrest-jdk8
+    - mvn -U -B -V test --fail-at-end -Dsource.skip=true -Dmaven.javadoc.skip=true -pl !:java8-hamcrest-matchers
 
 after_success:
   - jdk_switcher use oraclejdk8
   - mvn clean test jacoco:report coveralls:report
   - codecov -b "$TRAVIS_JOB_NUMBER-jdk8"
   - jdk_switcher use oraclejdk7
-  - mvn clean test jacoco:report coveralls:report -pl !:cirneco-hamcrest-jdk8
+  - mvn clean test jacoco:report coveralls:report -pl !:java8-hamcrest-matchers
   - codecov -b "$TRAVIS_JOB_NUMBER-jdk7"
 
 notifications:

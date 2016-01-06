@@ -12,8 +12,10 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/it.ozimov/cirneco-parent/badge.svg)](https://maven-badges.herokuapp.com/maven-central/it.ozimov/cirneco-parent)
 <br />
 [![Build Status](https://travis-ci.org/ozimov/cirneco.svg?branch=master)](https://travis-ci.org/ozimov/cirneco) [![Coverage Status](https://coveralls.io/repos/ozimov/cirneco/badge.svg?branch=master&service=github)](https://coveralls.io/github/ozimov/cirneco?branch=master)
+[![codecov.io](https://codecov.io/github/ozimov/cirneco/coverage.svg?branch=master)](https://codecov.io/github/ozimov/cirneco?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/grade/7a4364b93df6473fb18a597e900edceb)](https://www.codacy.com/app/roberto-trunfio/cirneco)
 
+![codecov.io](https://codecov.io/github/ozimov/cirneco/branch.svg?branch=master)
 
 ## What is Cirneco?
 
@@ -31,7 +33,7 @@ There are dedicated matchers for JDK8 provided in a complementary API.
 
 
 # Extended libraries
-For now, we provided some extensions of the [Hamcrest](https://github.com/hamcrest/JavaHamcrest) library. The plan for release *0.2* (most likely *0.3*) is to add support to [Google Truth](https://github.com/google/truth).
+For now, we provided some extensions of the [Hamcrest](https://github.com/hamcrest/JavaHamcrest) library.
 
 ## Hamcrest extensions
 There are some interesting matchers based on [Guava](https://github.com/google/guava) library. The next release will focus more on Guava collections and money (the plan would be to use Joda Money or to dirfectly provide the matchers for the JDK8 extension).
