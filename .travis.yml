@@ -22,10 +22,10 @@ script:
 after_success:
   - jdk_switcher use oraclejdk8
   - mvn clean test jacoco:report coveralls:report
-  - codecov -b "$TRAVIS_JOB_NUMBER-jdk8"
+  - codecov --build "$TRAVIS_JOB_NUMBER-jdk8"
   - jdk_switcher use oraclejdk7
   - mvn clean test jacoco:report coveralls:report -pl !:java8-hamcrest-matchers
-  - codecov -b "$TRAVIS_JOB_NUMBER-jdk7"
+  - codecov --build "$TRAVIS_JOB_NUMBER-jdk7"
 
 notifications:
     email:
