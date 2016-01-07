@@ -3,6 +3,7 @@ package it.ozimov.cirneco.hamcrest.guava.base;
 import com.google.common.base.Equivalence;
 import static com.google.common.base.Preconditions.checkNotNull;
 
+import com.google.common.base.Preconditions;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;

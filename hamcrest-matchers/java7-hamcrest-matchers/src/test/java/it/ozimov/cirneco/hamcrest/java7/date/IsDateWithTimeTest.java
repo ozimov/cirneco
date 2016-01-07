@@ -1,10 +1,11 @@
 package it.ozimov.cirneco.hamcrest.java7.date;
 
-import it.ozimov.cirneco.hamcrest.date.utils.ClockPeriod;
 import it.ozimov.cirneco.hamcrest.java7.BaseMatcherTest;
 
+import it.ozimov.cirneco.hamcrest.java7.date.utils.ClockPeriod;
 import org.hamcrest.Matcher;
 
+import static it.ozimov.cirneco.hamcrest.java7.date.utils.ClockPeriod.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import static org.hamcrest.Matchers.is;
@@ -96,7 +97,7 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
         thrown.expect(IllegalArgumentException.class);
 
         //Act
-        new IsDateWithTime(13, ClockPeriod.AM, null, null, null);
+        new IsDateWithTime(13, AM, null, null, null);
 
         //Assert
         fail("Exception expected");
@@ -109,7 +110,7 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
         thrown.expect(IllegalArgumentException.class);
 
         //Act
-        new IsDateWithTime(13, ClockPeriod.PM, null, null, null);
+        new IsDateWithTime(13, PM, null, null, null);
 
         //Assert
         fail("Exception expected");
@@ -122,7 +123,7 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
         thrown.expect(IllegalArgumentException.class);
 
         //Act
-        new IsDateWithTime(24, ClockPeriod.TWENTYFOUR_HOURS, null, null, null);
+        new IsDateWithTime(24, TWENTYFOUR_HOURS, null, null, null);
 
         //Assert
         fail("Exception expected");
@@ -132,7 +133,7 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
         throws Exception {
 
         //Act
-        isWithTimeMatcher = new IsDateWithTime(13, ClockPeriod.TWENTYFOUR_HOURS,
+        isWithTimeMatcher = new IsDateWithTime(13, TWENTYFOUR_HOURS,
                 null, null, null);
 
         //Assert
@@ -255,7 +256,7 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
 
         //Arrange
         isWithTimeMatcher = IsDateWithTime.hasHour(morningDateHour,
-                ClockPeriod.AM);
+                AM);
 
         //Act
         final boolean dateMatches = isWithTimeMatcher.matches(morningDate);
@@ -269,7 +270,7 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
 
         //Arrange
         isWithTimeMatcher = IsDateWithTime.hasHour(eveningDateHour -
-                LENGTH_12_HOUR_CLOCK, ClockPeriod.PM);
+                LENGTH_12_HOUR_CLOCK, PM);
 
         //Act
         final boolean dateMatches = isWithTimeMatcher.matches(eveningDate);
@@ -297,7 +298,7 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
 
         //Arrange
         isWithTimeMatcher = IsDateWithTime.hasHour(morningDateHour,
-                ClockPeriod.AM);
+                AM);
 
         //Act
         final boolean dateMatches = isWithTimeMatcher.matches(eveningDate);
@@ -312,7 +313,7 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
 
         //Arrange
         isWithTimeMatcher = IsDateWithTime.hasHour(morningDateHour,
-                ClockPeriod.PM);
+                PM);
 
         //Act
         final boolean dateMatches = isWithTimeMatcher.matches(morningDate);
@@ -412,10 +413,10 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
         throws Exception {
         testMatchesHourAndMinute(morningDateHour, morningDateMinute,
             morningDate, true);
-        testMatchesHourAndMinute(morningDateHour, ClockPeriod.AM,
+        testMatchesHourAndMinute(morningDateHour, AM,
             morningDateMinute, morningDate, true);
         testMatchesHourAndMinute(eveningDateHour - LENGTH_12_HOUR_CLOCK,
-            ClockPeriod.PM, eveningDateMinute, eveningDate, true);
+            PM, eveningDateMinute, eveningDate, true);
     }
 
     @Test public void testGivenNonValidHourAndOrMinuteWhenMatchesIsCalledThenFalseIsReturned()
@@ -427,27 +428,27 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
         testMatchesHourAndMinute(morningDateHour, morningDateMinute,
             eveningDate, false);
         testMatchesHourAndMinute(eveningDateHour - LENGTH_12_HOUR_CLOCK,
-            ClockPeriod.PM, morningDateMinute, morningDate, false);
-        testMatchesHourAndMinute(morningDateHour, ClockPeriod.AM,
+            PM, morningDateMinute, morningDate, false);
+        testMatchesHourAndMinute(morningDateHour, AM,
             eveningDateMinute, morningDate, false);
-        testMatchesHourAndMinute(morningDateHour, ClockPeriod.AM,
+        testMatchesHourAndMinute(morningDateHour, AM,
             morningDateMinute, eveningDate, false);
-        testMatchesHourAndMinute(morningDateHour, ClockPeriod.AM,
+        testMatchesHourAndMinute(morningDateHour, AM,
             eveningDateMinute, eveningDate, false);
         testMatchesHourAndMinute(eveningDateHour - LENGTH_12_HOUR_CLOCK,
-            ClockPeriod.PM, morningDateMinute, eveningDate, false);
+            PM, morningDateMinute, eveningDate, false);
         testMatchesHourAndMinute(eveningDateHour - LENGTH_12_HOUR_CLOCK,
-            ClockPeriod.PM, eveningDateMinute, morningDate, false);
+            PM, eveningDateMinute, morningDate, false);
     }
 
     @Test public void testGivenValidHourMinuteAndSecondWhenMatchesIsCalledThenTrueIsReturned()
         throws Exception {
         testMatchesHourMinuteAndSecond(morningDateHour, morningDateMinute,
             morningDateSecond, morningDate, true);
-        testMatchesHourMinuteAndSecond(morningDateHour, ClockPeriod.AM,
+        testMatchesHourMinuteAndSecond(morningDateHour, AM,
             morningDateMinute, morningDateSecond, morningDate, true);
         testMatchesHourMinuteAndSecond(eveningDateHour - LENGTH_12_HOUR_CLOCK,
-            ClockPeriod.PM, eveningDateMinute, eveningDateSecond, eveningDate,
+            PM, eveningDateMinute, eveningDateSecond, eveningDate,
             true);
     }
 
@@ -462,24 +463,24 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
         testMatchesHourMinuteAndSecond(morningDateHour, morningDateMinute,
             morningDateSecond, eveningDate, false);
         testMatchesHourMinuteAndSecond(eveningDateHour - LENGTH_12_HOUR_CLOCK,
-            ClockPeriod.PM, morningDateMinute, morningDateSecond, morningDate,
+            PM, morningDateMinute, morningDateSecond, morningDate,
             false);
-        testMatchesHourMinuteAndSecond(morningDateHour, ClockPeriod.AM,
+        testMatchesHourMinuteAndSecond(morningDateHour, AM,
             eveningDateMinute, morningDateSecond, morningDate, false);
-        testMatchesHourMinuteAndSecond(morningDateHour, ClockPeriod.AM,
+        testMatchesHourMinuteAndSecond(morningDateHour, AM,
             morningDateMinute, eveningDateSecond, morningDate, false);
-        testMatchesHourMinuteAndSecond(morningDateHour, ClockPeriod.AM,
+        testMatchesHourMinuteAndSecond(morningDateHour, AM,
             morningDateMinute, morningDateSecond, eveningDate, false);
-        testMatchesHourMinuteAndSecond(morningDateHour, ClockPeriod.AM,
+        testMatchesHourMinuteAndSecond(morningDateHour, AM,
             eveningDateMinute, eveningDateSecond, eveningDate, false);
         testMatchesHourMinuteAndSecond(eveningDateHour - LENGTH_12_HOUR_CLOCK,
-            ClockPeriod.PM, morningDateMinute, eveningDateSecond, eveningDate,
+            PM, morningDateMinute, eveningDateSecond, eveningDate,
             false);
         testMatchesHourMinuteAndSecond(eveningDateHour - LENGTH_12_HOUR_CLOCK,
-            ClockPeriod.PM, eveningDateMinute, morningDateSecond, eveningDate,
+            PM, eveningDateMinute, morningDateSecond, eveningDate,
             false);
         testMatchesHourMinuteAndSecond(eveningDateHour - LENGTH_12_HOUR_CLOCK,
-            ClockPeriod.PM, eveningDateMinute, eveningDateSecond, morningDate,
+            PM, eveningDateMinute, eveningDateSecond, morningDate,
             false);
     }
 
@@ -489,10 +490,10 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
             morningDateMinute, morningDateSecond, morningDateMillisecond,
             morningDate, true);
         testMatchesHourMinuteSecondAndMillisecond(morningDateHour,
-            ClockPeriod.AM, morningDateMinute, morningDateSecond,
+            AM, morningDateMinute, morningDateSecond,
             morningDateMillisecond, morningDate, true);
         testMatchesHourMinuteSecondAndMillisecond(eveningDateHour -
-            LENGTH_12_HOUR_CLOCK, ClockPeriod.PM, eveningDateMinute,
+            LENGTH_12_HOUR_CLOCK, PM, eveningDateMinute,
             eveningDateSecond, eveningDateMillisecond, eveningDate, true);
     }
 
@@ -514,34 +515,34 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
             morningDateMinute, morningDateSecond, morningDateMillisecond,
             eveningDate, false);
         testMatchesHourMinuteSecondAndMillisecond(eveningDateHour -
-            LENGTH_12_HOUR_CLOCK, ClockPeriod.PM, morningDateMinute,
+            LENGTH_12_HOUR_CLOCK, PM, morningDateMinute,
             morningDateSecond, morningDateMillisecond, morningDate, false);
         testMatchesHourMinuteSecondAndMillisecond(morningDateHour,
-            ClockPeriod.AM, eveningDateMinute, morningDateSecond,
+            AM, eveningDateMinute, morningDateSecond,
             morningDateMillisecond, morningDate, false);
         testMatchesHourMinuteSecondAndMillisecond(morningDateHour,
-            ClockPeriod.AM, morningDateMinute, eveningDateSecond,
+            AM, morningDateMinute, eveningDateSecond,
             morningDateMillisecond, morningDate, false);
         testMatchesHourMinuteSecondAndMillisecond(morningDateHour,
-            ClockPeriod.AM, morningDateMinute, morningDateSecond,
+            AM, morningDateMinute, morningDateSecond,
             eveningDateMillisecond, morningDate, false);
         testMatchesHourMinuteSecondAndMillisecond(morningDateHour,
-            ClockPeriod.AM, morningDateMinute, morningDateSecond,
+            AM, morningDateMinute, morningDateSecond,
             morningDateMillisecond, eveningDate, false);
         testMatchesHourMinuteSecondAndMillisecond(morningDateHour,
-            ClockPeriod.AM, eveningDateMinute, eveningDateSecond,
+            AM, eveningDateMinute, eveningDateSecond,
             eveningDateMillisecond, eveningDate, false);
         testMatchesHourMinuteSecondAndMillisecond(eveningDateHour -
-            LENGTH_12_HOUR_CLOCK, ClockPeriod.PM, morningDateMinute,
+            LENGTH_12_HOUR_CLOCK, PM, morningDateMinute,
             eveningDateSecond, eveningDateMillisecond, eveningDate, false);
         testMatchesHourMinuteSecondAndMillisecond(eveningDateHour -
-            LENGTH_12_HOUR_CLOCK, ClockPeriod.PM, eveningDateMinute,
+            LENGTH_12_HOUR_CLOCK, PM, eveningDateMinute,
             morningDateSecond, eveningDateMillisecond, eveningDate, false);
         testMatchesHourMinuteSecondAndMillisecond(eveningDateHour -
-            LENGTH_12_HOUR_CLOCK, ClockPeriod.PM, eveningDateMinute,
+            LENGTH_12_HOUR_CLOCK, PM, eveningDateMinute,
             eveningDateSecond, morningDateMillisecond, eveningDate, false);
         testMatchesHourMinuteSecondAndMillisecond(eveningDateHour -
-            LENGTH_12_HOUR_CLOCK, ClockPeriod.PM, eveningDateMinute,
+            LENGTH_12_HOUR_CLOCK, PM, eveningDateMinute,
             eveningDateSecond, eveningDateMillisecond, morningDate, false);
     }
 
@@ -552,13 +553,13 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
             IsDateWithTime.hasHour(morningDateHour), eveningDate);
         BaseMatcherTest.assertHasMismatchDescription(format(
                 "<%s> has not hour <%d AM>", eveningDate, morningDateHour),
-            IsDateWithTime.hasHour(morningDateHour, ClockPeriod.AM),
+            IsDateWithTime.hasHour(morningDateHour, AM),
             eveningDate);
         BaseMatcherTest.assertHasMismatchDescription(format(
                 "<%s> has not hour <%d PM>", morningDate,
                 eveningDateHour - LENGTH_12_HOUR_CLOCK),
             IsDateWithTime.hasHour(eveningDateHour - LENGTH_12_HOUR_CLOCK,
-                ClockPeriod.PM), morningDate);
+                PM), morningDate);
 
         BaseMatcherTest.assertHasMismatchDescription(format(
                 "<%s> has not minute <%d>", eveningDate, morningDateMinute),
@@ -582,13 +583,13 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
         BaseMatcherTest.assertHasMismatchDescription(format(
                 "<%s> has not hour <%d AM>, minute <%d>", eveningDate,
                 morningDateHour, morningDateMinute),
-            IsDateWithTime.hasHourAndMin(morningDateHour, ClockPeriod.AM,
+            IsDateWithTime.hasHourAndMin(morningDateHour, AM,
                 morningDateMinute), eveningDate);
         BaseMatcherTest.assertHasMismatchDescription(format(
                 "<%s> has not hour <%d PM>, minute <%d>", morningDate,
                 eveningDateHour - LENGTH_12_HOUR_CLOCK, eveningDateMinute),
             IsDateWithTime.hasHourAndMin(eveningDateHour - LENGTH_12_HOUR_CLOCK,
-                ClockPeriod.PM, eveningDateMinute), morningDate);
+                PM, eveningDateMinute), morningDate);
 
         BaseMatcherTest.assertHasMismatchDescription(format(
                 "<%s> has not hour <%d>, minute <%d>, second <%d>", eveningDate,
@@ -599,14 +600,14 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
                 "<%s> has not hour <%d AM>, minute <%d>, second <%d>",
                 eveningDate, morningDateHour, morningDateMinute,
                 morningDateSecond),
-            IsDateWithTime.hasHourMinAndSec(morningDateHour, ClockPeriod.AM,
+            IsDateWithTime.hasHourMinAndSec(morningDateHour, AM,
                 morningDateMinute, morningDateSecond), eveningDate);
         BaseMatcherTest.assertHasMismatchDescription(format(
                 "<%s> has not hour <%d PM>, minute <%d>, second <%d>",
                 morningDate, eveningDateHour - LENGTH_12_HOUR_CLOCK,
                 eveningDateMinute, eveningDateSecond),
             IsDateWithTime.hasHourMinAndSec(
-                eveningDateHour - LENGTH_12_HOUR_CLOCK, ClockPeriod.PM,
+                eveningDateHour - LENGTH_12_HOUR_CLOCK, PM,
                 eveningDateMinute, eveningDateSecond), morningDate);
 
         BaseMatcherTest.assertHasMismatchDescription(format(
@@ -621,14 +622,14 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
                 eveningDate, morningDateHour, morningDateMinute,
                 morningDateSecond, morningDateMillisecond),
             IsDateWithTime.hasHourMinSecAndMillis(morningDateHour,
-                ClockPeriod.AM, morningDateMinute, morningDateSecond,
+                AM, morningDateMinute, morningDateSecond,
                 morningDateMillisecond), eveningDate);
         BaseMatcherTest.assertHasMismatchDescription(format(
                 "<%s> has not hour <%d PM>, minute <%d>, second <%d>, millisecond <%d>",
                 morningDate, eveningDateHour - LENGTH_12_HOUR_CLOCK,
                 eveningDateMinute, eveningDateSecond, eveningDateMillisecond),
             IsDateWithTime.hasHourMinSecAndMillis(
-                eveningDateHour - LENGTH_12_HOUR_CLOCK, ClockPeriod.PM,
+                eveningDateHour - LENGTH_12_HOUR_CLOCK, PM,
                 eveningDateMinute, eveningDateSecond, eveningDateMillisecond),
             morningDate);
 
@@ -656,11 +657,11 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
                 morningDateHour), IsDateWithTime.hasHour(morningDateHour));
         BaseMatcherTest.assertIsDescribedTo(format("a date with hour <%d AM>",
                 morningDateHour),
-            IsDateWithTime.hasHour(morningDateHour, ClockPeriod.AM));
+            IsDateWithTime.hasHour(morningDateHour, AM));
         BaseMatcherTest.assertIsDescribedTo(format("a date with hour <%d PM>",
                 eveningDateHour - LENGTH_12_HOUR_CLOCK),
             IsDateWithTime.hasHour(eveningDateHour - LENGTH_12_HOUR_CLOCK,
-                ClockPeriod.PM));
+                PM));
 
         BaseMatcherTest.assertIsDescribedTo(format("a date with minute <%d>",
                 morningDateMinute),
@@ -682,13 +683,13 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
         BaseMatcherTest.assertIsDescribedTo(format(
                 "a date with hour <%d AM>, minute <%d>", morningDateHour,
                 morningDateMinute),
-            IsDateWithTime.hasHourAndMin(morningDateHour, ClockPeriod.AM,
+            IsDateWithTime.hasHourAndMin(morningDateHour, AM,
                 morningDateMinute));
         BaseMatcherTest.assertIsDescribedTo(format(
                 "a date with hour <%d PM>, minute <%d>",
                 eveningDateHour - LENGTH_12_HOUR_CLOCK, eveningDateMinute),
             IsDateWithTime.hasHourAndMin(eveningDateHour - LENGTH_12_HOUR_CLOCK,
-                ClockPeriod.PM, eveningDateMinute));
+                PM, eveningDateMinute));
 
         BaseMatcherTest.assertIsDescribedTo(format(
                 "a date with hour <%d>, minute <%d>, second <%d>",
@@ -698,14 +699,14 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
         BaseMatcherTest.assertIsDescribedTo(format(
                 "a date with hour <%d AM>, minute <%d>, second <%d>",
                 morningDateHour, morningDateMinute, morningDateSecond),
-            IsDateWithTime.hasHourMinAndSec(morningDateHour, ClockPeriod.AM,
+            IsDateWithTime.hasHourMinAndSec(morningDateHour, AM,
                 morningDateMinute, morningDateSecond));
         BaseMatcherTest.assertIsDescribedTo(format(
                 "a date with hour <%d PM>, minute <%d>, second <%d>",
                 eveningDateHour - LENGTH_12_HOUR_CLOCK, eveningDateMinute,
                 eveningDateSecond),
             IsDateWithTime.hasHourMinAndSec(
-                eveningDateHour - LENGTH_12_HOUR_CLOCK, ClockPeriod.PM,
+                eveningDateHour - LENGTH_12_HOUR_CLOCK, PM,
                 eveningDateMinute, eveningDateSecond));
 
         BaseMatcherTest.assertIsDescribedTo(format(
@@ -719,14 +720,14 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
                 morningDateHour, morningDateMinute, morningDateSecond,
                 morningDateMillisecond),
             IsDateWithTime.hasHourMinSecAndMillis(morningDateHour,
-                ClockPeriod.AM, morningDateMinute, morningDateSecond,
+                AM, morningDateMinute, morningDateSecond,
                 morningDateMillisecond));
         BaseMatcherTest.assertIsDescribedTo(format(
                 "a date with hour <%d PM>, minute <%d>, second <%d>, millisecond <%d>",
                 eveningDateHour - LENGTH_12_HOUR_CLOCK, eveningDateMinute,
                 eveningDateSecond, eveningDateMillisecond),
             IsDateWithTime.hasHourMinSecAndMillis(
-                eveningDateHour - LENGTH_12_HOUR_CLOCK, ClockPeriod.PM,
+                eveningDateHour - LENGTH_12_HOUR_CLOCK, PM,
                 eveningDateMinute, eveningDateSecond, eveningDateMillisecond));
 
         //description covered by the constructor
