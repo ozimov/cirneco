@@ -1,12 +1,5 @@
 package it.ozimov.cirneco.hamcrest.guava.collect;
 
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Multimap;
-
-import it.ozimov.cirneco.hamcrest.java7.BaseMatcherTest;
-
-import org.hamcrest.Matcher;
-
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.lessThan;
@@ -16,11 +9,17 @@ import static org.junit.Assert.fail;
 
 import static org.junit.Assume.assumeThat;
 
+import java.util.UUID;
+
+import org.hamcrest.Matcher;
+
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.UUID;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
 
+import it.ozimov.cirneco.hamcrest.java7.BaseMatcherTest;
 
 public class IsMultimapWithKeySetSizeTest extends BaseMatcherTest {
 
@@ -32,115 +31,109 @@ public class IsMultimapWithKeySetSizeTest extends BaseMatcherTest {
     public Matcher<Multimap<String, ?>> isMultimapElementWithCollectionEmptyMatcher;
     public Matcher<Multimap<String, ?>> isMultimapElementWithCollectionSizeMatcher;
 
-    @Before public void mapUp() {
+    @Before
+    public void mapUp() {
 
-        //Arrange
+        // Arrange
         multimap = HashMultimap.create();
 
-        isMultimapElementWithCollectionEmptyMatcher = IsMultimapWithKeySetSize
-            .emptyKeySet();
+        isMultimapElementWithCollectionEmptyMatcher = IsMultimapWithKeySetSize.emptyKeySet();
         expectedCountGeneralMatcher = 10;
-        isMultimapElementWithCollectionSizeMatcher = IsMultimapWithKeySetSize
-            .keySetWithSize(expectedCountGeneralMatcher);
+        isMultimapElementWithCollectionSizeMatcher = IsMultimapWithKeySetSize.keySetWithSize(
+                expectedCountGeneralMatcher);
     }
 
-    @Test public void testGivenThatSizeIsNegativeWhenCreateInstanceThenNullPointerExceptionIsThrown()
-        throws Exception {
+    @Test
+    public void testGivenThatSizeIsNegativeWhenCreateInstanceThenNullPointerExceptionIsThrown() throws Exception {
 
-        //Arrange
+        // Arrange
         thrown.expect(IllegalArgumentException.class);
 
         final int negativeSize = -1;
         assumeThat(negativeSize, lessThan(0));
 
-        //Act
+        // Act
         IsMultimapWithKeySetSize.keySetWithSize(-1);
 
-        //Assert
+        // Assert
         fail("IllegalArgumentException expected");
     }
 
-    @Test public void testGivenAMultimapWithKeySetSizeZeroWhenMatchesForEmptyIsCalledThenTrueIsReturned()
-        throws Exception {
-        //Arrange
+    @Test
+    public void testGivenAMultimapWithKeySetSizeZeroWhenMatchesForEmptyIsCalledThenTrueIsReturned() throws Exception {
+        // Arrange
 
-        //Act
-        final boolean matches =
-            isMultimapElementWithCollectionEmptyMatcher.matches(multimap);
+        // Act
+        final boolean matches = isMultimapElementWithCollectionEmptyMatcher.matches(multimap);
 
-        //Assert
+        // Assert
         BaseMatcherTest.assertMatches(matches);
     }
 
-    @Test public void testGivenAMultimapWithKeySetSizeOneWhenMatchesForEmptyIsCalledThenFalseIsReturned()
-        throws Exception {
+    @Test
+    public void testGivenAMultimapWithKeySetSizeOneWhenMatchesForEmptyIsCalledThenFalseIsReturned() throws Exception {
 
-        //Arrange
+        // Arrange
         addKeysToMultimap(1);
 
-        //Act
-        final boolean matches =
-            isMultimapElementWithCollectionEmptyMatcher.matches(multimap);
+        // Act
+        final boolean matches = isMultimapElementWithCollectionEmptyMatcher.matches(multimap);
 
-        //Assert
+        // Assert
         BaseMatcherTest.assertDoesNotMatch(matches);
     }
 
-    @Test public void tesGivenAMultimapWithKeySetSizeTenWhenMatchesForSizeTenIsCalledThenTrueIsReturned()
-        throws Exception {
+    @Test
+    public void tesGivenAMultimapWithKeySetSizeTenWhenMatchesForSizeTenIsCalledThenTrueIsReturned() throws Exception {
 
-        //Arrange
+        // Arrange
         addKeysToMultimap(expectedCountGeneralMatcher);
 
-        //Act
-        final boolean matches =
-            isMultimapElementWithCollectionSizeMatcher.matches(multimap);
+        // Act
+        final boolean matches = isMultimapElementWithCollectionSizeMatcher.matches(multimap);
 
-        //Assert
+        // Assert
         BaseMatcherTest.assertMatches(matches);
     }
 
-    @Test public void tesGivenAMultimapWithKeySetSizeOneWhenMatchesForSizeTenIsCalledThenFalseIsReturned()
-        throws Exception {
+    @Test
+    public void tesGivenAMultimapWithKeySetSizeOneWhenMatchesForSizeTenIsCalledThenFalseIsReturned() throws Exception {
 
-        //Arrange
+        // Arrange
         final int numKeysActualMap = 1;
         addKeysToMultimap(numKeysActualMap);
         assumeThat(numKeysActualMap, not(is(expectedCountGeneralMatcher)));
 
-        //Act
-        final boolean matches =
-            isMultimapElementWithCollectionSizeMatcher.matches(multimap);
+        // Act
+        final boolean matches = isMultimapElementWithCollectionSizeMatcher.matches(multimap);
 
-        //Assert
+        // Assert
         BaseMatcherTest.assertDoesNotMatch(matches);
     }
 
-    @Test public void testDescribeMismatchSafely() throws Exception {
+    @Test
+    public void testDescribeMismatchSafely() throws Exception {
 
-        //Arrange
+        // Arrange
         multimap.put("A", "");
         multimap.put("B", "");
         assumeThat(multimap.keySet(), hasSize(2));
 
-        //Act + Assert
-        BaseMatcherTest.assertHasMismatchDescription(
-            "Multimap had key set with <2> elements",
+        // Act + Assert
+        BaseMatcherTest.assertHasMismatchDescription("Multimap had key set with <2> elements",
             isMultimapElementWithCollectionEmptyMatcher, multimap);
-        BaseMatcherTest.assertHasMismatchDescription(
-            "Multimap had key set with <2> elements",
+        BaseMatcherTest.assertHasMismatchDescription("Multimap had key set with <2> elements",
             isMultimapElementWithCollectionSizeMatcher, multimap);
     }
 
-    @Test public void testDescribeTo() throws Exception {
-        BaseMatcherTest.assertIsDescribedTo("a Multimap with no elements",
-            isMultimapElementWithCollectionEmptyMatcher);
-        BaseMatcherTest.assertIsDescribedTo(String.format(
-                "a Multimap with <%d> elements", expectedCountGeneralMatcher),
+    @Test
+    public void testDescribeTo() throws Exception {
+        BaseMatcherTest.assertIsDescribedTo("a Multimap with no elements", isMultimapElementWithCollectionEmptyMatcher);
+        BaseMatcherTest.assertIsDescribedTo(String.format("a Multimap with <%d> elements", expectedCountGeneralMatcher),
             isMultimapElementWithCollectionSizeMatcher);
     }
 
-    private void addKeysToMultimap(int expectedNumberOfKeys) {
+    private void addKeysToMultimap(final int expectedNumberOfKeys) {
 
         for (int i = 0; i < expectedNumberOfKeys; i++) {
             multimap.put(UUID.randomUUID().toString(), new Object());

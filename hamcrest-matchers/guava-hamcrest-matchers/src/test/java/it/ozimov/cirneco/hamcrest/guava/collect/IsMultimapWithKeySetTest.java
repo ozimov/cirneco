@@ -1,12 +1,5 @@
 package it.ozimov.cirneco.hamcrest.guava.collect;
 
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Multimap;
-
-import it.ozimov.cirneco.hamcrest.java7.BaseMatcherTest;
-
-import org.hamcrest.Matcher;
-
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 
@@ -14,11 +7,17 @@ import static org.junit.Assert.fail;
 
 import static org.junit.Assume.assumeThat;
 
+import java.util.Set;
+
+import org.hamcrest.Matcher;
+
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Set;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
 
+import it.ozimov.cirneco.hamcrest.java7.BaseMatcherTest;
 
 public class IsMultimapWithKeySetTest extends BaseMatcherTest {
 
@@ -30,9 +29,10 @@ public class IsMultimapWithKeySetTest extends BaseMatcherTest {
     public Matcher<Multimap<String, ?>> isMultimapWithKeySetByMultimapMatcher;
     public Matcher<Multimap<String, ?>> isMultimapWithKeySetBySetMatcher;
 
-    @Before public void mapUp() {
+    @Before
+    public void mapUp() {
 
-        //Arrange
+        // Arrange
         multimap = HashMultimap.create();
 
         comparisonMultimap = HashMultimap.create();
@@ -45,101 +45,98 @@ public class IsMultimapWithKeySetTest extends BaseMatcherTest {
         comparisonKeySet = comparisonMultimap.keySet();
         assumeThat(comparisonKeySet, is(comparisonMultimap.keySet()));
 
-        isMultimapWithKeySetByMultimapMatcher = IsMultimapWithKeySet
-            .hasSameKeySet(comparisonMultimap);
-        isMultimapWithKeySetBySetMatcher = IsMultimapWithKeySet.hasSameKeySet(
-                comparisonKeySet);
+        isMultimapWithKeySetByMultimapMatcher = IsMultimapWithKeySet.hasSameKeySet(comparisonMultimap);
+        isMultimapWithKeySetBySetMatcher = IsMultimapWithKeySet.hasSameKeySet(comparisonKeySet);
     }
 
-    @Test public void testGivenThatMultimapIsNullWhenCreateInstanceThenNullPointerExceptionIsThrown()
-        throws Exception {
+    @Test
+    public void testGivenThatMultimapIsNullWhenCreateInstanceThenNullPointerExceptionIsThrown() throws Exception {
 
-        //Arrange
+        // Arrange
         thrown.expect(NullPointerException.class);
 
-        //Act
+        // Act
         IsMultimapWithKeySet.hasSameKeySet((Multimap) null);
 
-        //Assert
+        // Assert
         fail("NullPointerException expected");
     }
 
-    @Test public void testGivenThatSetIsNullWhenCreateInstanceThenNullPointerExceptionIsThrown()
-        throws Exception {
+    @Test
+    public void testGivenThatSetIsNullWhenCreateInstanceThenNullPointerExceptionIsThrown() throws Exception {
 
-        //Arrange
+        // Arrange
         thrown.expect(NullPointerException.class);
 
-        //Act
+        // Act
         IsMultimapWithKeySet.hasSameKeySet((Set) null);
 
-        //Assert
+        // Assert
         fail("NullPointerException expected");
     }
 
-    @Test public void testGivenAMultimapWithExpectedKeySetOfAnotherMultimapWhenMatchesIsCalledThenTrueIsReturned()
+    @Test
+    public void testGivenAMultimapWithExpectedKeySetOfAnotherMultimapWhenMatchesIsCalledThenTrueIsReturned()
         throws Exception {
 
-        //Arrange
+        // Arrange
         multimap.put("A", "");
         multimap.put("B", "");
         multimap.put("C", "");
         assumeThat(multimap.keySet(), is(comparisonMultimap.keySet()));
 
-        //Act
-        final boolean matches = isMultimapWithKeySetByMultimapMatcher.matches(
-                multimap);
+        // Act
+        final boolean matches = isMultimapWithKeySetByMultimapMatcher.matches(multimap);
 
-        //Assert
+        // Assert
         BaseMatcherTest.assertMatches(matches);
     }
 
-    @Test public void testGivenAMultimapWithNonExpectedKeySetOfAnotherMultimapWhenMatchesIsCalledThenFalseIsReturned()
+    @Test
+    public void testGivenAMultimapWithNonExpectedKeySetOfAnotherMultimapWhenMatchesIsCalledThenFalseIsReturned()
         throws Exception {
 
-        //Arrange
+        // Arrange
         assumeThat(multimap.keySet(), not(is(comparisonMultimap.keySet())));
 
-        //Act
-        final boolean matches = isMultimapWithKeySetByMultimapMatcher.matches(
-                multimap);
+        // Act
+        final boolean matches = isMultimapWithKeySetByMultimapMatcher.matches(multimap);
 
-        //Assert
+        // Assert
         BaseMatcherTest.assertDoesNotMatch(matches);
     }
 
-    @Test public void testGivenAMultimapWithExpectedKeySetWhenMatchesIsCalledThenTrueIsReturned()
-        throws Exception {
+    @Test
+    public void testGivenAMultimapWithExpectedKeySetWhenMatchesIsCalledThenTrueIsReturned() throws Exception {
 
-        //Arrange
+        // Arrange
         multimap.put("A", "");
         multimap.put("B", "");
         multimap.put("C", "");
         assumeThat(multimap.keySet(), is(comparisonKeySet));
 
-        //Act
-        final boolean matches = isMultimapWithKeySetByMultimapMatcher.matches(
-                multimap);
+        // Act
+        final boolean matches = isMultimapWithKeySetByMultimapMatcher.matches(multimap);
 
-        //Assert
+        // Assert
         BaseMatcherTest.assertMatches(matches);
     }
 
-    @Test public void testGivenAMultimapWithNonExpectedKeySetWhenMatchesIsCalledThenFalseIsReturned()
-        throws Exception {
+    @Test
+    public void testGivenAMultimapWithNonExpectedKeySetWhenMatchesIsCalledThenFalseIsReturned() throws Exception {
 
-        //Arrange
+        // Arrange
         assumeThat(multimap.keySet(), not(is(comparisonKeySet)));
 
-        //Act
-        final boolean matches = isMultimapWithKeySetByMultimapMatcher.matches(
-                multimap);
+        // Act
+        final boolean matches = isMultimapWithKeySetByMultimapMatcher.matches(multimap);
 
-        //Assert
+        // Assert
         BaseMatcherTest.assertDoesNotMatch(matches);
     }
 
-    @Test public void testDescribeMismatchSafely() throws Exception {
+    @Test
+    public void testDescribeMismatchSafely() throws Exception {
         BaseMatcherTest.assertHasMismatchDescription(
             "Multimap key set was [] while expected key set was [\"A\", \"B\", \"C\"]",
             isMultimapWithKeySetByMultimapMatcher, multimap);
@@ -148,12 +145,11 @@ public class IsMultimapWithKeySetTest extends BaseMatcherTest {
             isMultimapWithKeySetBySetMatcher, multimap);
     }
 
-    @Test public void testDescribeTo() throws Exception {
-        BaseMatcherTest.assertIsDescribedTo(
-            "a Multimap containing same key set as [\"A\", \"B\", \"C\"]",
+    @Test
+    public void testDescribeTo() throws Exception {
+        BaseMatcherTest.assertIsDescribedTo("a Multimap containing same key set as [\"A\", \"B\", \"C\"]",
             isMultimapWithKeySetByMultimapMatcher);
-        BaseMatcherTest.assertIsDescribedTo(
-            "a Multimap containing same key set as [\"A\", \"B\", \"C\"]",
+        BaseMatcherTest.assertIsDescribedTo("a Multimap containing same key set as [\"A\", \"B\", \"C\"]",
             isMultimapWithKeySetBySetMatcher);
     }
 

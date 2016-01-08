@@ -1,6 +1,6 @@
 package it.ozimov.cirneco.hamcrest.java7.date;
 
-import it.ozimov.cirneco.hamcrest.java7.BaseMatcherTest;
+import java.util.Date;
 
 import org.hamcrest.Matcher;
 
@@ -9,8 +9,7 @@ import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Date;
-
+import it.ozimov.cirneco.hamcrest.java7.BaseMatcherTest;
 
 public class IsDateInMonthTest extends BaseDateMatcherTest {
 
@@ -40,9 +39,10 @@ public class IsDateInMonthTest extends BaseDateMatcherTest {
     public Matcher<Date> novemberMatcher;
     public Matcher<Date> decemberMatcher;
 
-    @Before public void setUp() {
+    @Before
+    public void setUp() {
 
-        //Arrange
+        // Arrange
         january = new DateTime(2015, 1, 1, 0, 0, TIME_ZONE).toDate();
         february = new DateTime(2015, 2, 1, 0, 0, TIME_ZONE).toDate();
         march = new DateTime(2015, 3, 1, 0, 0, TIME_ZONE).toDate();
@@ -55,7 +55,6 @@ public class IsDateInMonthTest extends BaseDateMatcherTest {
         october = new DateTime(2015, 10, 1, 0, 0, TIME_ZONE).toDate();
         november = new DateTime(2015, 11, 1, 0, 0, TIME_ZONE).toDate();
         december = new DateTime(2015, 12, 1, 0, 0, TIME_ZONE).toDate();
-
 
         januaryMatcher = IsDateInMonth.january();
         februaryMatcher = IsDateInMonth.february();
@@ -71,196 +70,192 @@ public class IsDateInMonthTest extends BaseDateMatcherTest {
         decemberMatcher = IsDateInMonth.december();
     }
 
-    @Test public void testJanuary() throws Exception {
+    @Test
+    public void testJanuary() throws Exception {
 
-        //Act
+        // Act
         final boolean matchesRightMonth = januaryMatcher.matches(january);
         final boolean matchesWrongMonth = januaryMatcher.matches(february);
 
-        //Assert
+        // Assert
         BaseMatcherTest.assertMatches(matchesRightMonth);
         BaseMatcherTest.assertDoesNotMatch(matchesWrongMonth);
     }
 
-    @Test public void testFebruary() throws Exception {
+    @Test
+    public void testFebruary() throws Exception {
 
-        //Act
+        // Act
         final boolean matchesRightMonth = februaryMatcher.matches(february);
         final boolean matchesWrongMonth = februaryMatcher.matches(january);
 
-        //Assert
+        // Assert
         BaseMatcherTest.assertMatches(matchesRightMonth);
         BaseMatcherTest.assertDoesNotMatch(matchesWrongMonth);
     }
 
-    @Test public void testMarch() throws Exception {
+    @Test
+    public void testMarch() throws Exception {
 
-        //Act
+        // Act
         final boolean matchesRightMonth = marchMatcher.matches(march);
         final boolean matchesWrongMonth = marchMatcher.matches(february);
 
-        //Assert
+        // Assert
         BaseMatcherTest.assertMatches(matchesRightMonth);
         BaseMatcherTest.assertDoesNotMatch(matchesWrongMonth);
     }
 
-    @Test public void testApril() throws Exception {
+    @Test
+    public void testApril() throws Exception {
 
-        //Act
+        // Act
         final boolean matchesRightMonth = aprilMatcher.matches(april);
         final boolean matchesWrongMonth = aprilMatcher.matches(february);
 
-        //Assert
+        // Assert
         BaseMatcherTest.assertMatches(matchesRightMonth);
         BaseMatcherTest.assertDoesNotMatch(matchesWrongMonth);
     }
 
-    @Test public void testMay() throws Exception {
+    @Test
+    public void testMay() throws Exception {
 
-        //Act
+        // Act
         final boolean matchesRightMonth = mayMatcher.matches(may);
         final boolean matchesWrongMonth = mayMatcher.matches(february);
 
-        //Assert
+        // Assert
         BaseMatcherTest.assertMatches(matchesRightMonth);
         BaseMatcherTest.assertDoesNotMatch(matchesWrongMonth);
     }
 
-    @Test public void testJune() throws Exception {
+    @Test
+    public void testJune() throws Exception {
 
-        //Act
+        // Act
         final boolean matchesRightMonth = juneMatcher.matches(june);
         final boolean matchesWrongMonth = juneMatcher.matches(february);
 
-        //Assert
+        // Assert
         BaseMatcherTest.assertMatches(matchesRightMonth);
         BaseMatcherTest.assertDoesNotMatch(matchesWrongMonth);
     }
 
-    @Test public void testJuly() throws Exception {
+    @Test
+    public void testJuly() throws Exception {
 
-        //Act
+        // Act
         final boolean matchesRightMonth = julyMatcher.matches(july);
         final boolean matchesWrongMonth = julyMatcher.matches(february);
 
-        //Assert
+        // Assert
         BaseMatcherTest.assertMatches(matchesRightMonth);
         BaseMatcherTest.assertDoesNotMatch(matchesWrongMonth);
     }
 
-    @Test public void testAugust() throws Exception {
+    @Test
+    public void testAugust() throws Exception {
 
-        //Act
+        // Act
         final boolean matchesRightMonth = augustMatcher.matches(august);
         final boolean matchesWrongMonth = augustMatcher.matches(february);
 
-        //Assert
+        // Assert
         BaseMatcherTest.assertMatches(matchesRightMonth);
         BaseMatcherTest.assertDoesNotMatch(matchesWrongMonth);
     }
 
-    @Test public void testSeptember() throws Exception {
+    @Test
+    public void testSeptember() throws Exception {
 
-        //Act
+        // Act
         final boolean matchesRightMonth = septemberMatcher.matches(september);
         final boolean matchesWrongMonth = septemberMatcher.matches(february);
 
-        //Assert
+        // Assert
         BaseMatcherTest.assertMatches(matchesRightMonth);
         BaseMatcherTest.assertDoesNotMatch(matchesWrongMonth);
     }
 
-    @Test public void testOctober() throws Exception {
+    @Test
+    public void testOctober() throws Exception {
 
-        //Act
+        // Act
         final boolean matchesRightMonth = octoberMatcher.matches(october);
         final boolean matchesWrongMonth = octoberMatcher.matches(february);
 
-        //Assert
+        // Assert
         BaseMatcherTest.assertMatches(matchesRightMonth);
         BaseMatcherTest.assertDoesNotMatch(matchesWrongMonth);
     }
 
-    @Test public void testNovember() throws Exception {
+    @Test
+    public void testNovember() throws Exception {
 
-        //Act
+        // Act
         final boolean matchesRightMonth = novemberMatcher.matches(november);
         final boolean matchesWrongMonth = novemberMatcher.matches(february);
 
-        //Assert
+        // Assert
         BaseMatcherTest.assertMatches(matchesRightMonth);
         BaseMatcherTest.assertDoesNotMatch(matchesWrongMonth);
     }
 
-    @Test public void testDecember() throws Exception {
+    @Test
+    public void testDecember() throws Exception {
 
-        //Act
+        // Act
         final boolean matchesRightMonth = decemberMatcher.matches(december);
         final boolean matchesWrongMonth = decemberMatcher.matches(february);
 
-        //Assert
+        // Assert
         BaseMatcherTest.assertMatches(matchesRightMonth);
         BaseMatcherTest.assertDoesNotMatch(matchesWrongMonth);
     }
 
-    @Test public void testMatchesSafely() throws Exception {
-        BaseMatcherTest.assertHasMismatchDescription(String.format(
-                "<%s> has not id <JANUARY>", february), januaryMatcher,
+    @Test
+    public void testMatchesSafely() throws Exception {
+        BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not id <JANUARY>", february),
+            januaryMatcher, february);
+        BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not id <FEBRUARY>", january),
+            februaryMatcher, january);
+        BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not id <MARCH>", february), marchMatcher,
             february);
-        BaseMatcherTest.assertHasMismatchDescription(String.format(
-                "<%s> has not id <FEBRUARY>", january), februaryMatcher,
-            january);
-        BaseMatcherTest.assertHasMismatchDescription(String.format(
-                "<%s> has not id <MARCH>", february), marchMatcher, february);
-        BaseMatcherTest.assertHasMismatchDescription(String.format(
-                "<%s> has not id <APRIL>", february), aprilMatcher, february);
-        BaseMatcherTest.assertHasMismatchDescription(String.format(
-                "<%s> has not id <MAY>", february), mayMatcher, february);
-        BaseMatcherTest.assertHasMismatchDescription(String.format(
-                "<%s> has not id <JUNE>", february), juneMatcher, february);
-        BaseMatcherTest.assertHasMismatchDescription(String.format(
-                "<%s> has not id <JULY>", february), julyMatcher, february);
-        BaseMatcherTest.assertHasMismatchDescription(String.format(
-                "<%s> has not id <AUGUST>", february), augustMatcher, february);
-        BaseMatcherTest.assertHasMismatchDescription(String.format(
-                "<%s> has not id <SEPTEMBER>", february), septemberMatcher,
+        BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not id <APRIL>", february), aprilMatcher,
             february);
-        BaseMatcherTest.assertHasMismatchDescription(String.format(
-                "<%s> has not id <OCTOBER>", february), octoberMatcher,
+        BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not id <MAY>", february), mayMatcher,
             february);
-        BaseMatcherTest.assertHasMismatchDescription(String.format(
-                "<%s> has not id <NOVEMBER>", february), novemberMatcher,
+        BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not id <JUNE>", february), juneMatcher,
             february);
-        BaseMatcherTest.assertHasMismatchDescription(String.format(
-                "<%s> has not id <DECEMBER>", february), decemberMatcher,
+        BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not id <JULY>", february), julyMatcher,
             february);
+        BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not id <AUGUST>", february), augustMatcher,
+            february);
+        BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not id <SEPTEMBER>", february),
+            septemberMatcher, february);
+        BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not id <OCTOBER>", february),
+            octoberMatcher, february);
+        BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not id <NOVEMBER>", february),
+            novemberMatcher, february);
+        BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not id <DECEMBER>", february),
+            decemberMatcher, february);
     }
 
-    @Test public void testDescribeTo() throws Exception {
-        BaseMatcherTest.assertIsDescribedTo("a date with id <JANUARY>",
-            januaryMatcher);
-        BaseMatcherTest.assertIsDescribedTo("a date with id <FEBRUARY>",
-            februaryMatcher);
-        BaseMatcherTest.assertIsDescribedTo("a date with id <MARCH>",
-            marchMatcher);
-        BaseMatcherTest.assertIsDescribedTo("a date with id <APRIL>",
-            aprilMatcher);
+    @Test
+    public void testDescribeTo() throws Exception {
+        BaseMatcherTest.assertIsDescribedTo("a date with id <JANUARY>", januaryMatcher);
+        BaseMatcherTest.assertIsDescribedTo("a date with id <FEBRUARY>", februaryMatcher);
+        BaseMatcherTest.assertIsDescribedTo("a date with id <MARCH>", marchMatcher);
+        BaseMatcherTest.assertIsDescribedTo("a date with id <APRIL>", aprilMatcher);
         BaseMatcherTest.assertIsDescribedTo("a date with id <MAY>", mayMatcher);
-        BaseMatcherTest.assertIsDescribedTo("a date with id <JUNE>",
-            juneMatcher);
-        BaseMatcherTest.assertIsDescribedTo("a date with id <JULY>",
-            julyMatcher);
-        BaseMatcherTest.assertIsDescribedTo("a date with id <AUGUST>",
-            augustMatcher);
-        BaseMatcherTest.assertIsDescribedTo("a date with id <SEPTEMBER>",
-            septemberMatcher);
-        BaseMatcherTest.assertIsDescribedTo("a date with id <OCTOBER>",
-            octoberMatcher);
-        BaseMatcherTest.assertIsDescribedTo("a date with id <NOVEMBER>",
-            novemberMatcher);
-        BaseMatcherTest.assertIsDescribedTo("a date with id <DECEMBER>",
-            decemberMatcher);
+        BaseMatcherTest.assertIsDescribedTo("a date with id <JUNE>", juneMatcher);
+        BaseMatcherTest.assertIsDescribedTo("a date with id <JULY>", julyMatcher);
+        BaseMatcherTest.assertIsDescribedTo("a date with id <AUGUST>", augustMatcher);
+        BaseMatcherTest.assertIsDescribedTo("a date with id <SEPTEMBER>", septemberMatcher);
+        BaseMatcherTest.assertIsDescribedTo("a date with id <OCTOBER>", octoberMatcher);
+        BaseMatcherTest.assertIsDescribedTo("a date with id <NOVEMBER>", novemberMatcher);
+        BaseMatcherTest.assertIsDescribedTo("a date with id <DECEMBER>", decemberMatcher);
     }
-
 
 }

@@ -1,16 +1,15 @@
 package it.ozimov.cirneco.hamcrest.java7.base;
 
-import it.ozimov.cirneco.hamcrest.java7.BaseMatcherTest;
-
-import org.hamcrest.Matcher;
-
 import static org.junit.Assume.assumeFalse;
 import static org.junit.Assume.assumeNotNull;
 import static org.junit.Assume.assumeTrue;
 
+import org.hamcrest.Matcher;
+
 import org.junit.Before;
 import org.junit.Test;
 
+import it.ozimov.cirneco.hamcrest.java7.BaseMatcherTest;
 
 public class IsSameTest extends BaseMatcherTest {
 
@@ -18,61 +17,58 @@ public class IsSameTest extends BaseMatcherTest {
     public Object actual;
     public Matcher sameInstanceMatcher;
 
-    @Before public void setUp() {
+    @Before
+    public void setUp() {
 
-        //Arrange
+        // Arrange
         comparison = 10;
         actual = comparison;
         sameInstanceMatcher = IsSame.sameInstance(comparison);
     }
 
-    @Test public void testGivenTwoInstancesOfSameObjectWhenMatchesIsCalledThenTrueIsReturned()
-        throws Exception {
+    @Test
+    public void testGivenTwoInstancesOfSameObjectWhenMatchesIsCalledThenTrueIsReturned() throws Exception {
 
-        //Arrange
-        assumeTrue("Assumed that actual and comparison are the same object",
-            actual == comparison);
+        // Arrange
+        assumeTrue("Assumed that actual and comparison are the same object", actual == comparison);
 
-        //Act
+        // Act
         final boolean matches = sameInstanceMatcher.matches(actual);
 
-        //Assert
+        // Assert
         assertMatches(matches);
     }
 
-    @Test public void testGivenTwoInstancesOfDifferentObjectsWhenMatchesIsCalledThenFalseIsReturned()
-        throws Exception {
+    @Test
+    public void testGivenTwoInstancesOfDifferentObjectsWhenMatchesIsCalledThenFalseIsReturned() throws Exception {
 
-        //Arrange
+        // Arrange
         final Object actual = new Object();
-        assumeFalse(
-            "Assumed that actual and comparison are not the same object",
-            actual == comparison);
+        assumeFalse("Assumed that actual and comparison are not the same object", actual == comparison);
 
-        //Act
+        // Act
         final boolean matches = sameInstanceMatcher.matches(actual);
 
-        //Assert
+        // Assert
         assertDoesNotMatch(matches);
     }
 
+    @Test
+    public void testGivenANullComparisonWhenMatchesIsCalledThenFalseIsReturned() throws Exception {
 
-    @Test public void testGivenANullComparisonWhenMatchesIsCalledThenFalseIsReturned()
-        throws Exception {
-
-        //Arrange
+        // Arrange
         assumeNotNull("Assumed that actual is not null", actual);
 
-        //Act
+        // Act
         final boolean matches = IsSame.sameInstance(null).matches(actual);
 
-        //Assert
+        // Assert
         assertDoesNotMatch(matches);
     }
 
-    @Test public void testDescribeTo() throws Exception {
-        assertIsDescribedTo(String.format("same instance of <%s>", comparison),
-            sameInstanceMatcher);
+    @Test
+    public void testDescribeTo() throws Exception {
+        assertIsDescribedTo(String.format("same instance of <%s>", comparison), sameInstanceMatcher);
     }
 
 }

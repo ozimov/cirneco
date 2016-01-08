@@ -3,45 +3,45 @@ package it.ozimov.cirneco.hamcrest.java7.collect;
 import static it.ozimov.cirneco.hamcrest.java7.collect.utils.IterableUtils.listCopy;
 import static it.ozimov.cirneco.hamcrest.java7.collect.utils.IterableUtils.size;
 
-import org.hamcrest.Description;
-import org.hamcrest.Matcher;
-import org.hamcrest.TypeSafeMatcher;
-
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.hamcrest.Description;
+import org.hamcrest.Matcher;
+import org.hamcrest.TypeSafeMatcher;
 
 /**
  * Is the {@linkplain Iterable} with distinct elements?
- * <p>
- * To verify that only distinct elements are in the {@code Iterable},
  *
- * @since version 0.2 for JDK7
+ * <p>To verify that only distinct elements are in the {@code Iterable},
+ *
+ * @since  version 0.2 for JDK7
  */
-public class IsIterableWithDistinctElements<E>
-    extends TypeSafeMatcher<Iterable<? extends E>> {
+public class IsIterableWithDistinctElements<E> extends TypeSafeMatcher<Iterable<? extends E>> {
 
     /**
-     * Creates a matcher for {@link Iterable}s that matches when the
-     * examined {@link Iterable} has only distinct elements.
-     * <p>
-     * For example:
+     * Creates a matcher for {@link Iterable}s that matches when the examined {@link Iterable} has only distinct
+     * elements.
+     *
+     * <p>For example:
+     *
      * <pre>assertThat(new ArrayList<>(), empty())</pre>
+     *
      * returns <code>true</code>.
      */
     public static <E> Matcher<Iterable<? extends E>> hasDistinctElements() {
         return new IsIterableWithDistinctElements<>();
     }
 
-    @Override public boolean matchesSafely(final Iterable<? extends E> actual) {
+    @Override
+    public boolean matchesSafely(final Iterable<? extends E> actual) {
         return new HashSet<>(listCopy(actual)).size() == size(actual);
     }
 
-    @Override public void describeMismatchSafely(
-        final Iterable<? extends E> actual,
-        final Description mismatchDescription) {
+    @Override
+    public void describeMismatchSafely(final Iterable<? extends E> actual, final Description mismatchDescription) {
         final Collection<E> collection = listCopy(actual);
         final Set<E> elements = new HashSet<>(collection);
         final Set<E> nonDistinctElements = new HashSet<>();
@@ -53,11 +53,12 @@ public class IsIterableWithDistinctElements<E>
             }
         }
 
-        mismatchDescription.appendText(" non distinct elements are ")
-            .appendValueList("[", ", ", "]", nonDistinctElements);
+        mismatchDescription.appendText(" non distinct elements are ").appendValueList("[", ", ", "]",
+            nonDistinctElements);
     }
 
-    @Override public void describeTo(final Description description) {
+    @Override
+    public void describeTo(final Description description) {
         description.appendText("an iterable with all distinct elements");
     }
 }

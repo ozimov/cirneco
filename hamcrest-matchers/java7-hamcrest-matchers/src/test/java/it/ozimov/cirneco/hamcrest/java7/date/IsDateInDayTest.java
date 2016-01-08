@@ -1,6 +1,6 @@
 package it.ozimov.cirneco.hamcrest.java7.date;
 
-import it.ozimov.cirneco.hamcrest.java7.BaseMatcherTest;
+import java.util.Date;
 
 import org.hamcrest.Matcher;
 
@@ -9,8 +9,7 @@ import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Date;
-
+import it.ozimov.cirneco.hamcrest.java7.BaseMatcherTest;
 
 public class IsDateInDayTest extends BaseDateMatcherTest {
 
@@ -30,10 +29,10 @@ public class IsDateInDayTest extends BaseDateMatcherTest {
     public Matcher<Date> fridayMatcher;
     public Matcher<Date> saturdayMatcher;
 
+    @Before
+    public void setUp() {
 
-    @Before public void setUp() {
-
-        //Arrange
+        // Arrange
         sunday = new DateTime(2015, 12, 20, 0, 0, TIME_ZONE).toDate();
         monday = new DateTime(2015, 12, 21, 0, 0, TIME_ZONE).toDate();
         tuesday = new DateTime(2015, 12, 22, 0, 0, TIME_ZONE).toDate();
@@ -51,121 +50,117 @@ public class IsDateInDayTest extends BaseDateMatcherTest {
         saturdayMatcher = IsDateInDay.saturday();
     }
 
-    @Test public void testSunday() throws Exception {
+    @Test
+    public void testSunday() throws Exception {
 
-        //Act
+        // Act
         final boolean matchesRightDay = sundayMatcher.matches(sunday);
         final boolean matchesWrongDay = sundayMatcher.matches(monday);
 
-        //Assert
+        // Assert
         BaseMatcherTest.assertMatches(matchesRightDay);
         BaseMatcherTest.assertDoesNotMatch(matchesWrongDay);
     }
 
-    @Test public void testMonday() throws Exception {
+    @Test
+    public void testMonday() throws Exception {
 
-        //Act
+        // Act
         final boolean matchesRightDay = mondayMatcher.matches(monday);
         final boolean matchesWrongDay = mondayMatcher.matches(sunday);
 
-        //Assert
+        // Assert
         BaseMatcherTest.assertMatches(matchesRightDay);
         BaseMatcherTest.assertDoesNotMatch(matchesWrongDay);
     }
 
-    @Test public void testTuesday() throws Exception {
+    @Test
+    public void testTuesday() throws Exception {
 
-        //Act
+        // Act
         final boolean matchesRightDay = tuesdayMatcher.matches(tuesday);
         final boolean matchesWrongDay = tuesdayMatcher.matches(monday);
 
-        //Assert
+        // Assert
         BaseMatcherTest.assertMatches(matchesRightDay);
         BaseMatcherTest.assertDoesNotMatch(matchesWrongDay);
     }
 
-    @Test public void testWednesday() throws Exception {
+    @Test
+    public void testWednesday() throws Exception {
 
-        //Act
+        // Act
         final boolean matchesRightDay = wednesdayMatcher.matches(wednesday);
         final boolean matchesWrongDay = wednesdayMatcher.matches(monday);
 
-        //Assert
+        // Assert
         BaseMatcherTest.assertMatches(matchesRightDay);
         BaseMatcherTest.assertDoesNotMatch(matchesWrongDay);
     }
 
+    @Test
+    public void testThursday() throws Exception {
 
-    @Test public void testThursday() throws Exception {
-
-        //Act
+        // Act
         final boolean matchesRightDay = thursdayMatcher.matches(thursday);
         final boolean matchesWrongDay = thursdayMatcher.matches(monday);
 
-        //Assert
+        // Assert
         BaseMatcherTest.assertMatches(matchesRightDay);
         BaseMatcherTest.assertDoesNotMatch(matchesWrongDay);
     }
 
+    @Test
+    public void testFriday() throws Exception {
 
-    @Test public void testFriday() throws Exception {
-
-        //Act
+        // Act
         final boolean matchesRightDay = fridayMatcher.matches(friday);
         final boolean matchesWrongDay = fridayMatcher.matches(monday);
 
-        //Assert
+        // Assert
         BaseMatcherTest.assertMatches(matchesRightDay);
         BaseMatcherTest.assertDoesNotMatch(matchesWrongDay);
     }
 
+    @Test
+    public void testSaturday() throws Exception {
 
-    @Test public void testSaturday() throws Exception {
-
-        //Act
+        // Act
         final boolean matchesRightDay = saturdayMatcher.matches(saturday);
         final boolean matchesWrongDay = saturdayMatcher.matches(monday);
 
-        //Assert
+        // Assert
         BaseMatcherTest.assertMatches(matchesRightDay);
         BaseMatcherTest.assertDoesNotMatch(matchesWrongDay);
     }
 
-    @Test public void testDescribeMismatchSafely() throws Exception {
-        BaseMatcherTest.assertHasMismatchDescription(String.format(
-                "<%s> has not day <SUNDAY>", monday), sundayMatcher, monday);
-        BaseMatcherTest.assertHasMismatchDescription(String.format(
-                "<%s> has not day <MONDAY>", sunday), mondayMatcher, sunday);
-        BaseMatcherTest.assertHasMismatchDescription(String.format(
-                "<%s> has not day <TUESDAY>", monday), tuesdayMatcher, monday);
-        BaseMatcherTest.assertHasMismatchDescription(String.format(
-                "<%s> has not day <WEDNESDAY>", monday), wednesdayMatcher,
+    @Test
+    public void testDescribeMismatchSafely() throws Exception {
+        BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not day <SUNDAY>", monday), sundayMatcher,
             monday);
-        BaseMatcherTest.assertHasMismatchDescription(String.format(
-                "<%s> has not day <THURSDAY>", monday), thursdayMatcher,
+        BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not day <MONDAY>", sunday), mondayMatcher,
+            sunday);
+        BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not day <TUESDAY>", monday),
+            tuesdayMatcher, monday);
+        BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not day <WEDNESDAY>", monday),
+            wednesdayMatcher, monday);
+        BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not day <THURSDAY>", monday),
+            thursdayMatcher, monday);
+        BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not day <FRIDAY>", monday), fridayMatcher,
             monday);
-        BaseMatcherTest.assertHasMismatchDescription(String.format(
-                "<%s> has not day <FRIDAY>", monday), fridayMatcher, monday);
-        BaseMatcherTest.assertHasMismatchDescription(String.format(
-                "<%s> has not day <SATURDAY>", monday), saturdayMatcher,
-            monday);
+        BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not day <SATURDAY>", monday),
+            saturdayMatcher, monday);
     }
 
-    @Test public void testDescribeTo() throws Exception {
-        BaseMatcherTest.assertIsDescribedTo("a date with day <SUNDAY>",
-            sundayMatcher);
-        BaseMatcherTest.assertIsDescribedTo("a date with day <MONDAY>",
-            mondayMatcher);
-        BaseMatcherTest.assertIsDescribedTo("a date with day <TUESDAY>",
-            tuesdayMatcher);
-        BaseMatcherTest.assertIsDescribedTo("a date with day <WEDNESDAY>",
-            wednesdayMatcher);
-        BaseMatcherTest.assertIsDescribedTo("a date with day <THURSDAY>",
-            thursdayMatcher);
-        BaseMatcherTest.assertIsDescribedTo("a date with day <FRIDAY>",
-            fridayMatcher);
-        BaseMatcherTest.assertIsDescribedTo("a date with day <SATURDAY>",
-            saturdayMatcher);
+    @Test
+    public void testDescribeTo() throws Exception {
+        BaseMatcherTest.assertIsDescribedTo("a date with day <SUNDAY>", sundayMatcher);
+        BaseMatcherTest.assertIsDescribedTo("a date with day <MONDAY>", mondayMatcher);
+        BaseMatcherTest.assertIsDescribedTo("a date with day <TUESDAY>", tuesdayMatcher);
+        BaseMatcherTest.assertIsDescribedTo("a date with day <WEDNESDAY>", wednesdayMatcher);
+        BaseMatcherTest.assertIsDescribedTo("a date with day <THURSDAY>", thursdayMatcher);
+        BaseMatcherTest.assertIsDescribedTo("a date with day <FRIDAY>", fridayMatcher);
+        BaseMatcherTest.assertIsDescribedTo("a date with day <SATURDAY>", saturdayMatcher);
     }
 
 }

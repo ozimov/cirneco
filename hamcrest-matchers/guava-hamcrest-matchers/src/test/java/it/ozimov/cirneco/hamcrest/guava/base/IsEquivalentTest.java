@@ -1,11 +1,5 @@
 package it.ozimov.cirneco.hamcrest.guava.base;
 
-import com.google.common.base.Equivalence;
-
-import it.ozimov.cirneco.hamcrest.java7.BaseMatcherTest;
-
-import org.hamcrest.Matcher;
-
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.nullValue;
@@ -13,120 +7,121 @@ import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 
+import static org.mockito.Mockito.when;
+
+import org.hamcrest.Matcher;
+
 import org.junit.Before;
 import org.junit.Test;
 
 import org.mockito.Mock;
 
-import static org.mockito.Mockito.when;
+import com.google.common.base.Equivalence;
 
+import it.ozimov.cirneco.hamcrest.java7.BaseMatcherTest;
 
 public class IsEquivalentTest extends BaseMatcherTest {
 
-    public final static String EQUIVALENCE_TO_STRING = "EQUIVALENCE_TO_STRING";
-    public final static String ASSERTED_OBJECT_TO_STRING_VAL =
-        "ASSERTED_OBJECT_TO_STRING";
-    public final static String COMPARISON_OBJECT_TO_STRING_VAL =
-        "COMPARISON_OBJECT_TO_STRING";
+    public static final String EQUIVALENCE_TO_STRING = "EQUIVALENCE_TO_STRING";
+    public static final String ASSERTED_OBJECT_TO_STRING_VAL = "ASSERTED_OBJECT_TO_STRING";
+    public static final String COMPARISON_OBJECT_TO_STRING_VAL = "COMPARISON_OBJECT_TO_STRING";
     public Matcher<Object> isEquivalentMatcher;
     public Matcher<Object> isEquivalentMatcherForNullValue;
 
-    @Mock public Object assertedObject;
+    @Mock
+    public Object assertedObject;
 
-    @Mock public Object comparisonObject;
+    @Mock
+    public Object comparisonObject;
 
-    @Mock public Equivalence<Object> equivalence;
+    @Mock
+    public Equivalence<Object> equivalence;
 
-    @Before public void setUp() {
+    @Before
+    public void setUp() {
 
-        //Arrange
-        isEquivalentMatcher = IsEquivalent.equivalentTo(comparisonObject,
-                equivalence);
-        isEquivalentMatcherForNullValue = IsEquivalent.equivalentTo(null,
-                equivalence);
+        // Arrange
+        isEquivalentMatcher = IsEquivalent.equivalentTo(comparisonObject, equivalence);
+        isEquivalentMatcherForNullValue = IsEquivalent.equivalentTo(null, equivalence);
         when(equivalence.toString()).thenReturn(EQUIVALENCE_TO_STRING);
-        when(assertedObject.toString()).thenReturn(
-            ASSERTED_OBJECT_TO_STRING_VAL);
-        when(comparisonObject.toString()).thenReturn(
-            COMPARISON_OBJECT_TO_STRING_VAL);
+        when(assertedObject.toString()).thenReturn(ASSERTED_OBJECT_TO_STRING_VAL);
+        when(comparisonObject.toString()).thenReturn(COMPARISON_OBJECT_TO_STRING_VAL);
     }
 
-    @Test public void testGivenThatEquivalenceIsNullWhenCreateInstanceThenNullPointerExceptionIsThrown() {
+    @Test
+    public void testGivenThatEquivalenceIsNullWhenCreateInstanceThenNullPointerExceptionIsThrown() {
 
-        //Arrange
+        // Arrange
         thrown.expect(NullPointerException.class);
 
-        //Act
+        // Act
         IsEquivalent.equivalentTo("", null);
 
-        //Assert
+        // Assert
         fail("NullPointerException expected but not thrown");
     }
 
-    @Test public void testGivenThatComparisonIsNullWhenCreateInstanceNothingIsThrown() {
+    @Test
+    public void testGivenThatComparisonIsNullWhenCreateInstanceNothingIsThrown() {
 
-        //Act
+        // Act
         final Matcher matcher = IsEquivalent.equivalentTo(null, equivalence);
 
-        //Assert
+        // Assert
         assertThat(matcher, not(is(nullValue())));
     }
 
-    @Test public void testGivenThatActualIsNullWhenCreateInstanceNothingIsThrown() {
+    @Test
+    public void testGivenThatActualIsNullWhenCreateInstanceNothingIsThrown() {
 
-        //Act
+        // Act
         final boolean matches = isEquivalentMatcher.matches(null);
 
-        //Assert
+        // Assert
         assertThat(matches, is(false));
     }
 
-    @Test public void testDescribeMismatchSafely() throws Exception {
+    @Test
+    public void testDescribeMismatchSafely() throws Exception {
         BaseMatcherTest.assertHasMismatchDescription(String.format(
-                "<%s> is not equivalent to null value according with Equivalence <%s>",
-                ASSERTED_OBJECT_TO_STRING_VAL, EQUIVALENCE_TO_STRING),
-            isEquivalentMatcherForNullValue, assertedObject);
+                "<%s> is not equivalent to null value according with Equivalence <%s>", ASSERTED_OBJECT_TO_STRING_VAL,
+                EQUIVALENCE_TO_STRING), isEquivalentMatcherForNullValue, assertedObject);
 
         BaseMatcherTest.assertHasMismatchDescription(String.format(
-                "<%s> is not equivalent to <%s> according with Equivalence <%s>",
-                ASSERTED_OBJECT_TO_STRING_VAL, COMPARISON_OBJECT_TO_STRING_VAL,
-                EQUIVALENCE_TO_STRING), isEquivalentMatcher, assertedObject);
+                "<%s> is not equivalent to <%s> according with Equivalence <%s>", ASSERTED_OBJECT_TO_STRING_VAL,
+                COMPARISON_OBJECT_TO_STRING_VAL, EQUIVALENCE_TO_STRING), isEquivalentMatcher, assertedObject);
     }
 
-    @Test public void testDescribeTo() throws Exception {
-        BaseMatcherTest.assertIsDescribedTo(String.format(
-                "a value equivalent to <%s> according with Equivalence <%s>",
-                COMPARISON_OBJECT_TO_STRING_VAL, EQUIVALENCE_TO_STRING),
-            isEquivalentMatcher);
+    @Test
+    public void testDescribeTo() throws Exception {
+        BaseMatcherTest.assertIsDescribedTo(String.format("a value equivalent to <%s> according with Equivalence <%s>",
+                COMPARISON_OBJECT_TO_STRING_VAL, EQUIVALENCE_TO_STRING), isEquivalentMatcher);
     }
 
-    @Test public void testGivenTwoEquivalentObjectsWhenMatchesIsCalledThenTrueIsReturned()
-        throws Exception {
+    @Test
+    public void testGivenTwoEquivalentObjectsWhenMatchesIsCalledThenTrueIsReturned() throws Exception {
 
-        //Arrange
-        when(equivalence.equivalent(assertedObject, comparisonObject))
-            .thenReturn(true);
+        // Arrange
+        when(equivalence.equivalent(assertedObject, comparisonObject)).thenReturn(true);
 
-        //Act
+        // Act
         final boolean matches = isEquivalentMatcher.matches(assertedObject);
 
-        //Assert
+        // Assert
         BaseMatcherTest.assertMatches("Expected to be equivalent", matches);
     }
 
-    @Test public void testGivenTwoNonEquivalentObjectsWhenMatchesIsCalledThenFalseIsReturned()
-        throws Exception {
+    @Test
+    public void testGivenTwoNonEquivalentObjectsWhenMatchesIsCalledThenFalseIsReturned() throws Exception {
 
-        //Arrange
-        when(equivalence.equivalent(assertedObject, comparisonObject))
-            .thenReturn(false);
+        // Arrange
+        when(equivalence.equivalent(assertedObject, comparisonObject)).thenReturn(false);
 
-        //Act
+        // Act
         final boolean matches = isEquivalentMatcher.matches(assertedObject);
 
-        //Assert
-        BaseMatcherTest.assertDoesNotMatch("Expected to be equivalent",
-            matches);
+        // Assert
+        BaseMatcherTest.assertDoesNotMatch("Expected to be equivalent", matches);
     }
 
 }

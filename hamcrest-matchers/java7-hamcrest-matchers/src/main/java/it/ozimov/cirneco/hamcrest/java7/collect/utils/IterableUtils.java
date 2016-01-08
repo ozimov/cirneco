@@ -1,9 +1,5 @@
 package it.ozimov.cirneco.hamcrest.java7.collect.utils;
 
-import com.google.common.base.Preconditions;
-
-import static com.google.common.base.Preconditions.checkNotNull;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -11,11 +7,11 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
+import com.google.common.base.Preconditions;
 
 public class IterableUtils {
 
-    private IterableUtils() {
-    }
+    private IterableUtils() { }
 
     public static <K> boolean isEmpty(final Iterable<? super K> iterable) {
         Preconditions.checkNotNull(iterable);
@@ -35,8 +31,7 @@ public class IterableUtils {
         return list;
     }
 
-    public static <K extends Comparable> List<K> sortedListCopy(
-        final Iterable<? extends K> iterable) {
+    public static <K extends Comparable> List<K> sortedListCopy(final Iterable<? extends K> iterable) {
         Preconditions.checkNotNull(iterable);
 
         final List<K> list = listCopy(iterable);
@@ -45,8 +40,7 @@ public class IterableUtils {
         return list;
     }
 
-    public static <K extends Comparable> List<K> sortedReversedListCopy(
-        final Iterable<? extends K> iterable) {
+    public static <K extends Comparable> List<K> sortedReversedListCopy(final Iterable<? extends K> iterable) {
         Preconditions.checkNotNull(iterable);
 
         final List<K> list = sortedListCopy(iterable);
@@ -55,9 +49,8 @@ public class IterableUtils {
         return list;
     }
 
-    public static <K> List<K> sortedListCopy(
-        final Iterable<? extends K> iterable,
-        final Comparator<? super K> comparator) {
+    public static <K> List<K> sortedListCopy(final Iterable<? extends K> iterable,
+            final Comparator<? super K> comparator) {
         Preconditions.checkNotNull(iterable);
         Preconditions.checkNotNull(comparator);
 
@@ -67,9 +60,8 @@ public class IterableUtils {
         return list;
     }
 
-    public static <K> List<K> sortedReversedListCopy(
-        final Iterable<? extends K> iterable,
-        final Comparator<? super K> comparator) {
+    public static <K> List<K> sortedReversedListCopy(final Iterable<? extends K> iterable,
+            final Comparator<? super K> comparator) {
         Preconditions.checkNotNull(iterable);
         Preconditions.checkNotNull(comparator);
 

@@ -1,20 +1,19 @@
 package it.ozimov.cirneco.hamcrest.java7.date;
 
-import it.ozimov.cirneco.hamcrest.java7.BaseMatcherTest;
+import static org.hamcrest.Matchers.is;
+
+import static org.junit.Assert.assertThat;
+
+import java.util.Date;
 
 import org.hamcrest.Matcher;
 
-import static org.hamcrest.Matchers.is;
-
 import org.joda.time.DateTime;
-
-import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Date;
-
+import it.ozimov.cirneco.hamcrest.java7.BaseMatcherTest;
 
 public class IsDateInLeapYearTest extends BaseDateMatcherTest {
 
@@ -22,46 +21,45 @@ public class IsDateInLeapYearTest extends BaseDateMatcherTest {
     public Date leapYear;
     public Date nonLeapYear;
 
-    @Before public void setUp() {
+    @Before
+    public void setUp() {
 
-        //Arrange
+        // Arrange
         isLeapYearMatcher = IsDateInLeapYear.leapYear();
 
         leapYear = new DateTime(2000, 2, 29, 0, 0, TIME_ZONE).toDate();
         nonLeapYear = new DateTime(1982, 2, 28, 0, 0, TIME_ZONE).toDate();
     }
 
-    @Test public void testGivenALeapYearWhenMatchesIsCalledThenTrueIsReturned()
-        throws Exception {
+    @Test
+    public void testGivenALeapYearWhenMatchesIsCalledThenTrueIsReturned() throws Exception {
 
-        //Act
+        // Act
         final boolean isLeapYear = isLeapYearMatcher.matches(leapYear);
 
-        //Assert
-        assertThat(String.format("%tD is leap year", leapYear), isLeapYear,
-            is(true));
+        // Assert
+        assertThat(String.format("%tD is leap year", leapYear), isLeapYear, is(true));
     }
 
-    @Test public void testGivenANonLeapYearWhenMatchesIsCalledThenFalseIsReturned()
-        throws Exception {
+    @Test
+    public void testGivenANonLeapYearWhenMatchesIsCalledThenFalseIsReturned() throws Exception {
 
-        //Act
+        // Act
         final boolean isLeapYear = isLeapYearMatcher.matches(nonLeapYear);
 
-        //Assert
-        assertThat(String.format("%tD is not leap year", leapYear), isLeapYear,
-            is(false));
+        // Assert
+        assertThat(String.format("%tD is not leap year", leapYear), isLeapYear, is(false));
     }
 
-    @Test public void testDescribeMismatchSafely() throws Exception {
-        BaseMatcherTest.assertHasMismatchDescription(String.format(
-                "<%s> is not a leap year", nonLeapYear), isLeapYearMatcher,
-            nonLeapYear);
+    @Test
+    public void testDescribeMismatchSafely() throws Exception {
+        BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> is not a leap year", nonLeapYear),
+            isLeapYearMatcher, nonLeapYear);
     }
 
-    @Test public void testDescribeTo() throws Exception {
-        BaseMatcherTest.assertIsDescribedTo("a date in a leap year",
-            isLeapYearMatcher);
+    @Test
+    public void testDescribeTo() throws Exception {
+        BaseMatcherTest.assertIsDescribedTo("a date in a leap year", isLeapYearMatcher);
     }
 
 }

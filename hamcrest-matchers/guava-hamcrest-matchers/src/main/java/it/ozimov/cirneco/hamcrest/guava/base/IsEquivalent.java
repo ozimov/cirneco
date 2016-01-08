@@ -1,18 +1,16 @@
 package it.ozimov.cirneco.hamcrest.guava.base;
 
-import com.google.common.base.Equivalence;
-import static com.google.common.base.Preconditions.checkNotNull;
-
-import com.google.common.base.Preconditions;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
+import com.google.common.base.Equivalence;
+import com.google.common.base.Preconditions;
 
 /**
  * Is the value equivalent to another value as specified by the provided {@linkplain Equivalence}?
  *
- * @since version 0.1 for JDK7
+ * @since  version 0.1 for JDK7
  */
 public class IsEquivalent<T> extends TypeSafeMatcher<T> {
 
@@ -21,8 +19,7 @@ public class IsEquivalent<T> extends TypeSafeMatcher<T> {
     private final Equivalence<T> equivalence;
 
     /**
-     * Creates an instance of the class. <code>comparison</code> can be null,
-     * while <code>equivalence</code> cannot.
+     * Creates an instance of the class. <code>comparison</code> can be null, while <code>equivalence</code> cannot.
      */
     public IsEquivalent(final T comparison, final Equivalence<T> equivalence) {
         Preconditions.checkNotNull(equivalence);
@@ -32,25 +29,24 @@ public class IsEquivalent<T> extends TypeSafeMatcher<T> {
     }
 
     /**
-     * Creates a matcher that matches when the examined object of type <code>T</code>
-     * is equivalent to the specified <code>comparison</code> object according to
-     * the provided {@linkplain Equivalence}.
+     * Creates a matcher that matches when the examined object of type <code>T</code> is equivalent to the specified
+     * <code>comparison</code> object according to the provided {@linkplain Equivalence}.
+     *
      * <p/>
      * <p>Observe that the {@linkplain Equivalence} can deal with nulls.</p>
      */
-    public static <T> Matcher<T> equivalentTo(final T expected,
-        final Equivalence<T> equivalence) {
+    public static <T> Matcher<T> equivalentTo(final T expected, final Equivalence<T> equivalence) {
         return new IsEquivalent<>(expected, equivalence);
     }
 
-    @Override protected boolean matchesSafely(final T actual) {
+    @Override
+    protected boolean matchesSafely(final T actual) {
         return equivalence.equivalent(actual, comparison);
     }
 
-    @Override protected void describeMismatchSafely(final T item,
-        final Description mismatchDescription) {
-        mismatchDescription.appendValue(item).appendText(
-            " is not equivalent to ");
+    @Override
+    protected void describeMismatchSafely(final T item, final Description mismatchDescription) {
+        mismatchDescription.appendValue(item).appendText(" is not equivalent to ");
 
         if (comparison == null) {
             mismatchDescription.appendText("null value");
@@ -58,14 +54,13 @@ public class IsEquivalent<T> extends TypeSafeMatcher<T> {
             mismatchDescription.appendValue(comparison);
         }
 
-        mismatchDescription.appendText(" according with Equivalence ")
-            .appendValue(equivalence);
+        mismatchDescription.appendText(" according with Equivalence ").appendValue(equivalence);
     }
 
-    @Override public void describeTo(final Description description) {
+    @Override
+    public void describeTo(final Description description) {
         description.appendText("a value equivalent to ").appendValue(comparison)
-            .appendText(" according with Equivalence ").appendValue(
-            equivalence);
+                   .appendText(" according with Equivalence ").appendValue(equivalence);
     }
 
 }

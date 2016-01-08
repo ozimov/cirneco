@@ -1,15 +1,14 @@
 package it.ozimov.cirneco.hamcrest.guava.collect;
 
 import static com.google.common.base.Preconditions.checkArgument;
-import com.google.common.collect.Multimap;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
+import com.google.common.collect.Multimap;
 
-public class IsMultimapWithKeySetSize<K>
-    extends TypeSafeMatcher<Multimap<K, ?>> {
+public class IsMultimapWithKeySetSize<K> extends TypeSafeMatcher<Multimap<K, ?>> {
 
     private final int size;
 
@@ -27,33 +26,33 @@ public class IsMultimapWithKeySetSize<K>
     }
 
     /**
-     * Creates a matcher for {@linkplain Multimap} matching when the examined object has a key set with
-     * size equals to <code>size</code>.
+     * Creates a matcher for {@linkplain Multimap} matching when the examined object has a key set with size equals to
+     * <code>size</code>.
      */
     public static <K> Matcher<Multimap<K, ?>> keySetWithSize(final int size) {
         return new IsMultimapWithKeySetSize(size);
     }
 
-    @Override public boolean matchesSafely(final Multimap<K, ?> actual) {
+    @Override
+    public boolean matchesSafely(final Multimap<K, ?> actual) {
         return actual.keySet().size() == size;
     }
 
-    @Override public void describeMismatchSafely(final Multimap<K, ?> multimap,
-        final Description mismatchDescription) {
-        mismatchDescription.appendText(" Multimap had key set with ")
-            .appendValue(multimap.keySet().size()).appendText(" elements");
+    @Override
+    public void describeMismatchSafely(final Multimap<K, ?> multimap, final Description mismatchDescription) {
+        mismatchDescription.appendText(" Multimap had key set with ").appendValue(multimap.keySet().size()).appendText(
+            " elements");
     }
 
-    @Override public void describeTo(final Description description) {
+    @Override
+    public void describeTo(final Description description) {
 
         if (size == 0) {
             description.appendText("a Multimap with no elements");
         } else {
-            description.appendText("a Multimap with ").appendValue(size)
-                .appendText(" elements");
+            description.appendText("a Multimap with ").appendValue(size).appendText(" elements");
 
         }
     }
-
 
 }
