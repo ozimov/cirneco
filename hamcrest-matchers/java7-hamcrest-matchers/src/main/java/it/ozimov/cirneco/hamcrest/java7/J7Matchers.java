@@ -1,9 +1,14 @@
 package it.ozimov.cirneco.hamcrest.java7;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.Map;
 
+import it.ozimov.cirneco.hamcrest.java7.collect.IsIterableContainingInAnyOrder;
+import it.ozimov.cirneco.hamcrest.java7.collect.IsIterableContainingInOrder;
+import it.ozimov.cirneco.hamcrest.java7.collect.IsIterableContainingInRelativeOrder;
 import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
 
@@ -32,6 +37,8 @@ import it.ozimov.cirneco.hamcrest.java7.number.IsNotANumber;
 import it.ozimov.cirneco.hamcrest.java7.number.IsPositive;
 import it.ozimov.cirneco.hamcrest.java7.number.IsPositiveInfinity;
 import it.ozimov.cirneco.hamcrest.java7.web.IsEmail;
+
+import static org.hamcrest.Matchers.equalTo;
 
 /**
  * {@inheritDoc} The {@code J7Matchers} class groups all the matchers introduced by Cirneco's Hamcrest extension for
@@ -479,6 +486,72 @@ public class J7Matchers extends HamcrestMatchers {
      */
     public static <E> Matcher<Iterable<? extends E>> empty() {
         return IsEmptyIterable.empty();
+    }
+
+    /**
+     * <p>Creates an order agnostic matcher for {@linkplain Iterable}s that matches when a single pass over the examined
+     * {@linkplain Iterable} yields a series of items, each logically equal to one item anywhere in the specified items.
+     * For a positive match, the examined iterable must be of the same length as the number of specified items.</p>
+     * <p>N.B. each of the specified items will only be used once during a given examination, so be careful when
+     * specifying items that may be equal to more than one entry in an examined iterable. For example:</p>
+     * <br />
+     * <pre>
+     *     //Arrange
+     *     Iterable<String> actual = Arrays.asList("foo", "bar");
+     *     Iterable<String> expected = Arrays.asList("bar", "foo");
+     *
+     *     //Assert
+     *     assertThat(actual, containsInAnyOrder(expected));
+     * </pre>
+     *
+     * @param items the items that must equal the items provided by an examined {@linkplain Iterable} in any order
+     */
+    public static <T> Matcher<Iterable<? extends T>> containsInAnyOrder(final Iterable<T> items) {
+        return IsIterableContainingInAnyOrder.containsInAnyOrder(items);
+    }
+
+    /**
+     * Creates a matcher for {@linkplain Iterable}s that matches when a single pass over the examined
+     * {@linkplain Iterable} yields a series of items, each logically equal to the corresponding item in the specified
+     * items. For a positive match, the examined iterable must be of the same length as the number of specified items.
+     * For example:
+     * <br />
+     * <pre>
+     *     //Arrange
+     *     Iterable<String> actual = Arrays.asList("foo", "bar");
+     *     Iterable<String> expected = Arrays.asList("foo", "bar");
+     *
+     *     //Assert
+     *     assertThat(actual, containsInOrder(expected));
+     * </pre>
+
+     *
+     * @param  items  the items that must equal the items provided by an examined {@linkplain Iterable}
+     */
+    public static <T> Matcher<Iterable<? extends T>> containsInOrder(final Iterable<T> items) {
+        return IsIterableContainingInOrder.containsInOrder(items);
+    }
+
+    /**
+     * Creates a matcher for {@linkplain Iterable}s that matches when a single pass over the examined
+     * {@linkplain Iterable} yields a series of items, that contains items logically equal to the corresponding item in
+     * the specified items, in the same relative order For example:
+     * <br />
+     * <pre>
+     *     //Arrange
+     *     Iterable<String> actual = Arrays.asList("a", "b", "c", "d");
+     *     Iterable<String> expected = Arrays.asList("a", "c");
+     *
+     *     //Assert
+     *     assertThat(actual, containsInRelativeOrder(expected));
+     * </pre>
+
+     *
+     * @param  items  the items that must be contained within items provided by an examined {@linkplain Iterable} in the
+     *                same relative order
+     */
+    public static <T> Matcher<Iterable<? extends T>> containsInRelativeOrder(final Iterable<T> items) {
+        return IsIterableContainingInRelativeOrder.containsInRelativeOrder(items);
     }
 
     /**

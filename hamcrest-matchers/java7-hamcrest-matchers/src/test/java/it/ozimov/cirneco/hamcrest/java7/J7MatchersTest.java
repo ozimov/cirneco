@@ -7,10 +7,14 @@ import static org.junit.Assert.assertThat;
 
 import static it.ozimov.cirneco.hamcrest.java7.date.utils.ClockPeriod.AM;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.Set;
 
+import it.ozimov.cirneco.hamcrest.java7.collect.IsIterableContainingInAnyOrder;
+import it.ozimov.cirneco.hamcrest.java7.collect.IsIterableContainingInOrder;
+import it.ozimov.cirneco.hamcrest.java7.collect.IsIterableContainingInRelativeOrder;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
@@ -273,7 +277,7 @@ public class J7MatchersTest {
     }
 
     @Test
-    public void testSaturda() throws Exception {
+    public void testSaturday() throws Exception {
         assertThat(J7Matchers.saturday(), instanceOf(IsDateInDay.class));
     }
 
@@ -300,6 +304,21 @@ public class J7MatchersTest {
     @Test
     public void testEmpty() throws Exception {
         assertThat(J7Matchers.empty(), instanceOf(IsEmptyIterable.class));
+    }
+
+    @Test
+    public void testContainsInAnyOrder() throws Exception {
+        assertThat(J7Matchers.containsInAnyOrder(Arrays.asList(object, object)), instanceOf(IsIterableContainingInAnyOrder.class));
+    }
+
+    @Test
+    public void testContainsInOrder() throws Exception {
+        assertThat(J7Matchers.containsInOrder(Arrays.asList(object, object)), instanceOf(IsIterableContainingInOrder.class));
+    }
+
+    @Test
+    public void testContainsInRelativeOrder() throws Exception {
+        assertThat(J7Matchers.containsInRelativeOrder(Arrays.asList(object, object)), instanceOf(IsIterableContainingInRelativeOrder.class));
     }
 
     @Test

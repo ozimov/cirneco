@@ -22,7 +22,7 @@ import org.hamcrest.TypeSafeMatcher;
 public class IsIterableWithDistinctElements<E> extends TypeSafeMatcher<Iterable<? extends E>> {
 
     /**
-     * Creates a matcher for {@link Iterable}s that matches when the examined {@link Iterable} has only distinct
+     * Creates a matcher for {@linkplain Iterable}s that matches when the examined {@linkplain Iterable} has only distinct
      * elements.
      *
      * <p>For example:

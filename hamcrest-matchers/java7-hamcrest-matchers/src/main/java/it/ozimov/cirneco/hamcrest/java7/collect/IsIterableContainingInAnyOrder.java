@@ -21,13 +21,17 @@ public class IsIterableContainingInAnyOrder<T> extends org.hamcrest.collection.I
      * <p>Creates an order agnostic matcher for {@linkplain Iterable}s that matches when a single pass over the examined
      * {@linkplain Iterable} yields a series of items, each logically equal to one item anywhere in the specified items.
      * For a positive match, the examined iterable must be of the same length as the number of specified items.</p>
-     * <p>
      * <p>N.B. each of the specified items will only be used once during a given examination, so be careful when
-     * specifying items that may be equal to more than one entry in an examined iterable.</p>
-     * <p>
-     * <p>For example:</p>
-     * <p>
-     * <pre>assertThat(Arrays.asList("foo", "bar"), containsInAnyOrder("bar", "foo"))</pre>
+     * specifying items that may be equal to more than one entry in an examined iterable. For example:</p>
+     * <br />
+     * <pre>
+     *     //Arrange
+     *     Iterable<String> actual = Arrays.asList("foo", "bar");
+     *     Iterable<String> expected = Arrays.asList("bar", "foo");
+     *
+     *     //Assert
+     *     assertThat(actual, containsInAnyOrder(expected));
+     * </pre>
      *
      * @param items the items that must equal the items provided by an examined {@linkplain Iterable} in any order
      */
