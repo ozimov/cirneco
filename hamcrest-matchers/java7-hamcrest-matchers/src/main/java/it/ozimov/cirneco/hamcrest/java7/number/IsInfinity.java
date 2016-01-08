@@ -10,6 +10,7 @@ import org.hamcrest.TypeSafeMatcher;
  * Is the value a {@linkplain Number} with infinite value?
  *
  * <p>
+ * <p>
  * <p>Observe that for Cirneco, only {@linkplain Double} and {@linkplain Float} admit an infinite value according to the
  * JDK 6 and superior (included {@linkplain BigDecimal}). Any third party implementation of a <code>Number</code> is not
  * handled.
@@ -22,8 +23,10 @@ public class IsInfinity<N extends Number> extends TypeSafeMatcher<N> {
      * Creates a matcher for {@code N} that matches when the number is a {@linkplain Double} or {@linkplain Float} with
      * value equal to either <code>POSITIVE_INFINITY</code> or <code>NEGATIVE_INFINITY</code>.
      *
+     * <p>
      * <p>For example:
      *
+     * <p>
      * <pre>assertThat(10, negativeInfinity())</pre>
      *
      * will return <code>false</code>. while:

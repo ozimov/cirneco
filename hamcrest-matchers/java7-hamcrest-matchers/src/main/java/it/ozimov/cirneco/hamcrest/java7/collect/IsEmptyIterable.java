@@ -9,6 +9,7 @@ import org.hamcrest.TypeSafeMatcher;
 /**
  * Is the {@linkplain Iterable} empty?
  *
+ * <p>
  * <p>The matcher first checks if the given {@code Iterable} is a {@linkplain Collection} (to get some speedup by using
  * the {@linkplain Collection#isEmpty()}} method, otherwise get the iterator from the {@code Iterable} and check if has
  * a next item.
@@ -20,8 +21,10 @@ public class IsEmptyIterable<E> extends TypeSafeMatcher<Iterable<? extends E>> {
     /**
      * Creates a matcher for {@link Iterable}s that matches when the examined {@link Iterable} has no items.
      *
+     * <p>
      * <p>For example:
      *
+     * <p>
      * <pre>assertThat(new ArrayList<>(), empty())</pre>
      *
      * returns <code>true</code>.

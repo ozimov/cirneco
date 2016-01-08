@@ -32,6 +32,7 @@ public class IsEquivalent<T> extends TypeSafeMatcher<T> {
      * Creates a matcher that matches when the examined object of type <code>T</code> is equivalent to the specified
      * <code>comparison</code> object according to the provided {@linkplain Equivalence}.
      *
+     * <p>
      * <p/>
      * <p>Observe that the {@linkplain Equivalence} can deal with nulls.</p>
      */

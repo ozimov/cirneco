@@ -14,8 +14,10 @@ public class IsPositive<N extends Number> extends TypeSafeMatcher<N> {
     /**
      * Creates a matcher for {@code N} that matches when the it has a value that is greater than zero.
      *
+     * <p>
      * <p>For example:
      *
+     * <p>
      * <pre>assertThat(100, positive())</pre>
      *
      * will return <code>true</code>.

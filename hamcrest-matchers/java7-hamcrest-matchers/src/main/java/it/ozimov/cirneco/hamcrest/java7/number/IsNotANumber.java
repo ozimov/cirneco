@@ -15,8 +15,10 @@ public class IsNotANumber<N extends Number> extends TypeSafeMatcher<N> {
      * Creates a matcher for {@code N} that matches when the number is a {@linkplain Double} or {@linkplain Float} such
      * that a call to method <code>isNaN()</code> returns true.
      *
+     * <p>
      * <p>For example:
      *
+     * <p>
      * <pre>assertThat((1.0/.0D), notANumber())</pre>
      *
      * will return <code>true</code>.

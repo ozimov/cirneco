@@ -34,8 +34,10 @@ public class IsBetweenUpperBoundInclusive<T extends Comparable<T>> extends TypeS
      * Creates a matcher for {@code T}s that matches when the <code>compareTo()</code> method returns a value between
      * <code>from</code> and <code>to</code>, both included.
      *
+     * <p>
      * <p>For example:
      *
+     * <p>
      * <pre>assertThat(11, betweenUpperBoundInclusive(10, 11))</pre>
      *
      * will return true. while:

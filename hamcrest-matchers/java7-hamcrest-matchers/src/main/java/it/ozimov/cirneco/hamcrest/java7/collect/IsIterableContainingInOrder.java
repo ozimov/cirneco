@@ -22,17 +22,16 @@ public class IsIterableContainingInOrder<T> extends org.hamcrest.collection.IsIt
      * Creates a matcher for {@linkplain Iterable}s that matches when a single pass over the examined
      * {@linkplain Iterable} yields a series of items, each logically equal to the corresponding item in the specified
      * items. For a positive match, the examined iterable must be of the same length as the number of specified items.
-     * For example:
-     * <br />
-     * <pre>
-     *     //Arrange
-     *     Iterable<String> actual = Arrays.asList("foo", "bar");
-     *     Iterable<String> expected = Arrays.asList("foo", "bar");
+     * For example:<br />
      *
-     *     //Assert
-     *     assertThat(actual, containsInOrder(expected));
-     * </pre>
+     * <pre>
+           //Arrange
+           Iterable<String> actual = Arrays.asList("foo", "bar");
+           Iterable<String> expected = Arrays.asList("foo", "bar");
 
+           //Assert
+           assertThat(actual, containsInOrder(expected));
+     * </pre>
      *
      * @param  items  the items that must equal the items provided by an examined {@linkplain Iterable}
      */

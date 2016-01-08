@@ -15,8 +15,10 @@ public class IsNegativeInfinity<N extends Number> extends TypeSafeMatcher<N> {
      * Creates a matcher for {@code N} that matches when the number is a {@linkplain Double} or {@linkplain Float} with
      * value equal to <code>NEGATIVE_INFINITY</code>.
      *
+     * <p>
      * <p>For example:
      *
+     * <p>
      * <pre>assertThat(Float.NegativeInfinity, negativeInfinity())</pre>
      *
      * will return <code>true</code>. while:

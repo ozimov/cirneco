@@ -12,9 +12,6 @@ import java.util.Comparator;
 import java.util.Map;
 import java.util.Set;
 
-import it.ozimov.cirneco.hamcrest.java7.collect.IsIterableContainingInAnyOrder;
-import it.ozimov.cirneco.hamcrest.java7.collect.IsIterableContainingInOrder;
-import it.ozimov.cirneco.hamcrest.java7.collect.IsIterableContainingInRelativeOrder;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
@@ -35,6 +32,9 @@ import it.ozimov.cirneco.hamcrest.java7.base.IsBetweenUpperBoundInclusive;
 import it.ozimov.cirneco.hamcrest.java7.base.IsSame;
 import it.ozimov.cirneco.hamcrest.java7.collect.BaseIterableMatcherTest;
 import it.ozimov.cirneco.hamcrest.java7.collect.IsEmptyIterable;
+import it.ozimov.cirneco.hamcrest.java7.collect.IsIterableContainingInAnyOrder;
+import it.ozimov.cirneco.hamcrest.java7.collect.IsIterableContainingInOrder;
+import it.ozimov.cirneco.hamcrest.java7.collect.IsIterableContainingInRelativeOrder;
 import it.ozimov.cirneco.hamcrest.java7.collect.IsIterableWithDistinctElements;
 import it.ozimov.cirneco.hamcrest.java7.collect.IsMapWithSameKeySet;
 import it.ozimov.cirneco.hamcrest.java7.collect.IsSortedIterable;
@@ -308,17 +308,20 @@ public class J7MatchersTest {
 
     @Test
     public void testContainsInAnyOrder() throws Exception {
-        assertThat(J7Matchers.containsInAnyOrder(Arrays.asList(object, object)), instanceOf(IsIterableContainingInAnyOrder.class));
+        assertThat(J7Matchers.containsInAnyOrder(Arrays.asList(object, object)),
+            instanceOf(IsIterableContainingInAnyOrder.class));
     }
 
     @Test
     public void testContainsInOrder() throws Exception {
-        assertThat(J7Matchers.containsInOrder(Arrays.asList(object, object)), instanceOf(IsIterableContainingInOrder.class));
+        assertThat(J7Matchers.containsInOrder(Arrays.asList(object, object)),
+            instanceOf(IsIterableContainingInOrder.class));
     }
 
     @Test
     public void testContainsInRelativeOrder() throws Exception {
-        assertThat(J7Matchers.containsInRelativeOrder(Arrays.asList(object, object)), instanceOf(IsIterableContainingInRelativeOrder.class));
+        assertThat(J7Matchers.containsInRelativeOrder(Arrays.asList(object, object)),
+            instanceOf(IsIterableContainingInRelativeOrder.class));
     }
 
     @Test

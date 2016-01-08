@@ -14,8 +14,10 @@ public class IsNegative<N extends Number> extends TypeSafeMatcher<N> {
     /**
      * Creates a matcher for {@code N} that matches when the it has a value that is less than zero.
      *
+     * <p>
      * <p>For example:
      *
+     * <p>
      * <pre>assertThat(-100, negative())</pre>
      *
      * will return <code>true</code>.

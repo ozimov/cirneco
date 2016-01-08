@@ -4,7 +4,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Added
+- Added Hamcrest matchers in `J7Matchers`
+- Extended matchers `IsIterableContainingInAnyOrder`, `IsIterableContainingInOrder` and
+`IsIterableContainingInRelativeOrder`
+
 ### Changed
+- Imported `hamcrest-java 2.0.0.0` instead of `hamcrest-library 1.3`
 - Removed old modules and created three new ones (for Google Guava, JDK7 and JDK8), with artifact id:
     -`java7-hamcrest-matchers` that replaces module with artifact `cirneco-matchers-jdk7`
     -`guava-hamcrest-matchers` that extract matchers from module with artifact `cirneco-matchers-jdk7`

@@ -8,11 +8,14 @@ import org.hamcrest.Matcher;
  * Is the object the same instance as another?
  *
  * <p>
+ * <p>
  * <p>With respect to the class {@linkplain org.hamcrest.core.IsSame}, this versions can compare objects of two
  * different classes. So, you can assert as follows: <code>Integer integer = 10; Number number = integer;
  *
+ * <p>
  * <p>assertThat(number, sameInstance(integer));</code>
  *
+ * <p>
  * <p>This is in general very useful with any interface and one of its actual implementations.
  *
  * @since  version 0.1 for JDK7

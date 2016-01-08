@@ -13,6 +13,7 @@ import it.ozimov.cirneco.hamcrest.java7.date.utils.CalendarUtils;
 /**
  * Is {@linkplain Date} in a given weekOfYear of the year?
  *
+ * <p>
  * <p>The matcher is compliant to the <em>ISO 8601</em> standard. Hence, a day at the end of December in year <em>X</em>
  * may be part of the subsequent year <em>X+1</em> (and similarly for the first days of January).
  *

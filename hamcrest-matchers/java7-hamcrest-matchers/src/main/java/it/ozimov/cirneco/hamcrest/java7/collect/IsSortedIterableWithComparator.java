@@ -16,6 +16,7 @@ import org.hamcrest.TypeSafeMatcher;
 /**
  * Is the {@linkplain Iterable} sorted according to the given {@linkplain Comparator}?
  *
+ * <p>
  * <p>Observe that the matcher can be used also with an instance of {@linkplain com.google.common.collect.Ordering},
  * thus enabling for powerful assertions based on that extension of <code>Comparator</code>.
  *

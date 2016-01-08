@@ -1,4 +1,4 @@
-package it.ozimov.cirneco.hamcrest.java7.map;
+package it.ozimov.cirneco.hamcrest.java7.collect;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +12,6 @@ import org.junit.Test;
 import com.google.common.collect.ImmutableMap;
 
 import it.ozimov.cirneco.hamcrest.java7.BaseMatcherTest;
-import it.ozimov.cirneco.hamcrest.java7.collect.IsMapWithSameKeySet;
 
 public class IsMapWithSameKeySetTest extends BaseMatcherTest {
 
