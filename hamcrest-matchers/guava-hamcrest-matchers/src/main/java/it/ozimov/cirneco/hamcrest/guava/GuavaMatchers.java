@@ -1,101 +1,82 @@
 package it.ozimov.cirneco.hamcrest.guava;
 
+import java.util.Collection;
+import java.util.Set;
+
+import org.hamcrest.Matcher;
+
 import com.google.common.base.Equivalence;
 import com.google.common.base.Optional;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multiset;
 
-import it.ozimov.cirneco.hamcrest.guava.base.IsEmptyOptional;
+import it.ozimov.cirneco.hamcrest.guava.base.IsEmptyGuavaOptional;
 import it.ozimov.cirneco.hamcrest.guava.base.IsEquivalent;
 import it.ozimov.cirneco.hamcrest.guava.collect.IsMultimapKeyWithCollectionSize;
 import it.ozimov.cirneco.hamcrest.guava.collect.IsMultimapWithKeySet;
 import it.ozimov.cirneco.hamcrest.guava.collect.IsMultimapWithKeySetSize;
 import it.ozimov.cirneco.hamcrest.guava.collect.IsMultisetElementWithCount;
-import it.ozimov.cirneco.hamcrest.java7.number.IsInfinity;
-import it.ozimov.cirneco.hamcrest.java7.number.IsNegative;
-import it.ozimov.cirneco.hamcrest.java7.number.IsNegativeInfinity;
-import it.ozimov.cirneco.hamcrest.java7.number.IsNotANumber;
-import it.ozimov.cirneco.hamcrest.java7.number.IsPositive;
-import it.ozimov.cirneco.hamcrest.java7.number.IsPositiveInfinity;
-import it.ozimov.cirneco.hamcrest.java7.web.IsEmail;
-
-import org.hamcrest.Matcher;
-import org.hamcrest.Matchers;
-
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.Map;
-import java.util.Set;
-
 
 /**
- * The {@code GuavaMatchers} class groups all the matchers
- * introduced by Cirneco's Hamcrest extension for <a href="https://github.com/google/guava">Google Guava library</a>.
- * Suggested use would be to import all the static methods of this class in a unit test.
+ * The {@code GuavaMatchers} class groups all the matchers introduced by Cirneco's Hamcrest extension for <a
+ * href="https://github.com/google/guava">Google Guava library</a>. Suggested use would be to import all the static
+ * methods of this class in a unit test.
  *
- * @since version 0.1 for JDK7
+ * @since  version 0.1 for JDK7
  */
 public class GuavaMatchers {
 
-    //BASE
-
+    // BASE
 
     /**
-     * Creates a matcher that matches when the examined {@linkplain Optional}
-     * contains no object.
+     * Creates a matcher that matches when the examined {@linkplain Optional} contains no object.
      */
-    public static Matcher<Optional> emptyOptional() {
-        return IsEmptyOptional.emptyOptional();
+    public static Matcher<Optional> emptyGuavaOptional() {
+        return IsEmptyGuavaOptional.emptyGuavaOptional();
     }
 
     /**
-     * Creates a matcher that matches when the examined object of type <code>T</code>
-     * is equivalent to the specified <code>comparison</code> object according to
-     * the provided {@linkplain Equivalence}.
+     * Creates a matcher that matches when the examined object of type <code>T</code> is equivalent to the specified
+     * <code>comparison</code> object according to the provided {@linkplain Equivalence}.
+     *
      * <p/>
      * <p>Observe that the {@linkplain Equivalence} can deal with nulls.</p>
      */
-    public static <T> Matcher<T> equivalentTo(final T expected,
-        final Equivalence<T> equivalence) {
+    public static <T> Matcher<T> equivalentTo(final T expected, final Equivalence<T> equivalence) {
         return IsEquivalent.equivalentTo(expected, equivalence);
     }
 
-    //COLLECT
+    // COLLECT
 
     /**
-     * Creates a matcher for {@linkplain Multiset} matching when the examined object <code>E</code>
-     * has <code>size</code> occurrences.
+     * Creates a matcher for {@linkplain Multiset} matching when the examined object <code>E</code> has <code>
+     * size</code> occurrences.
      */
-    public static <E> Matcher<Multiset<E>> elementWithCount(final E element,
-        final int size) {
+    public static <E> Matcher<Multiset<E>> elementWithCount(final E element, final int size) {
         return IsMultisetElementWithCount.elementWithCount(element, size);
     }
 
     /**
-     * Creates a matcher for {@linkplain Multimap} matching when the examined object <code>K</code> in the key set
-     * has <code>size</code> elements in the retained {@linkplain Collection}.
+     * Creates a matcher for {@linkplain Multimap} matching when the examined object <code>K</code> in the key set has
+     * <code>size</code> elements in the retained {@linkplain Collection}.
      */
-    public static <K> Matcher<Multimap<K, ?>> keyWithSize(final K element,
-        final int size) {
+    public static <K> Matcher<Multimap<K, ?>> keyWithSize(final K element, final int size) {
         return IsMultimapKeyWithCollectionSize.keyWithSize(element, size);
     }
 
     /**
-     * Creates a matcher for {@linkplain  Multimap} matching when the examined object has exactly
-     * the same key set of the given comparison {@code Multimap}.
+     * Creates a matcher for {@linkplain Multimap} matching when the examined object has exactly the same key set of the
+     * given comparison {@code Multimap}.
      */
-    public static <K> Matcher<Multimap<K, ?>> hasSameKeySet(
-        final Multimap<K, ?> comparison) {
+    public static <K> Matcher<Multimap<K, ?>> hasSameKeySet(final Multimap<K, ?> comparison) {
         return IsMultimapWithKeySet.hasSameKeySet(comparison.keySet());
     }
 
     /**
-     * Creates a matcher for {@linkplain Multimap} matching when the examined object has a key set exactly
-     * equals to the given {@linkplain Set}.
+     * Creates a matcher for {@linkplain Multimap} matching when the examined object has a key set exactly equals to the
+     * given {@linkplain Set}.
      */
-    public static <K> Matcher<Multimap<K, ?>> hasSameKeySet(
-        final Set<K> comparison) {
+    public static <K> Matcher<Multimap<K, ?>> hasSameKeySet(final Set<K> comparison) {
         return IsMultimapWithKeySet.hasSameKeySet(comparison);
     }
 
@@ -107,8 +88,8 @@ public class GuavaMatchers {
     }
 
     /**
-     * Creates a matcher for {@linkplain Multimap} matching when the examined object has a key set with
-     * size equals to <code>size</code>.
+     * Creates a matcher for {@linkplain Multimap} matching when the examined object has a key set with size equals to
+     * <code>size</code>.
      */
     public static <K> Matcher<Multimap<K, ?>> keySetWithSize(final int size) {
         return IsMultimapWithKeySetSize.keySetWithSize(size);

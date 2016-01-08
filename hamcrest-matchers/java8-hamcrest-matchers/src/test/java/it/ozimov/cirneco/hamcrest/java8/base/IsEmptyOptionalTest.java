@@ -1,59 +1,58 @@
 package it.ozimov.cirneco.hamcrest.java8.base;
 
-import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
+import java.util.Optional;
 
 import org.hamcrest.Matcher;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Optional;
-
+import it.ozimov.cirneco.hamcrest.java7.BaseMatcherTest;
 
 public class IsEmptyOptionalTest extends BaseMatcherTest {
 
     public Matcher<Optional> isEmptyOptionalMatcher;
 
-    @Before public void setUp() {
+    @Before
+    public void setUp() {
 
-        //Arrange
+        // Arrange
         isEmptyOptionalMatcher = IsEmptyOptional.emptyOptional();
     }
 
-    @Test public void testDescribeMismatchSafely() throws Exception {
-        assertHasMismatchDescription("<Optional[]> is not an empty optional",
-            isEmptyOptionalMatcher, Optional.of(""));
+    @Test
+    public void testDescribeMismatchSafely() throws Exception {
+        assertHasMismatchDescription("<Optional[]> is not an empty optional", isEmptyOptionalMatcher, Optional.of(""));
     }
 
-    @Test public void testDescribeTo() throws Exception {
-        assertIsDescribedTo("an optional with no content",
-            isEmptyOptionalMatcher);
+    @Test
+    public void testDescribeTo() throws Exception {
+        assertIsDescribedTo("an optional with no content", isEmptyOptionalMatcher);
     }
 
-    @Test public void testGivenAnEmptyOptionalWhenMatchesIsCalledThenTrueIsReturned()
-        throws Exception {
+    @Test
+    public void testGivenAnEmptyOptionalWhenMatchesIsCalledThenTrueIsReturned() throws Exception {
 
-        //Arrange
+        // Arrange
         final Optional emptyOptional = Optional.empty();
 
-        //Act
+        // Act
         final boolean matches = isEmptyOptionalMatcher.matches(emptyOptional);
 
-        //Assert
+        // Assert
         assertMatches("Expected to be empty", matches);
     }
 
-    @Test public void testGivenANonEmptyOptionalWhenMatchesIsCalledThenFalseIsReturned()
-        throws Exception {
+    @Test
+    public void testGivenANonEmptyOptionalWhenMatchesIsCalledThenFalseIsReturned() throws Exception {
 
-        //Arrange
+        // Arrange
         final Optional nonEmptyOptional = Optional.of("");
 
-        //Act
-        final boolean matches = isEmptyOptionalMatcher.matches(
-                nonEmptyOptional);
+        // Act
+        final boolean matches = isEmptyOptionalMatcher.matches(nonEmptyOptional);
 
-        //Assert
+        // Assert
         assertDoesNotMatch("Expected to contains an object", matches);
     }
 

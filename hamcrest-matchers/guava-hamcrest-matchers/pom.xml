@@ -70,8 +70,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin}</version>
                 <configuration>
-                    <source>${java8.version}</source>
-                    <target>${java8.version}</target>
+                    <source>${java7.version}</source>
+                    <target>${java7.version}</target>
                 </configuration>
             </plugin>
 

@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 
 import it.ozimov.cirneco.hamcrest.java7.BaseMatcherTest;
 
+import it.ozimov.cirneco.hamcrest.java7.collect.IsMapWithSameKeySet;
 import org.hamcrest.Matcher;
 
 import org.junit.Before;
