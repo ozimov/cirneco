@@ -7,17 +7,19 @@ import org.hamcrest.TypeSafeMatcher;
 /**
  * Is the value a number with positive infinite value?
  *
- * @since  version 0.1 for JDK7
+ * @since version 0.1 for JDK7
  */
 public class IsPositiveInfinity<N extends Number> extends TypeSafeMatcher<N> {
 
     /**
      * Creates a matcher for {@code N} that matches when the number is a {@linkplain Double} or {@linkplain Float} with
      * value equal to <code>POSITIVE_INFINITY</code>.
-     *
+     * <p>
+     * <p>
      * <p>
      * <p>For example:
-     *
+     * <p>
+     * <p>
      * <p>
      * <pre>assertThat(Double.PositiveInfinity, positiveInfinity())</pre>
      *

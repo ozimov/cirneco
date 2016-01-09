@@ -35,8 +35,12 @@ public class IsBetweenInclusive<T extends Comparable<T>> extends TypeSafeMatcher
      * <code>from</code> and <code>to</code>, both included.
      *
      * <p>
+     * <p>
+     * <p>
      * <p>For example:
      *
+     * <p>
+     * <p>
      * <p>
      * <pre>assertThat(10, betweenInclusive(10, 11))</pre>
      *

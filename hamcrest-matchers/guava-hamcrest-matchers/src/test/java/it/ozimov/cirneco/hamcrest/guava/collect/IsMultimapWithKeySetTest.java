@@ -17,7 +17,7 @@ import org.junit.Test;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 
-import it.ozimov.cirneco.hamcrest.java7.BaseMatcherTest;
+import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 
 public class IsMultimapWithKeySetTest extends BaseMatcherTest {
 

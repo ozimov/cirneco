@@ -30,6 +30,8 @@ public class IsMapWithSameKeySet<K> extends TypeSafeMatcher<Map<? extends K, ?>>
      * given map. For example:
      *
      * <p>
+     * <p>
+     * <p>
      * <pre>assertThat(myMap, hasSameKeySet(anotherMap))</pre>
      */
     public static <K> Matcher<Map<? extends K, ?>> hasSameKeySet(final Map<? extends K, ?> comparisonMap) {

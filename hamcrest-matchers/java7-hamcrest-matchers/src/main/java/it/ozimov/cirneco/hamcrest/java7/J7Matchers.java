@@ -5,7 +5,6 @@ import java.util.Date;
 import java.util.Map;
 
 import org.hamcrest.Matcher;
-import org.hamcrest.Matchers;
 
 import it.ozimov.cirneco.hamcrest.java7.base.IsBetween;
 import it.ozimov.cirneco.hamcrest.java7.base.IsBetweenInclusive;
@@ -52,8 +51,12 @@ public class J7Matchers extends HamcrestMatchers {
      *
      * <p>
      * <p>
+     * <p>
+     * <p>
      * <p>For example:
      *
+     * <p>
+     * <p>
      * <p>
      * <p>
      * <pre>assertThat(10, between(10, 11))</pre>
@@ -70,8 +73,12 @@ public class J7Matchers extends HamcrestMatchers {
      *
      * <p>
      * <p>
+     * <p>
+     * <p>
      * <p>For example:
      *
+     * <p>
+     * <p>
      * <p>
      * <p>
      * <pre>assertThat(10, betweenInclusive(10, 11))</pre>
@@ -88,8 +95,12 @@ public class J7Matchers extends HamcrestMatchers {
      *
      * <p>
      * <p>
+     * <p>
+     * <p>
      * <p>For example:
      *
+     * <p>
+     * <p>
      * <p>
      * <p>
      * <pre>assertThat(10, betweenLowerBoundInclusive(10, 11))</pre>
@@ -110,8 +121,12 @@ public class J7Matchers extends HamcrestMatchers {
      *
      * <p>
      * <p>
+     * <p>
+     * <p>
      * <p>For example:
      *
+     * <p>
+     * <p>
      * <p>
      * <p>
      * <pre>assertThat(11, betweenUpperBoundInclusive(10, 11))</pre>
@@ -140,8 +155,12 @@ public class J7Matchers extends HamcrestMatchers {
      *
      * <p>
      * <p>
+     * <p>
+     * <p>
      * <p>E.g.: <code>Date past; Date now; assertThat(now, after(past));</code>
      *
+     * <p>
+     * <p>
      * <p>
      * <p>
      * <p>
@@ -149,7 +168,7 @@ public class J7Matchers extends HamcrestMatchers {
      * {@linkplain org.hamcrest.Matchers#greaterThan(Comparable)}.
      */
     public static <T extends Comparable<T>> Matcher<T> after(final T value) {
-        return Matchers.greaterThan(value);
+        return greaterThan(value);
     }
 
     /**
@@ -159,9 +178,13 @@ public class J7Matchers extends HamcrestMatchers {
      *
      * <p>
      * <p>
+     * <p>
+     * <p>
      * <p>E.g.: <code>Date past; Date now; assertThat(now, afterOrEqual(now)); assertThat(now, afterOrEqual(past));
      * </code>
      *
+     * <p>
+     * <p>
      * <p>
      * <p>
      * <p>
@@ -169,7 +192,7 @@ public class J7Matchers extends HamcrestMatchers {
      * {@linkplain org.hamcrest.Matchers#greaterThanOrEqualTo(Comparable)}.
      */
     public static <T extends Comparable<T>> Matcher<T> afterOrEqual(final T value) {
-        return Matchers.greaterThanOrEqualTo(value);
+        return greaterThanOrEqualTo(value);
     }
 
     /**
@@ -178,15 +201,19 @@ public class J7Matchers extends HamcrestMatchers {
      *
      * <p>
      * <p>
+     * <p>
+     * <p>
      * <p>E.g.: <code>Date past; Date now; assertThat(past, before(now));</code>
      *
+     * <p>
+     * <p>
      * <p>
      * <p>
      * <p>
      * <p>The matcher renames the Hamcrest matcher obtained with {@linkplain org.hamcrest.Matchers#lessThan(Comparable)}.
      */
     public static <T extends Comparable<T>> Matcher<T> before(final T value) {
-        return Matchers.lessThan(value);
+        return lessThan(value);
     }
 
     /**
@@ -196,9 +223,13 @@ public class J7Matchers extends HamcrestMatchers {
      *
      * <p>
      * <p>
+     * <p>
+     * <p>
      * <p>E.g.: <code>Date past; Date now; assertThat(now, beforeOrEqual(now)); assertThat(past, beforeOrEqual(now));
      * </code>
      *
+     * <p>
+     * <p>
      * <p>
      * <p>
      * <p>
@@ -206,7 +237,7 @@ public class J7Matchers extends HamcrestMatchers {
      * {@linkplain org.hamcrest.Matchers#lessThanOrEqualTo(Comparable)}.
      */
     public static <T extends Comparable<T>> Matcher<T> beforeOrEqual(final T value) {
-        return Matchers.lessThanOrEqualTo(value);
+        return lessThanOrEqualTo(value);
     }
 
     // DATE
@@ -221,14 +252,14 @@ public class J7Matchers extends HamcrestMatchers {
     /**
      * Creates a matcher that matches when the examined {@linkplain Date} has the given <code>id</code>.
      */
-    public static Matcher<Date> hasMonth(final Integer month) {
+    public static Matcher<Date> hasMonth(final int month) {
         return IsDate.hasMonth(month);
     }
 
     /**
      * Creates a matcher that matches when the examined {@linkplain Date} has the given <code>day</code>.
      */
-    public static Matcher<Date> hasDay(final Integer day) {
+    public static Matcher<Date> hasDay(final int day) {
         return IsDate.hasDay(day);
     }
 
@@ -244,7 +275,7 @@ public class J7Matchers extends HamcrestMatchers {
      * Creates a matcher that matches when the examined {@linkplain Date} has the given values <code>year</code>, <code>
      * id</code> and <code>day</code>.
      */
-    public static Matcher<Date> hasYearMonthAndDay(final Integer year, final Integer month, final Integer day) {
+    public static Matcher<Date> hasYearMonthAndDay(final int year, final int month, final int day) {
         return IsDate.hasYearMonthAndDay(year, month, day);
     }
 
@@ -267,21 +298,21 @@ public class J7Matchers extends HamcrestMatchers {
     /**
      * Creates a matcher that matches when the examined {@linkplain Date} has the given <code>minute</code>.
      */
-    public static Matcher<Date> hasMinute(final Integer minute) {
+    public static Matcher<Date> hasMinute(final int minute) {
         return IsDateWithTime.hasMinute(minute);
     }
 
     /**
      * Creates a matcher that matches when the examined {@linkplain Date} has the given <code>sec</code>.
      */
-    public static Matcher<Date> hasSecond(final Integer second) {
+    public static Matcher<Date> hasSecond(final int second) {
         return IsDateWithTime.hasSecond(second);
     }
 
     /**
      * Creates a matcher that matches when the examined {@linkplain Date} has the given <code>millis</code>.
      */
-    public static Matcher<Date> hasMillisecond(final Integer millisecond) {
+    public static Matcher<Date> hasMillisecond(final int millisecond) {
         return IsDateWithTime.hasMillisecond(millisecond);
     }
 
@@ -305,7 +336,7 @@ public class J7Matchers extends HamcrestMatchers {
      * Creates a matcher that matches when the examined {@linkplain Date} has the given values <code>hour</code> in a 24
      * hours clock period, <code>minute</code> and <code>sec</code>.
      */
-    public static Matcher<Date> hasHourMinAndSec(final Integer hour, final Integer minute, final Integer second) {
+    public static Matcher<Date> hasHourMinAndSec(final int hour, final int minute, final int second) {
         return IsDateWithTime.hasHourMinAndSec(hour, minute, second);
     }
 
@@ -313,8 +344,8 @@ public class J7Matchers extends HamcrestMatchers {
      * Creates a matcher that matches when the examined {@linkplain Date} has the given values <code>hour</code>, <code>
      * ClockPeriod</code> (e.g. <em>AM</em>), <code>minute</code> and <code>sec</code>.
      */
-    public static Matcher<Date> hasHourMinAndSec(final Integer hour, final ClockPeriod clockPeriod,
-            final Integer minute, final Integer second) {
+    public static Matcher<Date> hasHourMinAndSec(final int hour, final ClockPeriod clockPeriod, final int minute,
+            final int second) {
         return IsDateWithTime.hasHourMinAndSec(hour, clockPeriod, minute, second);
     }
 
@@ -322,8 +353,8 @@ public class J7Matchers extends HamcrestMatchers {
      * Creates a matcher that matches when the examined {@linkplain Date} has the given values <code>hour</code> in a 24
      * hours clock period, <code>minute</code>, <code>sec</code> and <code>millis</code>.
      */
-    public static Matcher<Date> hasHourMinSecAndMillis(final Integer hour, final Integer minute, final Integer second,
-            final Integer millisecond) {
+    public static Matcher<Date> hasHourMinSecAndMillis(final int hour, final int minute, final int second,
+            final int millisecond) {
         return IsDateWithTime.hasHourMinSecAndMillis(hour, minute, second, millisecond);
     }
 
@@ -331,8 +362,8 @@ public class J7Matchers extends HamcrestMatchers {
      * Creates a matcher that matches when the examined {@linkplain Date} has the given values <code>hour</code>, <code>
      * ClockPeriod</code> (e.g. <em>AM</em>), <code>minute</code>, <code>sec</code> and <code>millis</code>.
      */
-    public static Matcher<Date> hasHourMinSecAndMillis(final Integer hour, final ClockPeriod clockPeriod,
-            final Integer minute, final Integer second, final Integer millisecond) {
+    public static Matcher<Date> hasHourMinSecAndMillis(final int hour, final ClockPeriod clockPeriod, final int minute,
+            final int second, final int millisecond) {
         return IsDateWithTime.hasHourMinSecAndMillis(hour, clockPeriod, minute, second, millisecond);
     }
 
@@ -490,8 +521,12 @@ public class J7Matchers extends HamcrestMatchers {
      *
      * <p>
      * <p>
+     * <p>
+     * <p>
      * <p>For example:
      *
+     * <p>
+     * <p>
      * <p>
      * <p>
      * <pre>assertThat(new ArrayList<>(), empty())</pre>
@@ -507,17 +542,21 @@ public class J7Matchers extends HamcrestMatchers {
      * {@linkplain Iterable} yields a series of items, each logically equal to one item anywhere in the specified items.
      * For a positive match, the examined iterable must be of the same length as the number of specified items.</p>
      *
+     * <p>
+     * <p>
      * <p>N.B. each of the specified items will only be used once during a given examination, so be careful when
      * specifying items that may be equal to more than one entry in an examined iterable. For example:</p>
      * <br />
      *
+     * <p>
+     * <p>
      * <pre>
-           //Arrange
-           Iterable<String> actual = Arrays.asList("foo", "bar");
-           Iterable<String> expected = Arrays.asList("bar", "foo");
+       //Arrange
+       Iterable<String> actual = Arrays.asList("foo", "bar");
+       Iterable<String> expected = Arrays.asList("bar", "foo");
 
-           //Assert
-           assertThat(actual, containsInAnyOrder(expected));
+       //Assert
+       assertThat(actual, containsInAnyOrder(expected));
      * </pre>
      *
      * @param  items  the items that must equal the items provided by an examined {@linkplain Iterable} in any order
@@ -532,13 +571,15 @@ public class J7Matchers extends HamcrestMatchers {
      * items. For a positive match, the examined iterable must be of the same length as the number of specified items.
      * For example:<br />
      *
+     * <p>
+     * <p>
      * <pre>
-           //Arrange
-           Iterable<String> actual = Arrays.asList("foo", "bar");
-           Iterable<String> expected = Arrays.asList("foo", "bar");
+       //Arrange
+       Iterable<String> actual = Arrays.asList("foo", "bar");
+       Iterable<String> expected = Arrays.asList("foo", "bar");
 
-           //Assert
-           assertThat(actual, containsInOrder(expected));
+       //Assert
+       assertThat(actual, containsInOrder(expected));
      * </pre>
      *
      * @param  items  the items that must equal the items provided by an examined {@linkplain Iterable}
@@ -552,13 +593,15 @@ public class J7Matchers extends HamcrestMatchers {
      * {@linkplain Iterable} yields a series of items, that contains items logically equal to the corresponding item in
      * the specified items, in the same relative order For example:<br />
      *
+     * <p>
+     * <p>
      * <pre>
-           //Arrange
-           Iterable<String> actual = Arrays.asList("a", "b", "c", "d");
-           Iterable<String> expected = Arrays.asList("a", "c");
+       //Arrange
+       Iterable<String> actual = Arrays.asList("a", "b", "c", "d");
+       Iterable<String> expected = Arrays.asList("a", "c");
 
-           //Assert
-           assertThat(actual, containsInRelativeOrder(expected));
+       //Assert
+       assertThat(actual, containsInRelativeOrder(expected));
      * </pre>
      *
      * @param  items  the items that must be contained within items provided by an examined {@linkplain Iterable} in the
@@ -574,8 +617,12 @@ public class J7Matchers extends HamcrestMatchers {
      *
      * <p>
      * <p>
+     * <p>
+     * <p>
      * <p>For example:
      *
+     * <p>
+     * <p>
      * <p>
      * <p>
      * <pre>assertThat(new ArrayList<>(), empty())</pre>
@@ -592,8 +639,12 @@ public class J7Matchers extends HamcrestMatchers {
      *
      * <p>
      * <p>
+     * <p>
+     * <p>
      * <p>For example:
      *
+     * <p>
+     * <p>
      * <p>
      * <p>
      * <pre>assertThat(Arrays.asList("foo", "bar"), hasSizeOne())</pre>
@@ -610,8 +661,12 @@ public class J7Matchers extends HamcrestMatchers {
      *
      * <p>
      * <p>
+     * <p>
+     * <p>
      * <p>For example:
      *
+     * <p>
+     * <p>
      * <p>
      * <p>
      * <pre>assertThat(Arrays.asList("foo", "bar"), hasSizeTwo())</pre>
@@ -628,8 +683,12 @@ public class J7Matchers extends HamcrestMatchers {
      *
      * <p>
      * <p>
+     * <p>
+     * <p>
      * <p>For example:
      *
+     * <p>
+     * <p>
      * <p>
      * <p>
      * <pre>assertThat(Arrays.asList("foo", "bar"), hasSizeThree())</pre>
@@ -646,8 +705,12 @@ public class J7Matchers extends HamcrestMatchers {
      *
      * <p>
      * <p>
+     * <p>
+     * <p>
      * <p>For example:
      *
+     * <p>
+     * <p>
      * <p>
      * <p>
      * <pre>assertThat(Arrays.asList("foo", "bar"), hasSizeFour())</pre>
@@ -664,8 +727,12 @@ public class J7Matchers extends HamcrestMatchers {
      *
      * <p>
      * <p>
+     * <p>
+     * <p>
      * <p>For example:
      *
+     * <p>
+     * <p>
      * <p>
      * <p>
      * <pre>assertThat(Arrays.asList("foo", "bar"), hasSizeFive())</pre>
@@ -682,8 +749,12 @@ public class J7Matchers extends HamcrestMatchers {
      *
      * <p>
      * <p>
+     * <p>
+     * <p>
      * <p>For example:
      *
+     * <p>
+     * <p>
      * <p>
      * <p>
      * <pre>assertThat(Arrays.asList("foo", "bar"), hasSize(2))</pre>
@@ -736,6 +807,8 @@ public class J7Matchers extends HamcrestMatchers {
      *
      * <p>
      * <p>
+     * <p>
+     * <p>
      * <pre>assertThat(myMap, hasSameKeySet(anotherMap))</pre>
      */
     public static <K> Matcher<Map<? extends K, ?>> hasSameKeySet(final Map<? extends K, ?> comparisonMap) {
@@ -749,8 +822,12 @@ public class J7Matchers extends HamcrestMatchers {
      *
      * <p>
      * <p>
+     * <p>
+     * <p>
      * <p>For example:
      *
+     * <p>
+     * <p>
      * <p>
      * <p>
      * <pre>assertThat(100, positive())</pre>
@@ -766,8 +843,12 @@ public class J7Matchers extends HamcrestMatchers {
      *
      * <p>
      * <p>
+     * <p>
+     * <p>
      * <p>For example:
      *
+     * <p>
+     * <p>
      * <p>
      * <p>
      * <pre>assertThat(-100, negative())</pre>
@@ -784,8 +865,12 @@ public class J7Matchers extends HamcrestMatchers {
      *
      * <p>
      * <p>
+     * <p>
+     * <p>
      * <p>For example:
      *
+     * <p>
+     * <p>
      * <p>
      * <p>
      * <pre>assertThat(10, negativeInfinity())</pre>
@@ -798,7 +883,7 @@ public class J7Matchers extends HamcrestMatchers {
      *
      * will both return <code>true</code>.
      */
-    public static <T extends Number> Matcher<T> infinity() {
+    public static <N extends Number> Matcher<N> infinity() {
         return IsInfinity.infinity();
     }
 
@@ -808,8 +893,12 @@ public class J7Matchers extends HamcrestMatchers {
      *
      * <p>
      * <p>
+     * <p>
+     * <p>
      * <p>For example:
      *
+     * <p>
+     * <p>
      * <p>
      * <p>
      * <pre>assertThat(Float.NegativeInfinity, negativeInfinity())</pre>
@@ -822,26 +911,8 @@ public class J7Matchers extends HamcrestMatchers {
      *
      * will both return <code>false</code>.
      */
-    public static <T extends Number> Matcher<T> negativeInfinity() {
+    public static <N extends Number> Matcher<N> negativeInfinity() {
         return IsNegativeInfinity.negativeInfinity();
-    }
-
-    /**
-     * Creates a matcher for {@code T}s that matches when the number is a {@linkplain Double} or {@linkplain Float} such
-     * that a call to method <code>isNaN()</code> returns <code>true</code>.
-     *
-     * <p>
-     * <p>
-     * <p>For example:
-     *
-     * <p>
-     * <p>
-     * <pre>assertThat((1.0/.0D), notANumber())</pre>
-     *
-     * will return <code>true</code>.
-     */
-    public static <T extends Number> Matcher<T> notANumber() {
-        return IsNotANumber.notANumber();
     }
 
     /**
@@ -850,8 +921,12 @@ public class J7Matchers extends HamcrestMatchers {
      *
      * <p>
      * <p>
+     * <p>
+     * <p>
      * <p>For example:
      *
+     * <p>
+     * <p>
      * <p>
      * <p>
      * <pre>assertThat(Double.PositiveInfinity, positiveInfinity())</pre>
@@ -864,8 +939,30 @@ public class J7Matchers extends HamcrestMatchers {
      *
      * will both return <code>false</code>.
      */
-    public static <T extends Number> Matcher<T> positiveInfinity() {
+    public static <N extends Number> Matcher<N> positiveInfinity() {
         return IsPositiveInfinity.positiveInfinity();
+    }
+
+    /**
+     * Creates a matcher for {@code T}s that matches when the number is a {@linkplain Double} or {@linkplain Float} such
+     * that a call to method <code>isNaN()</code> returns <code>true</code>.
+     *
+     * <p>
+     * <p>
+     * <p>
+     * <p>
+     * <p>For example:
+     *
+     * <p>
+     * <p>
+     * <p>
+     * <p>
+     * <pre>assertThat((1.0/.0D), notANumber())</pre>
+     *
+     * will return <code>true</code>.
+     */
+    public static <N extends Number> Matcher<N> notANumber() {
+        return IsNotANumber.notANumber();
     }
 
     // Web
@@ -876,8 +973,12 @@ public class J7Matchers extends HamcrestMatchers {
      *
      * <p>
      * <p>
+     * <p>
+     * <p>
      * <p>For example:
      *
+     * <p>
+     * <p>
      * <p>
      * <p>
      * <pre>assertThat("john.doe@test.test", email())</pre>

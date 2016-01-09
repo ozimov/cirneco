@@ -24,13 +24,15 @@ public class IsIterableContainingInRelativeOrder<T>
      * {@linkplain Iterable} yields a series of items, that contains items logically equal to the corresponding item in
      * the specified items, in the same relative order For example:<br />
      *
+     * <p>
+     * <p>
      * <pre>
-           //Arrange
-           Iterable<String> actual = Arrays.asList("a", "b", "c", "d");
-           Iterable<String> expected = Arrays.asList("a", "c");
+       //Arrange
+       Iterable<String> actual = Arrays.asList("a", "b", "c", "d");
+       Iterable<String> expected = Arrays.asList("a", "c");
 
-           //Assert
-           assertThat(actual, containsInRelativeOrder(expected));
+       //Assert
+       assertThat(actual, containsInRelativeOrder(expected));
      * </pre>
      *
      * @param  items  the items that must be contained within items provided by an examined {@linkplain Iterable} in the

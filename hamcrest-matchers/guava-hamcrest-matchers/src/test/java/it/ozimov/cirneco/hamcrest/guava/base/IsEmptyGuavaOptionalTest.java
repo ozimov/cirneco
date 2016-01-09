@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import com.google.common.base.Optional;
 
-import it.ozimov.cirneco.hamcrest.java7.BaseMatcherTest;
+import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 
 public class IsEmptyGuavaOptionalTest extends BaseMatcherTest {
 

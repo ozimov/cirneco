@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
-import it.ozimov.cirneco.hamcrest.java7.BaseMatcherTest;
+import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 
 public abstract class BaseIterableMatcherTest extends BaseMatcherTest {
 

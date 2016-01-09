@@ -13,7 +13,7 @@ import org.junit.Test;
 
 import com.google.common.collect.ImmutableList;
 
-import it.ozimov.cirneco.hamcrest.java7.BaseMatcherTest;
+import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 
 public class IsSortedIterableWithComparatorTest extends BaseMatcherTest {
 

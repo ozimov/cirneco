@@ -1,4 +1,4 @@
-package it.ozimov.cirneco.hamcrest.java7;
+package it.ozimov.cirneco.hamcrest;
 
 import static java.lang.String.format;
 

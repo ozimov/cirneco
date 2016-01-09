@@ -10,6 +10,8 @@ import org.hamcrest.TypeSafeMatcher;
  * Is the value of {@linkplain T} an email address?
  *
  * <p>
+ * <p>
+ * <p>
  * <p>The {@code toString()} method of the given object has to return a valid email address according with RFC 5322
  * standards. However, this implementation is not guaranteed to catch all possible errors in an email address and
  * intentionally marks as non valid some valid email addresses (e.g. <code>email@123.123.123.123</code> and <code>
@@ -25,8 +27,12 @@ public class IsEmail<T> extends TypeSafeMatcher<T> {
      * valid email address.
      *
      * <p>
+     * <p>
+     * <p>
      * <p>For example:
      *
+     * <p>
+     * <p>
      * <p>
      * <pre>assertThat("john.doe@test.test", email())</pre>
      */

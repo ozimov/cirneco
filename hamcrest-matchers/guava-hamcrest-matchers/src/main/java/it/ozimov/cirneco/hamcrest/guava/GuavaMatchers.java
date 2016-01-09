@@ -41,6 +41,8 @@ public class GuavaMatchers {
      *
      * <p>
      * <p>
+     * <p>
+     * <p>
      * <p/>
      * <p>Observe that the {@linkplain Equivalence} can deal with nulls.</p>
      */

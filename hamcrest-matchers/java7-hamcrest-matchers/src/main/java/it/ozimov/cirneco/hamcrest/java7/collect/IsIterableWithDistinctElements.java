@@ -16,6 +16,8 @@ import org.hamcrest.TypeSafeMatcher;
  * Is the {@linkplain Iterable} with distinct elements?
  *
  * <p>
+ * <p>
+ * <p>
  * <p>To verify that only distinct elements are in the {@code Iterable},
  *
  * @since  version 0.2 for JDK7
@@ -27,8 +29,12 @@ public class IsIterableWithDistinctElements<E> extends TypeSafeMatcher<Iterable<
      * distinct elements.
      *
      * <p>
+     * <p>
+     * <p>
      * <p>For example:
      *
+     * <p>
+     * <p>
      * <p>
      * <pre>assertThat(new ArrayList<>(), empty())</pre>
      *

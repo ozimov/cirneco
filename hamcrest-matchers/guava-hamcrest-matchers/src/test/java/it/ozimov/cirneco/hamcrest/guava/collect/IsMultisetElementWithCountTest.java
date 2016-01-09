@@ -14,7 +14,7 @@ import org.junit.Test;
 import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Multiset;
 
-import it.ozimov.cirneco.hamcrest.java7.BaseMatcherTest;
+import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 
 public class IsMultisetElementWithCountTest extends BaseMatcherTest {
 

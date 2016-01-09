@@ -24,13 +24,15 @@ public class IsIterableContainingInOrder<T> extends org.hamcrest.collection.IsIt
      * items. For a positive match, the examined iterable must be of the same length as the number of specified items.
      * For example:<br />
      *
+     * <p>
+     * <p>
      * <pre>
-           //Arrange
-           Iterable<String> actual = Arrays.asList("foo", "bar");
-           Iterable<String> expected = Arrays.asList("foo", "bar");
+       //Arrange
+       Iterable<String> actual = Arrays.asList("foo", "bar");
+       Iterable<String> expected = Arrays.asList("foo", "bar");
 
-           //Assert
-           assertThat(actual, containsInOrder(expected));
+       //Assert
+       assertThat(actual, containsInOrder(expected));
      * </pre>
      *
      * @param  items  the items that must equal the items provided by an examined {@linkplain Iterable}

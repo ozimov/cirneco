@@ -4,7 +4,7 @@ import org.joda.time.DateTimeZone;
 
 import org.junit.BeforeClass;
 
-import it.ozimov.cirneco.hamcrest.java7.BaseMatcherTest;
+import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 
 public abstract class BaseDateMatcherTest extends BaseMatcherTest {
 

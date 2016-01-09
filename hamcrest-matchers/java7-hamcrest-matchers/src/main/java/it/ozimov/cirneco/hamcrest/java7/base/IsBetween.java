@@ -35,8 +35,12 @@ public class IsBetween<T extends Comparable<T>> extends TypeSafeMatcher<T> {
      * <code>from</code> and <code>to</code>, both excluded.
      *
      * <p>
+     * <p>
+     * <p>
      * <p>For example:
      *
+     * <p>
+     * <p>
      * <p>
      * <pre>assertThat(10, between(10, 11))</pre>
      *

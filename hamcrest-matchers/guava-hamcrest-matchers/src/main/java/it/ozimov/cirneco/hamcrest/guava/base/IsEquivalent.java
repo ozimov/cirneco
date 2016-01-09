@@ -33,6 +33,8 @@ public class IsEquivalent<T> extends TypeSafeMatcher<T> {
      * <code>comparison</code> object according to the provided {@linkplain Equivalence}.
      *
      * <p>
+     * <p>
+     * <p>
      * <p/>
      * <p>Observe that the {@linkplain Equivalence} can deal with nulls.</p>
      */

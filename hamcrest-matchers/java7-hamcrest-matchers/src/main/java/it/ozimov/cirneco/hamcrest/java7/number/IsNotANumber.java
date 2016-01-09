@@ -16,8 +16,12 @@ public class IsNotANumber<N extends Number> extends TypeSafeMatcher<N> {
      * that a call to method <code>isNaN()</code> returns true.
      *
      * <p>
+     * <p>
+     * <p>
      * <p>For example:
      *
+     * <p>
+     * <p>
      * <p>
      * <pre>assertThat((1.0/.0D), notANumber())</pre>
      *

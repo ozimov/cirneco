@@ -35,8 +35,12 @@ public class IsBetweenLowerBoundInclusive<T extends Comparable<T>> extends TypeS
      * <code>from</code> and <code>to</code>, both included.
      *
      * <p>
+     * <p>
+     * <p>
      * <p>For example:
      *
+     * <p>
+     * <p>
      * <p>
      * <pre>assertThat(10, betweenLowerBoundInclusive(10, 11))</pre>
      *
