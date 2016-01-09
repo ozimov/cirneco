@@ -6,8 +6,10 @@
 **JavaDoc Website:** *[ozimov.github.io/cirneco/](http://ozimov.github.io/cirneco/)*<br />
 **Wiki Website:** *[github.com/ozimov/cirneco/wiki](http://github.com/ozimov/cirneco/wiki)*<br />
 
-**Latest Release:** *0.2*<br />
-**Latest Artifacts:** *it.ozimov:cirneco-hamcrest-jdk7:jar:0.2*, *it.ozimov:cirneco-hamcrest-jdk8:jar:0.2* <br />
+**Latest Release:** *0.3.0*<br />
+**Latest Artifacts:** *it.ozimov:java7-hamcrest-matchers:jar:0.3.0*,
+  *it.ozimov:java8-hamcrest-matchers:jar:0.3.0*,
+  *it.ozimov:guava-hamcrest-matchers:jar:0.3.0* <br />
 **Continuous Integration:**<br />
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/it.ozimov/cirneco-parent/badge.svg)](https://maven-badges.herokuapp.com/maven-central/it.ozimov/cirneco-parent)
 <br />
@@ -25,7 +27,7 @@ we like easy-to-read and concise code, where the method name already embeds all 
 need to explain what you are assuming/asserting.
 
 Hence, in Cirneco we aim to extend the most valuable toolkits for  unit test to provide a better developing experience.
-The current version (*Cirneco 0.2*) only provides some extensions for Hamcrest for Java.
+The current version (*Cirneco 0.3.0*) only provides some extensions for Hamcrest for Java.
 
 # JDK compatibility
 The API is JDK7 compatible.
@@ -37,23 +39,34 @@ For now, we provided some extensions of the [Hamcrest](https://github.com/hamcre
 
 ## Hamcrest extensions
 There are some interesting matchers based on [Guava](https://github.com/google/guava) library. The next release will focus more on Guava collections and money (the plan would be to use Joda Money or to dirfectly provide the matchers for the JDK8 extension).
-To use the extensions for a project JDK7 compliant, you can embed the following dependency in your `pom.xml`
+To use the extensions for a JDK7 compliant project, you can embed the following dependency in your `pom.xml`
 ```xml
 <dependency>
   <artifactId>it.ozimov</artifactId>
-  <artifactId>cirneco-hamcrest-jdk7</artifactId>
-  <version>0.2</version>
+  <artifactId>java7-hamcrest-matchers</artifactId>
+  <version>0.3.0</version>
 </dependency>
 ```
-and if you use JDK8, add the following dependency:
+and if you use JDK8, the dependency to be added is:
 
 ```xml
 <dependency>
   <artifactId>it.ozimov</artifactId>
-  <artifactId>cirneco-hamcrest-jdk8</artifactId>
-  <version>0.2</version>
+  <artifactId>java8-hamcrest-matchers</artifactId>
+  <version>0.3.0</version>
 </dependency>
 ```
+
+There are matchers dedicated to Guava libraries that are JDK7-compliant, that you can import with the following dependency:
+
+```xml
+<dependency>
+  <artifactId>it.ozimov</artifactId>
+  <artifactId>guava-hamcrest-matchers</artifactId>
+  <version>0.3.0</version>
+</dependency>
+```
+
 
 
 # What does it mean Cirneco?

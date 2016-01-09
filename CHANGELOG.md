@@ -4,10 +4,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+
+
+## [0.3.0] - 2016-01-10
 ### Added
 - Added Hamcrest matchers in `J7Matchers`
 - Extended matchers `IsIterableContainingInAnyOrder`, `IsIterableContainingInOrder` and
-`IsIterableContainingInRelativeOrder`
+  `IsIterableContainingInRelativeOrder`
 
 ### Changed
 - Imported `hamcrest-java 2.0.0.0` instead of `hamcrest-library 1.3`
