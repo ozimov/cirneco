@@ -29,18 +29,6 @@ public class IsMapWithSameKeySetTest extends BaseMatcherTest {
     }
 
     @Test
-    public void testDescribeMismatchSafely() throws Exception {
-        assertHasMismatchDescription("was null", isMapWithSameKeySetMatcher, null);
-        assertHasMismatchDescription("map key set was [] while expected key set was [<1=1>, <2=2>, <3=3>, <4=4>]",
-            isMapWithSameKeySetMatcher, ImmutableMap.<Integer, Object>of());
-    }
-
-    @Test
-    public void testDescribeTo() throws Exception {
-        assertIsDescribedTo("map containing same key set as [<1=1>, <2=2>, <3=3>, <4=4>]", isMapWithSameKeySetMatcher);
-    }
-
-    @Test
     public void testGivenTwoEqualsKeySetWhenMatchesIsCalledThenTrueIsReturned() throws Exception {
 
         // Arrange
@@ -69,4 +57,17 @@ public class IsMapWithSameKeySetTest extends BaseMatcherTest {
         // Assert
         assertDoesNotMatch("Expected to have different key set", matches);
     }
+
+    @Test
+    public void testDescribeMismatchSafely() throws Exception {
+        assertHasMismatchDescription("was null", isMapWithSameKeySetMatcher, null);
+        assertHasMismatchDescription("map key set was []", isMapWithSameKeySetMatcher,
+            ImmutableMap.<Integer, Object>of());
+    }
+
+    @Test
+    public void testDescribeTo() throws Exception {
+        assertIsDescribedTo("map containing same key set as [<1=1>, <2=2>, <3=3>, <4=4>]", isMapWithSameKeySetMatcher);
+    }
+
 }

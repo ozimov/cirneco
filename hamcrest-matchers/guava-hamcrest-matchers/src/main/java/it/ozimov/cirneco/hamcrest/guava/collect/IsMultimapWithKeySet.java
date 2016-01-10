@@ -43,8 +43,7 @@ public class IsMultimapWithKeySet<K> extends TypeSafeMatcher<Multimap<K, ?>> {
 
     @Override
     public void describeMismatchSafely(final Multimap<K, ?> multimap, final Description mismatchDescription) {
-        mismatchDescription.appendText("Multimap key set was ").appendValueList("[", ", ", "]", multimap.keySet())
-                           .appendText(" while expected key set was ").appendValueList("[", ", ", "]", comparisonSet);
+        mismatchDescription.appendText("Multimap key set was ").appendValueList("[", ", ", "]", multimap.keySet());
     }
 
     @Override

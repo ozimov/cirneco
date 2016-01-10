@@ -48,9 +48,7 @@ public class IsMapWithSameKeySet<K> extends TypeSafeMatcher<Map<? extends K, ?>>
 
     @Override
     public void describeMismatchSafely(final Map<? extends K, ?> map, final Description mismatchDescription) {
-        mismatchDescription.appendText("map key set was ").appendValueList("[", ", ", "]", map.entrySet())
-                           .appendText(" while expected key set was ").appendValueList("[", ", ", "]",
-                               comparisonMap.entrySet());
+        mismatchDescription.appendText("map key set was ").appendValueList("[", ", ", "]", map.entrySet());
     }
 
     @Override

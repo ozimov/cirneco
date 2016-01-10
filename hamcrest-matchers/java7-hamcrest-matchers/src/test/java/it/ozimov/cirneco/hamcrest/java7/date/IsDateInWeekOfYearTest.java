@@ -154,7 +154,8 @@ public class IsDateInWeekOfYearTest extends BaseDateMatcherTest {
         // Act
         final Matcher<Date> isDateInWeekOfYearMatcher = new IsDateInWeekOfYear(weekOfYear);
 
-        assertThat(String.format("Created matcher for week of the year %d", weekOfYear), not(is(nullValue())));
+        assertThat(String.format("Created matcher for week of the year %s", isDateInWeekOfYearMatcher),
+            not(is(nullValue())));
     }
 
 }

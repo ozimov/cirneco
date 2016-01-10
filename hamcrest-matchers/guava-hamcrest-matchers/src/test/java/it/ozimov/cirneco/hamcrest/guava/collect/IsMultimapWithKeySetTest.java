@@ -30,7 +30,7 @@ public class IsMultimapWithKeySetTest extends BaseMatcherTest {
     public Matcher<Multimap<String, ?>> isMultimapWithKeySetBySetMatcher;
 
     @Before
-    public void mapUp() {
+    public void setUp() {
 
         // Arrange
         multimap = HashMultimap.create();
@@ -137,12 +137,10 @@ public class IsMultimapWithKeySetTest extends BaseMatcherTest {
 
     @Test
     public void testDescribeMismatchSafely() throws Exception {
-        BaseMatcherTest.assertHasMismatchDescription(
-            "Multimap key set was [] while expected key set was [\"A\", \"B\", \"C\"]",
-            isMultimapWithKeySetByMultimapMatcher, multimap);
-        BaseMatcherTest.assertHasMismatchDescription(
-            "Multimap key set was [] while expected key set was [\"A\", \"B\", \"C\"]",
-            isMultimapWithKeySetBySetMatcher, multimap);
+        BaseMatcherTest.assertHasMismatchDescription("Multimap key set was []", isMultimapWithKeySetByMultimapMatcher,
+            multimap);
+        BaseMatcherTest.assertHasMismatchDescription("Multimap key set was []", isMultimapWithKeySetBySetMatcher,
+            multimap);
     }
 
     @Test

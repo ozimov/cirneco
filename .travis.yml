@@ -11,7 +11,6 @@ install:
 
 before_script:
   - pip install --user codecov
-  - codecov --token=65930963-27c0-4315-b14c-643704eef04a
   - curl http://www.jpm4j.org/install/script | sh
 
 script:
