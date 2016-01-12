@@ -23,7 +23,7 @@ public class IsIterableWithSizeTest extends BaseIterableMatcherTest {
         IsIterableWithSize.hasSize(-1);
 
         // Assert
-        fail("Exception expected");
+        fail("Exception comparison");
     }
 
     @Test

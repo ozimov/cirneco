@@ -11,6 +11,7 @@ import it.ozimov.cirneco.hamcrest.java7.base.IsBetweenInclusive;
 import it.ozimov.cirneco.hamcrest.java7.base.IsBetweenLowerBoundInclusive;
 import it.ozimov.cirneco.hamcrest.java7.base.IsBetweenUpperBoundInclusive;
 import it.ozimov.cirneco.hamcrest.java7.base.IsSame;
+import it.ozimov.cirneco.hamcrest.java7.base.IsSameHashcode;
 import it.ozimov.cirneco.hamcrest.java7.collect.IsEmptyIterable;
 import it.ozimov.cirneco.hamcrest.java7.collect.IsIterableContainingInAnyOrder;
 import it.ozimov.cirneco.hamcrest.java7.collect.IsIterableContainingInOrder;
@@ -147,6 +148,14 @@ public class J7Matchers extends HamcrestMatchers {
      */
     public static Matcher sameInstance(final Object target) {
         return IsSame.sameInstance(target);
+    }
+
+    /**
+     * Creates a matcher that matches only when the examined {@linkplain Object} is the same instance as the provided
+     * <code>target</code> {@linkplain Object}.
+     */
+    public static Matcher sameHashcode(final Object target) {
+        return IsSameHashcode.sameHashcode(target);
     }
 
     /**

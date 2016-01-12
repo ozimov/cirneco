@@ -50,7 +50,7 @@ public class IsMultisetElementWithCountTest extends BaseMatcherTest {
         IsMultisetElementWithCount.elementWithCount(comparison, -1);
 
         // Assert
-        fail("IllegalArgumentException expected");
+        fail("IllegalArgumentException comparison");
     }
 
     @Test

@@ -62,7 +62,7 @@ public class IsBetweenTest extends BaseMatcherTest {
         IsBetween.between("Z", "A");
 
         // Assert
-        fail("IllegalArgumentException expected but not thrown");
+        fail("IllegalArgumentException comparison but not thrown");
     }
 
     @Test

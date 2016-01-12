@@ -56,7 +56,7 @@ public class IsMultimapWithKeySetSizeTest extends BaseMatcherTest {
         IsMultimapWithKeySetSize.keySetWithSize(-1);
 
         // Assert
-        fail("IllegalArgumentException expected");
+        fail("IllegalArgumentException comparison");
     }
 
     @Test

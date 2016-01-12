@@ -56,7 +56,7 @@ public class IsDateInWeekOfYearTest extends BaseDateMatcherTest {
         new IsDateInWeekOfYear(54);
 
         // Assert
-        fail("Exception expected");
+        fail("Exception comparison");
     }
 
     @Test
@@ -70,7 +70,7 @@ public class IsDateInWeekOfYearTest extends BaseDateMatcherTest {
         new IsDateInWeekOfYear(0);
 
         // Assert
-        fail("Exception expected");
+        fail("Exception comparison");
     }
 
     @Test

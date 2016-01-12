@@ -62,7 +62,7 @@ public class IsBetweenUpperBoundInclusiveTest extends BaseMatcherTest {
         IsBetweenUpperBoundInclusive.betweenUpperBoundInclusive("Z", "A");
 
         // Assert
-        fail("IllegalArgumentException expected but not thrown");
+        fail("IllegalArgumentException comparison but not thrown");
     }
 
     @Test

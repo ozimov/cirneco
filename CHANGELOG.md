@@ -3,6 +3,8 @@ All notable changes to Cirneco project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- New matcher in package `it.ozimov.cirneco.hamcrest.java7.base`, i.e. `IsSameHashcode`
 
 ### Fixed
 - Fixed mismatch description in `it.ozimov.cirneco.hamcrest.guava.collect.IsMultimapWithKeySet`

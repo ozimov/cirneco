@@ -52,7 +52,7 @@ public class IsMultimapKeyWithCollectionSizeTest extends BaseMatcherTest {
         IsMultimapKeyWithCollectionSize.keyWithSize(comparison, -1);
 
         // Assert
-        fail("IllegalArgumentException expected");
+        fail("IllegalArgumentException comparison");
     }
 
     @Test

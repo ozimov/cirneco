@@ -22,7 +22,7 @@ import javassist.expr.MethodCall;
 
 public abstract class SameCallerMatchersTest {
 
-    final ClassPool cp = ClassPool.getDefault();
+    private final ClassPool cp = ClassPool.getDefault();
     private String sourceClass;
     private CtClass ctClass;
 

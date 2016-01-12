@@ -63,7 +63,7 @@ public class IsDateTest extends BaseDateMatcherTest {
         new IsDate(null, 13, null);
 
         // Assert
-        fail("Exception expected");
+        fail("Exception comparison");
     }
 
     @Test
@@ -76,7 +76,7 @@ public class IsDateTest extends BaseDateMatcherTest {
         new IsDate(null, 0, null);
 
         // Assert
-        fail("Exception expected");
+        fail("Exception comparison");
     }
 
     @Test
@@ -98,7 +98,7 @@ public class IsDateTest extends BaseDateMatcherTest {
         new IsDate(null, null, 32);
 
         // Assert
-        fail("Exception expected");
+        fail("Exception comparison");
     }
 
     @Test
@@ -111,7 +111,7 @@ public class IsDateTest extends BaseDateMatcherTest {
         new IsDate(null, null, 0);
 
         // Assert
-        fail("Exception expected");
+        fail("Exception comparison");
     }
 
     @Test
@@ -137,7 +137,7 @@ public class IsDateTest extends BaseDateMatcherTest {
         new IsDate(null, 4, 31);
 
         // Assert
-        fail("Exception expected");
+        fail("Exception comparison");
     }
 
     @Test
@@ -151,7 +151,7 @@ public class IsDateTest extends BaseDateMatcherTest {
         new IsDate(null, 6, 31);
 
         // Assert
-        fail("Exception expected");
+        fail("Exception comparison");
     }
 
     @Test
@@ -165,7 +165,7 @@ public class IsDateTest extends BaseDateMatcherTest {
         new IsDate(null, 9, 31);
 
         // Assert
-        fail("Exception expected");
+        fail("Exception comparison");
     }
 
     @Test
@@ -179,7 +179,7 @@ public class IsDateTest extends BaseDateMatcherTest {
         new IsDate(null, 11, 31);
 
         // Assert
-        fail("Exception expected");
+        fail("Exception comparison");
     }
 
     @Test
@@ -193,7 +193,7 @@ public class IsDateTest extends BaseDateMatcherTest {
         new IsDate(null, 2, 30);
 
         // Assert
-        fail("Exception expected");
+        fail("Exception comparison");
     }
 
     @Test
@@ -207,7 +207,7 @@ public class IsDateTest extends BaseDateMatcherTest {
         new IsDate(2001, 2, 29);
 
         // Assert
-        fail("Exception expected");
+        fail("Exception comparison");
     }
 
     @Test

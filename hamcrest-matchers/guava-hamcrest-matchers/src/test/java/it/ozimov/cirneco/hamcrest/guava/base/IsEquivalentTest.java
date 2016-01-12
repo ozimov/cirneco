@@ -1,18 +1,24 @@
 package it.ozimov.cirneco.hamcrest.guava.base;
 
-import com.google.common.base.Equivalence;
-import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
-import org.hamcrest.Matcher;
-import org.junit.Before;
-import org.junit.Test;
-import org.mockito.Mock;
-
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.nullValue;
+
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
+
 import static org.mockito.Mockito.when;
+
+import org.hamcrest.Matcher;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import org.mockito.Mock;
+
+import com.google.common.base.Equivalence;
+
+import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 
 public class IsEquivalentTest extends BaseMatcherTest {
 

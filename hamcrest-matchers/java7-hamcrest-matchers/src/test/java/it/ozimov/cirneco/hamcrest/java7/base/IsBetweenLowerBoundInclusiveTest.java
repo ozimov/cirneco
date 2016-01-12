@@ -62,7 +62,7 @@ public class IsBetweenLowerBoundInclusiveTest extends BaseMatcherTest {
         IsBetweenLowerBoundInclusive.betweenLowerBoundInclusive("Z", "A");
 
         // Assert
-        fail("IllegalArgumentException expected but not thrown");
+        fail("IllegalArgumentException comparison but not thrown");
     }
 
     @Test

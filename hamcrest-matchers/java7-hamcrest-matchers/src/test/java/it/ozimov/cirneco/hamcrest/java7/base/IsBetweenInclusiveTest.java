@@ -62,7 +62,7 @@ public class IsBetweenInclusiveTest extends BaseMatcherTest {
         IsBetweenInclusive.betweenInclusive("Z", "A");
 
         // Assert
-        fail("IllegalArgumentException expected but not thrown");
+        fail("IllegalArgumentException comparison but not thrown");
     }
 
     @Test

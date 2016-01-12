@@ -59,7 +59,7 @@ public class IsMultimapWithKeySetTest extends BaseMatcherTest {
         IsMultimapWithKeySet.hasSameKeySet((Multimap) null);
 
         // Assert
-        fail("NullPointerException expected");
+        fail("NullPointerException comparison");
     }
 
     @Test
@@ -72,7 +72,7 @@ public class IsMultimapWithKeySetTest extends BaseMatcherTest {
         IsMultimapWithKeySet.hasSameKeySet((Set) null);
 
         // Assert
-        fail("NullPointerException expected");
+        fail("NullPointerException comparison");
     }
 
     @Test

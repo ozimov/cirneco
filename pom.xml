@@ -41,7 +41,7 @@
         <java8.version>1.8</java8.version>
         <unit-tests.skip>true</unit-tests.skip>
 
-        <com.google.guava>18.0</com.google.guava>
+        <com.google.guava>19.0</com.google.guava>
         <org.slf4j-api>1.7.13</org.slf4j-api>
         <junit>4.12</junit>
         <mockito-all>1.10.19</mockito-all>

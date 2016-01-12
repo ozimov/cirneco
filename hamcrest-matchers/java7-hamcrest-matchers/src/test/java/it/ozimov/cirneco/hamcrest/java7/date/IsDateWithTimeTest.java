@@ -75,7 +75,7 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
         new IsDateWithTime(24, null, null, null);
 
         // Assert
-        fail("Exception expected");
+        fail("Exception comparison");
     }
 
     @Test
@@ -88,7 +88,7 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
         new IsDateWithTime(-1, null, null, null);
 
         // Assert
-        fail("Exception expected");
+        fail("Exception comparison");
     }
 
     @Test
@@ -102,7 +102,7 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
         new IsDateWithTime(13, AM, null, null, null);
 
         // Assert
-        fail("Exception expected");
+        fail("Exception comparison");
     }
 
     @Test
@@ -116,7 +116,7 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
         new IsDateWithTime(13, PM, null, null, null);
 
         // Assert
-        fail("Exception expected");
+        fail("Exception comparison");
     }
 
     @Test
@@ -130,7 +130,7 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
         new IsDateWithTime(24, TWENTYFOUR_HOURS, null, null, null);
 
         // Assert
-        fail("Exception expected");
+        fail("Exception comparison");
     }
 
     @Test
@@ -154,7 +154,7 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
         new IsDateWithTime(null, 60, null, null);
 
         // Assert
-        fail("Exception expected");
+        fail("Exception comparison");
     }
 
     @Test
@@ -167,7 +167,7 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
         new IsDateWithTime(null, -1, null, null);
 
         // Assert
-        fail("Exception expected");
+        fail("Exception comparison");
     }
 
     @Test
@@ -180,7 +180,7 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
         new IsDateWithTime(null, null, 60, null);
 
         // Assert
-        fail("Exception expected");
+        fail("Exception comparison");
     }
 
     @Test
@@ -193,7 +193,7 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
         new IsDateWithTime(null, null, -1, null);
 
         // Assert
-        fail("Exception expected");
+        fail("Exception comparison");
     }
 
     @Test
@@ -207,7 +207,7 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
         new IsDateWithTime(null, null, null, 1000);
 
         // Assert
-        fail("Exception expected");
+        fail("Exception comparison");
     }
 
     @Test
@@ -221,7 +221,7 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
         new IsDateWithTime(null, null, null, -1);
 
         // Assert
-        fail("Exception expected");
+        fail("Exception comparison");
     }
 
     @Test
