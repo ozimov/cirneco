@@ -42,7 +42,7 @@ There are some interesting matchers based on [Guava](https://github.com/google/g
 To use the extensions for a JDK7 compliant project, you can embed the following dependency in your `pom.xml`
 ```xml
 <dependency>
-  <artifactId>it.ozimov</artifactId>
+  <groupId>it.ozimov</groupId>
   <artifactId>java7-hamcrest-matchers</artifactId>
   <version>0.3.0</version>
 </dependency>
@@ -51,7 +51,7 @@ and if you use JDK8, the dependency to be added is:
 
 ```xml
 <dependency>
-  <artifactId>it.ozimov</artifactId>
+  <groupId>it.ozimov</groupId>
   <artifactId>java8-hamcrest-matchers</artifactId>
   <version>0.3.0</version>
 </dependency>
@@ -61,7 +61,7 @@ There are matchers dedicated to Guava libraries that are JDK7-compliant, that yo
 
 ```xml
 <dependency>
-  <artifactId>it.ozimov</artifactId>
+  <groupId>it.ozimov</groupId>
   <artifactId>guava-hamcrest-matchers</artifactId>
   <version>0.3.0</version>
 </dependency>
