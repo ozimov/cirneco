@@ -45,6 +45,7 @@ To use the extensions for a JDK7 compliant project, you can embed the following 
   <groupId>it.ozimov</groupId>
   <artifactId>java7-hamcrest-matchers</artifactId>
   <version>0.3.0</version>
+  <scope>test</scope>
 </dependency>
 ```
 and if you use JDK8, the dependency to be added is:
@@ -54,6 +55,7 @@ and if you use JDK8, the dependency to be added is:
   <groupId>it.ozimov</groupId>
   <artifactId>java8-hamcrest-matchers</artifactId>
   <version>0.3.0</version>
+  <scope>test</scope>
 </dependency>
 ```
 
@@ -64,6 +66,7 @@ There are matchers dedicated to Guava libraries that are JDK7-compliant, that yo
   <groupId>it.ozimov</groupId>
   <artifactId>guava-hamcrest-matchers</artifactId>
   <version>0.3.0</version>
+  <scope>test</scope>
 </dependency>
 ```
 
