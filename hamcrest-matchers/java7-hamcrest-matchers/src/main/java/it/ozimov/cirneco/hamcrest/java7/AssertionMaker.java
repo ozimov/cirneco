@@ -1,0 +1,179 @@
+package it.ozimov.cirneco.hamcrest.java7;
+
+import static com.google.common.base.Preconditions.checkNotNull;
+
+import javax.annotation.Nonnull;
+
+import org.hamcrest.Description;
+import org.hamcrest.Matcher;
+import org.hamcrest.StringDescription;
+
+/**
+ * Fluent approach to use Hamcrest matchers.
+ *
+ * <p>The following example fits with JUnit 4.x and shows how to define an expression in a fluent way.
+ *
+ * <pre>
+   import static it.ozimov.cirneco.hamcrest.java7.Given.given;
+   import static it.ozimov.cirneco.hamcrest.java7.J7Matchers.not;
+
+   import org.junit.Test;
+
+   public class UnitTest{
+
+       @Test
+       public void testSomething(){
+         String actual = "Test"
+
+         given(actual)
+            .forReason("Actual object "\Test\" must not be equal to \"Something\"")
+            .assertIs(not("Something"));
+       }
+
+   }
+ * </pre>
+ *
+ * The equivalent code using Hamcrest is:
+ *
+ * <pre>
+     @Test
+     public void testSomething(){
+       String actual = "Test"
+
+       assertThat("Actual object "\Test\" must not be equal to \"Something\"")
+            actual, not("Something"));
+     }
+ * </pre>
+ * </p>
+ *
+ * <p>When using no "actual" object, but just an expression, it can be used the {@linkplain #withReason(String)}, e.g.
+ *
+ * <pre>
+     @Test
+     public void testSomething(){
+        boolean expression = true;
+
+        withReason("Expected the expression to be true")
+         .assertIs(expression);
+     }
+ * </pre>
+ * </p>
+ *
+ * <p>Another option is to check a boolean expression directly like follows
+ *
+ * <pre>
+     @Test
+     public void testSomething(){
+         boolean expression = true;
+
+         assertIs(expression);
+     }
+ * </pre>
+ * </p>
+ */
+public class AssertionMaker<T> {
+
+    private String reason;
+
+    private T actual;
+
+    public AssertionMaker() { }
+
+    public AssertionMaker(@Nonnull final T actual) {
+        this();
+        this.actual = actual;
+    }
+
+    public AssertionMaker(@Nonnull final T actual, @Nonnull final String reason) {
+        this(actual);
+        this.reason = reason;
+    }
+
+    public static <T> AssertionMaker<T> given(@Nonnull final T actual) {
+        checkNotNull(actual);
+
+        return new AssertionMaker<T>(actual);
+    }
+
+    public static AssertionMaker withReason(@Nonnull final String reason) {
+        checkNotNull(reason);
+
+        return new AssertionMaker().forReason(reason);
+    }
+
+    public AssertionMaker forReason(@Nonnull final String reason) {
+        checkNotNull(reason);
+
+        this.reason = reason;
+        return this;
+    }
+
+    public static void assumeThat(final boolean expression) {
+        new AssertionMaker().matches(expression);
+    }
+
+    public static void assumeIs(final boolean expression) {
+        new AssertionMaker().matches(expression);
+    }
+
+    public static void assertThat(final boolean expression) {
+        new AssertionMaker().matches(expression);
+    }
+
+    public static void assertIs(final boolean expression) {
+        new AssertionMaker().matches(expression);
+    }
+
+    public <T> void assumeThat(@Nonnull final Matcher<? super T> matcher) {
+        matches(matcher);
+    }
+
+    public <T> void assumeIs(@Nonnull final Matcher<? super T> matcher) {
+        matches(matcher);
+    }
+
+    public <T> void assertThat(@Nonnull final Matcher<? super T> matcher) {
+        matches(matcher);
+    }
+
+    public <T> void assertIs(@Nonnull final Matcher<? super T> matcher) {
+        matches(matcher);
+    }
+
+    private <T> Description describeError(final Matcher<? super T> matcher) {
+        final Description description = new StringDescription();
+        if (reason != null) {
+            description.appendText(reason);
+        }
+
+        description.appendText("\nExpected: ");
+        description.appendDescriptionOf(matcher);
+        description.appendText("\n\tgot: ");
+        description.appendValue(actual);
+        description.appendText("\n");
+        return description;
+    }
+
+    private <T> void matches(final Matcher<? super T> matcher) {
+        checkNotNull(matcher);
+
+        if (!matcher.matches(actual)) {
+            final Description description = describeError(matcher);
+
+            // matcher.describeMismatch(actual, description);
+
+            throw new AssertionError(description.toString());
+        }
+    }
+
+    private <T> void matches(final boolean assertion) {
+        if (!assertion) {
+            if (reason != null) {
+                throw new AssertionError(reason);
+            } else {
+                throw new AssertionError(assertion);
+            }
+        }
+    }
+
+}

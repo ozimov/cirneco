@@ -84,6 +84,22 @@
             <version>${org.slf4j-api}</version>
         </dependency>
 
+        <!-- CODE QUALITY DEPENDENCIES  -->
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <version>3.0.1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <!--  BOILERPLATE-CODE KILLER  -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.6</version>
+            <scope>provided</scope>
+        </dependency>
+
         <!--  TESTING DEPENDENCIES  -->
         <dependency>
             <groupId>junit</groupId>
@@ -107,6 +123,7 @@
             <version>${mockito-all}</version>
             <scope>test</scope>
         </dependency>
+        <!-- UNIT TEST UTILS -->
         <dependency>
             <groupId>org.javassist</groupId>
             <artifactId>javassist</artifactId>

@@ -12,7 +12,7 @@ import it.ozimov.cirneco.hamcrest.java7.date.utils.CalendarUtils;
 import it.ozimov.cirneco.hamcrest.java7.date.utils.ClockPeriod;
 
 /**
- * Is {@linkplain Date} in a given week day?
+ * it.ozimov.cirneco.hamcrest.java7.Is {@linkplain Date} in a given week day?
  *
  * @since  version 0.1 for JDK7
  */

@@ -27,6 +27,7 @@ public class IsEmailTest extends BaseMatcherTest {
         "email@111.222.333.44444", "email@example..com", "Abc..123@example.com", "\"(),:;<>[\\]@example.com",
         "just\"not\"right@example.com", "this\\ is\"really\"not\\allowed@example.com"
     };
+
     public Matcher<Object> isEmailMatcher;
 
     @Before

@@ -13,7 +13,7 @@ import com.google.common.collect.ImmutableSet;
 import it.ozimov.cirneco.hamcrest.java7.date.utils.CalendarUtils;
 
 /**
- * Is {@linkplain Date} in a given week day?
+ * it.ozimov.cirneco.hamcrest.java7.Is {@linkplain Date} in a given week day?
  *
  * @since  version 0.1 for JDK7
  */

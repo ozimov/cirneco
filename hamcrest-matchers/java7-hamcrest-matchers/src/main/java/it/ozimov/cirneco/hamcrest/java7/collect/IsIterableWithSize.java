@@ -13,9 +13,6 @@ import it.ozimov.cirneco.hamcrest.java7.collect.utils.IterableUtils;
 /**
  * Does the {@linkplain Iterable} has a given size?
  *
- * <p>
- * <p>
- * <p>
  * <p>The matcher first checks if the given {@code Iterable} is a {@linkplain Collection} (to get some speedup by using
  * the {@linkplain Collection#size()} method, otherwise iterates all the elements to get the size of the
  * {@code Iterable}.
@@ -35,14 +32,8 @@ public class IsIterableWithSize<E> extends org.hamcrest.collection.IsIterableWit
      * Creates a matcher for {@link Iterable}s that matches when the examined {@link Iterable} yields an item count
      * equal to <code>1</code>.
      *
-     * <p>
-     * <p>
-     * <p>
      * <p>For example:
      *
-     * <p>
-     * <p>
-     * <p>
      * <pre>assertThat(Arrays.asList("foo", "bar"), hasSizeOne())</pre>
      *
      * returns <code>false</code>.
@@ -55,14 +46,7 @@ public class IsIterableWithSize<E> extends org.hamcrest.collection.IsIterableWit
      * Creates a matcher for {@link Iterable}s that matches when the examined {@link Iterable} yields an item count
      * equal to <code>2</code>.
      *
-     * <p>
-     * <p>
-     * <p>
      * <p>For example:
-     *
-     * <p>
-     * <p>
-     * <p>
      * <pre>assertThat(Arrays.asList("foo", "bar"), hasSizeTwo())</pre>
      *
      * returns <code>true</code>.
@@ -75,14 +59,7 @@ public class IsIterableWithSize<E> extends org.hamcrest.collection.IsIterableWit
      * Creates a matcher for {@link Iterable}s that matches when the examined {@link Iterable} yields an item count
      * equal to <code>3</code>.
      *
-     * <p>
-     * <p>
-     * <p>
      * <p>For example:
-     *
-     * <p>
-     * <p>
-     * <p>
      * <pre>assertThat(Arrays.asList("foo", "bar"), hasSizeThree())</pre>
      *
      * returns <code>false</code>.
@@ -95,14 +72,7 @@ public class IsIterableWithSize<E> extends org.hamcrest.collection.IsIterableWit
      * Creates a matcher for {@link Iterable}s that matches when the examined {@link Iterable} yields an item count
      * equal to <code>4</code>.
      *
-     * <p>
-     * <p>
-     * <p>
      * <p>For example:
-     *
-     * <p>
-     * <p>
-     * <p>
      * <pre>assertThat(Arrays.asList("foo", "bar"), hasSizeFour())</pre>
      *
      * returns <code>false</code>.
@@ -115,14 +85,7 @@ public class IsIterableWithSize<E> extends org.hamcrest.collection.IsIterableWit
      * Creates a matcher for {@link Iterable}s that matches when the examined {@link Iterable} yields an item count
      * equal to <code>5</code>.
      *
-     * <p>
-     * <p>
-     * <p>
      * <p>For example:
-     *
-     * <p>
-     * <p>
-     * <p>
      * <pre>assertThat(Arrays.asList("foo", "bar"), hasSizeFive())</pre>
      *
      * returns <code>false</code>.
@@ -135,14 +98,7 @@ public class IsIterableWithSize<E> extends org.hamcrest.collection.IsIterableWit
      * Creates a matcher for {@link Iterable}s that matches when the examined {@link Iterable} yields an item count
      * equal to <code>size</code>.
      *
-     * <p>
-     * <p>
-     * <p>
      * <p>For example:
-     *
-     * <p>
-     * <p>
-     * <p>
      * <pre>assertThat(Arrays.asList("foo", "bar"), hasSize(2))</pre>
      *
      * returns <code>true</code>.

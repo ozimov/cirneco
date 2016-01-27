@@ -5,6 +5,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Added
 - New matcher in package `it.ozimov.cirneco.hamcrest.java7.base`, i.e. `IsSameHashcode`
+- New matchers in package `it.ozimov.cirneco.hamcrest.java7.web`, i.e. `IsJSON` and `IsJSONWith`.
+  The latter is fully based on _JayWay_ JsonPath library.
+- Fluent assertions in class `it.ozimov.cirneco.hamcrest.java7.AssertionMaker`
 
 ### Fixed
 - Fixed mismatch description in `it.ozimov.cirneco.hamcrest.guava.collect.IsMultimapWithKeySet`

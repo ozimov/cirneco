@@ -9,7 +9,7 @@ import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
 /**
- * Is {@linkplain Date} in a leap year?
+ * it.ozimov.cirneco.hamcrest.java7.Is {@linkplain Date} in a leap year?
  *
  * @since  version 0.1 for JDK7
  */

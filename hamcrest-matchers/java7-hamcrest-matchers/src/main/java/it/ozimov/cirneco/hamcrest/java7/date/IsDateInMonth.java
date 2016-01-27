@@ -14,7 +14,7 @@ import com.google.common.base.Optional;
 import it.ozimov.cirneco.hamcrest.java7.date.utils.CalendarUtils;
 
 /**
- * Is {@linkplain Date} in a given id?
+ * it.ozimov.cirneco.hamcrest.java7.Is {@linkplain Date} in a given id?
  *
  * @since  version 0.1 for JDK7
  */

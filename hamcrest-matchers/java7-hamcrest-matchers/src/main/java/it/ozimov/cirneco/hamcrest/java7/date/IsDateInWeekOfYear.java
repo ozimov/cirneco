@@ -1,23 +1,25 @@
 package it.ozimov.cirneco.hamcrest.java7.date;
 
-import it.ozimov.cirneco.hamcrest.java7.date.utils.CalendarUtils;
+import static com.google.common.base.Preconditions.checkArgument;
+
+import java.util.Date;
+
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
-import java.util.Date;
-
-import static com.google.common.base.Preconditions.checkArgument;
+import it.ozimov.cirneco.hamcrest.java7.date.utils.CalendarUtils;
 
 /**
- * Is {@linkplain Date} in a given weekOfYear of the year?
+ * it.ozimov.cirneco.hamcrest.java7.Is {@linkplain Date} in a given weekOfYear of the year?
+ *
  * <p>
  * <p>
  * <p>
  * <p>The matcher is compliant to the <em>ISO 8601</em> standard. Hence, a day at the end of December in year <em>X</em>
  * may be part of the subsequent year <em>X+1</em> (and similarly for the first days of January).
  *
- * @since version 0.2 for JDK7
+ * @since  version 0.2 for JDK7
  */
 public class IsDateInWeekOfYear extends TypeSafeMatcher<Date> {
 

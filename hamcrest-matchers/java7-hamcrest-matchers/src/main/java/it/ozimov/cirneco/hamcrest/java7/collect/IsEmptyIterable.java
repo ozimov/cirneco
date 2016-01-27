@@ -1,33 +1,27 @@
 package it.ozimov.cirneco.hamcrest.java7.collect;
 
+import java.util.Collection;
+
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
-import java.util.Collection;
-
 /**
  * Is the {@linkplain Iterable} empty?
- * <p>
- * <p>
- * <p>
+ *
  * <p>The matcher first checks if the given {@code Iterable} is a {@linkplain Collection} (to get some speedup by using
  * the {@linkplain Collection#isEmpty()}} method, otherwise get the iterator from the {@code Iterable} and check if has
  * a next item.
  *
- * @since version 0.1 for JDK7
+ * @since  version 0.1 for JDK7
  */
 public class IsEmptyIterable<E> extends TypeSafeMatcher<Iterable<? extends E>> {
 
     /**
      * Creates a matcher for {@link Iterable}s that matches when the examined {@link Iterable} has no items.
-     * <p>
-     * <p>
-     * <p>
+     *
      * <p>For example:
-     * <p>
-     * <p>
-     * <p>
+     *
      * <pre>assertThat(new ArrayList<>(), empty())</pre>
      *
      * returns <code>true</code>.

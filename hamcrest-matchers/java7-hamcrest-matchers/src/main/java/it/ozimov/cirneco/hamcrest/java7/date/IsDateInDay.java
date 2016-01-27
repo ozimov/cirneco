@@ -14,7 +14,7 @@ import org.hamcrest.TypeSafeMatcher;
 import com.google.common.base.Optional;
 
 /**
- * Is {@linkplain Date} in a given week day?
+ * it.ozimov.cirneco.hamcrest.java7.Is {@linkplain Date} in a given week day?
  *
  * @since  version 0.1 for JDK7
  */
