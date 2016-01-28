@@ -4,31 +4,33 @@ import static org.hamcrest.Matchers.is;
 
 import static org.junit.Assert.assertThat;
 
+import static it.ozimov.cirneco.hamcrest.java7.date.DateTestUtils.date;
+
+import java.text.ParseException;
+
 import java.util.Date;
 
 import org.hamcrest.Matcher;
-
-import org.joda.time.DateTime;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 
-public class IsDateInLeapYearTest extends BaseDateMatcherTest {
+public class IsDateInLeapYearTest extends BaseMatcherTest {
 
     public Matcher<Date> isLeapYearMatcher;
     public Date leapYear;
     public Date nonLeapYear;
 
     @Before
-    public void setUp() {
+    public void setUp() throws ParseException {
 
         // Arrange
         isLeapYearMatcher = IsDateInLeapYear.leapYear();
 
-        leapYear = new DateTime(2000, 2, 29, 0, 0, TIME_ZONE).toDate();
-        nonLeapYear = new DateTime(1982, 2, 28, 0, 0, TIME_ZONE).toDate();
+        leapYear = date(2000, 2, 29);
+        nonLeapYear = date(1982, 2, 28);
     }
 
     @Test

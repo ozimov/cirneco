@@ -7,7 +7,14 @@ import org.junit.Test;
 public class AssertionMakerTest {
 
     @Test
-    public void testGiven() throws Exception { }
+    public void testGivenForReasonAssertThat() throws Exception {
+
+        // Arrange
+        final String actual = "Test";
+
+        // AssertionMaker.given()
+
+    }
 
     @Test
     public void testWithReason() throws Exception { }

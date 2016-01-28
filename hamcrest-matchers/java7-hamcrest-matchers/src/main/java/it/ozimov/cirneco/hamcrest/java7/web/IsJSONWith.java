@@ -52,17 +52,17 @@ public class IsJSONWith extends TypeSafeMatcher<String> {
      * <p>For example: Given a Json like {@code Sgtring JSON = "{\"store\": {\"book\": [{\"title\": \"Effective Java\"}]}}";}
      * then the matcher can be used as follows
      *
-     * <pre>assertThat(JSON, hasJSONPath($.store.book[0].title))</pre>
+     * <pre>assertThat(JSON, hasJsonPath($.store.book[0].title))</pre>
      *
      * or
      *
-     * <pre>assertThat(JSON, hasJSONPath($['store']['book'][0]['title'])</pre>
+     * <pre>assertThat(JSON, hasJsonPath($['store']['book'][0]['title'])</pre>
      *
      * that will return true because the jsonPath matches the string.</p>
      *
      * @see  <a href="https://github.com/jayway/JsonPath">JsonPath project home</a> for more details.
      */
-    public static Matcher<String> hasJSONPath(@Nonnull final String jsonPath) {
+    public static Matcher<String> hasJsonPath(@Nonnull final String jsonPath) {
         return new IsJSONWith(jsonPath);
     }
 
@@ -75,23 +75,23 @@ public class IsJSONWith extends TypeSafeMatcher<String> {
      * <p>For example: Given a Json like {@code Sgtring JSON = "{\"store\": {\"book\": [{\"title\": \"Effective Java\",}]}}";}
      * then the matcher can be used as follows
      *
-     * <pre>assertThat(JSON, hasJSONPath($.store.book[0].title))</pre>
+     * <pre>assertThat(JSON, hasJsonPath($.store.book[0].title))</pre>
      *
      * or
      *
-     * <pre>assertThat(JSON, hasJSONPath($['store']['book'][0]['title'])</pre>
+     * <pre>assertThat(JSON, hasJsonPath($['store']['book'][0]['title'])</pre>
      *
      * that will return true because the jsonPath matches the string.</p>
      *
      * @see  <a href="https://github.com/jayway/JsonPath">JsonPath project home</a> for more details.
      */
-    public static Matcher<String> hasJSONPath(@Nonnull final String jsonPath, final Predicate... predicates) {
+    public static Matcher<String> hasJsonPath(@Nonnull final String jsonPath, final Predicate... predicates) {
         return new IsJSONWith(jsonPath, predicates);
     }
 
     @Override
     protected boolean matchesSafely(@Nonnull final String jsonInString) {
-        checkArgument(IsJSON.isValidJSON(jsonInString),
+        checkArgument(IsJSON.json(jsonInString),
             "Trying to validate a non-JSON String. Please adhere to RFC 4627 standard");
 
         final DocumentContext documentContext = parse(jsonInString);

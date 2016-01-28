@@ -1,17 +1,19 @@
 package it.ozimov.cirneco.hamcrest.java7.date;
 
+import static it.ozimov.cirneco.hamcrest.java7.date.DateTestUtils.date;
+
+import java.text.ParseException;
+
 import java.util.Date;
 
 import org.hamcrest.Matcher;
-
-import org.joda.time.DateTime;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 
-public class IsDateInDayTest extends BaseDateMatcherTest {
+public class IsDateInDayTest extends BaseMatcherTest {
 
     public Date sunday;
     public Date monday;
@@ -30,16 +32,16 @@ public class IsDateInDayTest extends BaseDateMatcherTest {
     public Matcher<Date> saturdayMatcher;
 
     @Before
-    public void setUp() {
+    public void setUp() throws ParseException {
 
         // Arrange
-        sunday = new DateTime(2015, 12, 20, 0, 0, TIME_ZONE).toDate();
-        monday = new DateTime(2015, 12, 21, 0, 0, TIME_ZONE).toDate();
-        tuesday = new DateTime(2015, 12, 22, 0, 0, TIME_ZONE).toDate();
-        wednesday = new DateTime(2015, 12, 23, 0, 0, TIME_ZONE).toDate();
-        thursday = new DateTime(2015, 12, 24, 0, 0, TIME_ZONE).toDate();
-        friday = new DateTime(2015, 12, 25, 0, 0, TIME_ZONE).toDate();
-        saturday = new DateTime(2015, 12, 26, 0, 0, TIME_ZONE).toDate();
+        sunday = date(2015, 12, 20);
+        monday = date(2015, 12, 21);
+        tuesday = date(2015, 12, 22);
+        wednesday = date(2015, 12, 23);
+        thursday = date(2015, 12, 24);
+        friday = date(2015, 12, 25);
+        saturday = date(2015, 12, 26);
 
         sundayMatcher = IsDateInDay.sunday();
         mondayMatcher = IsDateInDay.monday();

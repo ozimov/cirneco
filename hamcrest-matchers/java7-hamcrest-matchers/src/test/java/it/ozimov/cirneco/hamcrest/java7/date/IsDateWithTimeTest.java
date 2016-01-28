@@ -16,11 +16,11 @@ import static it.ozimov.cirneco.hamcrest.java7.date.utils.ClockPeriod.AM;
 import static it.ozimov.cirneco.hamcrest.java7.date.utils.ClockPeriod.PM;
 import static it.ozimov.cirneco.hamcrest.java7.date.utils.ClockPeriod.TWENTYFOUR_HOURS;
 
+import java.text.ParseException;
+
 import java.util.Date;
 
 import org.hamcrest.Matcher;
-
-import org.joda.time.DateTime;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -28,8 +28,10 @@ import org.junit.Test;
 import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 import it.ozimov.cirneco.hamcrest.java7.date.utils.ClockPeriod;
 
-public class IsDateWithTimeTest extends BaseDateMatcherTest {
+public class IsDateWithTimeTest extends BaseMatcherTest {
+
     public static final int LENGTH_12_HOUR_CLOCK = 12;
+
     public Integer morningDateHour;
     public Integer morningDateMinute;
     public Integer morningDateSecond;
@@ -43,7 +45,7 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
     public Date eveningDate;
 
     @Before
-    public void setUp() {
+    public void setUp() throws ParseException {
 
         // Arrange
         morningDateHour = 11;
@@ -706,8 +708,8 @@ public class IsDateWithTimeTest extends BaseDateMatcherTest {
     }
 
     private Date date(final Integer dateHour, final Integer dateMinute, final Integer dateSecond,
-            final Integer dateMillisecond) {
-        return new DateTime(2000, 2, 29, dateHour, dateMinute, dateSecond, dateMillisecond, TIME_ZONE).toDate();
+            final Integer dateMillisecond) throws ParseException {
+        return DateTestUtils.date(2000, 2, 29, dateHour, dateMinute, dateSecond, dateMillisecond);
     }
 
 }

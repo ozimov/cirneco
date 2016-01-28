@@ -33,10 +33,13 @@ public class IsJSON extends TypeSafeMatcher<String> {
 
     @Override
     protected boolean matchesSafely(@Nonnull final String jsonInString) {
-        return isValidJSON(jsonInString);
+        return json(jsonInString);
     }
 
-    static boolean isValidJSON(@Nonnull final String jsonInString) {
+    /**
+     * Matches if the given {@linkplain String} is a valid JSON.
+     */
+    public static boolean json(@Nonnull final String jsonInString) {
         try {
             final ObjectMapper mapper = new ObjectMapper();
             mapper.readTree(jsonInString);

@@ -10,16 +10,20 @@ import static org.hamcrest.Matchers.nullValue;
 
 import static org.junit.Assert.fail;
 
+import static it.ozimov.cirneco.hamcrest.java7.date.DateTestUtils.date;
+
+import java.text.ParseException;
+
 import java.util.Date;
 
 import org.hamcrest.Matcher;
 
-import org.joda.time.DateTime;
-
 import org.junit.Before;
 import org.junit.Test;
 
-public class IsDateInWeekOfYearTest extends BaseDateMatcherTest {
+import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
+
+public class IsDateInWeekOfYearTest extends BaseMatcherTest {
 
     public Matcher<Date> isWeek1Matcher;
     public Matcher<Date> isWeek52Matcher;
@@ -31,14 +35,14 @@ public class IsDateInWeekOfYearTest extends BaseDateMatcherTest {
     public Date decemberDateInWeek53;
 
     @Before
-    public void setUp() {
+    public void setUp() throws ParseException {
 
         // Arrange
-        januaryDateInWeek1 = new DateTime(2019, 1, 1, 0, 0, 0, TIME_ZONE).toDate();
-        januaryDateInWeek53 = new DateTime(2016, 1, 1, 0, 0, 0, TIME_ZONE).toDate();
-        decemberDateInWeek1 = new DateTime(2019, 12, 31, 0, 0, 0, TIME_ZONE).toDate();
-        decemberDateInWeek52 = new DateTime(2018, 12, 30, 0, 0, 0, TIME_ZONE).toDate();
-        decemberDateInWeek53 = new DateTime(2015, 12, 31, 0, 0, 0, TIME_ZONE).toDate();
+        januaryDateInWeek1 = date(2019, 1, 1);
+        januaryDateInWeek53 = date(2016, 1, 1);
+        decemberDateInWeek1 = date(2019, 12, 31);
+        decemberDateInWeek52 = date(2018, 12, 30);
+        decemberDateInWeek53 = date(2015, 12, 31);
 
         isWeek1Matcher = IsDateInWeekOfYear.inWeekOfYear(1);
         isWeek52Matcher = IsDateInWeekOfYear.inWeekOfYear(52);

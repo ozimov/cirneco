@@ -1,17 +1,19 @@
 package it.ozimov.cirneco.hamcrest.java7.date;
 
+import static it.ozimov.cirneco.hamcrest.java7.date.DateTestUtils.date;
+
+import java.text.ParseException;
+
 import java.util.Date;
 
 import org.hamcrest.Matcher;
-
-import org.joda.time.DateTime;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 
-public class IsDateInMonthTest extends BaseDateMatcherTest {
+public class IsDateInMonthTest extends BaseMatcherTest {
 
     public Date january;
     public Date february;
@@ -40,21 +42,21 @@ public class IsDateInMonthTest extends BaseDateMatcherTest {
     public Matcher<Date> decemberMatcher;
 
     @Before
-    public void setUp() {
+    public void setUp() throws ParseException {
 
         // Arrange
-        january = new DateTime(2015, 1, 1, 0, 0, TIME_ZONE).toDate();
-        february = new DateTime(2015, 2, 1, 0, 0, TIME_ZONE).toDate();
-        march = new DateTime(2015, 3, 1, 0, 0, TIME_ZONE).toDate();
-        april = new DateTime(2015, 4, 1, 0, 0, TIME_ZONE).toDate();
-        may = new DateTime(2015, 5, 1, 0, 0, TIME_ZONE).toDate();
-        june = new DateTime(2015, 6, 1, 0, 0, TIME_ZONE).toDate();
-        july = new DateTime(2015, 7, 1, 0, 0, TIME_ZONE).toDate();
-        august = new DateTime(2015, 8, 1, 0, 0, TIME_ZONE).toDate();
-        september = new DateTime(2015, 9, 1, 0, 0, TIME_ZONE).toDate();
-        october = new DateTime(2015, 10, 1, 0, 0, TIME_ZONE).toDate();
-        november = new DateTime(2015, 11, 1, 0, 0, TIME_ZONE).toDate();
-        december = new DateTime(2015, 12, 1, 0, 0, TIME_ZONE).toDate();
+        january = date(2015, 1, 1);
+        february = date(2015, 2, 1);
+        march = date(2015, 3, 1);
+        april = date(2015, 4, 1);
+        may = date(2015, 5, 1);
+        june = date(2015, 6, 1);
+        july = date(2015, 7, 1);
+        august = date(2015, 8, 1);
+        september = date(2015, 9, 1);
+        october = date(2015, 10, 1);
+        november = date(2015, 11, 1);
+        december = date(2015, 12, 1);
 
         januaryMatcher = IsDateInMonth.january();
         februaryMatcher = IsDateInMonth.february();

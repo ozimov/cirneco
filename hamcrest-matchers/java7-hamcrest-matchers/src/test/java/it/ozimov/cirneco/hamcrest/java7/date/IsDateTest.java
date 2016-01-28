@@ -12,11 +12,13 @@ import static org.junit.Assert.fail;
 
 import static org.junit.Assume.assumeThat;
 
+import static it.ozimov.cirneco.hamcrest.java7.date.DateTestUtils.date;
+
+import java.text.ParseException;
+
 import java.util.Date;
 
 import org.hamcrest.Matcher;
-
-import org.joda.time.DateTime;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -25,7 +27,7 @@ import com.google.common.collect.ImmutableList;
 
 import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 
-public class IsDateTest extends BaseDateMatcherTest {
+public class IsDateTest extends BaseMatcherTest {
 
     public Integer dateYear;
     public Integer dateMonth;
@@ -37,7 +39,7 @@ public class IsDateTest extends BaseDateMatcherTest {
     public Date date;
 
     @Before
-    public void setUp() {
+    public void setUp() throws ParseException {
         dateYear = 2015;
         dateMonth = 12;
         dateDay = 25;
@@ -50,7 +52,7 @@ public class IsDateTest extends BaseDateMatcherTest {
         assumeThat(dateWrongMonth, not(is(dateMonth)));
         assumeThat(dateWrongDay, not(is(dateDay)));
 
-        date = new DateTime(dateYear, dateMonth, dateDay, 0, 0, 0, TIME_ZONE).toDate();
+        date = DateTestUtils.date(dateYear, dateMonth, dateDay);
     }
 
     @Test

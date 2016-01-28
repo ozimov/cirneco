@@ -39,8 +39,8 @@ public class IsJSONWithTest extends BaseMatcherTest {
     public void setUp() {
 
         // Arrange
-        withPathMatcher = IsJSONWith.hasJSONPath(JSON_PATH);
-        withPathAndPredicateMatcher = IsJSONWith.hasJSONPath(JSON_PATH_FOR_PREDICATE, PREDICATE);
+        withPathMatcher = IsJSONWith.hasJsonPath(JSON_PATH);
+        withPathAndPredicateMatcher = IsJSONWith.hasJsonPath(JSON_PATH_FOR_PREDICATE, PREDICATE);
     }
 
     @Test
