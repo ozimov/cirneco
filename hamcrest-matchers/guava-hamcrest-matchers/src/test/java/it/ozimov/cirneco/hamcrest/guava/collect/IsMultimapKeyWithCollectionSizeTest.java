@@ -1,5 +1,6 @@
 package it.ozimov.cirneco.hamcrest.guava.collect;
 
+import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.lessThan;
 import static org.hamcrest.Matchers.not;
@@ -21,11 +22,13 @@ import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 public class IsMultimapKeyWithCollectionSizeTest extends BaseMatcherTest {
 
     public String comparison;
+    public String missingComparison;
 
     public Multimap<String, Object> multimap;
     public int expectedSizeCollectionForKeyInGeneralMatcher;
 
     public Matcher<Multimap<String, ?>> isMultimapElementWithCollectionSizeMatcher;
+    public Matcher<Multimap<String, ?>> isMultimapMissingElementWithCollectionSizeMatcher;
 
     @Before
     public void mapUp() {
@@ -33,10 +36,13 @@ public class IsMultimapKeyWithCollectionSizeTest extends BaseMatcherTest {
         // Arrange
         multimap = HashMultimap.create();
         comparison = "ComparisonKey";
+        missingComparison = "MissingComparisonKey";
 
         expectedSizeCollectionForKeyInGeneralMatcher = 10;
         isMultimapElementWithCollectionSizeMatcher = IsMultimapKeyWithCollectionSize.keyWithSize(comparison,
                 expectedSizeCollectionForKeyInGeneralMatcher);
+        isMultimapMissingElementWithCollectionSizeMatcher = IsMultimapKeyWithCollectionSize.keyWithSize(
+                missingComparison, expectedSizeCollectionForKeyInGeneralMatcher);
     }
 
     @Test
@@ -87,8 +93,17 @@ public class IsMultimapKeyWithCollectionSizeTest extends BaseMatcherTest {
 
     @Test
     public void testDescribeMismatchSafely() throws Exception {
+
+        // Arrange
+        assumeThat(multimap.keySet(), hasSize(0));
+        multimap.put(comparison, "");
+
+        // Assert
+        BaseMatcherTest.assertHasMismatchDescription(String.format("Multimap was not containing element \"%s\"",
+                missingComparison), isMultimapMissingElementWithCollectionSizeMatcher, multimap);
+
         BaseMatcherTest.assertHasMismatchDescription(String.format(
-                "Multimap had element \"%s\" with collection size <0>", comparison),
+                "Multimap had element \"%s\" with collection size <1>", comparison),
             isMultimapElementWithCollectionSizeMatcher, multimap);
     }
 

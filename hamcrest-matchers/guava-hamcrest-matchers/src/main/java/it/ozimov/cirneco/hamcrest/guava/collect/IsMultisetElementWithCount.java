@@ -42,10 +42,10 @@ public class IsMultisetElementWithCount<E> extends TypeSafeMatcher<Multiset<E>> 
     public void describeMismatchSafely(final Multiset<E> multiset, final Description mismatchDescription) {
 
         if (multiset.contains(comparison)) {
-            mismatchDescription.appendText("Multiset was not containing element").appendValue(comparison);
-        } else {
             mismatchDescription.appendText("Multiset had element ").appendValue((Object) comparison)
                                .appendText(" with count ").appendValue(multiset.count(comparison));
+        } else {
+            mismatchDescription.appendText("Multiset was not containing element ").appendValue(comparison);
         }
     }
 

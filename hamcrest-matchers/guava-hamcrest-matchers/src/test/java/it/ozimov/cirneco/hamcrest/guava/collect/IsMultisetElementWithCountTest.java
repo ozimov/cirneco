@@ -2,6 +2,8 @@ package it.ozimov.cirneco.hamcrest.guava.collect;
 
 import static org.hamcrest.Matchers.lessThan;
 
+import static org.hamcrest.core.IsEqual.equalTo;
+
 import static org.junit.Assert.fail;
 
 import static org.junit.Assume.assumeThat;
@@ -19,11 +21,13 @@ import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 public class IsMultisetElementWithCountTest extends BaseMatcherTest {
 
     public String comparison;
+    public String nonContainedComparison;
 
     public Multiset<String> multiset;
     public int expectedCountGeneralMatcher;
 
     public Matcher<Multiset<String>> isMultisetElementWithCountMatcher;
+    public Matcher<Multiset<String>> isMissingMultisetElementWithCountMatcher;
 
     @Before
     public void setUp() {
@@ -31,9 +35,12 @@ public class IsMultisetElementWithCountTest extends BaseMatcherTest {
         // Arrange
         multiset = HashMultiset.create();
         comparison = "ComparisonObject";
+        nonContainedComparison = "AnotherComparisonObject";
 
         expectedCountGeneralMatcher = 10;
         isMultisetElementWithCountMatcher = IsMultisetElementWithCount.elementWithCount(comparison,
+                expectedCountGeneralMatcher);
+        isMissingMultisetElementWithCountMatcher = IsMultisetElementWithCount.elementWithCount(nonContainedComparison,
                 expectedCountGeneralMatcher);
     }
 
@@ -84,7 +91,15 @@ public class IsMultisetElementWithCountTest extends BaseMatcherTest {
 
     @Test
     public void testDescribeMismatchSafely() throws Exception {
-        BaseMatcherTest.assertHasMismatchDescription(String.format("Multiset had element \"%s\" with count <0>",
+
+        // Arrange
+        assumeThat(multiset.size(), equalTo(0));
+        multiset.add(comparison);
+
+        // Assert
+        BaseMatcherTest.assertHasMismatchDescription(String.format("Multiset was not containing element \"%s\"",
+                nonContainedComparison), isMissingMultisetElementWithCountMatcher, multiset);
+        BaseMatcherTest.assertHasMismatchDescription(String.format("Multiset had element \"%s\" with count <1>",
                 comparison), isMultisetElementWithCountMatcher, multiset);
     }
 

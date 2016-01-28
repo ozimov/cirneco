@@ -37,12 +37,11 @@ public class IsMultimapKeyWithCollectionSize<K> extends TypeSafeMatcher<Multimap
 
     @Override
     public void describeMismatchSafely(final Multimap<K, ?> multimap, final Description mismatchDescription) {
-
         if (multimap.containsKey(comparison)) {
-            mismatchDescription.appendText("Multimap was not containing element").appendValue(comparison);
-        } else {
             mismatchDescription.appendText("Multimap had element ").appendValue(comparison)
                                .appendText(" with collection size ").appendValue(multimap.get(comparison).size());
+        } else {
+            mismatchDescription.appendText("Multimap was not containing element ").appendValue(comparison);
         }
     }
 

@@ -56,6 +56,32 @@ public class IsDateTest extends BaseMatcherTest {
     }
 
     @Test
+    public void testGivenAllNullInputWhenCreateInstanceThenIllegalArgumentExceptionIsThrown() throws Exception {
+
+        // Arrange
+        thrown.expect(IllegalArgumentException.class);
+
+        // Act
+        new IsDate(null, null, null);
+
+        // Assert
+        fail("IllegalArgumentException expected");
+    }
+
+    @Test
+    public void testGivenANegativeYearWhenCreateInstanceThenIllegalArgumentExceptionIsThrown() throws Exception {
+
+        // Arrange
+        thrown.expect(IllegalArgumentException.class);
+
+        // Act
+        new IsDate(-1, null, null);
+
+        // Assert
+        fail("IllegalArgumentException expected");
+    }
+
+    @Test
     public void testGivenAMonthGreaterThan12WhenCreateInstanceThenIllegalArgumentExceptionIsThrown() throws Exception {
 
         // Arrange
