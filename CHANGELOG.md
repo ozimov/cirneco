@@ -3,6 +3,9 @@ All notable changes to Cirneco project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+
+## [0.4.0] - 2016-01-28
 ### Added
 - Fluent assertions in class `it.ozimov.cirneco.hamcrest.java7.AssertFluently`
 - New matcher in package `it.ozimov.cirneco.hamcrest.java7.base`, i.e. `IsSameHashcode`
@@ -12,7 +15,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 - Fixed mismatch description in `it.ozimov.cirneco.hamcrest.guava.collect.IsMultimapWithKeySet`
 - Fixed mismatch description in `it.ozimov.cirneco.hamcrest.java7.collect.IsMapWithSameKeySet`
-
+- Fixed unit tests for dates (wrong conversion from Joda `DateTime` to `java.util.Date`
 
 
 ## [0.3.0] - 2016-01-10

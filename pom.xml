@@ -175,11 +175,11 @@
                         </goals>
                     </execution>
                 </executions>
-                <!--<configuration>-->
-                    <!--<excludes>-->
-                        <!--<exclude>**/*Matchers.class</exclude>-->
-                    <!--</excludes>-->
-                <!--</configuration>-->
+                <configuration>
+                    <excludes>
+                        <exclude>**/*Matchers.class</exclude>
+                    </excludes>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.eluder.coveralls</groupId>
