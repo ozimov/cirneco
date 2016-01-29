@@ -52,7 +52,7 @@ public class IsDateTest extends BaseMatcherTest {
         assumeThat(dateWrongMonth, not(is(dateMonth)));
         assumeThat(dateWrongDay, not(is(dateDay)));
 
-        date = DateTestUtils.date(dateYear, dateMonth, dateDay);
+        date = date(dateYear, dateMonth, dateDay);
     }
 
     @Test

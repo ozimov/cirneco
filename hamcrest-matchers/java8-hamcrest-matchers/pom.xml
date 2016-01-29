@@ -113,6 +113,10 @@
                         <version>${maven-javadoc-plugin}</version>
                         <configuration>
                             <additionalparam>-Xdoclint:none</additionalparam>
+                            <includeDependencySources>true</includeDependencySources>
+                            <dependencySourceIncludes>
+                                <dependencySourceInclude>org.hamcrest:hamcrest-core:*</dependencySourceInclude>
+                            </dependencySourceIncludes>
                         </configuration>
                     </plugin>
                 </plugins>
