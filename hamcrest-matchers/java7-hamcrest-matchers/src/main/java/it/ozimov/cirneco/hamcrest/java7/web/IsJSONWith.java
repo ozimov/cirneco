@@ -72,7 +72,7 @@ public class IsJSONWith extends TypeSafeMatcher<String> {
      * <p>The pattern is the same defined by <em>JayWay JsonPath</em>.</p>
      *
      * <p>
-     * <p>For example: Given a Json like {@code Sgtring JSON = "{\"store\": {\"book\": [{\"title\": \"Effective Java\",}]}}";}
+     * <p>For example: Given a Json like {@code String JSON = "{\"store\": {\"book\": [{\"title\": \"Effective Java\",}]}}";}
      * then the matcher can be used as follows
      *
      * <pre>assertThat(JSON, hasJsonPath($.store.book[0].title))</pre>
