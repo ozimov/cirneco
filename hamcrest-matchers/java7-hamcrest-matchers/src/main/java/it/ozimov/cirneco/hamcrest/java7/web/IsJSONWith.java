@@ -44,7 +44,7 @@ public class IsJSONWith extends TypeSafeMatcher<String> {
     }
 
     /**
-     * Creates a matcher for {@code String} that matches when the value could be a JSON.
+     * Creates a matcher for {@code String} that matches when the value could be a JSON matching a given pattern.
      *
      * <p>The pattern is the same defined by <em>JayWay JsonPath</em>.</p>
      *
@@ -56,7 +56,7 @@ public class IsJSONWith extends TypeSafeMatcher<String> {
      *
      * or
      *
-     * <pre>assertThat(JSON, hasJsonPath($['store']['book'][0]['title'])</pre>
+     * <pre>assertThat(JSON, hasJsonPath("$['store']['book'][0]['title']"")</pre>
      *
      * that will return true because the jsonPath matches the string.</p>
      *
@@ -67,7 +67,8 @@ public class IsJSONWith extends TypeSafeMatcher<String> {
     }
 
     /**
-     * Creates a matcher for {@code String} that matches when the value could be a JSON.
+     * Creates a matcher for {@code String} that matches when the value could be a JSON matching a given pattern
+     * ans under the given list of predicates.
      *
      * <p>The pattern is the same defined by <em>JayWay JsonPath</em>.</p>
      *
@@ -75,11 +76,11 @@ public class IsJSONWith extends TypeSafeMatcher<String> {
      * <p>For example: Given a Json like {@code String JSON = "{\"store\": {\"book\": [{\"title\": \"Effective Java\",}]}}";}
      * then the matcher can be used as follows
      *
-     * <pre>assertThat(JSON, hasJsonPath($.store.book[0].title))</pre>
+     * <pre>assertThat(JSON, hasJsonPath("$.store.book[0].title", filter(where("title").is("Scary Coding"))))</pre>
      *
      * or
      *
-     * <pre>assertThat(JSON, hasJsonPath($['store']['book'][0]['title'])</pre>
+     * <pre>assertThat(JSON, hasJsonPath("$['store']['book'][0]['title']", filter(where("title").is("Scary Coding")))</pre>
      *
      * that will return true because the jsonPath matches the string.</p>
      *
