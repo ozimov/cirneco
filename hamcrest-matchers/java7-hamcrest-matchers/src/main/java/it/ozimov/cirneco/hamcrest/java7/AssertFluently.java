@@ -26,7 +26,7 @@ import org.hamcrest.StringDescription;
          String actual = "Test"
 
          given(actual)
-            .forReason("Actual object "\Test\" must not be equal to \"Something\"")
+            .withReason("Actual object "\Test\" must not be equal to \"Something\"")
             .assertIs(not("Something"));
        }
 
