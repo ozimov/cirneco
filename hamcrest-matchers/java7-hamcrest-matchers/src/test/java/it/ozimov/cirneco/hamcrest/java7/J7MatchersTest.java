@@ -34,8 +34,6 @@ import it.ozimov.cirneco.hamcrest.java7.number.IsNotANumber;
 import it.ozimov.cirneco.hamcrest.java7.number.IsPositive;
 import it.ozimov.cirneco.hamcrest.java7.number.IsPositiveInfinity;
 import it.ozimov.cirneco.hamcrest.java7.web.IsEmail;
-import it.ozimov.cirneco.hamcrest.java7.web.IsJSON;
-import it.ozimov.cirneco.hamcrest.java7.web.IsJSONWith;
 
 public class J7MatchersTest extends SameCallerMatchersTest {
 
@@ -395,22 +393,6 @@ public class J7MatchersTest extends SameCallerMatchersTest {
     @Test
     public void testEmail() throws Exception {
         testMethodCallsRightMethod(IsEmail.class, "email");
-    }
-
-    @Test
-    public void testJson() throws Exception {
-        testMethodCallsRightMethod(IsJSON.class, "json");
-    }
-
-    @Test
-    public void testHasJSONPath() throws Exception {
-        testMethodCallsRightMethod(IsJSONWith.class, "hasJsonPath", String.class);
-    }
-
-    @Test
-    public void testHasJSONPathWithPredicate() throws Exception {
-        testMethodCallsRightMethod(IsJSONWith.class, "hasJsonPath", String.class,
-            com.jayway.jsonpath.Predicate[].class);
     }
 
 }

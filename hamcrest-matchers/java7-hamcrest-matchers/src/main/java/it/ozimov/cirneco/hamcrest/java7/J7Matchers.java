@@ -39,8 +39,6 @@ import it.ozimov.cirneco.hamcrest.java7.number.IsNotANumber;
 import it.ozimov.cirneco.hamcrest.java7.number.IsPositive;
 import it.ozimov.cirneco.hamcrest.java7.number.IsPositiveInfinity;
 import it.ozimov.cirneco.hamcrest.java7.web.IsEmail;
-import it.ozimov.cirneco.hamcrest.java7.web.IsJSON;
-import it.ozimov.cirneco.hamcrest.java7.web.IsJSONWith;
 
 /**
  * {@inheritDoc} The {@code J7Matchers} class groups all the matchers introduced by Cirneco's Hamcrest extension for
@@ -803,58 +801,6 @@ public class J7Matchers extends HamcrestMatchers {
      */
     public static <T> Matcher<T> email() {
         return IsEmail.email();
-    }
-
-    /**
-     * Matches if the given {@linkplain String} is a valid JSON.
-     */
-    public static boolean json(@Nonnull final String jsonInString) {
-        return IsJSON.json(jsonInString);
-    }
-
-    /**
-     * Creates a matcher for {@code String} that matches when the value could be a JSON.
-     *
-     * <p>The pattern is the same defined by <em>JayWay JsonPath</em>.</p>
-     *
-     * <p>
-     * <p>For example: Given a Json like {@code Sgtring JSON = "{\"store\": {\"book\": [{\"title\": \"Effective Java\"}]}}";}
-     * then the matcher can be used as follows
-     *
-     * <pre>assertThat(JSON, hasJsonPath($.store.book[0].title))</pre>
-     *
-     * or
-     *
-     * <pre>assertThat(JSON, hasJsonPath($['store']['book'][0]['title'])</pre>
-     *
-     * that will return true because the jsonPath matches the string.</p>
-     *
-     * @see  <a href="https://github.com/jayway/JsonPath">JsonPath project home</a> for more details.
-     */
-    public static Matcher<String> hasJsonPath(@Nonnull final String jsonPath) {
-        return IsJSONWith.hasJsonPath(jsonPath);
-    }
-
-    /**
-     * Creates a matcher for {@code String} that matches when the value could be a JSON.
-     *
-     * <p>The pattern is the same defined by <em>JayWay JsonPath</em>.</p>
-     *
-     * <p>For example: Given a Json like {@code Sgtring JSON = "{\"store\": {\"book\": [{\"title\": \"Effective Java\",}]}}";}
-     * then the matcher can be used as follows
-     *
-     * <pre>assertThat(JSON, hasJsonPath($.store.book[0].title))</pre>
-     *
-     * or
-     *
-     * <pre>assertThat(JSON, hasJsonPath($['store']['book'][0]['title'])</pre>
-     *
-     * that will return true because the jsonPath matches the string.</p>
-     *
-     * @see  <a href="https://github.com/jayway/JsonPath">JsonPath project home</a> for more details.
-     */
-    public static Matcher<String> hasJsonPath(@Nonnull final String jsonPath, final Predicate... predicates) {
-        return IsJSONWith.hasJsonPath(jsonPath, predicates);
     }
 
 }

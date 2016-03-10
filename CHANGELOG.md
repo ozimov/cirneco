@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.4.1] - 2016-03-10
+### Removed
+- Json Matchers removed. Those from JayWay `json-path-assert` are enough
 
 ## [0.4.0] - 2016-01-28
 ### Added
