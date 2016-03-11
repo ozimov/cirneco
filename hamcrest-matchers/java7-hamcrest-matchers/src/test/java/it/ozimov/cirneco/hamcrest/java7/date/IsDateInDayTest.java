@@ -1,17 +1,14 @@
 package it.ozimov.cirneco.hamcrest.java7.date;
 
-import static it.ozimov.cirneco.hamcrest.java7.date.DateTestUtils.date;
-
-import java.text.ParseException;
-
-import java.util.Date;
-
+import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 import org.hamcrest.Matcher;
-
 import org.junit.Before;
 import org.junit.Test;
 
-import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
+import java.text.ParseException;
+import java.util.Date;
+
+import static it.ozimov.cirneco.hamcrest.java7.date.DateTestUtils.date;
 
 public class IsDateInDayTest extends BaseMatcherTest {
 
@@ -139,19 +136,19 @@ public class IsDateInDayTest extends BaseMatcherTest {
     @Test
     public void testDescribeMismatchSafely() throws Exception {
         BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not day <SUNDAY>", monday), sundayMatcher,
-            monday);
+                monday);
         BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not day <MONDAY>", sunday), mondayMatcher,
-            sunday);
+                sunday);
         BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not day <TUESDAY>", monday),
-            tuesdayMatcher, monday);
+                tuesdayMatcher, monday);
         BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not day <WEDNESDAY>", monday),
-            wednesdayMatcher, monday);
+                wednesdayMatcher, monday);
         BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not day <THURSDAY>", monday),
-            thursdayMatcher, monday);
+                thursdayMatcher, monday);
         BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not day <FRIDAY>", monday), fridayMatcher,
-            monday);
+                monday);
         BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not day <SATURDAY>", monday),
-            saturdayMatcher, monday);
+                saturdayMatcher, monday);
     }
 
     @Test

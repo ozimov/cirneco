@@ -1,11 +1,9 @@
 package it.ozimov.cirneco.hamcrest.java7.collect;
 
+import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 import org.hamcrest.Matcher;
-
 import org.junit.Before;
 import org.junit.Test;
-
-import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 
 public class IsIterableWithDistinctElementsTest extends BaseIterableMatcherTest {
 
@@ -18,7 +16,7 @@ public class IsIterableWithDistinctElementsTest extends BaseIterableMatcherTest 
 
     @Test
     public void testGivenIterableWithOnlyDistinctElementsWhenMatchesForSortedMatcherIsCalledThenTrueIsReturned()
-        throws Exception {
+            throws Exception {
 
         // Arrange
         final Iterable<Integer> iterable = createIterableWithElements(1, 2, 3);
@@ -32,7 +30,7 @@ public class IsIterableWithDistinctElementsTest extends BaseIterableMatcherTest 
 
     @Test
     public void testGivenIterableWithSomeNonDistinctElementsWhenMatchesForSortedMatcherIsCalledThenFalseIsReturned()
-        throws Exception {
+            throws Exception {
 
         // Arrange
         final Iterable<Integer> iterable = createIterableWithElements(1, 2, 3, 3);
@@ -47,13 +45,13 @@ public class IsIterableWithDistinctElementsTest extends BaseIterableMatcherTest 
     @Test
     public void testDescribeMismatchSafely() throws Exception {
         BaseMatcherTest.assertHasMismatchDescription("non distinct elements are [<1>, <3>]",
-            isIterableWithDistinctElementsMatcher, createIterableWithElements(1, 1, 2, 3, 3));
+                isIterableWithDistinctElementsMatcher, createIterableWithElements(1, 1, 2, 3, 3));
     }
 
     @Test
     public void testDescribeTo() throws Exception {
         BaseMatcherTest.assertIsDescribedTo("an iterable with all distinct elements",
-            isIterableWithDistinctElementsMatcher);
+                isIterableWithDistinctElementsMatcher);
     }
 
 }

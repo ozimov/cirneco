@@ -1,17 +1,14 @@
 package it.ozimov.cirneco.hamcrest.java7.collect;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
-
+import com.google.common.collect.ImmutableMap;
+import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 import org.hamcrest.Matcher;
-
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.common.collect.ImmutableMap;
-
-import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 public class IsMapWithSameKeySetTest extends BaseMatcherTest {
 
@@ -62,7 +59,7 @@ public class IsMapWithSameKeySetTest extends BaseMatcherTest {
     public void testDescribeMismatchSafely() throws Exception {
         assertHasMismatchDescription("was null", isMapWithSameKeySetMatcher, null);
         assertHasMismatchDescription("map key set was []", isMapWithSameKeySetMatcher,
-            ImmutableMap.<Integer, Object>of());
+                ImmutableMap.<Integer, Object>of());
     }
 
     @Test

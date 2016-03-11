@@ -1,5 +1,9 @@
 package it.ozimov.cirneco.hamcrest.java7.date.utils;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 import static java.util.Calendar.AM_PM;
 import static java.util.Calendar.DAY_OF_WEEK;
 import static java.util.Calendar.HOUR;
@@ -10,13 +14,10 @@ import static java.util.Calendar.MONTH;
 import static java.util.Calendar.SECOND;
 import static java.util.Calendar.YEAR;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-
 public class CalendarUtils {
 
-    private CalendarUtils() { }
+    private CalendarUtils() {
+    }
 
     public static Calendar fromDateToCalendar(final Date date) {
         final Calendar cal = new GregorianCalendar();

@@ -1,18 +1,18 @@
 package it.ozimov.cirneco.hamcrest.java7.collect;
 
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
-
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
+
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * Does the map has the same key set of another? {@linkplain com.google.common.base.Equivalence} can be used in the key
  * set comparison.
  *
- * @since  version 0.1 for JDK7
+ * @since version 0.1 for JDK7
  */
 public class IsMapWithSameKeySet<K> extends TypeSafeMatcher<Map<? extends K, ?>> {
 
@@ -28,7 +28,7 @@ public class IsMapWithSameKeySet<K> extends TypeSafeMatcher<Map<? extends K, ?>>
     /**
      * Creates a matcher for {@link Map}s matching when the examined {@link Map} has exactly the same key set of the
      * given map. For example:
-     *
+     * <p>
      * <p>
      * <p>
      * <p>
@@ -54,7 +54,7 @@ public class IsMapWithSameKeySet<K> extends TypeSafeMatcher<Map<? extends K, ?>>
     @Override
     public void describeTo(final Description description) {
         description.appendText("map containing same key set as ").appendValueList("[", ", ", "]",
-            comparisonMap.entrySet());
+                comparisonMap.entrySet());
     }
 
 }

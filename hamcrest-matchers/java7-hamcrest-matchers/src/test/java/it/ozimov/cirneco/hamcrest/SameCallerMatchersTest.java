@@ -1,24 +1,20 @@
 package it.ozimov.cirneco.hamcrest;
 
-import static org.hamcrest.Matchers.is;
-
-import static org.junit.Assert.assertTrue;
-
-import static org.junit.Assume.assumeThat;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import org.junit.Before;
-
 import javassist.CannotCompileException;
 import javassist.ClassPool;
 import javassist.CtClass;
 import javassist.CtMethod;
 import javassist.NotFoundException;
-
 import javassist.expr.ExprEditor;
 import javassist.expr.MethodCall;
+import org.junit.Before;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assume.assumeThat;
 
 public abstract class SameCallerMatchersTest {
 
@@ -42,7 +38,7 @@ public abstract class SameCallerMatchersTest {
      * Tests that the given method only calls another method with the same signature from the given class.
      */
     public void testMethodCallsRightMethod(final Class<?> expectedCalledClass, final String methodName)
-        throws CannotCompileException, NotFoundException {
+            throws CannotCompileException, NotFoundException {
         testMethodCallsRightMethod(expectedCalledClass, methodName, methodName, null);
     }
 
@@ -50,7 +46,7 @@ public abstract class SameCallerMatchersTest {
      * Tests that the given method only calls another method with the same signature from the given class.
      */
     public void testMethodCallsRightMethod(final Class<?> expectedCalledClass, final String expectedCalledMethodName,
-            final String methodName) throws CannotCompileException, NotFoundException {
+                                           final String methodName) throws CannotCompileException, NotFoundException {
         testMethodCallsRightMethod(expectedCalledClass, expectedCalledMethodName, methodName, null);
     }
 
@@ -58,7 +54,7 @@ public abstract class SameCallerMatchersTest {
      * Tests that the given method only calls another method with the same signature from the given class.
      */
     public void testMethodCallsRightMethod(final Class<?> expectedCalledClass, final String methodName,
-            final Class<?>... params) throws CannotCompileException, NotFoundException {
+                                           final Class<?>... params) throws CannotCompileException, NotFoundException {
         testMethodCallsRightMethod(expectedCalledClass, methodName, methodName, params);
     }
 
@@ -66,7 +62,7 @@ public abstract class SameCallerMatchersTest {
      * Tests that the given method only calls another method with the same signature from the given class.
      */
     public void testMethodCallsRightMethod(final Class<?> expectedCalledClass, final String expectedCalledMethodName,
-            final String methodName, final Class<?>... params) throws CannotCompileException, NotFoundException {
+                                           final String methodName, final Class<?>... params) throws CannotCompileException, NotFoundException {
         final CtMethod method = getDeclaredMethod(methodName, params);
         testMethodCallsRightMethod(expectedCalledClass, expectedCalledMethodName, method);
     }
@@ -75,7 +71,7 @@ public abstract class SameCallerMatchersTest {
      * Tests that the given method only calls another method with the same signature from the given class.
      */
     public void testMethodCallsRightMethod(final Class<?> expectedCalledClass, final CtMethod method)
-        throws CannotCompileException, NotFoundException {
+            throws CannotCompileException, NotFoundException {
         testMethodCallsRightMethod(expectedCalledClass, null, method);
     }
 
@@ -83,7 +79,7 @@ public abstract class SameCallerMatchersTest {
      * Tests that the given method only calls another method with the same signature from the given class.
      */
     public void testMethodCallsRightMethod(final Class<?> expectedCalledClass, final String expectedCalledMethodName,
-            final CtMethod method) throws CannotCompileException, NotFoundException {
+                                           final CtMethod method) throws CannotCompileException, NotFoundException {
 
         // Arrange
         final String methodName = method.getName();
@@ -94,7 +90,7 @@ public abstract class SameCallerMatchersTest {
                 expectedCalledClass.getCanonicalName(), calledInnerMethodName);
 
         assumeThat("Expected that the method to be tested belongs to class " + method.getDeclaringClass().getName(),
-            method.getDeclaringClass().getName(), is(sourceClass));
+                method.getDeclaringClass().getName(), is(sourceClass));
 
         // Act
         method.instrument(checker);
@@ -111,7 +107,7 @@ public abstract class SameCallerMatchersTest {
 
     public CtMethod getDeclaredMethod(final String name, final Class<?>... params) throws NotFoundException {
         return params == null || params.length == 0 ? ctClass.getDeclaredMethod(name)
-                                                    : ctClass.getDeclaredMethod(name, toCtClass(params));
+                : ctClass.getDeclaredMethod(name, toCtClass(params));
     }
 
     private CtClass[] toCtClass(final Class<?>... params) throws NotFoundException {
@@ -125,14 +121,14 @@ public abstract class SameCallerMatchersTest {
 
     /**
      * Attention, if two methods are essentially the same but refer to different generic, e.g.
-     *
+     * <p>
      * <p>
      * <pre>
-       public <T> getFromValue(T object);
-
-       public <N> getFromValue(N object);
-     * </pre>
+     * public <T> getFromValue(T object);
      *
+     * public <N> getFromValue(N object);
+     * </pre>
+     * <p>
      * <p>the comparison will be <code>false</code>.
      */
     private class SameMethodChecker extends ExprEditor {
@@ -148,7 +144,7 @@ public abstract class SameCallerMatchersTest {
         private boolean isExpectedCalledClass;
 
         public SameMethodChecker(final String parentMethodSignature, final String parentMethodGenericSignature,
-                final String expectedCalledClass, final String expectedMethodCalledName) {
+                                 final String expectedCalledClass, final String expectedMethodCalledName) {
             this.parentMethodSignature = parentMethodSignature;
             this.parentMethodGenericSignature = parentMethodGenericSignature;
             this.expectedCalledClass = expectedCalledClass;
@@ -164,7 +160,7 @@ public abstract class SameCallerMatchersTest {
             isSameSignature = methodCall.getSignature().equals(parentMethodSignature);
             try {
                 isSameGenericSignature = methodCall.getMethod().getGenericSignature() != null
-                    ? methodCall.getMethod().getGenericSignature().equals(parentMethodGenericSignature) : true;
+                        ? methodCall.getMethod().getGenericSignature().equals(parentMethodGenericSignature) : true;
                 isExpectedCalledClass = methodCall.getMethod().getDeclaringClass().getName().equals(
                         expectedCalledClass);
             } catch (NotFoundException e) {

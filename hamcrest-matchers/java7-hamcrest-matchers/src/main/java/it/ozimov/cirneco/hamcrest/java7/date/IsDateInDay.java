@@ -1,22 +1,20 @@
 package it.ozimov.cirneco.hamcrest.java7.date;
 
-import static com.google.common.base.Preconditions.checkArgument;
-
-import static it.ozimov.cirneco.hamcrest.java7.date.utils.CalendarUtils.weekDay;
-
-import java.util.Calendar;
-import java.util.Date;
-
+import com.google.common.base.Optional;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
-import com.google.common.base.Optional;
+import java.util.Calendar;
+import java.util.Date;
+
+import static com.google.common.base.Preconditions.checkArgument;
+import static it.ozimov.cirneco.hamcrest.java7.date.utils.CalendarUtils.weekDay;
 
 /**
  * it.ozimov.cirneco.hamcrest.java7.Is {@linkplain Date} in a given week day?
  *
- * @since  version 0.1 for JDK7
+ * @since version 0.1 for JDK7
  */
 public class IsDateInDay extends TypeSafeMatcher<Date> {
 
@@ -27,9 +25,9 @@ public class IsDateInDay extends TypeSafeMatcher<Date> {
     public IsDateInDay(final int weekDay) {
         final Optional<DayOfWeek> dayOfWeekOptional = DayOfWeek.fromId(weekDay);
         checkArgument(dayOfWeekOptional.isPresent(),
-            String.format(
-                "The id %d is not a valid value (admitted values are [1,2,...,7] for Sunday, Monday,..., Saturday, respectively)",
-                weekDay));
+                String.format(
+                        "The id %d is not a valid value (admitted values are [1,2,...,7] for Sunday, Monday,..., Saturday, respectively)",
+                        weekDay));
         dayOfWeek = dayOfWeekOptional.get();
     }
 
@@ -88,28 +86,28 @@ public class IsDateInDay extends TypeSafeMatcher<Date> {
 
         switch (dayOfWeek) {
 
-            case SUNDAY :
+            case SUNDAY:
                 return dayOfWeekFromDay == Calendar.SUNDAY;
 
-            case MONDAY :
+            case MONDAY:
                 return dayOfWeekFromDay == Calendar.MONDAY;
 
-            case TUESDAY :
+            case TUESDAY:
                 return dayOfWeekFromDay == Calendar.TUESDAY;
 
-            case WEDNESDAY :
+            case WEDNESDAY:
                 return dayOfWeekFromDay == Calendar.WEDNESDAY;
 
-            case THURSDAY :
+            case THURSDAY:
                 return dayOfWeekFromDay == Calendar.THURSDAY;
 
-            case FRIDAY :
+            case FRIDAY:
                 return dayOfWeekFromDay == Calendar.FRIDAY;
 
-            case SATURDAY :
+            case SATURDAY:
                 return dayOfWeekFromDay == Calendar.SATURDAY;
 
-            default :
+            default:
                 return false;
         }
 

@@ -1,5 +1,7 @@
 package it.ozimov.cirneco.hamcrest.java7.collect.utils;
 
+import com.google.common.base.Preconditions;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -7,11 +9,10 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
-import com.google.common.base.Preconditions;
-
 public class IterableUtils {
 
-    private IterableUtils() { }
+    private IterableUtils() {
+    }
 
     public static <K> boolean isEmpty(final Iterable<? super K> iterable) {
         Preconditions.checkNotNull(iterable);
@@ -50,7 +51,7 @@ public class IterableUtils {
     }
 
     public static <K> List<K> sortedListCopy(final Iterable<? extends K> iterable,
-            final Comparator<? super K> comparator) {
+                                             final Comparator<? super K> comparator) {
         Preconditions.checkNotNull(iterable);
         Preconditions.checkNotNull(comparator);
 
@@ -61,7 +62,7 @@ public class IterableUtils {
     }
 
     public static <K> List<K> sortedReversedListCopy(final Iterable<? extends K> iterable,
-            final Comparator<? super K> comparator) {
+                                                     final Comparator<? super K> comparator) {
         Preconditions.checkNotNull(iterable);
         Preconditions.checkNotNull(comparator);
 

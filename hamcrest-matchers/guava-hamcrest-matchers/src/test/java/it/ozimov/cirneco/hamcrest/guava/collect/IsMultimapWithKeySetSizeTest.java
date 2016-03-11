@@ -1,25 +1,20 @@
 package it.ozimov.cirneco.hamcrest.guava.collect;
 
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
+import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
+import org.hamcrest.Matcher;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.UUID;
+
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.lessThan;
 import static org.hamcrest.Matchers.not;
-
 import static org.junit.Assert.fail;
-
 import static org.junit.Assume.assumeThat;
-
-import java.util.UUID;
-
-import org.hamcrest.Matcher;
-
-import org.junit.Before;
-import org.junit.Test;
-
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Multimap;
-
-import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 
 public class IsMultimapWithKeySetSizeTest extends BaseMatcherTest {
 
@@ -121,16 +116,16 @@ public class IsMultimapWithKeySetSizeTest extends BaseMatcherTest {
 
         // Act + Assert
         BaseMatcherTest.assertHasMismatchDescription("Multimap had key set with <2> elements",
-            isMultimapElementWithCollectionEmptyMatcher, multimap);
+                isMultimapElementWithCollectionEmptyMatcher, multimap);
         BaseMatcherTest.assertHasMismatchDescription("Multimap had key set with <2> elements",
-            isMultimapElementWithCollectionSizeMatcher, multimap);
+                isMultimapElementWithCollectionSizeMatcher, multimap);
     }
 
     @Test
     public void testDescribeTo() throws Exception {
         BaseMatcherTest.assertIsDescribedTo("a Multimap with no elements", isMultimapElementWithCollectionEmptyMatcher);
         BaseMatcherTest.assertIsDescribedTo(String.format("a Multimap with <%d> elements", expectedCountGeneralMatcher),
-            isMultimapElementWithCollectionSizeMatcher);
+                isMultimapElementWithCollectionSizeMatcher);
     }
 
     private void addKeysToMultimap(final int expectedNumberOfKeys) {

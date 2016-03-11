@@ -1,17 +1,14 @@
 package it.ozimov.cirneco.hamcrest.java7.number;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
-
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicLong;
-
+import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 import org.hamcrest.Matcher;
-
 import org.junit.Before;
 import org.junit.Test;
 
-import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class IsNegativeInfinityTest extends BaseMatcherTest {
 
@@ -91,9 +88,9 @@ public class IsNegativeInfinityTest extends BaseMatcherTest {
         assertHasMismatchDescription("<0.0F> is not negative infinity", isNegativeInfinityMatcher, .0F);
         assertHasMismatchDescription("<0.0> is not negative infinity", isNegativeInfinityMatcher, .0D);
         assertHasMismatchDescription("<InfinityF> is not negative infinity", isNegativeInfinityMatcher,
-            Float.POSITIVE_INFINITY);
+                Float.POSITIVE_INFINITY);
         assertHasMismatchDescription("<Infinity> is not negative infinity", isNegativeInfinityMatcher,
-            Double.POSITIVE_INFINITY);
+                Double.POSITIVE_INFINITY);
         assertHasMismatchDescription("<0.0> is not negative infinity", isNegativeInfinityMatcher, new BigDecimal(".0"));
     }
 

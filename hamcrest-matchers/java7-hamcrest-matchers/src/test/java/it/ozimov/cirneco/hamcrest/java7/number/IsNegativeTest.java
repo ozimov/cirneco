@@ -1,17 +1,14 @@
 package it.ozimov.cirneco.hamcrest.java7.number;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
-
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicLong;
-
+import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 import org.hamcrest.Matcher;
-
 import org.junit.Before;
 import org.junit.Test;
 
-import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class IsNegativeTest extends BaseMatcherTest {
 

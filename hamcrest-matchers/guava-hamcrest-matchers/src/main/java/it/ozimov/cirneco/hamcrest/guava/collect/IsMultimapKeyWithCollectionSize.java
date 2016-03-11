@@ -1,14 +1,13 @@
 package it.ozimov.cirneco.hamcrest.guava.collect;
 
-import static com.google.common.base.Preconditions.checkArgument;
-
-import java.util.Collection;
-
+import com.google.common.collect.Multimap;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
-import com.google.common.collect.Multimap;
+import java.util.Collection;
+
+import static com.google.common.base.Preconditions.checkArgument;
 
 public class IsMultimapKeyWithCollectionSize<K> extends TypeSafeMatcher<Multimap<K, ?>> {
 
@@ -39,7 +38,7 @@ public class IsMultimapKeyWithCollectionSize<K> extends TypeSafeMatcher<Multimap
     public void describeMismatchSafely(final Multimap<K, ?> multimap, final Description mismatchDescription) {
         if (multimap.containsKey(comparison)) {
             mismatchDescription.appendText("Multimap had element ").appendValue(comparison)
-                               .appendText(" with collection size ").appendValue(multimap.get(comparison).size());
+                    .appendText(" with collection size ").appendValue(multimap.get(comparison).size());
         } else {
             mismatchDescription.appendText("Multimap was not containing element ").appendValue(comparison);
         }
@@ -48,7 +47,7 @@ public class IsMultimapKeyWithCollectionSize<K> extends TypeSafeMatcher<Multimap
     @Override
     public void describeTo(final Description description) {
         description.appendText("a Multimap with element ").appendValue(comparison).appendText(" with collection size ")
-                   .appendValue(size);
+                .appendValue(size);
     }
 
 }

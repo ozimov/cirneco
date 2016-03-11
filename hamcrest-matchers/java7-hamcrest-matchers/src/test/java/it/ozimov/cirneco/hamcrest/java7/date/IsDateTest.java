@@ -1,31 +1,22 @@
 package it.ozimov.cirneco.hamcrest.java7.date;
 
-import static java.lang.String.format;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.not;
-import static org.hamcrest.Matchers.nullValue;
-
-import static org.junit.Assert.fail;
-
-import static org.junit.Assume.assumeThat;
-
-import static it.ozimov.cirneco.hamcrest.java7.date.DateTestUtils.date;
-
-import java.text.ParseException;
-
-import java.util.Date;
-
+import com.google.common.collect.ImmutableList;
+import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 import org.hamcrest.Matcher;
-
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.common.collect.ImmutableList;
+import java.text.ParseException;
+import java.util.Date;
 
-import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
+import static it.ozimov.cirneco.hamcrest.java7.date.DateTestUtils.date;
+import static java.lang.String.format;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.nullValue;
+import static org.junit.Assert.fail;
+import static org.junit.Assume.assumeThat;
 
 public class IsDateTest extends BaseMatcherTest {
 
@@ -156,7 +147,7 @@ public class IsDateTest extends BaseMatcherTest {
 
     @Test
     public void testGivenADayGreaterThan30AndMonthAprilWhenCreateInstanceThenIllegalArgumentExceptionIsThrown()
-        throws Exception {
+            throws Exception {
 
         // Arrange
         thrown.expect(IllegalArgumentException.class);
@@ -170,7 +161,7 @@ public class IsDateTest extends BaseMatcherTest {
 
     @Test
     public void testGivenADayGreaterThan30AndMonthJuneWhenCreateInstanceThenIllegalArgumentExceptionIsThrown()
-        throws Exception {
+            throws Exception {
 
         // Arrange
         thrown.expect(IllegalArgumentException.class);
@@ -184,7 +175,7 @@ public class IsDateTest extends BaseMatcherTest {
 
     @Test
     public void testGivenADayGreaterThan30AndMonthSeptemberWhenCreateInstanceThenIllegalArgumentExceptionIsThrown()
-        throws Exception {
+            throws Exception {
 
         // Arrange
         thrown.expect(IllegalArgumentException.class);
@@ -198,7 +189,7 @@ public class IsDateTest extends BaseMatcherTest {
 
     @Test
     public void testGivenADayGreaterThan30AndMonthNovemberWhenCreateInstanceThenIllegalArgumentExceptionIsThrown()
-        throws Exception {
+            throws Exception {
 
         // Arrange
         thrown.expect(IllegalArgumentException.class);
@@ -212,7 +203,7 @@ public class IsDateTest extends BaseMatcherTest {
 
     @Test
     public void testGivenADayGreaterThan29AndMonthFebruaryWhenCreateInstanceThenIllegalArgumentExceptionIsThrown()
-        throws Exception {
+            throws Exception {
 
         // Arrange
         thrown.expect(IllegalArgumentException.class);
@@ -226,7 +217,7 @@ public class IsDateTest extends BaseMatcherTest {
 
     @Test
     public void testGivenADayGreaterThan28AndMonthFebruaryInNonLeapYearWhenCreateInstanceThenIllegalArgumentExceptionIsThrown()
-        throws Exception {
+            throws Exception {
 
         // Arrange
         thrown.expect(IllegalArgumentException.class);
@@ -240,7 +231,7 @@ public class IsDateTest extends BaseMatcherTest {
 
     @Test
     public void testGivenADayGreaterEqualsTo29AndMonthFebruaryInLeapYearWhenCreateInstanceThenNothingIsThrown()
-        throws Exception {
+            throws Exception {
 
         // Act
         isDateMatcher = new IsDate(2000, 2, 29);
@@ -374,17 +365,17 @@ public class IsDateTest extends BaseMatcherTest {
     @Test
     public void testDescribeMismatchSafely() throws Exception {
         BaseMatcherTest.assertHasMismatchDescription(format("<%s> has not year <%d>", date, dateWrongYear),
-            IsDate.hasYear(dateWrongYear), date);
+                IsDate.hasYear(dateWrongYear), date);
         BaseMatcherTest.assertHasMismatchDescription(format("<%s> has not id <%d>", date, dateWrongMonth),
-            IsDate.hasMonth(dateWrongMonth), date);
+                IsDate.hasMonth(dateWrongMonth), date);
         BaseMatcherTest.assertHasMismatchDescription(format("<%s> has not day <%d>", date, dateWrongDay),
-            IsDate.hasDay(dateWrongDay), date);
+                IsDate.hasDay(dateWrongDay), date);
 
         BaseMatcherTest.assertHasMismatchDescription(format("<%s> has not year <%d>, id <%d>", date, dateWrongYear,
                 dateWrongMonth), IsDate.hasYearAndMonth(dateWrongYear, dateWrongMonth), date);
         BaseMatcherTest.assertHasMismatchDescription(format("<%s> has not year <%d>, id <%d>, day <%d>", date,
                 dateWrongYear, dateWrongMonth, dateWrongDay),
-            IsDate.hasYearMonthAndDay(dateWrongYear, dateWrongMonth, dateWrongDay), date);
+                IsDate.hasYearMonthAndDay(dateWrongYear, dateWrongMonth, dateWrongDay), date);
 
         // mismatch description covered by the constructor
         BaseMatcherTest.assertHasMismatchDescription(format("<%s> has not year <%d>, day <%d>", date, dateWrongYear,
@@ -400,15 +391,15 @@ public class IsDateTest extends BaseMatcherTest {
         BaseMatcherTest.assertIsDescribedTo(format("a date with day <%d>", dateDay), IsDate.hasDay(dateDay));
 
         BaseMatcherTest.assertIsDescribedTo(format("a date with year <%d>, id <%d>", dateYear, dateMonth),
-            IsDate.hasYearAndMonth(dateYear, dateMonth));
+                IsDate.hasYearAndMonth(dateYear, dateMonth));
         BaseMatcherTest.assertIsDescribedTo(format("a date with year <%d>, id <%d>, day <%d>", dateYear, dateMonth,
                 dateDay), IsDate.hasYearMonthAndDay(dateYear, dateMonth, dateDay));
 
         // description covered by the constructor
         BaseMatcherTest.assertIsDescribedTo(format("a date with year <%d>, day <%d>", dateYear, dateDay),
-            new IsDate(dateYear, null, dateDay));
+                new IsDate(dateYear, null, dateDay));
         BaseMatcherTest.assertIsDescribedTo(format("a date with id <%d>, day <%d>", dateMonth, dateDay),
-            new IsDate(null, dateMonth, dateDay));
+                new IsDate(null, dateMonth, dateDay));
     }
 
     private void createSafely(final Integer year, final Integer month, final Integer day) {
@@ -417,7 +408,7 @@ public class IsDateTest extends BaseMatcherTest {
         isDateMatcher = new IsDate(year, month, day);
 
         assertThat(String.format("Created matcher for year %d, id %d and day %d", year, month, day),
-            not(is(nullValue())));
+                not(is(nullValue())));
     }
 
     private void testHasYearAndMonthDoesNotMatchOnDate(final Integer year, final Integer month) throws Exception {
@@ -433,7 +424,7 @@ public class IsDateTest extends BaseMatcherTest {
     }
 
     private void testHasYearMonthAndDayDoesNotMatchOnDate(final Integer year, final Integer month, final Integer day)
-        throws Exception {
+            throws Exception {
 
         // Arrange
         isDateMatcher = IsDate.hasYearMonthAndDay(year, month, day);

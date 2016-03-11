@@ -1,15 +1,14 @@
 package it.ozimov.cirneco.hamcrest.guava.base;
 
+import com.google.common.base.Optional;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
-import com.google.common.base.Optional;
-
 /**
  * Is the given {@linkplain Optional} instance empty?
  *
- * @since  version 0.1 for JDK7
+ * @since version 0.1 for JDK7
  */
 public class IsEmptyGuavaOptional extends TypeSafeMatcher<Optional> {
 

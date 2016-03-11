@@ -1,22 +1,16 @@
 package it.ozimov.cirneco.hamcrest.guava.collect;
 
-import static org.hamcrest.Matchers.lessThan;
-
-import static org.hamcrest.core.IsEqual.equalTo;
-
-import static org.junit.Assert.fail;
-
-import static org.junit.Assume.assumeThat;
-
+import com.google.common.collect.HashMultiset;
+import com.google.common.collect.Multiset;
+import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 import org.hamcrest.Matcher;
-
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.common.collect.HashMultiset;
-import com.google.common.collect.Multiset;
-
-import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
+import static org.hamcrest.Matchers.lessThan;
+import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.Assert.fail;
+import static org.junit.Assume.assumeThat;
 
 public class IsMultisetElementWithCountTest extends BaseMatcherTest {
 
@@ -62,7 +56,7 @@ public class IsMultisetElementWithCountTest extends BaseMatcherTest {
 
     @Test
     public void testGivenAMultisetWithElementWithCountTenWhenMatchesForCountTenIsCalledThenTrueIsReturned()
-        throws Exception {
+            throws Exception {
 
         // Arrange
         multiset.add(comparison);
@@ -77,7 +71,7 @@ public class IsMultisetElementWithCountTest extends BaseMatcherTest {
 
     @Test
     public void testGivenAMultisetWithElementWithCountOneWhenMatchesForCountTenIsCalledThenFalseIsReturned()
-        throws Exception {
+            throws Exception {
 
         // Arrange
         multiset.add(comparison);

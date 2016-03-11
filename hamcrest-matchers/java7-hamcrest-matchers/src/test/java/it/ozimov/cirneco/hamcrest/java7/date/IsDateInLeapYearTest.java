@@ -1,21 +1,16 @@
 package it.ozimov.cirneco.hamcrest.java7.date;
 
-import static org.hamcrest.Matchers.is;
-
-import static org.junit.Assert.assertThat;
-
-import static it.ozimov.cirneco.hamcrest.java7.date.DateTestUtils.date;
-
-import java.text.ParseException;
-
-import java.util.Date;
-
+import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 import org.hamcrest.Matcher;
-
 import org.junit.Before;
 import org.junit.Test;
 
-import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
+import java.text.ParseException;
+import java.util.Date;
+
+import static it.ozimov.cirneco.hamcrest.java7.date.DateTestUtils.date;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 public class IsDateInLeapYearTest extends BaseMatcherTest {
 
@@ -56,7 +51,7 @@ public class IsDateInLeapYearTest extends BaseMatcherTest {
     @Test
     public void testDescribeMismatchSafely() throws Exception {
         BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> is not a leap year", nonLeapYear),
-            isLeapYearMatcher, nonLeapYear);
+                isLeapYearMatcher, nonLeapYear);
     }
 
     @Test

@@ -1,13 +1,11 @@
 package it.ozimov.cirneco.hamcrest.java8.base;
 
-import java.util.Optional;
-
+import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 import org.hamcrest.Matcher;
-
 import org.junit.Before;
 import org.junit.Test;
 
-import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
+import java.util.Optional;
 
 public class IsEmptyOptionalTest extends BaseMatcherTest {
 

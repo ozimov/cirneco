@@ -1,38 +1,38 @@
 package it.ozimov.cirneco.hamcrest.java7.collect;
 
-import static it.ozimov.cirneco.hamcrest.java7.collect.utils.IterableUtils.listCopy;
-import static it.ozimov.cirneco.hamcrest.java7.collect.utils.IterableUtils.size;
+import org.hamcrest.Description;
+import org.hamcrest.Matcher;
+import org.hamcrest.TypeSafeMatcher;
 
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.hamcrest.Description;
-import org.hamcrest.Matcher;
-import org.hamcrest.TypeSafeMatcher;
+import static it.ozimov.cirneco.hamcrest.java7.collect.utils.IterableUtils.listCopy;
+import static it.ozimov.cirneco.hamcrest.java7.collect.utils.IterableUtils.size;
 
 /**
  * Is the {@linkplain Iterable} with distinct elements?
- *
+ * <p>
  * <p>
  * <p>
  * <p>
  * <p>To verify that only distinct elements are in the {@code Iterable},
  *
- * @since  version 0.2 for JDK7
+ * @since version 0.2 for JDK7
  */
 public class IsIterableWithDistinctElements<E> extends TypeSafeMatcher<Iterable<? extends E>> {
 
     /**
      * Creates a matcher for {@linkplain Iterable}s that matches when the examined {@linkplain Iterable} has only
      * distinct elements.
-     *
+     * <p>
      * <p>
      * <p>
      * <p>
      * <p>For example:
-     *
+     * <p>
      * <p>
      * <p>
      * <p>
@@ -63,7 +63,7 @@ public class IsIterableWithDistinctElements<E> extends TypeSafeMatcher<Iterable<
         }
 
         mismatchDescription.appendText(" non distinct elements are ").appendValueList("[", ", ", "]",
-            nonDistinctElements);
+                nonDistinctElements);
     }
 
     @Override

@@ -1,21 +1,19 @@
 package it.ozimov.cirneco.hamcrest.java7.date;
 
-import static com.google.common.base.Preconditions.checkArgument;
-
-import java.util.Date;
-
+import com.google.common.collect.ImmutableSet;
+import it.ozimov.cirneco.hamcrest.java7.date.utils.CalendarUtils;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
-import com.google.common.collect.ImmutableSet;
+import java.util.Date;
 
-import it.ozimov.cirneco.hamcrest.java7.date.utils.CalendarUtils;
+import static com.google.common.base.Preconditions.checkArgument;
 
 /**
  * it.ozimov.cirneco.hamcrest.java7.Is {@linkplain Date} in a given week day?
  *
- * @since  version 0.1 for JDK7
+ * @since version 0.1 for JDK7
  */
 public class IsDate extends TypeSafeMatcher<Date> {
 
@@ -25,12 +23,12 @@ public class IsDate extends TypeSafeMatcher<Date> {
 
     public IsDate(final Integer year, final Integer month, final Integer day) {
         checkArgument((year != null) || (month != null) || (day != null),
-            "The matcher need one between year, id, day and millis to be non null");
+                "The matcher need one between year, id, day and millis to be non null");
         checkArgument((year == null) || (year >= 0), "The value year must be null or a number greater than 0");
         checkArgument((month == null) || ((month >= 1) && (month <= 12)),
-            "The value id must be null or a number between 1 and 12");
+                "The value id must be null or a number between 1 and 12");
         checkArgument((day == null) || isDayValidForMonthAndYear(year, month, day),
-            "The value day must be null or a number between 1 and 31 ");
+                "The value day must be null or a number between 1 and 31 ");
 
         this.year = year;
         this.month = month;

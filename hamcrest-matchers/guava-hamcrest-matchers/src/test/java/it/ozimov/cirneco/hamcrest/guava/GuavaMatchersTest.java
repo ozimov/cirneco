@@ -1,28 +1,22 @@
 package it.ozimov.cirneco.hamcrest.guava;
 
-import static org.hamcrest.core.IsInstanceOf.instanceOf;
-
-import static org.junit.Assert.assertThat;
-
-import java.util.Set;
-
-import org.junit.Test;
-
-import org.junit.runner.RunWith;
-
-import org.mockito.Mock;
-
-import org.mockito.runners.MockitoJUnitRunner;
-
 import com.google.common.base.Equivalence;
 import com.google.common.collect.Multimap;
-
 import it.ozimov.cirneco.hamcrest.guava.base.IsEmptyGuavaOptional;
 import it.ozimov.cirneco.hamcrest.guava.base.IsEquivalent;
 import it.ozimov.cirneco.hamcrest.guava.collect.IsMultimapKeyWithCollectionSize;
 import it.ozimov.cirneco.hamcrest.guava.collect.IsMultimapWithKeySet;
 import it.ozimov.cirneco.hamcrest.guava.collect.IsMultimapWithKeySetSize;
 import it.ozimov.cirneco.hamcrest.guava.collect.IsMultisetElementWithCount;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+
+import java.util.Set;
+
+import static org.hamcrest.core.IsInstanceOf.instanceOf;
+import static org.junit.Assert.assertThat;
 
 @RunWith(MockitoJUnitRunner.class)
 public class GuavaMatchersTest {

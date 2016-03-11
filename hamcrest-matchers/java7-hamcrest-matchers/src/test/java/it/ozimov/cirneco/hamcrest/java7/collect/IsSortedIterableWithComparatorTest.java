@@ -1,19 +1,15 @@
 package it.ozimov.cirneco.hamcrest.java7.collect;
 
-import static org.junit.Assume.assumeTrue;
-
-import static it.ozimov.cirneco.hamcrest.java7.collect.utils.IterableUtils.isEmpty;
-
-import java.util.Comparator;
-
+import com.google.common.collect.ImmutableList;
+import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 import org.hamcrest.Matcher;
-
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.common.collect.ImmutableList;
+import java.util.Comparator;
 
-import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
+import static it.ozimov.cirneco.hamcrest.java7.collect.utils.IterableUtils.isEmpty;
+import static org.junit.Assume.assumeTrue;
 
 public class IsSortedIterableWithComparatorTest extends BaseMatcherTest {
 
@@ -64,7 +60,7 @@ public class IsSortedIterableWithComparatorTest extends BaseMatcherTest {
 
     @Test
     public void testGivenAnEmptyIterableWhenMatchesForSortedReversedMatcherIsCalledThenTrueIsReturned()
-        throws Exception {
+            throws Exception {
 
         // Arrange
         assumeTrue(isEmpty(emptyIterable));
@@ -98,7 +94,7 @@ public class IsSortedIterableWithComparatorTest extends BaseMatcherTest {
 
     @Test
     public void testGivenAReversedSortedIterableWhenMatchesForSortedReversedMatcherIsCalledThenTrueIsReturned()
-        throws Exception {
+            throws Exception {
 
         // Act
         final boolean matches = isReversedSortedIterableMatcher.matches(sortedReversedIterable);
@@ -109,7 +105,7 @@ public class IsSortedIterableWithComparatorTest extends BaseMatcherTest {
 
     @Test
     public void testGivenANonReversedSortedIterableWhenMatchesForSortedReversedMatcherIsCalledThenFalseIsReturned()
-        throws Exception {
+            throws Exception {
 
         // Act
         final boolean matches = isReversedSortedIterableMatcher.matches(unsortedIterable);
@@ -121,15 +117,15 @@ public class IsSortedIterableWithComparatorTest extends BaseMatcherTest {
     @Test
     public void testDescribeMismatchSafely() throws Exception {
         assertHasMismatchDescription("iterable was [<100>, <1>, <10>], while expected ordering [<100>, <10>, <1>]",
-            isSortedIterableMatcher, unsortedIterable);
+                isSortedIterableMatcher, unsortedIterable);
         assertHasMismatchDescription("iterable was [<100>, <1>, <10>], while expected ordering [<1>, <10>, <100>]",
-            isReversedSortedIterableMatcher, unsortedIterable);
+                isReversedSortedIterableMatcher, unsortedIterable);
     }
 
     @Test
     public void testDescribeTo() throws Exception {
         assertIsDescribedTo("iterable sorted according to given comparator", isSortedIterableMatcher);
         assertIsDescribedTo("iterable sorted according to given comparator in reverse order",
-            isReversedSortedIterableMatcher);
+                isReversedSortedIterableMatcher);
     }
 }

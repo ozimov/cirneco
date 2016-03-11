@@ -1,16 +1,16 @@
 package it.ozimov.cirneco.hamcrest.java7.base;
 
-import static com.google.common.base.Preconditions.checkArgument;
-import static com.google.common.base.Preconditions.checkNotNull;
-
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkNotNull;
+
 /**
  * Is the value a number between two numbers, bounds inclusive?
  *
- * @since  version 0.1 for JDK7
+ * @since version 0.1 for JDK7
  */
 public class IsBetweenInclusive<T extends Comparable<T>> extends TypeSafeMatcher<T> {
 
@@ -33,12 +33,12 @@ public class IsBetweenInclusive<T extends Comparable<T>> extends TypeSafeMatcher
     /**
      * Creates a matcher for {@code T}s that matches when the <code>compareTo()</code> method returns a value between
      * <code>from</code> and <code>to</code>, both included.
-     *
+     * <p>
      * <p>
      * <p>
      * <p>
      * <p>For example:
-     *
+     * <p>
      * <p>
      * <p>
      * <p>
@@ -58,13 +58,13 @@ public class IsBetweenInclusive<T extends Comparable<T>> extends TypeSafeMatcher
     @Override
     protected void describeMismatchSafely(final T item, final Description mismatchDescription) {
         mismatchDescription.appendValue(item).appendText(" is not between ").appendValue(from).appendText(" and ")
-                           .appendValue(to).appendText(", both included");
+                .appendValue(to).appendText(", both included");
     }
 
     @Override
     public void describeTo(final Description description) {
         description.appendText("a value between ").appendValue(from).appendText(" and ").appendValue(to).appendText(
-            ", both included");
+                ", both included");
     }
 
 }

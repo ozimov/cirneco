@@ -1,13 +1,10 @@
 package it.ozimov.cirneco.hamcrest.guava.base;
 
+import com.google.common.base.Optional;
+import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 import org.hamcrest.Matcher;
-
 import org.junit.Before;
 import org.junit.Test;
-
-import com.google.common.base.Optional;
-
-import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 
 public class IsEmptyGuavaOptionalTest extends BaseMatcherTest {
 
@@ -23,7 +20,7 @@ public class IsEmptyGuavaOptionalTest extends BaseMatcherTest {
     @Test
     public void testDescribeMismatchSafely() throws Exception {
         BaseMatcherTest.assertHasMismatchDescription("<Optional.of()> is not an empty optional",
-            isEmptyGuavaOptionalMatcher, Optional.of(""));
+                isEmptyGuavaOptionalMatcher, Optional.of(""));
     }
 
     @Test

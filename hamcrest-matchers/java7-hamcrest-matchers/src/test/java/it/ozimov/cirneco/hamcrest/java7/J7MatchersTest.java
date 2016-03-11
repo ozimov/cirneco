@@ -1,9 +1,5 @@
 package it.ozimov.cirneco.hamcrest.java7;
 
-import java.util.Comparator;
-
-import org.junit.Test;
-
 import it.ozimov.cirneco.hamcrest.SameCallerMatchersTest;
 import it.ozimov.cirneco.hamcrest.java7.base.IsBetween;
 import it.ozimov.cirneco.hamcrest.java7.base.IsBetweenInclusive;
@@ -34,6 +30,9 @@ import it.ozimov.cirneco.hamcrest.java7.number.IsNotANumber;
 import it.ozimov.cirneco.hamcrest.java7.number.IsPositive;
 import it.ozimov.cirneco.hamcrest.java7.number.IsPositiveInfinity;
 import it.ozimov.cirneco.hamcrest.java7.web.IsEmail;
+import org.junit.Test;
+
+import java.util.Comparator;
 
 public class J7MatchersTest extends SameCallerMatchersTest {
 
@@ -140,19 +139,19 @@ public class J7MatchersTest extends SameCallerMatchersTest {
     @Test
     public void testHasHourMinAndSecWithClockPeriod() throws Exception {
         testMethodCallsRightMethod(IsDateWithTime.class, "hasHourMinAndSec", int.class, ClockPeriod.class, int.class,
-            int.class);
+                int.class);
     }
 
     @Test
     public void testHasHourMinSecAndMillis() throws Exception {
         testMethodCallsRightMethod(IsDateWithTime.class, "hasHourMinSecAndMillis", int.class, int.class, int.class,
-            int.class);
+                int.class);
     }
 
     @Test
     public void testHasHourMinSecAndMillisWithClockPeriod() throws Exception {
         testMethodCallsRightMethod(IsDateWithTime.class, "hasHourMinSecAndMillis", int.class, int.class, int.class,
-            int.class);
+                int.class);
     }
 
     @Test

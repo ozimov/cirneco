@@ -1,15 +1,5 @@
 package it.ozimov.cirneco.hamcrest.java7;
 
-import java.util.Comparator;
-import java.util.Date;
-import java.util.Map;
-
-import javax.annotation.Nonnull;
-
-import org.hamcrest.Matcher;
-
-import com.jayway.jsonpath.Predicate;
-
 import it.ozimov.cirneco.hamcrest.java7.base.IsBetween;
 import it.ozimov.cirneco.hamcrest.java7.base.IsBetweenInclusive;
 import it.ozimov.cirneco.hamcrest.java7.base.IsBetweenLowerBoundInclusive;
@@ -39,12 +29,17 @@ import it.ozimov.cirneco.hamcrest.java7.number.IsNotANumber;
 import it.ozimov.cirneco.hamcrest.java7.number.IsPositive;
 import it.ozimov.cirneco.hamcrest.java7.number.IsPositiveInfinity;
 import it.ozimov.cirneco.hamcrest.java7.web.IsEmail;
+import org.hamcrest.Matcher;
+
+import java.util.Comparator;
+import java.util.Date;
+import java.util.Map;
 
 /**
  * {@inheritDoc} The {@code J7Matchers} class groups all the matchers introduced by Cirneco's Hamcrest extension for
  * Java 7. Suggested use would be to import all the static methods of this class in a unit tes.
  *
- * @since  version 0.1 for JDK7
+ * @since version 0.1 for JDK7
  */
 public class J7Matchers extends HamcrestMatchers {
 
@@ -53,9 +48,9 @@ public class J7Matchers extends HamcrestMatchers {
     /**
      * Creates a matcher for {@code T}s that matches when the <code>compareTo()</code> method returns a value between
      * <code>from</code> and <code>to</code>, both excluded.
-     *
+     * <p>
      * <p>For example:
-     *
+     * <p>
      * <pre>assertThat(10, between(10, 11))</pre>
      *
      * will return <code>false</code>.
@@ -67,9 +62,9 @@ public class J7Matchers extends HamcrestMatchers {
     /**
      * Creates a matcher for {@code T}s that matches when the <code>compareTo()</code> method returns a value between
      * <code>from</code> and <code>to</code>, both included.
-     *
+     * <p>
      * <p>For example:
-     *
+     * <p>
      * <pre>assertThat(10, betweenInclusive(10, 11))</pre>
      *
      * will return <code>true</code>.
@@ -81,9 +76,9 @@ public class J7Matchers extends HamcrestMatchers {
     /**
      * Creates a matcher for {@code T}s that matches when the <code>compareTo()</code> method returns a value between
      * <code>from</code> and <code>to</code>, both included.
-     *
+     * <p>
      * <p>For example:
-     *
+     * <p>
      * <pre>assertThat(10, betweenLowerBoundInclusive(10, 11))</pre>
      *
      * will return <code>true</code>. while:
@@ -99,9 +94,9 @@ public class J7Matchers extends HamcrestMatchers {
     /**
      * Creates a matcher for {@code T}s that matches when the <code>compareTo()</code> method returns a value between
      * <code>from</code> and <code>to</code>, both included.
-     *
+     * <p>
      * <p>For example:
-     *
+     * <p>
      * <pre>assertThat(11, betweenUpperBoundInclusive(10, 11))</pre>
      *
      * will return <code>true</code>. while:
@@ -133,9 +128,9 @@ public class J7Matchers extends HamcrestMatchers {
     /**
      * Creates a matcher of a {@link Comparable} object that matches when the examined object is after the given <code>
      * value</code>, as reported by the <code>compareTo</code> method of the <b>examined</b> object.
-     *
+     * <p>
      * <p>E.g.: <code>Date past; Date now; assertThat(now, after(past));</code>
-     *
+     * <p>
      * <p>The matcher renames the Hamcrest matcher obtained with
      * {@linkplain org.hamcrest.Matchers#greaterThan(Comparable)}.
      */
@@ -147,10 +142,10 @@ public class J7Matchers extends HamcrestMatchers {
      * Creates a matcher of {@link Comparable} object that matches when the examined object is after or equal with
      * respect to object <code>value</code>, as reported by the <code>compareTo</code> method of the <b>examined</b>
      * object.
-     *
+     * <p>
      * <p>E.g.: <code>Date past; Date now; assertThat(now, afterOrEqual(now)); assertThat(now, afterOrEqual(past));
      * </code>
-     *
+     * <p>
      * <p>The matcher renames the Hamcrest matcher obtained with
      * {@linkplain org.hamcrest.Matchers#greaterThanOrEqualTo(Comparable)}.
      */
@@ -161,9 +156,9 @@ public class J7Matchers extends HamcrestMatchers {
     /**
      * Creates a matcher of {@link Comparable} object that matches when the examined object is before the given <code>
      * value</code>, as reported by the <code>compareTo</code> method of the <b>examined</b> object.
-     *
+     * <p>
      * <p>E.g.: <code>Date past; Date now; assertThat(past, before(now));</code>
-     *
+     * <p>
      * <p>The matcher renames the Hamcrest matcher obtained with {@linkplain org.hamcrest.Matchers#lessThan(Comparable)}.
      */
     public static <T extends Comparable<T>> Matcher<T> before(final T value) {
@@ -174,10 +169,10 @@ public class J7Matchers extends HamcrestMatchers {
      * Creates a matcher of {@link Comparable} object that matches when the examined object is before or equal with
      * respect to object <code>value</code>, as reported by the <code>compareTo</code> method of the <b>examined</b>
      * object.
-     *
+     * <p>
      * <p>E.g.: <code>Date past; Date now; assertThat(now, beforeOrEqual(now)); assertThat(past, beforeOrEqual(now));
      * </code>
-     *
+     * <p>
      * <p>The matcher renames the Hamcrest matcher obtained with
      * {@linkplain org.hamcrest.Matchers#lessThanOrEqualTo(Comparable)}.
      */
@@ -290,7 +285,7 @@ public class J7Matchers extends HamcrestMatchers {
      * ClockPeriod</code> (e.g. <em>AM</em>), <code>minute</code> and <code>sec</code>.
      */
     public static Matcher<Date> hasHourMinAndSec(final int hour, final ClockPeriod clockPeriod, final int minute,
-            final int second) {
+                                                 final int second) {
         return IsDateWithTime.hasHourMinAndSec(hour, clockPeriod, minute, second);
     }
 
@@ -299,7 +294,7 @@ public class J7Matchers extends HamcrestMatchers {
      * hours clock period, <code>minute</code>, <code>sec</code> and <code>millis</code>.
      */
     public static Matcher<Date> hasHourMinSecAndMillis(final int hour, final int minute, final int second,
-            final int millisecond) {
+                                                       final int millisecond) {
         return IsDateWithTime.hasHourMinSecAndMillis(hour, minute, second, millisecond);
     }
 
@@ -308,7 +303,7 @@ public class J7Matchers extends HamcrestMatchers {
      * ClockPeriod</code> (e.g. <em>AM</em>), <code>minute</code>, <code>sec</code> and <code>millis</code>.
      */
     public static Matcher<Date> hasHourMinSecAndMillis(final int hour, final ClockPeriod clockPeriod, final int minute,
-            final int second, final int millisecond) {
+                                                       final int second, final int millisecond) {
         return IsDateWithTime.hasHourMinSecAndMillis(hour, clockPeriod, minute, second, millisecond);
     }
 
@@ -463,9 +458,9 @@ public class J7Matchers extends HamcrestMatchers {
 
     /**
      * Creates a matcher for {@link Iterable}s that matches when the examined {@link Iterable} has no items.
-     *
+     * <p>
      * <p>For example:
-     *
+     * <p>
      * <pre>assertThat(new ArrayList<>(), empty())</pre>
      *
      * returns <code>true</code>.
@@ -478,21 +473,21 @@ public class J7Matchers extends HamcrestMatchers {
      * <p>Creates an order agnostic matcher for {@linkplain Iterable}s that matches when a single pass over the examined
      * {@linkplain Iterable} yields a series of items, each logically equal to one item anywhere in the specified items.
      * For a positive match, the examined iterable must be of the same length as the number of specified items.</p>
-     *
+     * <p>
      * <p>N.B. each of the specified items will only be used once during a given examination, so be careful when
      * specifying items that may be equal to more than one entry in an examined iterable. For example:</p>
      * <br />
-     *
+     * <p>
      * <pre>
-       //Arrange
-       Iterable<String> actual = Arrays.asList("foo", "bar");
-       Iterable<String> expected = Arrays.asList("bar", "foo");
-
-       //Assert
-       assertThat(actual, containsInAnyOrder(expected));
+     * //Arrange
+     * Iterable<String> actual = Arrays.asList("foo", "bar");
+     * Iterable<String> expected = Arrays.asList("bar", "foo");
+     *
+     * //Assert
+     * assertThat(actual, containsInAnyOrder(expected));
      * </pre>
      *
-     * @param  items  the items that must equal the items provided by an examined {@linkplain Iterable} in any order
+     * @param items the items that must equal the items provided by an examined {@linkplain Iterable} in any order
      */
     public static <T> Matcher<Iterable<? extends T>> containsInAnyOrder(final Iterable<T> items) {
         return IsIterableContainingInAnyOrder.containsInAnyOrder(items);
@@ -502,19 +497,19 @@ public class J7Matchers extends HamcrestMatchers {
      * Creates a matcher for {@linkplain Iterable}s that matches when a single pass over the examined
      * {@linkplain Iterable} yields a series of items, each logically equal to the corresponding item in the specified
      * items. For a positive match, the examined iterable must be of the same length as the number of specified items.
-     *
+     * <p>
      * <p>For example:
-     *
+     * <p>
      * <pre>
-       //Arrange
-       Iterable<String> actual = Arrays.asList("foo", "bar");
-       Iterable<String> expected = Arrays.asList("foo", "bar");
-
-       //Assert
-       assertThat(actual, containsInOrder(expected));
+     * //Arrange
+     * Iterable<String> actual = Arrays.asList("foo", "bar");
+     * Iterable<String> expected = Arrays.asList("foo", "bar");
+     *
+     * //Assert
+     * assertThat(actual, containsInOrder(expected));
      * </pre>
      *
-     * @param  items  the items that must equal the items provided by an examined {@linkplain Iterable}
+     * @param items the items that must equal the items provided by an examined {@linkplain Iterable}
      */
     public static <T> Matcher<Iterable<? extends T>> containsInOrder(final Iterable<T> items) {
         return IsIterableContainingInOrder.containsInOrder(items);
@@ -524,20 +519,20 @@ public class J7Matchers extends HamcrestMatchers {
      * Creates a matcher for {@linkplain Iterable}s that matches when a single pass over the examined
      * {@linkplain Iterable} yields a series of items, that contains items logically equal to the corresponding item in
      * the specified items, in the same relative order For example:<br />
-     *
+     * <p>
      * <p>For example:
-     *
+     * <p>
      * <pre>
-       //Arrange
-       Iterable<String> actual = Arrays.asList("a", "b", "c", "d");
-       Iterable<String> expected = Arrays.asList("a", "c");
-
-       //Assert
-       assertThat(actual, containsInRelativeOrder(expected));
+     * //Arrange
+     * Iterable<String> actual = Arrays.asList("a", "b", "c", "d");
+     * Iterable<String> expected = Arrays.asList("a", "c");
+     *
+     * //Assert
+     * assertThat(actual, containsInRelativeOrder(expected));
      * </pre>
      *
-     * @param  items  the items that must be contained within items provided by an examined {@linkplain Iterable} in the
-     *                same relative order
+     * @param items the items that must be contained within items provided by an examined {@linkplain Iterable} in the
+     *              same relative order
      */
     public static <T> Matcher<Iterable<? extends T>> containsInRelativeOrder(final Iterable<T> items) {
         return IsIterableContainingInRelativeOrder.containsInRelativeOrder(items);
@@ -546,9 +541,9 @@ public class J7Matchers extends HamcrestMatchers {
     /**
      * Creates a matcher for {@link Iterable}s that matches when the examined {@link Iterable} has only distinct
      * elements.
-     *
+     * <p>
      * <p>For example:
-     *
+     * <p>
      * <pre>assertThat(new ArrayList<>(), empty())</pre>
      *
      * returns <code>true</code>.
@@ -560,9 +555,9 @@ public class J7Matchers extends HamcrestMatchers {
     /**
      * Creates a matcher for {@link Iterable}s that matches when the examined {@link Iterable} yields an item count
      * equal to <code>1</code>.
-     *
+     * <p>
      * <p>For example:
-     *
+     * <p>
      * <pre>assertThat(Arrays.asList("foo", "bar"), hasSizeOne())</pre>
      *
      * returns <code>false</code>.
@@ -574,9 +569,9 @@ public class J7Matchers extends HamcrestMatchers {
     /**
      * Creates a matcher for {@link Iterable}s that matches when the examined {@link Iterable} yields an item count
      * equal to <code>2</code>.
-     *
+     * <p>
      * <p>For example:
-     *
+     * <p>
      * <pre>assertThat(Arrays.asList("foo", "bar"), hasSizeTwo())</pre>
      *
      * returns <code>true</code>.
@@ -588,9 +583,9 @@ public class J7Matchers extends HamcrestMatchers {
     /**
      * Creates a matcher for {@link Iterable}s that matches when the examined {@link Iterable} yields an item count
      * equal to <code>3</code>.
-     *
+     * <p>
      * <p>For example:
-     *
+     * <p>
      * <pre>assertThat(Arrays.asList("foo", "bar"), hasSizeThree())</pre>
      *
      * returns <code>false</code>.
@@ -602,9 +597,9 @@ public class J7Matchers extends HamcrestMatchers {
     /**
      * Creates a matcher for {@link Iterable}s that matches when the examined {@link Iterable} yields an item count
      * equal to <code>4</code>.
-     *
+     * <p>
      * <p>For example:
-     *
+     * <p>
      * <pre>assertThat(Arrays.asList("foo", "bar"), hasSizeFour())</pre>
      *
      * returns <code>false</code>.
@@ -616,9 +611,9 @@ public class J7Matchers extends HamcrestMatchers {
     /**
      * Creates a matcher for {@link Iterable}s that matches when the examined {@link Iterable} yields an item count
      * equal to <code>5</code>.
-     *
+     * <p>
      * <p>For example:
-     *
+     * <p>
      * <pre>assertThat(Arrays.asList("foo", "bar"), hasSizeFive())</pre>
      *
      * returns <code>false</code>.
@@ -630,9 +625,9 @@ public class J7Matchers extends HamcrestMatchers {
     /**
      * Creates a matcher for {@link Iterable}s that matches when the examined {@link Iterable} yields an item count
      * equal to <code>size</code>.
-     *
+     * <p>
      * <p>For example:
-     *
+     * <p>
      * <pre>assertThat(Arrays.asList("foo", "bar"), hasSize(2))</pre>
      *
      * returns <code>true</code>.
@@ -680,7 +675,7 @@ public class J7Matchers extends HamcrestMatchers {
     /**
      * Creates a matcher for {@link Map}s matching when the examined {@link Map} has exactly the same key set of the
      * given map. For example:
-     *
+     * <p>
      * <pre>assertThat(myMap, hasSameKeySet(anotherMap))</pre>
      */
     public static <K> Matcher<Map<? extends K, ?>> hasSameKeySet(final Map<? extends K, ?> comparisonMap) {
@@ -691,9 +686,9 @@ public class J7Matchers extends HamcrestMatchers {
 
     /**
      * Creates a matcher for {@code N} that matches when the it has a value that is greater than zero.
-     *
+     * <p>
      * <p>For example:
-     *
+     * <p>
      * <pre>assertThat(100, positive())</pre>
      *
      * will return <code>true</code>.
@@ -704,9 +699,9 @@ public class J7Matchers extends HamcrestMatchers {
 
     /**
      * Creates a matcher for {@code N} that matches when the it has a value that is less than zero.
-     *
+     * <p>
      * <p>For example:
-     *
+     * <p>
      * <pre>assertThat(-100, negative())</pre>
      *
      * will return <code>true</code>.
@@ -718,9 +713,9 @@ public class J7Matchers extends HamcrestMatchers {
     /**
      * Creates a matcher for {@code T}s that matches when the number is a {@linkplain Double} or {@linkplain Float} with
      * value equal to either <code>POSITIVE_INFINITY</code> or <code>NEGATIVE_INFINITY</code>.
-     *
+     * <p>
      * <p>For example:
-     *
+     * <p>
      * <pre>assertThat(10, negativeInfinity())</pre>
      *
      * will return <code>false</code>. while:
@@ -738,9 +733,9 @@ public class J7Matchers extends HamcrestMatchers {
     /**
      * Creates a matcher for {@code T}s that matches when the number is a {@linkplain Double} or {@linkplain Float} with
      * value equal to <code>NEGATIVE_INFINITY</code>.
-     *
+     * <p>
      * <p>For example:
-     *
+     * <p>
      * <pre>assertThat(Float.NegativeInfinity, negativeInfinity())</pre>
      *
      * will return <code>true</code>. while:
@@ -758,9 +753,9 @@ public class J7Matchers extends HamcrestMatchers {
     /**
      * Creates a matcher for {@code T}s that matches when the number is a {@linkplain Double} or {@linkplain Float} with
      * value equal to <code>POSITIVE_INFINITY</code>.
-     *
+     * <p>
      * <p>For example:
-     *
+     * <p>
      * <pre>assertThat(Double.PositiveInfinity, positiveInfinity())</pre>
      *
      * will return <code>true</code>. while:
@@ -778,9 +773,9 @@ public class J7Matchers extends HamcrestMatchers {
     /**
      * Creates a matcher for {@code T}s that matches when the number is a {@linkplain Double} or {@linkplain Float} such
      * that a call to method <code>isNaN()</code> returns <code>true</code>.
-     *
+     * <p>
      * <p>For example:
-     *
+     * <p>
      * <pre>assertThat((1.0/.0D), notANumber())</pre>
      *
      * will return <code>true</code>.
@@ -794,9 +789,9 @@ public class J7Matchers extends HamcrestMatchers {
     /**
      * Creates a matcher for {@code T}s that matches when the {@code toString()} method of the given object returns a
      * valid email address.
-     *
+     * <p>
      * <p>For example:
-     *
+     * <p>
      * <pre>assertThat("john.doe@test.test", email())</pre>
      */
     public static <T> Matcher<T> email() {

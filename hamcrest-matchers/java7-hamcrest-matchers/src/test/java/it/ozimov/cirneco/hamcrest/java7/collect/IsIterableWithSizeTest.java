@@ -1,15 +1,12 @@
 package it.ozimov.cirneco.hamcrest.java7.collect;
 
-import static org.hamcrest.core.Is.is;
-
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
-
+import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 import org.hamcrest.Matcher;
-
 import org.junit.Test;
 
-import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 
 public class IsIterableWithSizeTest extends BaseIterableMatcherTest {
 

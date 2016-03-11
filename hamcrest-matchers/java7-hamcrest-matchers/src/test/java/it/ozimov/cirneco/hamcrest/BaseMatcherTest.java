@@ -1,28 +1,19 @@
 package it.ozimov.cirneco.hamcrest;
 
-import static java.lang.String.format;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-
-import static org.hamcrest.Matchers.equalTo;
-
-import static org.hamcrest.core.Is.is;
-
-import static org.junit.Assert.assertTrue;
-
-import static junit.framework.TestCase.assertFalse;
-
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.StringDescription;
-
 import org.junit.Rule;
-
 import org.junit.rules.ExpectedException;
-
 import org.junit.runner.RunWith;
-
 import org.mockito.runners.MockitoJUnitRunner;
+
+import static java.lang.String.format;
+import static junit.framework.TestCase.assertFalse;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(MockitoJUnitRunner.class)
 public abstract class BaseMatcherTest {
@@ -53,15 +44,15 @@ public abstract class BaseMatcherTest {
 
         // Assert
         assertThat("Expected description does not match the one returned by the Matcher " + getSimpleName(matcher),
-            expectedDescription, equalTo(actualDescription));
+                expectedDescription, equalTo(actualDescription));
     }
 
     public static <T> void assertHasMismatchDescription(final String expectedDescription,
-            final Matcher<? super T> matcher, final T matcherArgument) {
+                                                        final Matcher<? super T> matcher, final T matcherArgument) {
 
         // Assert
         assertThat(format("The given matcher has no mismatch with value \"%s\"", matcherArgument),
-            matcher.matches(matcherArgument), is(false));
+                matcher.matches(matcherArgument), is(false));
 
         // Act
         final String actualMismatchDescription = mismatchDescriptionForMatcherFromArgument(matcher, matcherArgument);
@@ -76,7 +67,7 @@ public abstract class BaseMatcherTest {
     }
 
     protected static <T> String mismatchDescriptionForMatcherFromArgument(final Matcher<? super T> matcher,
-            final T arg) {
+                                                                          final T arg) {
         final Description description = new StringDescription();
         matcher.describeMismatch(arg, description);
 

@@ -1,11 +1,10 @@
 package it.ozimov.cirneco.hamcrest.java7.collect;
 
-import java.util.Arrays;
-
 import org.hamcrest.Matcher;
-
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.Arrays;
 
 public class IsIterableContainingInOrderTest extends BaseIterableMatcherTest {
 

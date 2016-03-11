@@ -1,27 +1,20 @@
 package it.ozimov.cirneco.hamcrest.java7.date;
 
-import static java.lang.String.format;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.not;
-import static org.hamcrest.Matchers.nullValue;
-
-import static org.junit.Assert.fail;
-
-import static it.ozimov.cirneco.hamcrest.java7.date.DateTestUtils.date;
-
-import java.text.ParseException;
-
-import java.util.Date;
-
+import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 import org.hamcrest.Matcher;
-
 import org.junit.Before;
 import org.junit.Test;
 
-import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
+import java.text.ParseException;
+import java.util.Date;
+
+import static it.ozimov.cirneco.hamcrest.java7.date.DateTestUtils.date;
+import static java.lang.String.format;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.nullValue;
+import static org.junit.Assert.fail;
 
 public class IsDateInWeekOfYearTest extends BaseMatcherTest {
 
@@ -51,7 +44,7 @@ public class IsDateInWeekOfYearTest extends BaseMatcherTest {
 
     @Test
     public void testGivenAWeekNumberGreaterThan53WhenCreateInstanceThenIllegalArgumentExceptionIsThrown()
-        throws Exception {
+            throws Exception {
 
         // Arrange
         thrown.expect(IllegalArgumentException.class);
@@ -65,7 +58,7 @@ public class IsDateInWeekOfYearTest extends BaseMatcherTest {
 
     @Test
     public void testGivenAWeekNumberSmallerThan1WhenCreateInstanceThenIllegalArgumentExceptionIsThrown()
-        throws Exception {
+            throws Exception {
 
         // Arrange
         thrown.expect(IllegalArgumentException.class);
@@ -125,25 +118,25 @@ public class IsDateInWeekOfYearTest extends BaseMatcherTest {
     @Test
     public void testDescribeMismatchSafely() throws Exception {
         assertHasMismatchDescription(format("<%s> is not in week of the year <%d>", januaryDateInWeek53, 1),
-            isWeek1Matcher, januaryDateInWeek53);
+                isWeek1Matcher, januaryDateInWeek53);
         assertHasMismatchDescription(format("<%s> is not in week of the year <%d>", decemberDateInWeek52, 1),
-            isWeek1Matcher, decemberDateInWeek52);
+                isWeek1Matcher, decemberDateInWeek52);
         assertHasMismatchDescription(format("<%s> is not in week of the year <%d>", decemberDateInWeek53, 1),
-            isWeek1Matcher, decemberDateInWeek53);
+                isWeek1Matcher, decemberDateInWeek53);
 
         assertHasMismatchDescription(format("<%s> is not in week of the year <%d>", januaryDateInWeek1, 52),
-            isWeek52Matcher, januaryDateInWeek1);
+                isWeek52Matcher, januaryDateInWeek1);
         assertHasMismatchDescription(format("<%s> is not in week of the year <%d>", decemberDateInWeek1, 52),
-            isWeek52Matcher, decemberDateInWeek1);
+                isWeek52Matcher, decemberDateInWeek1);
         assertHasMismatchDescription(format("<%s> is not in week of the year <%d>", decemberDateInWeek53, 52),
-            isWeek52Matcher, decemberDateInWeek53);
+                isWeek52Matcher, decemberDateInWeek53);
 
         assertHasMismatchDescription(format("<%s> is not in week of the year <%d>", januaryDateInWeek1, 53),
-            isWeek53Matcher, januaryDateInWeek1);
+                isWeek53Matcher, januaryDateInWeek1);
         assertHasMismatchDescription(format("<%s> is not in week of the year <%d>", decemberDateInWeek1, 53),
-            isWeek53Matcher, decemberDateInWeek1);
+                isWeek53Matcher, decemberDateInWeek1);
         assertHasMismatchDescription(format("<%s> is not in week of the year <%d>", decemberDateInWeek52, 53),
-            isWeek53Matcher, decemberDateInWeek52);
+                isWeek53Matcher, decemberDateInWeek52);
     }
 
     @Test
@@ -159,7 +152,7 @@ public class IsDateInWeekOfYearTest extends BaseMatcherTest {
         final Matcher<Date> isDateInWeekOfYearMatcher = new IsDateInWeekOfYear(weekOfYear);
 
         assertThat(String.format("Created matcher for week of the year %s", isDateInWeekOfYearMatcher),
-            not(is(nullValue())));
+                not(is(nullValue())));
     }
 
 }

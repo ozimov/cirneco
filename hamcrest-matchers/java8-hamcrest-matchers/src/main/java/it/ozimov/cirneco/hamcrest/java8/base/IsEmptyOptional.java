@@ -1,15 +1,15 @@
 package it.ozimov.cirneco.hamcrest.java8.base;
 
-import java.util.Optional;
-
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
+import java.util.Optional;
+
 /**
  * Is the given {@linkplain Optional} instance empty?
  *
- * @since  version 0.1 for JDK8
+ * @since version 0.1 for JDK8
  */
 public class IsEmptyOptional extends TypeSafeMatcher<Optional> {
 

@@ -1,17 +1,13 @@
 package it.ozimov.cirneco.hamcrest.java7.base;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-
-import static org.hamcrest.core.Is.is;
-
-import static org.junit.Assert.fail;
-
+import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 import org.hamcrest.Matcher;
-
 import org.junit.Before;
 import org.junit.Test;
 
-import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.fail;
 
 public class IsBetweenUpperBoundInclusiveTest extends BaseMatcherTest {
 
@@ -68,9 +64,9 @@ public class IsBetweenUpperBoundInclusiveTest extends BaseMatcherTest {
     @Test
     public void testDescribeMismatchSafely() throws Exception {
         assertHasMismatchDescription("<9> is not between <10> excluded and <12> included",
-            isBetweenUpperBoundInclusiveMatcher, 9);
+                isBetweenUpperBoundInclusiveMatcher, 9);
         assertHasMismatchDescription("<10> is not between <10> excluded and <12> included",
-            isBetweenUpperBoundInclusiveMatcher, 10);
+                isBetweenUpperBoundInclusiveMatcher, 10);
     }
 
     @Test

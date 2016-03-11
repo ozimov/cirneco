@@ -1,22 +1,20 @@
 package it.ozimov.cirneco.hamcrest.java7.date;
 
-import static com.google.common.base.Preconditions.checkArgument;
-
-import java.util.Calendar;
-import java.util.Date;
-
+import com.google.common.base.Optional;
+import it.ozimov.cirneco.hamcrest.java7.date.utils.CalendarUtils;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
-import com.google.common.base.Optional;
+import java.util.Calendar;
+import java.util.Date;
 
-import it.ozimov.cirneco.hamcrest.java7.date.utils.CalendarUtils;
+import static com.google.common.base.Preconditions.checkArgument;
 
 /**
  * it.ozimov.cirneco.hamcrest.java7.Is {@linkplain Date} in a given id?
  *
- * @since  version 0.1 for JDK7
+ * @since version 0.1 for JDK7
  */
 public class IsDateInMonth extends TypeSafeMatcher<Date> {
 
@@ -29,7 +27,7 @@ public class IsDateInMonth extends TypeSafeMatcher<Date> {
         // Months in {@linkplain Calendar} are zero-based
         final Optional<Month> monthOptional = Month.fromId(month);
         checkArgument(monthOptional.isPresent(),
-            String.format("The id %d is not a valid value (admitted values are [1,2,...,12])", month));
+                String.format("The id %d is not a valid value (admitted values are [1,2,...,12])", month));
         this.month = monthOptional.get();
     }
 
@@ -123,43 +121,43 @@ public class IsDateInMonth extends TypeSafeMatcher<Date> {
 
         switch (month) {
 
-            case JANUARY :
+            case JANUARY:
                 return monthFromDate == Month.JANUARY.id;
 
-            case FEBRUARY :
+            case FEBRUARY:
                 return monthFromDate == Month.FEBRUARY.id;
 
-            case MARCH :
+            case MARCH:
                 return monthFromDate == Month.MARCH.id;
 
-            case APRIL :
+            case APRIL:
                 return monthFromDate == Month.APRIL.id;
 
-            case MAY :
+            case MAY:
                 return monthFromDate == Month.MAY.id;
 
-            case JUNE :
+            case JUNE:
                 return monthFromDate == Month.JUNE.id;
 
-            case JULY :
+            case JULY:
                 return monthFromDate == Month.JULY.id;
 
-            case AUGUST :
+            case AUGUST:
                 return monthFromDate == Month.AUGUST.id;
 
-            case SEPTEMBER :
+            case SEPTEMBER:
                 return monthFromDate == Month.SEPTEMBER.id;
 
-            case OCTOBER :
+            case OCTOBER:
                 return monthFromDate == Month.OCTOBER.id;
 
-            case NOVEMBER :
+            case NOVEMBER:
                 return monthFromDate == Month.NOVEMBER.id;
 
-            case DECEMBER :
+            case DECEMBER:
                 return monthFromDate == Month.DECEMBER.id;
 
-            default :
+            default:
                 return false;
         }
     }

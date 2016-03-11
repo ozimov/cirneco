@@ -1,17 +1,14 @@
 package it.ozimov.cirneco.hamcrest.java7.date;
 
-import static it.ozimov.cirneco.hamcrest.java7.date.DateTestUtils.date;
-
-import java.text.ParseException;
-
-import java.util.Date;
-
+import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 import org.hamcrest.Matcher;
-
 import org.junit.Before;
 import org.junit.Test;
 
-import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
+import java.text.ParseException;
+import java.util.Date;
+
+import static it.ozimov.cirneco.hamcrest.java7.date.DateTestUtils.date;
 
 public class IsDateInMonthTest extends BaseMatcherTest {
 
@@ -219,29 +216,29 @@ public class IsDateInMonthTest extends BaseMatcherTest {
     @Test
     public void testMatchesSafely() throws Exception {
         BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not id <JANUARY>", february),
-            januaryMatcher, february);
+                januaryMatcher, february);
         BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not id <FEBRUARY>", january),
-            februaryMatcher, january);
+                februaryMatcher, january);
         BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not id <MARCH>", february), marchMatcher,
-            february);
+                february);
         BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not id <APRIL>", february), aprilMatcher,
-            february);
+                february);
         BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not id <MAY>", february), mayMatcher,
-            february);
+                february);
         BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not id <JUNE>", february), juneMatcher,
-            february);
+                february);
         BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not id <JULY>", february), julyMatcher,
-            february);
+                february);
         BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not id <AUGUST>", february), augustMatcher,
-            february);
+                february);
         BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not id <SEPTEMBER>", february),
-            septemberMatcher, february);
+                septemberMatcher, february);
         BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not id <OCTOBER>", february),
-            octoberMatcher, february);
+                octoberMatcher, february);
         BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not id <NOVEMBER>", february),
-            novemberMatcher, february);
+                novemberMatcher, february);
         BaseMatcherTest.assertHasMismatchDescription(String.format("<%s> has not id <DECEMBER>", february),
-            decemberMatcher, february);
+                decemberMatcher, february);
     }
 
     @Test

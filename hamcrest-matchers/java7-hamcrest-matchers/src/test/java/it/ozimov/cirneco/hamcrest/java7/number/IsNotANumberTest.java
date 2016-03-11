@@ -1,17 +1,14 @@
 package it.ozimov.cirneco.hamcrest.java7.number;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
-
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicLong;
-
+import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 import org.hamcrest.Matcher;
-
 import org.junit.Before;
 import org.junit.Test;
 
-import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class IsNotANumberTest extends BaseMatcherTest {
 
@@ -69,22 +66,22 @@ public class IsNotANumberTest extends BaseMatcherTest {
     @Test
     public void testDescribeMismatchSafely() throws Exception {
         assertHasMismatchDescription("<0> is not a number (i.e. Double.NaN or Float.NaN)", isNotANumberMatcher,
-            (byte) 0);
+                (byte) 0);
         assertHasMismatchDescription("<0s> is not a number (i.e. Double.NaN or Float.NaN)", isNotANumberMatcher,
-            (short) 0);
+                (short) 0);
         assertHasMismatchDescription("<0> is not a number (i.e. Double.NaN or Float.NaN)", isNotANumberMatcher, 0);
         assertHasMismatchDescription("<0L> is not a number (i.e. Double.NaN or Float.NaN)", isNotANumberMatcher, 0L);
         assertHasMismatchDescription("<0> is not a number (i.e. Double.NaN or Float.NaN)", isNotANumberMatcher,
-            new BigInteger("0"));
+                new BigInteger("0"));
         assertHasMismatchDescription("<0> is not a number (i.e. Double.NaN or Float.NaN)", isNotANumberMatcher,
-            new AtomicInteger(0));
+                new AtomicInteger(0));
         assertHasMismatchDescription("<0> is not a number (i.e. Double.NaN or Float.NaN)", isNotANumberMatcher,
-            new AtomicLong(0L));
+                new AtomicLong(0L));
 
         assertHasMismatchDescription("<0.0F> is not a number (i.e. Double.NaN or Float.NaN)", isNotANumberMatcher, .0F);
         assertHasMismatchDescription("<0.0> is not a number (i.e. Double.NaN or Float.NaN)", isNotANumberMatcher, .0D);
         assertHasMismatchDescription("<0.0> is not a number (i.e. Double.NaN or Float.NaN)", isNotANumberMatcher,
-            new BigDecimal(".0"));
+                new BigDecimal(".0"));
     }
 
     @Test

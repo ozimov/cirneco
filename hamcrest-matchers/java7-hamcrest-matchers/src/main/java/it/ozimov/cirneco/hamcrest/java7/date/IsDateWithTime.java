@@ -1,20 +1,19 @@
 package it.ozimov.cirneco.hamcrest.java7.date;
 
-import static com.google.common.base.Preconditions.checkArgument;
-
-import java.util.Date;
-
+import it.ozimov.cirneco.hamcrest.java7.date.utils.CalendarUtils;
+import it.ozimov.cirneco.hamcrest.java7.date.utils.ClockPeriod;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
-import it.ozimov.cirneco.hamcrest.java7.date.utils.CalendarUtils;
-import it.ozimov.cirneco.hamcrest.java7.date.utils.ClockPeriod;
+import java.util.Date;
+
+import static com.google.common.base.Preconditions.checkArgument;
 
 /**
  * it.ozimov.cirneco.hamcrest.java7.Is {@linkplain Date} in a given week day?
  *
- * @since  version 0.1 for JDK7
+ * @since version 0.1 for JDK7
  */
 public class IsDateWithTime extends TypeSafeMatcher<Date> {
 
@@ -29,18 +28,18 @@ public class IsDateWithTime extends TypeSafeMatcher<Date> {
     }
 
     public IsDateWithTime(final Integer hour, final ClockPeriod clockPeriod, final Integer min, final Integer sec,
-            final Integer millis) {
+                          final Integer millis) {
         checkArgument((hour != null) || (min != null) || (sec != null) || (millis != null),
-            "The matcher need one between hour, min, sec and millis to be non null");
+                "The matcher need one between hour, min, sec and millis to be non null");
         checkArgument((hour == null) || ((hour >= 0) && (hour <= 23) && (clockPeriod == ClockPeriod.TWENTYFOUR_HOURS))
-                || ((hour >= 0) && (hour <= 12)),
-            "The value hour must be null or a number between 0 and 23 in a 24hours clock period or between 0 and 11 in a 12hours clock period");
+                        || ((hour >= 0) && (hour <= 12)),
+                "The value hour must be null or a number between 0 and 23 in a 24hours clock period or between 0 and 11 in a 12hours clock period");
         checkArgument((min == null) || ((min >= 0) && (min <= 59)),
-            "The value min must be null or a number between 0 and 59");
+                "The value min must be null or a number between 0 and 59");
         checkArgument((sec == null) || ((sec >= 0) && (sec <= 59)),
-            "The value sec must be null or a number between 0 and 59");
+                "The value sec must be null or a number between 0 and 59");
         checkArgument((millis == null) || ((millis >= 0) && (millis <= 999)),
-            "The value millis must be null or a number between 0 and 999");
+                "The value millis must be null or a number between 0 and 999");
 
         this.hour = hour;
         this.min = min;
@@ -115,7 +114,7 @@ public class IsDateWithTime extends TypeSafeMatcher<Date> {
      * ClockPeriod</code> (e.g. <em>AM</em>), <code>minute</code> and <code>sec</code>.
      */
     public static Matcher<Date> hasHourMinAndSec(final int hour, final ClockPeriod clockPeriod, final int minute,
-            final int second) {
+                                                 final int second) {
         return new IsDateWithTime(hour, clockPeriod, minute, second, null);
     }
 
@@ -124,7 +123,7 @@ public class IsDateWithTime extends TypeSafeMatcher<Date> {
      * hours clock period, <code>minute</code>, <code>sec</code> and <code>millis</code>.
      */
     public static Matcher<Date> hasHourMinSecAndMillis(final int hour, final int minute, final int second,
-            final int millisecond) {
+                                                       final int millisecond) {
         return new IsDateWithTime(hour, minute, second, millisecond);
     }
 
@@ -133,7 +132,7 @@ public class IsDateWithTime extends TypeSafeMatcher<Date> {
      * ClockPeriod</code> (e.g. <em>AM</em>), <code>minute</code>, <code>sec</code> and <code>millis</code>.
      */
     public static Matcher<Date> hasHourMinSecAndMillis(final int hour, final ClockPeriod clockPeriod, final int minute,
-            final int second, final int millisecond) {
+                                                       final int second, final int millisecond) {
         return new IsDateWithTime(hour, clockPeriod, minute, second, millisecond);
     }
 
@@ -145,17 +144,17 @@ public class IsDateWithTime extends TypeSafeMatcher<Date> {
 
             switch (clockPeriod) {
 
-                case AM :
+                case AM:
                     matches = (hour == CalendarUtils.hour12(date)) && CalendarUtils.isAM(date);
 
                     break;
 
-                case PM :
+                case PM:
                     matches = (hour == CalendarUtils.hour12(date)) && CalendarUtils.isPM(date);
 
                     break;
 
-                default :
+                default:
                     matches = hour == CalendarUtils.hour24(date);
 
                     break;
@@ -197,17 +196,17 @@ public class IsDateWithTime extends TypeSafeMatcher<Date> {
 
             switch (clockPeriod) {
 
-                case AM :
+                case AM:
                     description.appendText(String.format("<%d AM>", hour));
 
                     break;
 
-                case PM :
+                case PM:
                     description.appendText(String.format("<%d PM>", hour));
 
                     break;
 
-                default :
+                default:
                     description.appendValue(hour);
 
                     break;

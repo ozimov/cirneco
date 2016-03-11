@@ -1,20 +1,19 @@
 package it.ozimov.cirneco.hamcrest.java7.collect;
 
-import static it.ozimov.cirneco.hamcrest.java7.collect.utils.IterableUtils.listCopy;
-import static it.ozimov.cirneco.hamcrest.java7.collect.utils.IterableUtils.sortedListCopy;
-
-import java.util.Iterator;
-
+import it.ozimov.cirneco.hamcrest.java7.collect.utils.IterableUtils;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
-import it.ozimov.cirneco.hamcrest.java7.collect.utils.IterableUtils;
+import java.util.Iterator;
+
+import static it.ozimov.cirneco.hamcrest.java7.collect.utils.IterableUtils.listCopy;
+import static it.ozimov.cirneco.hamcrest.java7.collect.utils.IterableUtils.sortedListCopy;
 
 /**
  * Is the {@linkplain Iterable} sorted according to natural ordering?
  *
- * @since  version 0.1 for JDK7
+ * @since version 0.1 for JDK7
  */
 public class IsSortedIterable<K extends Comparable> extends TypeSafeMatcher<Iterable<K>> {
 
@@ -53,7 +52,7 @@ public class IsSortedIterable<K extends Comparable> extends TypeSafeMatcher<Iter
 
             if ((previous != null)
                     && ((!reversed && (previous.compareTo(current) >= 0))
-                        || (reversed && (previous.compareTo(current) <= 0)))) {
+                    || (reversed && (previous.compareTo(current) <= 0)))) {
                 return false;
             }
 
@@ -66,8 +65,8 @@ public class IsSortedIterable<K extends Comparable> extends TypeSafeMatcher<Iter
     @Override
     public void describeMismatchSafely(final Iterable<K> iterable, final Description mismatchDescription) {
         mismatchDescription.appendText("iterable was ").appendValueList("[", ", ", "]", listCopy(iterable))
-                           .appendText(", while expected ordering was ").appendValueList("[", ", ", "]",
-                               reversed ? IterableUtils.sortedReversedListCopy(iterable) : sortedListCopy(iterable));
+                .appendText(", while expected ordering was ").appendValueList("[", ", ", "]",
+                reversed ? IterableUtils.sortedReversedListCopy(iterable) : sortedListCopy(iterable));
     }
 
     @Override

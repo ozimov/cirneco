@@ -1,28 +1,27 @@
 package it.ozimov.cirneco.hamcrest.java7.collect;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
-import static it.ozimov.cirneco.hamcrest.java7.collect.utils.IterableUtils.listCopy;
-import static it.ozimov.cirneco.hamcrest.java7.collect.utils.IterableUtils.sortedListCopy;
-import static it.ozimov.cirneco.hamcrest.java7.collect.utils.IterableUtils.sortedReversedListCopy;
-
-import java.util.Comparator;
-import java.util.Iterator;
-
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
+import java.util.Comparator;
+import java.util.Iterator;
+
+import static com.google.common.base.Preconditions.checkNotNull;
+import static it.ozimov.cirneco.hamcrest.java7.collect.utils.IterableUtils.listCopy;
+import static it.ozimov.cirneco.hamcrest.java7.collect.utils.IterableUtils.sortedListCopy;
+import static it.ozimov.cirneco.hamcrest.java7.collect.utils.IterableUtils.sortedReversedListCopy;
+
 /**
  * Is the {@linkplain Iterable} sorted according to the given {@linkplain Comparator}?
- *
+ * <p>
  * <p>
  * <p>
  * <p>
  * <p>Observe that the matcher can be used also with an instance of {@linkplain com.google.common.collect.Ordering},
  * thus enabling for powerful assertions based on that extension of <code>Comparator</code>.
  *
- * @since  version 0.1 for JDK7
+ * @since version 0.1 for JDK7
  */
 public class IsSortedIterableWithComparator<K> extends TypeSafeMatcher<Iterable<K>> {
 
@@ -63,7 +62,7 @@ public class IsSortedIterableWithComparator<K> extends TypeSafeMatcher<Iterable<
 
             if ((previous != null)
                     && ((!reversed && (comparator.compare(previous, current) >= 0))
-                        || (reversed && (comparator.compare(previous, current) <= 0)))) {
+                    || (reversed && (comparator.compare(previous, current) <= 0)))) {
                 return false;
             }
 
@@ -76,9 +75,9 @@ public class IsSortedIterableWithComparator<K> extends TypeSafeMatcher<Iterable<
     @Override
     public void describeMismatchSafely(final Iterable<K> iterable, final Description mismatchDescription) {
         mismatchDescription.appendText("iterable was ").appendValueList("[", ", ", "]", listCopy(iterable))
-                           .appendText(", while expected ordering ").appendValueList("[", ", ", "]",
-                               reversed ? sortedReversedListCopy(iterable, comparator)
-                                        : sortedListCopy(iterable, comparator));
+                .appendText(", while expected ordering ").appendValueList("[", ", ", "]",
+                reversed ? sortedReversedListCopy(iterable, comparator)
+                        : sortedListCopy(iterable, comparator));
     }
 
     @Override

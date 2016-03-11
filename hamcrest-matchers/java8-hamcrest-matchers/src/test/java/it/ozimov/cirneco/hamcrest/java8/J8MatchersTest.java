@@ -1,12 +1,10 @@
 package it.ozimov.cirneco.hamcrest.java8;
 
-import static org.hamcrest.core.IsInstanceOf.instanceOf;
-
-import static org.junit.Assert.assertThat;
-
+import it.ozimov.cirneco.hamcrest.java8.base.IsEmptyOptional;
 import org.junit.Test;
 
-import it.ozimov.cirneco.hamcrest.java8.base.IsEmptyOptional;
+import static org.hamcrest.core.IsInstanceOf.instanceOf;
+import static org.junit.Assert.assertThat;
 
 public class J8MatchersTest {
 

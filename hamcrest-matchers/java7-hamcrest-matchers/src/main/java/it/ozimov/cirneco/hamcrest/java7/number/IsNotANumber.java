@@ -7,19 +7,19 @@ import org.hamcrest.TypeSafeMatcher;
 /**
  * Is the numeric value a number?
  *
- * @since  version 0.1 for JDK7
+ * @since version 0.1 for JDK7
  */
 public class IsNotANumber<N extends Number> extends TypeSafeMatcher<N> {
 
     /**
      * Creates a matcher for {@code N} that matches when the number is a {@linkplain Double} or {@linkplain Float} such
      * that a call to method <code>isNaN()</code> returns true.
-     *
+     * <p>
      * <p>
      * <p>
      * <p>
      * <p>For example:
-     *
+     * <p>
      * <p>
      * <p>
      * <p>

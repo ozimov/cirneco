@@ -1,16 +1,15 @@
 package it.ozimov.cirneco.hamcrest.guava.base;
 
+import com.google.common.base.Equivalence;
+import com.google.common.base.Preconditions;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
-import com.google.common.base.Equivalence;
-import com.google.common.base.Preconditions;
-
 /**
  * Is the value equivalent to another value as specified by the provided {@linkplain Equivalence}?
  *
- * @since  version 0.1 for JDK7
+ * @since version 0.1 for JDK7
  */
 public class IsEquivalent<T> extends TypeSafeMatcher<T> {
 
@@ -31,7 +30,7 @@ public class IsEquivalent<T> extends TypeSafeMatcher<T> {
     /**
      * Creates a matcher that matches when the examined object of type <code>T</code> is equivalent to the specified
      * <code>comparison</code> object according to the provided {@linkplain Equivalence}.
-     *
+     * <p>
      * <p>
      * <p>
      * <p>
@@ -63,7 +62,7 @@ public class IsEquivalent<T> extends TypeSafeMatcher<T> {
     @Override
     public void describeTo(final Description description) {
         description.appendText("a value equivalent to ").appendValue(comparison)
-                   .appendText(" according with Equivalence ").appendValue(equivalence);
+                .appendText(" according with Equivalence ").appendValue(equivalence);
     }
 
 }

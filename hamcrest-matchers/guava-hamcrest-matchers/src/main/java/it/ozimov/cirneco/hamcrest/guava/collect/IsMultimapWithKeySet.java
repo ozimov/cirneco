@@ -1,14 +1,13 @@
 package it.ozimov.cirneco.hamcrest.guava.collect;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
-import java.util.Set;
-
+import com.google.common.collect.Multimap;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
-import com.google.common.collect.Multimap;
+import java.util.Set;
+
+import static com.google.common.base.Preconditions.checkNotNull;
 
 public class IsMultimapWithKeySet<K> extends TypeSafeMatcher<Multimap<K, ?>> {
 

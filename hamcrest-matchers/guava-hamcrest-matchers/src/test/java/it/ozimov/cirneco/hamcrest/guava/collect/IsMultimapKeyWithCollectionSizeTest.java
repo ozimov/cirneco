@@ -1,23 +1,18 @@
 package it.ozimov.cirneco.hamcrest.guava.collect;
 
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
+import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
+import org.hamcrest.Matcher;
+import org.junit.Before;
+import org.junit.Test;
+
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.lessThan;
 import static org.hamcrest.Matchers.not;
-
 import static org.junit.Assert.fail;
-
 import static org.junit.Assume.assumeThat;
-
-import org.hamcrest.Matcher;
-
-import org.junit.Before;
-import org.junit.Test;
-
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Multimap;
-
-import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 
 public class IsMultimapKeyWithCollectionSizeTest extends BaseMatcherTest {
 
@@ -63,7 +58,7 @@ public class IsMultimapKeyWithCollectionSizeTest extends BaseMatcherTest {
 
     @Test
     public void tesGivenAMultimapWithElementWithCollectionSizeTenWhenMatchesForSizeTenIsCalledThenTrueIsReturned()
-        throws Exception {
+            throws Exception {
 
         // Arrange
         addObjectsToKey(expectedSizeCollectionForKeyInGeneralMatcher);
@@ -77,7 +72,7 @@ public class IsMultimapKeyWithCollectionSizeTest extends BaseMatcherTest {
 
     @Test
     public void tesGivenAMultimapWithElementWithCollectionSizeOneWhenMatchesForSizeTenIsCalledThenFalseIsReturned()
-        throws Exception {
+            throws Exception {
 
         // Arrange
         final int sizeCollectionForKeyInActualMap = 1;
@@ -104,7 +99,7 @@ public class IsMultimapKeyWithCollectionSizeTest extends BaseMatcherTest {
 
         BaseMatcherTest.assertHasMismatchDescription(String.format(
                 "Multimap had element \"%s\" with collection size <1>", comparison),
-            isMultimapElementWithCollectionSizeMatcher, multimap);
+                isMultimapElementWithCollectionSizeMatcher, multimap);
     }
 
     @Test

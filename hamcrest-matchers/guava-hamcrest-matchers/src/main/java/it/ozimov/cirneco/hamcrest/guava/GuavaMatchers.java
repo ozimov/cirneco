@@ -1,28 +1,26 @@
 package it.ozimov.cirneco.hamcrest.guava;
 
-import java.util.Collection;
-import java.util.Set;
-
-import org.hamcrest.Matcher;
-
 import com.google.common.base.Equivalence;
 import com.google.common.base.Optional;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multiset;
-
 import it.ozimov.cirneco.hamcrest.guava.base.IsEmptyGuavaOptional;
 import it.ozimov.cirneco.hamcrest.guava.base.IsEquivalent;
 import it.ozimov.cirneco.hamcrest.guava.collect.IsMultimapKeyWithCollectionSize;
 import it.ozimov.cirneco.hamcrest.guava.collect.IsMultimapWithKeySet;
 import it.ozimov.cirneco.hamcrest.guava.collect.IsMultimapWithKeySetSize;
 import it.ozimov.cirneco.hamcrest.guava.collect.IsMultisetElementWithCount;
+import org.hamcrest.Matcher;
+
+import java.util.Collection;
+import java.util.Set;
 
 /**
  * The {@code GuavaMatchers} class groups all the matchers introduced by Cirneco's Hamcrest extension for <a
  * href="https://github.com/google/guava">Google Guava library</a>. Suggested use would be to import all the static
  * methods of this class in a unit test.
  *
- * @since  version 0.1 for JDK7
+ * @since version 0.1 for JDK7
  */
 public class GuavaMatchers {
 
@@ -38,7 +36,7 @@ public class GuavaMatchers {
     /**
      * Creates a matcher that matches when the examined object of type <code>T</code> is equivalent to the specified
      * <code>comparison</code> object according to the provided {@linkplain Equivalence}.
-     *
+     * <p>
      * <p>
      * <p>
      * <p>

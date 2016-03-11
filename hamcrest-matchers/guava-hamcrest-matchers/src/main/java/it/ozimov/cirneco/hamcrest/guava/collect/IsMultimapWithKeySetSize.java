@@ -1,12 +1,11 @@
 package it.ozimov.cirneco.hamcrest.guava.collect;
 
-import static com.google.common.base.Preconditions.checkArgument;
-
+import com.google.common.collect.Multimap;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
-import com.google.common.collect.Multimap;
+import static com.google.common.base.Preconditions.checkArgument;
 
 public class IsMultimapWithKeySetSize<K> extends TypeSafeMatcher<Multimap<K, ?>> {
 
@@ -41,7 +40,7 @@ public class IsMultimapWithKeySetSize<K> extends TypeSafeMatcher<Multimap<K, ?>>
     @Override
     public void describeMismatchSafely(final Multimap<K, ?> multimap, final Description mismatchDescription) {
         mismatchDescription.appendText(" Multimap had key set with ").appendValue(multimap.keySet().size()).appendText(
-            " elements");
+                " elements");
     }
 
     @Override

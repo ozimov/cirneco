@@ -1,19 +1,16 @@
 package it.ozimov.cirneco.hamcrest.java7.date.utils;
 
-import static org.hamcrest.CoreMatchers.is;
-
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
-
-import static it.ozimov.cirneco.hamcrest.java7.date.DateTestUtils.date;
+import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
+import org.junit.Test;
 
 import java.util.Calendar;
 import java.util.Date;
 
-import org.junit.Test;
-
-import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
+import static it.ozimov.cirneco.hamcrest.java7.date.DateTestUtils.date;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class CalendarUtilsTest extends BaseMatcherTest {
 
@@ -28,7 +25,7 @@ public class CalendarUtilsTest extends BaseMatcherTest {
 
         // Assert
         assertThat("Expected that the Calendar has the same timestamp than the date", calendar.getTimeInMillis(),
-            is(date.getTime()));
+                is(date.getTime()));
     }
 
     @Test

@@ -1,15 +1,15 @@
 package it.ozimov.cirneco.hamcrest.java7.base;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
 import org.hamcrest.BaseMatcher;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 /**
  * Has the object the hashcode of another?
  *
- * @since  version 0.4.0 for JDK7
+ * @since version 0.4.0 for JDK7
  */
 public class IsSameHashcode extends BaseMatcher<Object> {
 

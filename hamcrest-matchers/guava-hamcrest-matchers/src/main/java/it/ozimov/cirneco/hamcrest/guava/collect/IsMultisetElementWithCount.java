@@ -1,17 +1,16 @@
 package it.ozimov.cirneco.hamcrest.guava.collect;
 
-import static com.google.common.base.Preconditions.checkArgument;
-
+import com.google.common.collect.Multiset;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
-import com.google.common.collect.Multiset;
+import static com.google.common.base.Preconditions.checkArgument;
 
 /**
  * Is the element of the {@linkplain Multiset} with the given count?
  *
- * @since  version 0.1 for JDK7
+ * @since version 0.1 for JDK7
  */
 public class IsMultisetElementWithCount<E> extends TypeSafeMatcher<Multiset<E>> {
 
@@ -43,7 +42,7 @@ public class IsMultisetElementWithCount<E> extends TypeSafeMatcher<Multiset<E>> 
 
         if (multiset.contains(comparison)) {
             mismatchDescription.appendText("Multiset had element ").appendValue((Object) comparison)
-                               .appendText(" with count ").appendValue(multiset.count(comparison));
+                    .appendText(" with count ").appendValue(multiset.count(comparison));
         } else {
             mismatchDescription.appendText("Multiset was not containing element ").appendValue(comparison);
         }
@@ -52,7 +51,7 @@ public class IsMultisetElementWithCount<E> extends TypeSafeMatcher<Multiset<E>> 
     @Override
     public void describeTo(final Description description) {
         description.appendText("a Multiset with element ").appendValue(comparison).appendText(" with count ")
-                   .appendValue(size);
+                .appendValue(size);
     }
 
 }

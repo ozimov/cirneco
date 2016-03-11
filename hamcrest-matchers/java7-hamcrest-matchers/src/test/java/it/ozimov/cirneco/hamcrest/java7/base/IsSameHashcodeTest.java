@@ -1,16 +1,13 @@
 package it.ozimov.cirneco.hamcrest.java7.base;
 
-import static org.junit.Assert.fail;
-import static org.junit.Assume.assumeFalse;
-import static org.junit.Assume.assumeNotNull;
-import static org.junit.Assume.assumeTrue;
-
+import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 import org.hamcrest.Matcher;
-
 import org.junit.Before;
 import org.junit.Test;
 
-import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
+import static org.junit.Assert.fail;
+import static org.junit.Assume.assumeFalse;
+import static org.junit.Assume.assumeTrue;
 
 public class IsSameHashcodeTest extends BaseMatcherTest {
 
@@ -38,7 +35,7 @@ public class IsSameHashcodeTest extends BaseMatcherTest {
 
         // Arrange
         assumeTrue("Assumed that actual and comparison have the same hashcode",
-            actual.hashCode() == comparison.hashCode());
+                actual.hashCode() == comparison.hashCode());
 
         // Act
         final boolean matches = sameHashcodeMatcher.matches(actual);
@@ -52,7 +49,7 @@ public class IsSameHashcodeTest extends BaseMatcherTest {
 
         // Arrange
         assumeFalse("Assumed that actual and comparison have different haschode",
-            anotherActual.hashCode() == comparison.hashCode());
+                anotherActual.hashCode() == comparison.hashCode());
 
         // Act
         final boolean matches = sameHashcodeMatcher.matches(anotherActual);

@@ -1,11 +1,9 @@
 package it.ozimov.cirneco.hamcrest.java7.collect;
 
+import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 import org.hamcrest.Matcher;
-
 import org.junit.Before;
 import org.junit.Test;
-
-import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 
 public class IsEmptyIterableTest extends BaseIterableMatcherTest {
 
@@ -47,7 +45,7 @@ public class IsEmptyIterableTest extends BaseIterableMatcherTest {
     @Test
     public void testDescribeMismatchSafely() throws Exception {
         BaseMatcherTest.assertHasMismatchDescription("[<100>, <1>, <10>]", isEmptyIterableMatcher,
-            createIterableWithElements(100, 1, 10));
+                createIterableWithElements(100, 1, 10));
     }
 
     @Test
