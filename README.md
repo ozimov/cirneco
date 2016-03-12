@@ -6,10 +6,10 @@
 **JavaDoc Website:** *[ozimov.github.io/cirneco/](http://ozimov.github.io/cirneco/)*<br />
 **Wiki Website:** *[github.com/ozimov/cirneco/wiki](http://github.com/ozimov/cirneco/wiki)*<br />
 
-**Latest Release:** *0.4.2*<br />
-**Latest Artifacts:** *it.ozimov:java7-hamcrest-matchers:jar:0.4.2*,
-  *it.ozimov:java8-hamcrest-matchers:jar:0.4.2*,
-  *it.ozimov:guava-hamcrest-matchers:jar:0.4.2* <br />
+**Latest Release:** *0.5.0*<br />
+**Latest Artifacts:** *it.ozimov:java7-hamcrest-matchers:jar:0.5.0*,
+  *it.ozimov:java8-hamcrest-matchers:jar:0.5.0*,
+  *it.ozimov:guava-hamcrest-matchers:jar:0.5.0* <br />
 **Continuous Integration:**<br />
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/it.ozimov/cirneco-parent/badge.svg)](https://maven-badges.herokuapp.com/maven-central/it.ozimov/cirneco-parent)
 <br />
@@ -27,7 +27,7 @@ we like easy-to-read and concise code, where the method name already embeds all 
 need to explain what you are assuming/asserting.
 
 Hence, in Cirneco we aim to extend the most valuable toolkits for  unit test to provide a better developing experience.
-The current version (*Cirneco 0.4.2*) only provides some extensions for Hamcrest for Java.
+The current version (*Cirneco 0.5.0*) only provides some extensions for Hamcrest for Java.
 
 # JDK compatibility
 The API is JDK7 compatible.
@@ -44,7 +44,7 @@ To use the extensions for a JDK7 compliant project, you can embed the following 
 <dependency>
   <groupId>it.ozimov</groupId>
   <artifactId>java7-hamcrest-matchers</artifactId>
-  <version>0.4.2</version>
+  <version>0.5.0</version>
   <scope>test</scope>
 </dependency>
 ```
@@ -54,7 +54,7 @@ and if you use JDK8, the dependency to be added is:
 <dependency>
   <groupId>it.ozimov</groupId>
   <artifactId>java8-hamcrest-matchers</artifactId>
-  <version>0.4.2</version>
+  <version>0.5.0</version>
   <scope>test</scope>
 </dependency>
 ```
@@ -65,7 +65,7 @@ There are matchers dedicated to Guava libraries that are JDK7-compliant, that yo
 <dependency>
   <groupId>it.ozimov</groupId>
   <artifactId>guava-hamcrest-matchers</artifactId>
-  <version>0.4.2</version>
+  <version>0.5.0</version>
   <scope>test</scope>
 </dependency>
 ```

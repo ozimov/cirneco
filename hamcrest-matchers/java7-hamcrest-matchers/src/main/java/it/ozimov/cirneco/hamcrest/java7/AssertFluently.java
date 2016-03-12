@@ -160,8 +160,6 @@ public class AssertFluently<T> {
             if (!matcher.matches(actual)) {
                 final Description description = describeError(matcher);
 
-                // matcher.describeMismatch(actual, description);
-
                 throw new AssertionError(description.toString());
             }
         }

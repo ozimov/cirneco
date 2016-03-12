@@ -4,6 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.5.0] - 2016-03-12
+### Added
+- Assertion to check if a string is a YAML text in package
+    `it.ozimov.cirneco.hamcrest.java7.filetype`, i.e. `IsYaml`
+
 ## [0.4.2] - 2016-03-12
 ### Removed
 - Cleanup

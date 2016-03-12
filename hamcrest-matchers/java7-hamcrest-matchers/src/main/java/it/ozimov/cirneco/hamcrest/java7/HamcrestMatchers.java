@@ -7,7 +7,7 @@ import org.hamcrest.Matchers;
  *
  * @since version 0.3 for JDK7
  */
-public abstract class HamcrestMatchers {
+abstract class HamcrestMatchers {
 
     /**
      * Creates a matcher that matches if the examined object matches <b>ALL</b> of the specified matchers. For example:
