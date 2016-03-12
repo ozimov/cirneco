@@ -13,7 +13,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * <p>
  * <p>The following example fits with JUnit 4.x and shows how to define an expression in a fluent way.
  * <p>
- * <pre>
+ * <code>
  * import static it.ozimov.cirneco.hamcrest.java7.Given.given;
  * import static it.ozimov.cirneco.hamcrest.java7.J7Matchers.not;
  *
@@ -31,11 +31,11 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * }
  *
  * }
- * </pre>
+ * </code>
  * <p>
  * The equivalent code using Hamcrest is:
  * <p>
- * <pre>
+ * <code>
  * @Test
  * public void testSomething(){
  * String actual = "Test"
@@ -43,12 +43,12 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * assertThat("Actual object "\Test\" must not be equal to \"Something\"")
  * actual, not("Something"));
  * }
- * </pre>
+ * </code>
  * </p>
  * <p>
  * <p>When using no "actual" object, but just an expression, it can be used the {@linkplain #withReason(String)}, e.g.
  * <p>
- * <pre>
+ * <code>
  * @Test
  * public void testSomething(){
  * boolean expression = true;
@@ -56,22 +56,22 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * withReason("Expected the expression to be true")
  * .assertIs(expression);
  * }
- * </pre>
+ * </code>
  * </p>
  * <p>
  * <p>Another option is to check a boolean expression directly like follows
  * <p>
- * <pre>
+ * <code>
  * @Test
  * public void testSomething(){
  * boolean expression = true;
  *
  * assertIs(expression);
  * }
- * </pre>
+ * </code>
  * </p>
  */
-public class AssertFluently<T> {
+public class AssertFluently {
 
     public static <T> AssertionBuilder<T> given(@Nonnull final T actual) {
         checkNotNull(actual);

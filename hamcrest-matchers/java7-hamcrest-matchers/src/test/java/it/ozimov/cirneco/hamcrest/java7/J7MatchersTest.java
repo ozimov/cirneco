@@ -360,6 +360,11 @@ public class J7MatchersTest extends SameCallerMatchersTest {
     }
 
     @Test
+    public void testYaml() throws Exception {
+        testMethodCallsRightMethod(IsPositive.class, "yaml");
+    }
+
+    @Test
     public void testPositive() throws Exception {
         testMethodCallsRightMethod(IsPositive.class, "positive");
     }

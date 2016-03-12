@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Fixed
+- The `yaml()` matcher is exposed in `J7Matchers` class
+
 ## [0.5.0] - 2016-03-12
 ### Added
 - Assertion to check if a string is a YAML text in package

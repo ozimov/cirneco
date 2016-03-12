@@ -22,6 +22,7 @@ import it.ozimov.cirneco.hamcrest.java7.date.IsDateInMonth;
 import it.ozimov.cirneco.hamcrest.java7.date.IsDateInWeekOfYear;
 import it.ozimov.cirneco.hamcrest.java7.date.IsDateWithTime;
 import it.ozimov.cirneco.hamcrest.java7.date.utils.ClockPeriod;
+import it.ozimov.cirneco.hamcrest.java7.filetype.IsYaml;
 import it.ozimov.cirneco.hamcrest.java7.number.IsInfinity;
 import it.ozimov.cirneco.hamcrest.java7.number.IsNegative;
 import it.ozimov.cirneco.hamcrest.java7.number.IsNegativeInfinity;
@@ -680,6 +681,20 @@ public class J7Matchers extends HamcrestMatchers {
      */
     public static <K> Matcher<Map<? extends K, ?>> hasSameKeySet(final Map<? extends K, ?> comparisonMap) {
         return IsMapWithSameKeySet.hasSameKeySet(comparisonMap);
+    }
+
+    // FILE TYPE
+
+    /**
+     * Creates a matcher for {@code T}s that matches when the {@code toString()} method of the given object returns a
+     * valid yaml address.
+     * <p>
+     * <p>For example:
+     * <p>
+     * <pre>assertThat("this.is.valid.yaml: YES", yaml())</pre>
+     */
+    public static <T> Matcher<T> yaml() {
+        return IsYaml.yaml();
     }
 
     // NUMBER
