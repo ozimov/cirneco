@@ -185,10 +185,18 @@
                 <groupId>org.eluder.coveralls</groupId>
                 <artifactId>coveralls-maven-plugin</artifactId>
                 <version>4.1.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+                <version>2.7</version>
                 <configuration>
-                    <repoToken>KGzVgqAAVWh3GPJojoY2yJW5kw2goeYDz</repoToken>
+                    <format>xml</format>
+                    <maxmem>256m</maxmem>
+                    <aggregate>true</aggregate>
                 </configuration>
             </plugin>
+
 
             <!--Deploy plugins -->
             <plugin>
