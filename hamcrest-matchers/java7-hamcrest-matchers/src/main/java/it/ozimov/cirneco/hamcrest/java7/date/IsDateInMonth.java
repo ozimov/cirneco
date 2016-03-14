@@ -12,7 +12,7 @@ import java.util.Date;
 import static com.google.common.base.Preconditions.checkArgument;
 
 /**
- * it.ozimov.cirneco.hamcrest.java7.Is {@linkplain Date} in a given id?
+ * Is {@linkplain Date} in a given id?
  *
  * @since version 0.1 for JDK7
  */

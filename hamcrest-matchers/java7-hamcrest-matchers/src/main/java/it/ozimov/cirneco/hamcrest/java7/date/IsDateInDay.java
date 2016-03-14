@@ -12,7 +12,7 @@ import static com.google.common.base.Preconditions.checkArgument;
 import static it.ozimov.cirneco.hamcrest.java7.date.utils.CalendarUtils.weekDay;
 
 /**
- * it.ozimov.cirneco.hamcrest.java7.Is {@linkplain Date} in a given week day?
+ * Is {@linkplain Date} in a given week day?
  *
  * @since version 0.1 for JDK7
  */

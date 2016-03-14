@@ -1,11 +1,11 @@
 package testing.reflection.clazz.ok;
 
-import it.ozimov.cirneco.reflection.DefaultConstructor;
+import it.ozimov.cirneco.reflection.NoArgumentConstructor;
 
 public class TestClass {
 
-    @DefaultConstructor
-    private TestClass(){
+    @NoArgumentConstructor
+    private TestClass() {
 
     }
 }

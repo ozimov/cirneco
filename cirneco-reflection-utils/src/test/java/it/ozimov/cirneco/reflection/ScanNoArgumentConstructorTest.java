@@ -1,7 +1,6 @@
 package it.ozimov.cirneco.reflection;
 
 import com.google.common.base.Optional;
-import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -13,18 +12,20 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.not;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 
-public class ScanDefaultConstructorTest {
+public class ScanNoArgumentConstructorTest {
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 
     @Test
-    public void testGetDefaultConstructorForClass() throws Exception {
+    public void testGetNoArgumentConstructorForClass() throws Exception {
         //Act
         final Optional<Constructor> constructorOptional =
-                ScanDefaultConstructor.getDefaultConstructor(testing.reflection.clazz.ok.TestClass.class);
+                ScanNoArgumentConstructor.getNoArgumentConstructor(testing.reflection.clazz.ok.TestClass.class);
 
         //Assert
         assertThat("Expected only one class", constructorOptional.get(), not(is(nullValue())));
@@ -34,51 +35,51 @@ public class ScanDefaultConstructorTest {
     }
 
     @Test
-    public void testGetDefaultConstructorForClassFailsOnClassConstructorWithParams() throws Exception {
+    public void testGetNoArgumentConstructorForClassFailsOnClassConstructorWithParams() throws Exception {
         //Arrange
         thrown.expect(IllegalStateException.class);
         thrown.expectMessage("Constructor 'private testing.reflection.clazz.with.constructor.with.params.TestClass(java.lang.String)'" +
                 " has input parameters, expected none");
 
         //Act
-        ScanDefaultConstructor.getDefaultConstructor(testing.reflection.clazz.with.constructor.with.params.TestClass.class);
+        ScanNoArgumentConstructor.getNoArgumentConstructor(testing.reflection.clazz.with.constructor.with.params.TestClass.class);
 
         //Assert
         fail("Expected IllegalStateException");
     }
 
     @Test
-    public void testGetDefaultConstructorForClassEmptyOnClassWithoutAnnotations() throws Exception {
+    public void testGetNoArgumentConstructorForClassEmptyOnClassWithoutAnnotations() throws Exception {
         //Act
         final Optional<Constructor> constructorOptional =
-                ScanDefaultConstructor.getDefaultConstructor(testing.reflection.clazz.has.no.annotations.TestClass.class);
+                ScanNoArgumentConstructor.getNoArgumentConstructor(testing.reflection.clazz.has.no.annotations.TestClass.class);
 
         //Assert
         assertFalse(constructorOptional.isPresent());
     }
 
     @Test
-    public void testGetDefaultConstructorForClassFailsOnNullClass() throws Exception {
+    public void testGetNoArgumentConstructorForClassFailsOnNullClass() throws Exception {
         //Arrange
         thrown.expect(NullPointerException.class);
 
         //Act
-        ScanDefaultConstructor.getDefaultConstructor(null);
+        ScanNoArgumentConstructor.getNoArgumentConstructor(null);
 
         //Assert
         fail("Expected NullPointerException");
     }
 
     @Test
-    public void testGetAllDefaultConstructors() throws Exception {
+    public void testGetAllNoArgumentConstructors() throws Exception {
         //Act
         final Set<Constructor> constructorSet =
-                ScanDefaultConstructor.getAllDefaultConstructors("testing.reflection.clazz.ok");
+                ScanNoArgumentConstructor.getAllNoArgumentConstructors("testing.reflection.clazz.ok");
 
         //Assert
         assertThat("Expected only one class", constructorSet, hasSize(1));
 
-        for(final Constructor constructor : constructorSet){
+        for (final Constructor constructor : constructorSet) {
             constructor.setAccessible(true);
             constructor.newInstance();
         }
@@ -86,50 +87,50 @@ public class ScanDefaultConstructorTest {
 
 
     @Test
-    public void testGetAllDefaultConstructorsWithNoAnnotations() throws Exception {
+    public void testGetAllNoArgumentConstructorsWithNoAnnotations() throws Exception {
         //Act
         final Set<Constructor> constructorSet =
-                ScanDefaultConstructor.getAllDefaultConstructors("testing.reflection.clazz.has.no.annotations");
+                ScanNoArgumentConstructor.getAllNoArgumentConstructors("testing.reflection.clazz.has.no.annotations");
 
         //Assert
         assertThat("Expected no classes matching", constructorSet, hasSize(0));
     }
 
     @Test
-    public void testGetAllDefaultConstructorsFailsOnConstructorWithParams() throws Exception {
+    public void testGetAllNoArgumentConstructorsFailsOnConstructorWithParams() throws Exception {
         //Arrange
         thrown.expect(IllegalStateException.class);
         thrown.expectMessage("Constructor 'private testing.reflection.clazz.with.constructor.with.params.TestClass(java.lang.String)'" +
                 " has input parameters, expected none");
 
         //Act
-        ScanDefaultConstructor.getAllDefaultConstructors("testing.reflection.clazz.with.constructor.with.params");
+        ScanNoArgumentConstructor.getAllNoArgumentConstructors("testing.reflection.clazz.with.constructor.with.params");
 
         //Assert
         fail("Expected IllegalStateException");
     }
 
     @Test
-    public void testGetAllDefaultConstructorsFailsOnBadPackage() throws Exception {
+    public void testGetAllNoArgumentConstructorsFailsOnBadPackage() throws Exception {
         //Arrange
         final String packageName = "private.package.volatile";
         thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage("Given package '"+packageName+"' is not a valid java identifier");
+        thrown.expectMessage("Given package '" + packageName + "' is not a valid java identifier");
 
         //Act
-        ScanDefaultConstructor.getAllDefaultConstructors(packageName);
+        ScanNoArgumentConstructor.getAllNoArgumentConstructors(packageName);
 
         //Assert
         fail("Expected IllegalArgumentException");
     }
 
     @Test
-    public void testGetAllDefaultConstructorsFailsOnNullPackage() throws Exception {
+    public void testGetAllNoArgumentConstructorsFailsOnNullPackage() throws Exception {
         //Arrange
         thrown.expect(NullPointerException.class);
 
         //Act
-        ScanDefaultConstructor.getAllDefaultConstructors(null);
+        ScanNoArgumentConstructor.getAllNoArgumentConstructors(null);
 
         //Assert
         fail("Expected NullPointerException");

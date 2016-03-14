@@ -9,7 +9,7 @@ import java.util.Date;
 import static it.ozimov.cirneco.hamcrest.java7.date.utils.CalendarUtils.isLeapYear;
 
 /**
- * it.ozimov.cirneco.hamcrest.java7.Is {@linkplain Date} in a leap year?
+ * Is {@linkplain Date} in a leap year?
  *
  * @since version 0.1 for JDK7
  */

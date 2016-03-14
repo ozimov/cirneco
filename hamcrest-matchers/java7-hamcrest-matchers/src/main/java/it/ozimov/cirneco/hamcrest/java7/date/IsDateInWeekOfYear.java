@@ -10,7 +10,7 @@ import java.util.Date;
 import static com.google.common.base.Preconditions.checkArgument;
 
 /**
- * it.ozimov.cirneco.hamcrest.java7.Is {@linkplain Date} in a given weekOfYear of the year?
+ * Is {@linkplain Date} in a given weekOfYear of the year?
  * <p>
  * <p>
  * <p>
