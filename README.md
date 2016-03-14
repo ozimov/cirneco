@@ -36,6 +36,7 @@ There are dedicated matchers for JDK8 provided in a complementary API.
 
 # Extended libraries
 For now, we provided some extensions of the [Hamcrest](https://github.com/hamcrest/JavaHamcrest) library.
+There are some extra feature for [fluent assertions](https://github.com/ozimov/cirneco/wiki/Fluent-Assertions) that you may also want to checkout.
 
 ## Hamcrest extensions
 There are some interesting matchers based on [Guava](https://github.com/google/guava) library. The next release will focus more on Guava collections and money (the plan would be to use Joda Money or to dirfectly provide the matchers for the JDK8 extension).
