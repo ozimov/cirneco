@@ -2,48 +2,28 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
     <parent>
-        <artifactId>hamcrest-matchers</artifactId>
+        <artifactId>cirneco-parent</artifactId>
         <groupId>it.ozimov</groupId>
         <version>0.6.0-SNAPSHOT</version>
     </parent>
+    <modelVersion>4.0.0</modelVersion>
 
-
-    <artifactId>java8-hamcrest-matchers</artifactId>
+    <artifactId>cirneco-reflection-utils</artifactId>
     <version>0.6.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Cirneco's Hamcrest Extensions for JDK8</name>
-    <description>An extension to make unit test easier with Hamcrest and Java8.</description>
+    <name>Cirneco's Reflection Utils</name>
+    <description>A collection of reflection utilities meant to be used for unit testing.</description>
 
     <dependencies>
         <dependency>
-            <groupId>it.ozimov</groupId>
-            <artifactId>java7-hamcrest-matchers</artifactId>
-            <version>0.6.0-SNAPSHOT</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>joda-time</groupId>
-                    <artifactId>joda-time</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>it.ozimov</groupId>
-            <artifactId>java7-hamcrest-matchers</artifactId>
-            <version>0.6.0-SNAPSHOT</version>
-            <scope>test</scope>
-            <classifier>tests</classifier>
-        </dependency>
-        <dependency>
-            <groupId>org.javassist</groupId>
-            <artifactId>javassist</artifactId>
-            <version>3.20.0-GA</version>
-            <scope>test</scope>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <version>0.9.10</version>
         </dependency>
     </dependencies>
+
 
     <prerequisites>
         <maven>3.0.4</maven>
@@ -79,9 +59,21 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin}</version>
                 <configuration>
-                    <source>${java8.version}</source>
-                    <target>${java8.version}</target>
+                    <source>${java7.version}</source>
+                    <target>${java7.version}</target>
                 </configuration>
+            </plugin>
+            <!--To reuse test utilities in other modules-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>test-jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
             <!--Deploy plugins -->
@@ -187,4 +179,5 @@
             </build>
         </profile>
     </profiles>
+
 </project>

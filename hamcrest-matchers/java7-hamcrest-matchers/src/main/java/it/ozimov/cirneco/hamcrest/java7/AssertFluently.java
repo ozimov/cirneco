@@ -16,30 +16,28 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * <code>
  * import static it.ozimov.cirneco.hamcrest.java7.Given.given;
  * import static it.ozimov.cirneco.hamcrest.java7.J7Matchers.not;
- *
+ * <p>
  * import org.junit.Test;
- *
+ * <p>
  * public class UnitTest{
  *
- * @Test
- * public void testSomething(){
+ * @Test public void testSomething(){
  * String actual = "Test"
- *
+ * <p>
  * given(actual)
  * .withReason("Actual object "\Test\" must not be equal to \"Something\"")
  * .assertIs(not("Something"));
  * }
- *
+ * <p>
  * }
  * </code>
  * <p>
  * The equivalent code using Hamcrest is:
  * <p>
  * <code>
- * @Test
- * public void testSomething(){
+ * @Test public void testSomething(){
  * String actual = "Test"
- *
+ * <p>
  * assertThat("Actual object "\Test\" must not be equal to \"Something\"")
  * actual, not("Something"));
  * }
@@ -49,10 +47,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * <p>When using no "actual" object, but just an expression, it can be used the {@linkplain #withReason(String)}, e.g.
  * <p>
  * <code>
- * @Test
- * public void testSomething(){
+ * @Test public void testSomething(){
  * boolean expression = true;
- *
+ * <p>
  * withReason("Expected the expression to be true")
  * .assertIs(expression);
  * }
@@ -62,10 +59,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * <p>Another option is to check a boolean expression directly like follows
  * <p>
  * <code>
- * @Test
- * public void testSomething(){
+ * @Test public void testSomething(){
  * boolean expression = true;
- *
+ * <p>
  * assertIs(expression);
  * }
  * </code>
