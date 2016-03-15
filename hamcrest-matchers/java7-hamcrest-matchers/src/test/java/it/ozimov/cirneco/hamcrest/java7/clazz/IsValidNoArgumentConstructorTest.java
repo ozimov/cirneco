@@ -10,8 +10,8 @@ import static java.lang.String.format;
 public class IsValidNoArgumentConstructorTest extends BaseMatcherTest {
 
     public Matcher<Class> isValidNoArgumentConstructorMatcher;
-    private Class validClass = testing.reflection.clazz.ok.TestClass.class;
-    private Class nonValidClass = testing.reflection.clazz.with.constructor.with.params.TestClass.class;
+    private Class validClass = TestClassOk.class;
+    private Class nonValidClass = TestClassNotOk.class;
 
     @Before
     public void setUp() throws Exception {
@@ -25,7 +25,7 @@ public class IsValidNoArgumentConstructorTest extends BaseMatcherTest {
         final boolean matches = isValidNoArgumentConstructorMatcher.matches(validClass);
 
         // Arrange
-        assertMatches("Not given a valid annotated class", matches);
+        assertMatches("Not given a valid class", matches);
     }
 
     @Test
@@ -34,7 +34,7 @@ public class IsValidNoArgumentConstructorTest extends BaseMatcherTest {
         final boolean matches = isValidNoArgumentConstructorMatcher.matches(nonValidClass);
 
         // Arrange
-        assertDoesNotMatch("Given a valid annotated class", matches);
+        assertDoesNotMatch("Given a valid class", matches);
     }
 
     @Test

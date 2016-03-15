@@ -6,7 +6,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.6.0] - 2016-03-14
 ### Added
-- New module `cirneco-reflection-utils` for getting default constructors.
 - New matcher in package `it.ozimov.cirneco.hamcrest.java7.clazz`, i.e.
         class `IsValidNoArgumentConstructor`.
 

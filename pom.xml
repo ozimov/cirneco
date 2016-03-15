@@ -14,7 +14,6 @@
     <inceptionYear>2015</inceptionYear>
 
     <modules>
-        <module>cirneco-reflection-utils</module>
         <module>hamcrest-matchers</module>
     </modules>
     <url>https://github.com/ozimov/cirneco</url>

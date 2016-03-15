@@ -1,9 +1,10 @@
 package it.ozimov.cirneco.hamcrest.java7.clazz;
 
-import it.ozimov.cirneco.reflection.ScanNoArgumentConstructor;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
+
+import java.lang.reflect.Constructor;
 
 /**
  * Is {@linkplain Class} in a given week day?
@@ -26,7 +27,14 @@ public class IsValidNoArgumentConstructor extends TypeSafeMatcher<Class> {
     @Override
     protected boolean matchesSafely(final Class aClass) {
         try {
-            return ScanNoArgumentConstructor.getNoArgumentConstructor(aClass).isPresent();
+            final Constructor constructor =  aClass.getDeclaredConstructor();
+            if(constructor == null){
+                return false;
+            }
+            constructor.setAccessible(true);
+            constructor.newInstance();
+
+            return true;
         } catch (Exception e) {
             return false;
         }
