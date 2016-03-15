@@ -70,9 +70,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 public class AssertFluently {
 
     public static <T> AssertionBuilder<T> given(@Nonnull final T actual) {
-        checkNotNull(actual);
-
-        return new AssertionBuilder<T>(actual);
+        return new AssertionBuilder<>(actual);
     }
 
     public static AssertionBuilder withReason(@Nonnull final String reason) {

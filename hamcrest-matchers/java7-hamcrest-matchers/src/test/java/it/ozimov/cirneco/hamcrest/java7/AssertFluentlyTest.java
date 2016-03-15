@@ -6,12 +6,24 @@ import org.junit.rules.ExpectedException;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.fail;
 
 public class AssertFluentlyTest {
 
     @Rule
     public ExpectedException expectedException = ExpectedException.none();
+
+    @Test
+    public void testGivenAcceptsNull() throws Exception {
+
+        // Arrange
+        final String actual = null;
+
+        // Act+Assert
+        AssertFluently.given(actual).assertThat(is(nullValue()));
+
+    }
 
     @Test
     public void testGivenWithReasonAssertThatSuccess() throws Exception {

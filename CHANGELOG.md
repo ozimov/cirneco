@@ -4,6 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.6.1] - 2016-03-14
+### Fixed
+- Fixed `given()` in class `AssertFluently`, it now accepts null
+
 ## [0.6.0] - 2016-03-14
 ### Added
 - New matcher in package `it.ozimov.cirneco.hamcrest.java7.clazz`, i.e.
