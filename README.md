@@ -6,10 +6,10 @@
 **JavaDoc Website:** *[ozimov.github.io/cirneco/](http://ozimov.github.io/cirneco/)*<br />
 **Wiki Website:** *[github.com/ozimov/cirneco/wiki](http://github.com/ozimov/cirneco/wiki)*<br />
 
-**Latest Release:** *0.5.0*<br />
-**Latest Artifacts:** *it.ozimov:java7-hamcrest-matchers:jar:0.5.0*,
-  *it.ozimov:java8-hamcrest-matchers:jar:0.5.0*,
-  *it.ozimov:guava-hamcrest-matchers:jar:0.5.0* <br />
+**Latest Release:** *0.6.1*<br />
+**Latest Artifacts:** *it.ozimov:java7-hamcrest-matchers:jar:0.6.1*,
+  *it.ozimov:java8-hamcrest-matchers:jar:0.6.1*,
+  *it.ozimov:guava-hamcrest-matchers:jar:0.6.1* <br />
 **Continuous Integration:**<br />
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/it.ozimov/cirneco-parent/badge.svg)](https://maven-badges.herokuapp.com/maven-central/it.ozimov/cirneco-parent)
 <br />
@@ -27,7 +27,7 @@ we like easy-to-read and concise code, where the method name already embeds all 
 need to explain what you are assuming/asserting.
 
 Hence, in Cirneco we aim to extend the most valuable toolkits for  unit test to provide a better developing experience.
-The current version (*Cirneco 0.5.0*) only provides some extensions for Hamcrest for Java.
+The current version (*Cirneco 0.6.1*) only provides some extensions for Hamcrest for Java.
 
 # JDK compatibility
 The API is JDK7 compatible.
@@ -45,7 +45,7 @@ To use the extensions for a JDK7 compliant project, you can embed the following 
 <dependency>
   <groupId>it.ozimov</groupId>
   <artifactId>java7-hamcrest-matchers</artifactId>
-  <version>0.5.0</version>
+  <version>0.6.1</version>
   <scope>test</scope>
 </dependency>
 ```
@@ -55,7 +55,7 @@ and if you use JDK8, the dependency to be added is:
 <dependency>
   <groupId>it.ozimov</groupId>
   <artifactId>java8-hamcrest-matchers</artifactId>
-  <version>0.5.0</version>
+  <version>0.6.1</version>
   <scope>test</scope>
 </dependency>
 ```
@@ -66,7 +66,7 @@ There are matchers dedicated to Guava libraries that are JDK7-compliant, that yo
 <dependency>
   <groupId>it.ozimov</groupId>
   <artifactId>guava-hamcrest-matchers</artifactId>
-  <version>0.5.0</version>
+  <version>0.6.1</version>
   <scope>test</scope>
 </dependency>
 ```
@@ -89,7 +89,7 @@ Some libraries are not using _Hamcrest v.2.0.0.0_. It may be necessary to explic
   </exclusions>
 </dependency>
 ```
-
+Otherwise, just put the Cirneco dependencies before to import these dependencies. I suggest to use [Maven dependency tree resolver](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html) to detect which library is shipped with _Hamcrest 1.3.3_.
 
 # What does it mean Cirneco?
 Maybe you are curious about the name Cirneco. Cirneco dell'Etna is a unique dog native of Sicily, Italy.
