@@ -1,6 +1,7 @@
 package it.ozimov.cirneco.hamcrest.java7;
 
 import it.ozimov.cirneco.hamcrest.SameCallerMatchersTest;
+import it.ozimov.cirneco.hamcrest.java7.base.HasToStringContaining;
 import it.ozimov.cirneco.hamcrest.java7.base.IsBetween;
 import it.ozimov.cirneco.hamcrest.java7.base.IsBetweenInclusive;
 import it.ozimov.cirneco.hamcrest.java7.base.IsBetweenLowerBoundInclusive;
@@ -279,6 +280,12 @@ public class J7MatchersTest extends SameCallerMatchersTest {
     public void testBeforeOrEqual() throws Exception {
         testMethodCallsRightMethod(HamcrestMatchers.class, "lessThanOrEqualTo", "beforeOrEqual");
     }
+
+    @Test
+    public void testHasToStringContainingInOrder() throws Exception {
+        testMethodCallsRightMethod(HasToStringContaining.class, "hasToStringContainingInOrder", "hasToStringContainingInOrder");
+    }
+
 
     @Test
     public void testEmpty() throws Exception {

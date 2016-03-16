@@ -24,15 +24,7 @@ public class IsInfinity<N extends Number> extends TypeSafeMatcher<N> {
     /**
      * Creates a matcher for {@code N} that matches when the number is a {@linkplain Double} or {@linkplain Float} with
      * value equal to either <code>POSITIVE_INFINITY</code> or <code>NEGATIVE_INFINITY</code>.
-     * <p>
-     * <p>
-     * <p>
-     * <p>
      * <p>For example:
-     * <p>
-     * <p>
-     * <p>
-     * <p>
      * <pre>assertThat(10, negativeInfinity())</pre>
      *
      * will return <code>false</code>. while:

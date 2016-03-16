@@ -1,5 +1,6 @@
 package it.ozimov.cirneco.hamcrest.java7;
 
+import it.ozimov.cirneco.hamcrest.java7.base.HasToStringContaining;
 import it.ozimov.cirneco.hamcrest.java7.base.IsBetween;
 import it.ozimov.cirneco.hamcrest.java7.base.IsBetweenInclusive;
 import it.ozimov.cirneco.hamcrest.java7.base.IsBetweenLowerBoundInclusive;
@@ -179,6 +180,20 @@ public class J7Matchers extends HamcrestMatchers {
      */
     public static <T extends Comparable<T>> Matcher<T> beforeOrEqual(final T value) {
         return lessThanOrEqualTo(value);
+    }
+
+
+    /**
+     * Creates a matcher that matches any examined object whose <code>toString</code> method
+     * returns a value that contains all the substrings given by the <code>toString()</code> method called
+     * on the given list of items, considering the order of their appearance.
+     * For example:
+     * <pre>assertThat("AClass{a_field=a value, another_field=another value}",
+     *  ContainingInOrder("a value","another value"))</pre>
+     *
+     */
+    public static <T> Matcher<T> hasToStringContainingInOrder(final Object... items) {
+        return HasToStringContaining.hasToStringContainingInOrder(items);
     }
 
     // DATE

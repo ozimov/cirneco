@@ -4,6 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.7.0] - 2016-03-16
+### Added
+- Added matcher `hasToStringContainingInOrder()` in class `it.ozimov.cirneco.hamcrest.java7.base.HasToStringContaining`,
+
 ## [0.6.1] - 2016-03-14
 ### Fixed
 - Fixed `given()` in class `AssertFluently`, it now accepts null
