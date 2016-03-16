@@ -41,15 +41,33 @@ public class AssertFluentlyTest {
     }
 
     @Test
+    public void testAssumeThatNot() throws Exception {
+        // Act+Assert
+        AssertFluently.assumeThatNot(false);
+    }
+
+    @Test
     public void testGivenAssumeThat() throws Exception {
         // Act+Assert
         AssertFluently.given(true).assumeThat(true);
     }
 
     @Test
+    public void testGivenAssumeThatNot() throws Exception {
+        // Act+Assert
+        AssertFluently.given(true).assumeThatNot(false);
+    }
+
+    @Test
     public void testGivenAssumeThatWithMatcher() throws Exception {
         // Act+Assert
         AssertFluently.given(true).assumeThat(equalTo(true));
+    }
+
+    @Test
+    public void testGivenAssumeThatNotWithMatcher() throws Exception {
+        // Act+Assert
+        AssertFluently.given(true).assumeThatNot(equalTo(false));
     }
 
     @Test
@@ -60,6 +78,13 @@ public class AssertFluentlyTest {
     }
 
     @Test
+    public void testAssumeIsNot() throws Exception {
+
+        // Act+Assert
+        AssertFluently.assumeIsNot(false);
+    }
+
+    @Test
     public void testGivenAssumeIs() throws Exception {
 
         // Act+Assert
@@ -67,10 +92,24 @@ public class AssertFluentlyTest {
     }
 
     @Test
+    public void testGivenAssumeIsNot() throws Exception {
+
+        // Act+Assert
+        AssertFluently.given(true).assumeIsNot(false);
+    }
+
+    @Test
     public void testGivenAssumeIsWithMatcher() throws Exception {
 
         // Act+Assert
         AssertFluently.given(true).assumeIs(equalTo(true));
+    }
+
+    @Test
+    public void testGivenAssumeIsNotWithMatcher() throws Exception {
+
+        // Act+Assert
+        AssertFluently.given(true).assumeIsNot(equalTo(false));
     }
 
     @Test
@@ -190,6 +229,13 @@ public class AssertFluentlyTest {
     }
 
     @Test
+    public void testAssertThatNotSuccess() throws Exception {
+
+        // Act+Assert
+        AssertFluently.assertThatNot(false);
+    }
+
+    @Test
     public void testAssertThatFailure() throws Exception {
 
         // Arrange
@@ -206,6 +252,14 @@ public class AssertFluentlyTest {
 
         // Act+Assert
         AssertFluently.assertIs(true);
+
+    }
+
+    @Test
+    public void testAssertIsNotSuccess() throws Exception {
+
+        // Act+Assert
+        AssertFluently.assertIsNot(false);
 
     }
 
