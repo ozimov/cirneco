@@ -7,6 +7,7 @@ import org.hamcrest.StringDescription;
 import javax.annotation.Nonnull;
 
 import static com.google.common.base.Preconditions.checkNotNull;
+import static org.hamcrest.Matchers.not;
 
 /**
  * Fluent approach to use Hamcrest matchers.
@@ -87,16 +88,32 @@ public class AssertFluently {
         new AssertionBuilder<>().matches(expression);
     }
 
+    public static void assumeThatNot(final boolean expression) {
+        new AssertionBuilder<>().matches(not(expression));
+    }
+
     public static void assumeIs(final boolean expression) {
         new AssertionBuilder<>().matches(expression);
+    }
+
+    public static void assumeIsNot(final boolean expression) {
+        new AssertionBuilder<>().matches(not(expression));
     }
 
     public static void assertThat(final boolean expression) {
         new AssertionBuilder<>().matches(expression);
     }
 
+    public static void assertThatNot(final boolean expression) {
+        new AssertionBuilder<>().matches(not(expression));
+    }
+
     public static void assertIs(final boolean expression) {
         new AssertionBuilder<>().matches(expression);
+    }
+
+    public static void assertIsNot(final boolean expression) {
+        new AssertionBuilder<>().matches(not(expression));
     }
 
     public static class AssertionBuilder<T> {
@@ -124,32 +141,64 @@ public class AssertFluently {
             matches(expression);
         }
 
+        public void assumeThatNot(final boolean expression) {
+            matches(not(expression));
+        }
+
         public void assumeIs(final boolean expression) {
             matches(expression);
+        }
+
+        public void assumeIsNot(final boolean expression) {
+            matches(not(expression));
         }
 
         public void assertThat(final boolean expression) {
             matches(expression);
         }
 
+        public void assertThatNot(final boolean expression) {
+            matches(not(expression));
+        }
+
         public void assertIs(final boolean expression) {
             matches(expression);
+        }
+
+        public void assertIsNot(final boolean expression) {
+            matches(not(expression));
         }
 
         public <T> void assumeThat(@Nonnull final Matcher<? super T> matcher) {
             matches(matcher);
         }
 
+        public <T> void assumeThatNot(@Nonnull final Matcher<? super T> matcher) {
+            matches(not(matcher));
+        }
+
         public <T> void assumeIs(@Nonnull final Matcher<? super T> matcher) {
             matches(matcher);
+        }
+
+        public <T> void assumeIsNot(@Nonnull final Matcher<? super T> matcher) {
+            matches(not(matcher));
         }
 
         public <T> void assertThat(@Nonnull final Matcher<? super T> matcher) {
             matches(matcher);
         }
 
+        public <T> void assertThatNot(@Nonnull final Matcher<? super T> matcher) {
+            matches(not(matcher));
+        }
+
         public <T> void assertIs(@Nonnull final Matcher<? super T> matcher) {
             matches(matcher);
+        }
+
+        public <T> void assertIsNot(@Nonnull final Matcher<? super T> matcher) {
+            matches(not(matcher));
         }
 
         private <T> void matches(final Matcher<? super T> matcher) {
