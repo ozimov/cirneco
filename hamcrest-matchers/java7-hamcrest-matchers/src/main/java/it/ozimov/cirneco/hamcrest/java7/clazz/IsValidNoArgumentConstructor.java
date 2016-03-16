@@ -27,10 +27,7 @@ public class IsValidNoArgumentConstructor extends TypeSafeMatcher<Class> {
     @Override
     protected boolean matchesSafely(final Class aClass) {
         try {
-            final Constructor constructor =  aClass.getDeclaredConstructor();
-            if(constructor == null){
-                return false;
-            }
+            final Constructor constructor = aClass.getDeclaredConstructor();
             constructor.setAccessible(true);
             constructor.newInstance();
 

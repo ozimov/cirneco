@@ -8,10 +8,17 @@ import java.util.Date;
 import java.util.UUID;
 
 import static it.ozimov.cirneco.hamcrest.java7.base.HasToStringContaining.hasToStringContainingInOrder;
+import static it.ozimov.cirneco.hamcrest.java7.clazz.IsValidNoArgumentConstructor.hasNoArgumentConstructor;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.not;
-import static org.junit.Assert.*;
 
 public class HasToStringContainingTest {
+
+    @Test
+    public void testConstructor() throws Exception {
+        // Arrange
+        assertThat(HasToStringContaining.class, hasNoArgumentConstructor());
+    }
 
     @Test
     public void testHasToStringContainingInOrderSuccessOnCorrectOrder() throws Exception {

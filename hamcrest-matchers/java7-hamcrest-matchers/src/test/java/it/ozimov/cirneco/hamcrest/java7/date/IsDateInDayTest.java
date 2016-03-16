@@ -9,6 +9,7 @@ import java.text.ParseException;
 import java.util.Date;
 
 import static it.ozimov.cirneco.hamcrest.java7.date.DateTestUtils.date;
+import static org.junit.Assert.fail;
 
 public class IsDateInDayTest extends BaseMatcherTest {
 
@@ -47,6 +48,19 @@ public class IsDateInDayTest extends BaseMatcherTest {
         thursdayMatcher = IsDateInDay.thursday();
         fridayMatcher = IsDateInDay.friday();
         saturdayMatcher = IsDateInDay.saturday();
+    }
+
+    @Test
+    public void testEnumOnWrongId() throws Exception {
+        //Arrange
+        thrown.expect(IllegalArgumentException.class);
+        final int wrongId = 100;
+
+        // Act
+        new IsDateInDay(wrongId);
+
+        // Assert
+        fail("IllegalArgumentException expected but not thrown");
     }
 
     @Test

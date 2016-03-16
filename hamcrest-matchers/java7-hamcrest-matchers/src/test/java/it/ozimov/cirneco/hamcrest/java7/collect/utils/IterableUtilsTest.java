@@ -1,12 +1,16 @@
 package it.ozimov.cirneco.hamcrest.java7.collect.utils;
 
 import com.google.common.collect.ImmutableList;
+import lombok.experimental.Delegate;
+import org.hamcrest.MatcherAssert;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Comparator;
 import java.util.List;
 
+import static com.google.common.collect.Lists.newArrayList;
+import static it.ozimov.cirneco.hamcrest.java7.clazz.IsValidNoArgumentConstructor.hasNoArgumentConstructor;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.hasSize;
@@ -35,6 +39,12 @@ public class IterableUtilsTest {
                 return -1 * Integer.compare(o1, o2);
             }
         };
+    }
+
+    @Test
+    public void testConstructor() throws Exception {
+        // Arrange
+        MatcherAssert.assertThat(IterableUtils.class, hasNoArgumentConstructor());
     }
 
     @Test
@@ -143,4 +153,39 @@ public class IterableUtilsTest {
         // Assert
         assertThat(size, is(3));
     }
+
+    @Test
+    public void testSizeFromCollection() throws Exception {
+        // Arrange
+
+        // Act
+        final int size = IterableUtils.size(newArrayList(iterable));
+
+        // Assert
+        assertThat(size, is(3));
+    }
+
+
+    @Test
+    public void testSizeFromIterableNotCollection() throws Exception {
+        // Arrange
+
+        // Act
+        final int size = IterableUtils.size(new IterableNotCollection());
+
+        // Assert
+        assertThat(size, is(3));
+    }
+
+
+    static class IterableNotCollection implements Iterable {
+
+        @Delegate
+        Iterable iterable;
+
+        public IterableNotCollection() {
+            iterable = ImmutableList.of("A", "B", "C");
+        }
+    }
+
 }

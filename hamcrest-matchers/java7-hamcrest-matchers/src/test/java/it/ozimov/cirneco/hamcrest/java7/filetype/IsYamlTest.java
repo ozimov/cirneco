@@ -2,6 +2,7 @@ package it.ozimov.cirneco.hamcrest.java7.filetype;
 
 import com.google.common.io.Files;
 import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
+import lombok.AllArgsConstructor;
 import org.hamcrest.Matcher;
 import org.junit.Before;
 import org.junit.Rule;
@@ -104,6 +105,30 @@ public class IsYamlTest extends BaseMatcherTest {
     }
 
     @Test
+    public void testGivenValidYamlToStringObjectWhenMatchesIsCalledThenReturnTrue() throws Exception {
+        //Arrange
+        final YamlContainer yamlContainer = new YamlContainer(VALID_YAML);
+
+        // Act
+        final boolean matches = isYamlMatcher.matches(yamlContainer);
+
+        // Arrange
+        assertMatches("Not given an input stream with valid yaml content", matches);
+    }
+
+    @Test
+    public void testGivenNonValidYamlToStringObjectWhenMatchesIsCalledThenReturnFalse() throws Exception {
+        //Arrange
+        final YamlContainer yamlContainer = new YamlContainer(NON_VALID_YAML);
+
+        // Act
+        final boolean matches = isYamlMatcher.matches(yamlContainer);
+
+        // Arrange
+        assertDoesNotMatch("Given an input stream with valid yaml content", matches);
+    }
+
+    @Test
     public void testDescribeMismatchSafely() throws Exception {
         assertHasMismatchDescription(format("<%s> is not a valid yaml", NON_VALID_YAML), isYamlMatcher, NON_VALID_YAML);
     }
@@ -112,6 +137,17 @@ public class IsYamlTest extends BaseMatcherTest {
     public void testDescribeTo() throws Exception {
         assertIsDescribedTo("a value equals to a valid yaml", isYamlMatcher);
 
+    }
+
+    @AllArgsConstructor
+    static class YamlContainer {
+        final String yaml;
+
+
+        @Override
+        public String toString() {
+            return yaml;
+        }
     }
 
 }

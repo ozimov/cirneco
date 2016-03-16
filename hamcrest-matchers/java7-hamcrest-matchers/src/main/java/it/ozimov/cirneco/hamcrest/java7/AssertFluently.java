@@ -69,6 +69,10 @@ import static com.google.common.base.Preconditions.checkNotNull;
  */
 public class AssertFluently {
 
+    private AssertFluently() {
+
+    }
+
     public static <T> AssertionBuilder<T> given(@Nonnull final T actual) {
         return new AssertionBuilder<>(actual);
     }
@@ -101,10 +105,10 @@ public class AssertFluently {
 
         private T actual;
 
-        public AssertionBuilder() {
+        private AssertionBuilder() {
         }
 
-        public AssertionBuilder(@Nonnull final T actual) {
+        private AssertionBuilder(@Nonnull final T actual) {
             this();
             this.actual = actual;
         }

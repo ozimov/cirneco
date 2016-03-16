@@ -190,7 +190,6 @@ public class J7Matchers extends HamcrestMatchers {
      * For example:
      * <pre>assertThat("AClass{a_field=a value, another_field=another value}",
      *  ContainingInOrder("a value","another value"))</pre>
-     *
      */
     public static <T> Matcher<T> hasToStringContainingInOrder(final Object... items) {
         return HasToStringContaining.hasToStringContainingInOrder(items);

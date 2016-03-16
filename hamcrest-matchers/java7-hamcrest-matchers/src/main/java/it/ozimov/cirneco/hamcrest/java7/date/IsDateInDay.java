@@ -104,11 +104,8 @@ public class IsDateInDay extends TypeSafeMatcher<Date> {
             case FRIDAY:
                 return dayOfWeekFromDay == Calendar.FRIDAY;
 
-            case SATURDAY:
+            default://SATURDAY
                 return dayOfWeekFromDay == Calendar.SATURDAY;
-
-            default:
-                return false;
         }
 
     }

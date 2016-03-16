@@ -1,11 +1,13 @@
 package it.ozimov.cirneco.hamcrest.java7.date.utils;
 
 import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
+import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 
 import java.util.Calendar;
 import java.util.Date;
 
+import static it.ozimov.cirneco.hamcrest.java7.clazz.IsValidNoArgumentConstructor.hasNoArgumentConstructor;
 import static it.ozimov.cirneco.hamcrest.java7.date.DateTestUtils.date;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertFalse;
@@ -13,6 +15,12 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 public class CalendarUtilsTest extends BaseMatcherTest {
+
+    @Test
+    public void testConstructor() throws Exception {
+        // Arrange
+        MatcherAssert.assertThat(CalendarUtils.class, hasNoArgumentConstructor());
+    }
 
     @Test
     public void testFromDateToCalendar() throws Exception {

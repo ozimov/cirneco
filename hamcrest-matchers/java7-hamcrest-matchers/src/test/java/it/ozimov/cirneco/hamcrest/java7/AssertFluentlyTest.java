@@ -4,6 +4,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import static it.ozimov.cirneco.hamcrest.java7.clazz.IsValidNoArgumentConstructor.hasNoArgumentConstructor;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
@@ -15,6 +17,13 @@ public class AssertFluentlyTest {
     public ExpectedException expectedException = ExpectedException.none();
 
     @Test
+    public void testConstructors() throws Exception {
+        // Arrange
+        assertThat(AssertFluently.class, hasNoArgumentConstructor());
+        assertThat(AssertFluently.AssertionBuilder.class, hasNoArgumentConstructor());
+    }
+
+    @Test
     public void testGivenAcceptsNull() throws Exception {
 
         // Arrange
@@ -23,6 +32,57 @@ public class AssertFluentlyTest {
         // Act+Assert
         AssertFluently.given(actual).assertThat(is(nullValue()));
 
+    }
+
+    @Test
+    public void testAssumeThat() throws Exception {
+        // Act+Assert
+        AssertFluently.assumeThat(true);
+    }
+
+    @Test
+    public void testGivenAssumeThat() throws Exception {
+        // Act+Assert
+        AssertFluently.given(true).assumeThat(true);
+    }
+
+    @Test
+    public void testGivenAssumeThatWithMatcher() throws Exception {
+        // Act+Assert
+        AssertFluently.given(true).assumeThat(equalTo(true));
+    }
+
+    @Test
+    public void testAssumeIs() throws Exception {
+
+        // Act+Assert
+        AssertFluently.assumeIs(true);
+    }
+
+    @Test
+    public void testGivenAssumeIs() throws Exception {
+
+        // Act+Assert
+        AssertFluently.given(true).assumeIs(true);
+    }
+
+    @Test
+    public void testGivenAssumeIsWithMatcher() throws Exception {
+
+        // Act+Assert
+        AssertFluently.given(true).assumeIs(equalTo(true));
+    }
+
+    @Test
+    public void testWithReasonFailsOnNullMessage() throws Exception {
+        //Arrange
+        expectedException.expect(NullPointerException.class);
+
+        //Act
+        AssertFluently.withReason(null).assertIs(true);
+
+        //Assert
+        fail("NullPointerException expected");
     }
 
     @Test
