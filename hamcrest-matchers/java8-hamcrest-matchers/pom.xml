@@ -18,6 +18,31 @@
     <name>Cirneco's Hamcrest Extensions for JDK8</name>
     <description>An extension to make unit test easier with Hamcrest and Java8.</description>
 
+    <developers>
+        <developer>
+            <id>achim</id>
+            <name>Achim Passen</name>
+            <email>achim.passen@zalando.de</email>
+            <organization>Zalando SE</organization>
+            <organizationUrl>http://www.zalando.de</organizationUrl>
+            <roles>
+                <role>developer</role>
+            </roles>
+            <timezone>+1</timezone>
+        </developer>
+        <developer>
+            <id>robertotru</id>
+            <name>Roberto Trunfio</name>
+            <email>roberto.trunfio@zalando.de</email>
+            <organization>Zalando SE</organization>
+            <organizationUrl>http://www.zalando.de</organizationUrl>
+            <roles>
+                <role>developer</role>
+            </roles>
+            <timezone>+1</timezone>
+        </developer>
+    </developers>
+
     <dependencies>
         <dependency>
             <groupId>it.ozimov</groupId>

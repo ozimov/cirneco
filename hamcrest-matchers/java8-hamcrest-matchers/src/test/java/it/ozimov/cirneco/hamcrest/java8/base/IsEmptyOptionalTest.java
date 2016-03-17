@@ -29,7 +29,7 @@ public class IsEmptyOptionalTest extends BaseMatcherTest {
     }
 
     @Test
-    public void testGivenAnEmptyOptionalWhenMatchesIsCalledThenTrueIsReturned() throws Exception {
+    public void testSuccess() throws Exception {
 
         // Arrange
         final Optional emptyOptional = Optional.empty();
@@ -42,7 +42,7 @@ public class IsEmptyOptionalTest extends BaseMatcherTest {
     }
 
     @Test
-    public void testGivenANonEmptyOptionalWhenMatchesIsCalledThenFalseIsReturned() throws Exception {
+    public void testFailureBecauseOfEmptyOptional() throws Exception {
 
         // Arrange
         final Optional nonEmptyOptional = Optional.of("");

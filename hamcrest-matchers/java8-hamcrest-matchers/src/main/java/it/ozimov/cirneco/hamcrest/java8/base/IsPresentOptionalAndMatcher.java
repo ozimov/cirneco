@@ -6,10 +6,10 @@ import org.hamcrest.TypeSafeMatcher;
 
 import java.util.Optional;
 
-public class OptionalMatcher<T> extends TypeSafeMatcher<Optional<T>> {
-    Matcher<? super T> innerMatcher;
+public class IsPresentOptionalAndMatcher<T> extends TypeSafeMatcher<Optional<T>> {
+    final Matcher<? super T> innerMatcher;
 
-    public OptionalMatcher(final Matcher<? super T> innerMatcher) {
+    public IsPresentOptionalAndMatcher(final Matcher<? super T> innerMatcher) {
         this.innerMatcher = innerMatcher;
     }
 
@@ -18,7 +18,7 @@ public class OptionalMatcher<T> extends TypeSafeMatcher<Optional<T>> {
      * Creates a matcher from an inner matcher for {@linkplain Optional}s which are present.
      */
     public static <T> TypeSafeMatcher<Optional<T>> presentAnd(final Matcher<? super T> innerMatcher) {
-        return new OptionalMatcher<>(innerMatcher);
+        return new IsPresentOptionalAndMatcher<>(innerMatcher);
     }
 
     @Override
@@ -28,16 +28,16 @@ public class OptionalMatcher<T> extends TypeSafeMatcher<Optional<T>> {
 
     @Override
     public void describeTo(final Description description) {
-        description.appendText("is present with ");
+        description.appendText("is present and ");
         description.appendDescriptionOf(innerMatcher);
     }
 
     @Override
     protected void describeMismatchSafely(final Optional<T> item, final Description mismatchDescription) {
         if (!item.isPresent()) {
-            mismatchDescription.appendText("is not present");
+            mismatchDescription.appendText(" is not present");
         } else {
-            mismatchDescription.appendText("is present, but ");
+            mismatchDescription.appendText(" is present, but ");
             innerMatcher.describeMismatch(item.get(), mismatchDescription);
         }
     }
