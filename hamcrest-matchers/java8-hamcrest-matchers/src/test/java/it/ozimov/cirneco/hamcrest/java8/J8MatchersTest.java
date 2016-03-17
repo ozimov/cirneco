@@ -1,6 +1,7 @@
 package it.ozimov.cirneco.hamcrest.java8;
 
 import it.ozimov.cirneco.hamcrest.java8.base.IsEmptyOptional;
+import it.ozimov.cirneco.hamcrest.java8.base.IsPresentOptionalAnd;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -8,7 +9,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.Optional;
 
-import static it.ozimov.cirneco.hamcrest.java8.J8Matchers.presentAnd;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsInstanceOf.instanceOf;
@@ -44,7 +44,7 @@ public class J8MatchersTest {
 
     @Test
     public void testPresentAnd() throws Exception {
-        assertThat(J8Matchers.presentAnd(is(object)), instanceOf(IsEmptyOptional.class));
+        assertThat(J8Matchers.presentAnd(is(new Object())), instanceOf(IsPresentOptionalAnd.class));
     }
 
 }

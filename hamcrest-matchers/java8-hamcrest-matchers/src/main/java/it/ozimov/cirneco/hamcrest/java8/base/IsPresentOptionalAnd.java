@@ -6,10 +6,10 @@ import org.hamcrest.TypeSafeMatcher;
 
 import java.util.Optional;
 
-public class IsPresentOptionalAndMatcher<T> extends TypeSafeMatcher<Optional<T>> {
+public class IsPresentOptionalAnd<T> extends TypeSafeMatcher<Optional<T>> {
     final Matcher<? super T> innerMatcher;
 
-    public IsPresentOptionalAndMatcher(final Matcher<? super T> innerMatcher) {
+    public IsPresentOptionalAnd(final Matcher<? super T> innerMatcher) {
         this.innerMatcher = innerMatcher;
     }
 
@@ -18,7 +18,7 @@ public class IsPresentOptionalAndMatcher<T> extends TypeSafeMatcher<Optional<T>>
      * Creates a matcher from an inner matcher for {@linkplain Optional}s which are present.
      */
     public static <T> TypeSafeMatcher<Optional<T>> presentAnd(final Matcher<? super T> innerMatcher) {
-        return new IsPresentOptionalAndMatcher<>(innerMatcher);
+        return new IsPresentOptionalAnd<>(innerMatcher);
     }
 
     @Override

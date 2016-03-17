@@ -32,6 +32,7 @@ import it.ozimov.cirneco.hamcrest.java7.number.IsPositive;
 import it.ozimov.cirneco.hamcrest.java7.number.IsPositiveInfinity;
 import it.ozimov.cirneco.hamcrest.java7.web.IsEmail;
 import org.hamcrest.Matcher;
+import org.hamcrest.Matchers;
 
 import java.util.Comparator;
 import java.util.Date;
@@ -43,7 +44,7 @@ import java.util.Map;
  *
  * @since version 0.1 for JDK7
  */
-public class J7Matchers extends HamcrestMatchers {
+public class J7Matchers {
 
     // BASE
 
@@ -137,7 +138,7 @@ public class J7Matchers extends HamcrestMatchers {
      * {@linkplain org.hamcrest.Matchers#greaterThan(Comparable)}.
      */
     public static <T extends Comparable<T>> Matcher<T> after(final T value) {
-        return greaterThan(value);
+        return Matchers.greaterThan(value);
     }
 
     /**
@@ -152,7 +153,7 @@ public class J7Matchers extends HamcrestMatchers {
      * {@linkplain org.hamcrest.Matchers#greaterThanOrEqualTo(Comparable)}.
      */
     public static <T extends Comparable<T>> Matcher<T> afterOrEqual(final T value) {
-        return greaterThanOrEqualTo(value);
+        return Matchers.greaterThanOrEqualTo(value);
     }
 
     /**
@@ -164,7 +165,7 @@ public class J7Matchers extends HamcrestMatchers {
      * <p>The matcher renames the Hamcrest matcher obtained with {@linkplain org.hamcrest.Matchers#lessThan(Comparable)}.
      */
     public static <T extends Comparable<T>> Matcher<T> before(final T value) {
-        return lessThan(value);
+        return Matchers.lessThan(value);
     }
 
     /**
@@ -179,7 +180,7 @@ public class J7Matchers extends HamcrestMatchers {
      * {@linkplain org.hamcrest.Matchers#lessThanOrEqualTo(Comparable)}.
      */
     public static <T extends Comparable<T>> Matcher<T> beforeOrEqual(final T value) {
-        return lessThanOrEqualTo(value);
+        return Matchers.lessThanOrEqualTo(value);
     }
 
 

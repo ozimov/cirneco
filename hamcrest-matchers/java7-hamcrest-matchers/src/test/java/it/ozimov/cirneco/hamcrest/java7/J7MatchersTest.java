@@ -32,6 +32,7 @@ import it.ozimov.cirneco.hamcrest.java7.number.IsNotANumber;
 import it.ozimov.cirneco.hamcrest.java7.number.IsPositive;
 import it.ozimov.cirneco.hamcrest.java7.number.IsPositiveInfinity;
 import it.ozimov.cirneco.hamcrest.java7.web.IsEmail;
+import org.hamcrest.Matchers;
 import org.junit.Test;
 
 import java.util.Comparator;
@@ -263,22 +264,22 @@ public class J7MatchersTest extends SameCallerMatchersTest {
 
     @Test
     public void testAfter() throws Exception {
-        testMethodCallsRightMethod(HamcrestMatchers.class, "greaterThan", "after");
+        testMethodCallsRightMethod(Matchers.class, "greaterThan", "after");
     }
 
     @Test
     public void testAfterOrEqual() throws Exception {
-        testMethodCallsRightMethod(HamcrestMatchers.class, "greaterThanOrEqualTo", "afterOrEqual");
+        testMethodCallsRightMethod(Matchers.class, "greaterThanOrEqualTo", "afterOrEqual");
     }
 
     @Test
     public void testBefore() throws Exception {
-        testMethodCallsRightMethod(HamcrestMatchers.class, "lessThan", "before");
+        testMethodCallsRightMethod(Matchers.class, "lessThan", "before");
     }
 
     @Test
     public void testBeforeOrEqual() throws Exception {
-        testMethodCallsRightMethod(HamcrestMatchers.class, "lessThanOrEqualTo", "beforeOrEqual");
+        testMethodCallsRightMethod(Matchers.class, "lessThanOrEqualTo", "beforeOrEqual");
     }
 
     @Test

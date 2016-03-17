@@ -10,7 +10,6 @@ import org.junit.Test;
 
 import java.util.Optional;
 
-import static it.ozimov.cirneco.hamcrest.java8.J8Matchers.presentAnd;
 import static org.hamcrest.CoreMatchers.anything;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
@@ -31,7 +30,7 @@ public class IsPresentOptionalAndTest extends BaseMatcherTest {
         assumeThat(rightValue, not(is(wrongValue)));
 
         isEqualMatcher = Matchers.equalTo(rightValue);
-        isPresentOptionalAndMatcher = IsPresentOptionalAndMatcher.presentAnd(isEqualMatcher);
+        isPresentOptionalAndMatcher = IsPresentOptionalAnd.presentAnd(isEqualMatcher);
     }
 
     @Test

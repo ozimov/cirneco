@@ -2,7 +2,7 @@ package it.ozimov.cirneco.hamcrest.java8;
 
 import it.ozimov.cirneco.hamcrest.java7.J7Matchers;
 import it.ozimov.cirneco.hamcrest.java8.base.IsEmptyOptional;
-import it.ozimov.cirneco.hamcrest.java8.base.IsPresentOptionalAndMatcher;
+import it.ozimov.cirneco.hamcrest.java8.base.IsPresentOptionalAnd;
 import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
 import org.hamcrest.TypeSafeMatcher;
@@ -44,7 +44,7 @@ public class J8Matchers extends J7Matchers {
      * Creates a matcher from an inner matcher for {@linkplain Optional}s which are present.
      */
     public static <T> TypeSafeMatcher<Optional<T>> presentAnd(final Matcher<? super T> innerMatcher) {
-        return new IsPresentOptionalAndMatcher<>(innerMatcher);
+        return new IsPresentOptionalAnd<>(innerMatcher);
     }
 
 }
