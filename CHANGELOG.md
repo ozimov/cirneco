@@ -3,14 +3,16 @@ All notable changes to Cirneco project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [0.8.1] - 2016-03-17
 ### Changed
 - Inheritance from Hamcrest matchers. Now `it.ozimov.cirneco.hamcrest.java7.Matchers` will just focus on
     new matchers and those overridden from Hamcrest.
 
 - Class `it.ozimov.cirneco.hamcrest.java8.base.OptionalMatcher` is not renamed into
-    `it.ozimov.cirneco.hamcrest.java8.base.IsPresentOptionalAnd`    
+    `it.ozimov.cirneco.hamcrest.java8.base.IsPresentOptionalAnd`
 
-## [0.8.0] - 2016-03-16
+## [0.8.0] - 2016-03-17
 ### Added
 - Added matcher `presentAnd()` in class `it.ozimov.cirneco.hamcrest.java8.base.OptionalMatcher`
 

@@ -25,7 +25,6 @@ public class IsPresentOptionalAndTest extends BaseMatcherTest {
 
     @Before
     public void setUp() {
-
         // Arrange
         assumeThat(rightValue, not(is(wrongValue)));
 
