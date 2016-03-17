@@ -5,8 +5,10 @@ import org.junit.Test;
 
 import java.util.Optional;
 
+import static it.ozimov.cirneco.hamcrest.java8.J8Matchers.presentAnd;
+import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsInstanceOf.instanceOf;
-import static org.junit.Assert.assertThat;
 
 public class J8MatchersTest {
 
@@ -31,5 +33,16 @@ public class J8MatchersTest {
 
         //Assert
         assertThat(emptyOptional, J8Matchers.present());
+    }
+
+    @Test
+    public void testPresentAnd() throws Exception {
+        // Arrange
+        final Optional<String> nonpresent = Optional.empty();
+        final Optional<String> present = Optional.of("foo");
+
+        // Assert
+        assertThat(nonpresent, not(presentAnd(anything())));
+        assertThat(present, presentAnd(is("foo")));
     }
 }
