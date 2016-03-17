@@ -13,6 +13,14 @@ public class OptionalMatcher<T> extends TypeSafeMatcher<Optional<T>> {
         this.innerMatcher = innerMatcher;
     }
 
+
+    /**
+     * Creates a matcher from an inner matcher for {@linkplain Optional}s which are present.
+     */
+    public static <T> TypeSafeMatcher<Optional<T>> presentAnd(final Matcher<? super T> innerMatcher) {
+        return new OptionalMatcher<>(innerMatcher);
+    }
+
     @Override
     protected boolean matchesSafely(final Optional<T> optionalValue) {
         return optionalValue.map(innerMatcher::matches).orElse(false);

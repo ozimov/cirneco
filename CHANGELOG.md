@@ -4,6 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.8.0] - 2016-03-16
+### Added
+- Added matcher `presentAnd()` in class `it.ozimov.cirneco.hamcrest.java8.base.OptionalMatcher`,
+
 ## [0.7.0] - 2016-03-16
 ### Added
 - Added matcher `hasToStringContainingInOrder()` in class `it.ozimov.cirneco.hamcrest.java7.base.HasToStringContaining`,
