@@ -25,13 +25,11 @@ public class AssertFluentlyTest {
 
     @Test
     public void testGivenAcceptsNull() throws Exception {
-
         // Arrange
         final String actual = null;
 
         // Act+Assert
         AssertFluently.given(actual).assertThat(is(nullValue()));
-
     }
 
     @Test
@@ -72,42 +70,36 @@ public class AssertFluentlyTest {
 
     @Test
     public void testAssumeIs() throws Exception {
-
         // Act+Assert
         AssertFluently.assumeIs(true);
     }
 
     @Test
     public void testAssumeIsNot() throws Exception {
-
         // Act+Assert
         AssertFluently.assumeIsNot(false);
     }
 
     @Test
     public void testGivenAssumeIs() throws Exception {
-
         // Act+Assert
         AssertFluently.given(true).assumeIs(true);
     }
 
     @Test
     public void testGivenAssumeIsNot() throws Exception {
-
         // Act+Assert
         AssertFluently.given(true).assumeIsNot(false);
     }
 
     @Test
     public void testGivenAssumeIsWithMatcher() throws Exception {
-
         // Act+Assert
         AssertFluently.given(true).assumeIs(equalTo(true));
     }
 
     @Test
     public void testGivenAssumeIsNotWithMatcher() throws Exception {
-
         // Act+Assert
         AssertFluently.given(true).assumeIsNot(equalTo(false));
     }
@@ -126,7 +118,6 @@ public class AssertFluentlyTest {
 
     @Test
     public void testGivenWithReasonAssertThatSuccess() throws Exception {
-
         // Arrange
         final String actual = "Test";
         final String expected = "Test";
@@ -138,7 +129,6 @@ public class AssertFluentlyTest {
 
     @Test
     public void testGivenWithReasonAssertThatFailure() throws Exception {
-
         // Arrange
         expectedException.expect(AssertionError.class);
         expectedException.expectMessage("Unit test");
@@ -154,7 +144,6 @@ public class AssertFluentlyTest {
 
     @Test
     public void testGivenWithReasonAssertIsSuccess() throws Exception {
-
         // Arrange
         final String actual = "Test";
         final String expected = "Test";
@@ -166,7 +155,6 @@ public class AssertFluentlyTest {
 
     @Test
     public void testGivenWithReasonAssertIsFailure() throws Exception {
-
         // Arrange
         expectedException.expect(AssertionError.class);
         expectedException.expectMessage("Unit test");
@@ -182,14 +170,12 @@ public class AssertFluentlyTest {
 
     @Test
     public void testWithReasonAssertThatSuccess() throws Exception {
-
         // Act+Assert
         AssertFluently.withReason("Unit test").assertThat(true);
     }
 
     @Test
     public void testWithReasonAssertThatFailure() throws Exception {
-
         // Arrange
         expectedException.expect(AssertionError.class);
         expectedException.expectMessage("Unit test");
@@ -202,15 +188,12 @@ public class AssertFluentlyTest {
 
     @Test
     public void testWithReasonAssertIsSuccess() throws Exception {
-
         // Act+Assert
         AssertFluently.withReason("Unit test").assertIs(true);
-
     }
 
     @Test
     public void testWithReasonAssertIsFailure() throws Exception {
-
         // Arrange
         expectedException.expect(AssertionError.class);
         expectedException.expectMessage("Unit test");
@@ -223,21 +206,18 @@ public class AssertFluentlyTest {
 
     @Test
     public void testAssertThatSuccess() throws Exception {
-
         // Act+Assert
         AssertFluently.assertThat(true);
     }
 
     @Test
     public void testAssertThatNotSuccess() throws Exception {
-
         // Act+Assert
         AssertFluently.assertThatNot(false);
     }
 
     @Test
     public void testAssertThatFailure() throws Exception {
-
         // Arrange
         expectedException.expect(AssertionError.class);
 
@@ -249,18 +229,14 @@ public class AssertFluentlyTest {
 
     @Test
     public void testAssertIsSuccess() throws Exception {
-
         // Act+Assert
         AssertFluently.assertIs(true);
-
     }
 
     @Test
     public void testAssertIsNotSuccess() throws Exception {
-
         // Act+Assert
         AssertFluently.assertIsNot(false);
-
     }
 
     @Test
