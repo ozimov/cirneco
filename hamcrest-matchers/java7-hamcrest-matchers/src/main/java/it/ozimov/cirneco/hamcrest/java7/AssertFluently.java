@@ -93,11 +93,11 @@ public class AssertFluently {
     }
 
     public static void assumeIs(final boolean expression) {
-        new AssertionBuilder<>().matches(expression);
+        assumeThat(expression);
     }
 
     public static void assumeIsNot(final boolean expression) {
-        new AssertionBuilder<>().matches(not(expression));
+        assumeThatNot(expression);
     }
 
     public static void assertThat(final boolean expression) {
@@ -109,11 +109,11 @@ public class AssertFluently {
     }
 
     public static void assertIs(final boolean expression) {
-        new AssertionBuilder<>().matches(expression);
+        assertThat(expression);
     }
 
     public static void assertIsNot(final boolean expression) {
-        new AssertionBuilder<>().matches(not(expression));
+        assumeThatNot(expression);
     }
 
     public static class AssertionBuilder<T> {
@@ -146,11 +146,11 @@ public class AssertFluently {
         }
 
         public void assumeIs(final boolean expression) {
-            matches(expression);
+            assumeThat(expression);
         }
 
         public void assumeIsNot(final boolean expression) {
-            matches(not(expression));
+            assumeThatNot(expression);
         }
 
         public void assertThat(final boolean expression) {
@@ -162,11 +162,11 @@ public class AssertFluently {
         }
 
         public void assertIs(final boolean expression) {
-            matches(expression);
+            assertThat(expression);
         }
 
         public void assertIsNot(final boolean expression) {
-            matches(not(expression));
+            assumeThatNot(expression);
         }
 
         public <T> void assumeThat(@Nonnull final Matcher<? super T> matcher) {
@@ -178,11 +178,11 @@ public class AssertFluently {
         }
 
         public <T> void assumeIs(@Nonnull final Matcher<? super T> matcher) {
-            matches(matcher);
+            assumeThat(matcher);
         }
 
         public <T> void assumeIsNot(@Nonnull final Matcher<? super T> matcher) {
-            matches(not(matcher));
+            assumeThatNot(matcher);
         }
 
         public <T> void assertThat(@Nonnull final Matcher<? super T> matcher) {
@@ -194,11 +194,11 @@ public class AssertFluently {
         }
 
         public <T> void assertIs(@Nonnull final Matcher<? super T> matcher) {
-            matches(matcher);
+            assertThat(matcher);
         }
 
         public <T> void assertIsNot(@Nonnull final Matcher<? super T> matcher) {
-            matches(not(matcher));
+            assertThatNot(matcher);
         }
 
         private <T> void matches(final Matcher<? super T> matcher) {

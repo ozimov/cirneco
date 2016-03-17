@@ -8,6 +8,7 @@ import static it.ozimov.cirneco.hamcrest.java7.clazz.IsValidNoArgumentConstructo
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.fail;
 
@@ -128,6 +129,16 @@ public class AssertFluentlyTest {
     }
 
     @Test
+    public void testGivenWithReasonAssertThatNotSuccess() throws Exception {
+        // Arrange
+        final String actual = "Test";
+        final String expected = "Test";
+
+        // Act+Assert
+        AssertFluently.given(actual).withReason("Unit test").assertThatNot(is(not(expected)));
+    }
+
+    @Test
     public void testGivenWithReasonAssertThatFailure() throws Exception {
         // Arrange
         expectedException.expect(AssertionError.class);
@@ -153,6 +164,18 @@ public class AssertFluentlyTest {
 
     }
 
+
+    @Test
+    public void testGivenWithReasonAssertIsNotSuccess() throws Exception {
+        // Arrange
+        final String actual = "Test";
+        final String expected = "Test";
+
+        // Act+Assert
+        AssertFluently.given(actual).withReason("Unit test").assertIsNot(not(equalTo(expected)));
+
+    }
+
     @Test
     public void testGivenWithReasonAssertIsFailure() throws Exception {
         // Arrange
@@ -175,6 +198,12 @@ public class AssertFluentlyTest {
     }
 
     @Test
+    public void testWithReasonAssertThatNotSuccess() throws Exception {
+        // Act+Assert
+        AssertFluently.withReason("Unit test").assertThatNot(false);
+    }
+
+    @Test
     public void testWithReasonAssertThatFailure() throws Exception {
         // Arrange
         expectedException.expect(AssertionError.class);
@@ -190,6 +219,12 @@ public class AssertFluentlyTest {
     public void testWithReasonAssertIsSuccess() throws Exception {
         // Act+Assert
         AssertFluently.withReason("Unit test").assertIs(true);
+    }
+
+    @Test
+    public void testWithReasonAssertIsNotSuccess() throws Exception {
+        // Act+Assert
+        AssertFluently.withReason("Unit test").assertIsNot(false);
     }
 
     @Test

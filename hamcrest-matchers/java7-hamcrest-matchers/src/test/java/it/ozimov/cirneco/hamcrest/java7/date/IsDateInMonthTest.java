@@ -4,11 +4,13 @@ import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 import org.hamcrest.Matcher;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import java.text.ParseException;
 import java.util.Date;
 
 import static it.ozimov.cirneco.hamcrest.java7.date.DateTestUtils.date;
+import static org.junit.Assert.fail;
 
 public class IsDateInMonthTest extends BaseMatcherTest {
 
@@ -67,6 +69,18 @@ public class IsDateInMonthTest extends BaseMatcherTest {
         octoberMatcher = IsDateInMonth.october();
         novemberMatcher = IsDateInMonth.november();
         decemberMatcher = IsDateInMonth.december();
+    }
+
+    @Test
+    public void testConstructedWithWrongMonthId() throws Exception {
+        //Arrange
+        thrown.expect(IllegalArgumentException.class);
+
+        // Act
+        new IsDateInMonth(Integer.MAX_VALUE);
+
+        // Assert
+        fail("IllegalArgumentException expected but not invoked");
     }
 
     @Test

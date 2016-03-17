@@ -6,6 +6,11 @@ import org.hamcrest.TypeSafeMatcher;
 
 import java.util.Optional;
 
+/**
+ * Is the given {@linkplain Optional} present and matching the given matcher?
+ *
+ * @since version 0.8.0 for JDK8
+ */
 public class IsPresentOptionalAnd<T> extends TypeSafeMatcher<Optional<T>> {
     final Matcher<? super T> innerMatcher;
 

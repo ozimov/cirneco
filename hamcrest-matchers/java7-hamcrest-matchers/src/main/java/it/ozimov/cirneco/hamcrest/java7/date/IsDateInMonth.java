@@ -154,11 +154,8 @@ public class IsDateInMonth extends TypeSafeMatcher<Date> {
             case NOVEMBER:
                 return monthFromDate == Month.NOVEMBER.id;
 
-            case DECEMBER:
+            default: //DECEMBER:
                 return monthFromDate == Month.DECEMBER.id;
-
-            default:
-                return false;
         }
     }
 
@@ -197,7 +194,7 @@ public class IsDateInMonth extends TypeSafeMatcher<Date> {
 
         static Optional<Month> fromId(final int weekDay) {
 
-            for (Month month : values()) {
+            for (final Month month : values()) {
 
                 if (month.id == weekDay) {
                     return Optional.of(month);
