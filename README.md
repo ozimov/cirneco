@@ -95,3 +95,9 @@ Otherwise, just put the Cirneco dependencies before to import these dependencies
 Maybe you are curious about the name Cirneco. Cirneco dell'Etna is a unique dog native of Sicily, Italy.
 It is very fast and agile, neat and friendly. A Cirneco is also excellent for hunting. So, all the quality
 we love to have in an API.
+
+==============================================
+[![forthebadge](http://forthebadge.com/images/badges/built-by-developers.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/images/badges/pretty-risque.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/images/badges/makes-people-smile.svg)](http://forthebadge.com)
