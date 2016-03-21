@@ -140,8 +140,8 @@ public class IsYamlTest extends BaseMatcherTest {
     }
 
     @AllArgsConstructor
-    static class YamlContainer {
-        final String yaml;
+    private static class YamlContainer {
+        private final String yaml;
 
 
         @Override

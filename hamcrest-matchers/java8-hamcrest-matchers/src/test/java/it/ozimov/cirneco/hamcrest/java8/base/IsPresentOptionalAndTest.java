@@ -10,10 +10,8 @@ import org.junit.Test;
 
 import java.util.Optional;
 
-import static org.hamcrest.CoreMatchers.anything;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assume.assumeThat;
 
 public class IsPresentOptionalAndTest extends BaseMatcherTest {
@@ -35,7 +33,7 @@ public class IsPresentOptionalAndTest extends BaseMatcherTest {
     @Test
     public void testDescribeMismatchSafelyForNotPresent() throws Exception {
         assertHasMismatchDescription("is not present", isPresentOptionalAndMatcher, Optional.empty());
-   }
+    }
 
     @Test
     public void testDescribeMismatchSafelyForPresentButNotMatchingMatcher() throws Exception {
@@ -45,7 +43,7 @@ public class IsPresentOptionalAndTest extends BaseMatcherTest {
         final String andMatcherMismatch = description.toString().trim();
 
         //Assert
-        assertHasMismatchDescription("is present, but "+andMatcherMismatch,
+        assertHasMismatchDescription("is present, but " + andMatcherMismatch,
                 isPresentOptionalAndMatcher, Optional.of(wrongValue));
     }
 

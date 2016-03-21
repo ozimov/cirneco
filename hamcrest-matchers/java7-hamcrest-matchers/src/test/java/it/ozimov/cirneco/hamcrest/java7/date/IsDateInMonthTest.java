@@ -4,7 +4,6 @@ import it.ozimov.cirneco.hamcrest.BaseMatcherTest;
 import org.hamcrest.Matcher;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 import java.text.ParseException;
 import java.util.Date;

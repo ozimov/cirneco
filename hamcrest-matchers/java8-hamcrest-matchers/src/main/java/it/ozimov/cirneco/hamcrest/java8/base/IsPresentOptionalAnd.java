@@ -12,9 +12,10 @@ import java.util.Optional;
  * @since version 0.8.0 for JDK8
  */
 public class IsPresentOptionalAnd<T> extends TypeSafeMatcher<Optional<T>> {
-    final Matcher<? super T> innerMatcher;
 
-    public IsPresentOptionalAnd(final Matcher<? super T> innerMatcher) {
+    private final Matcher<? super T> innerMatcher;
+
+    private IsPresentOptionalAnd(final Matcher<? super T> innerMatcher) {
         this.innerMatcher = innerMatcher;
     }
 

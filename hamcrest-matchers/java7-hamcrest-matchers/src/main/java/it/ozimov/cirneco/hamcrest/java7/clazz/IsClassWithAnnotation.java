@@ -1,6 +1,5 @@
 package it.ozimov.cirneco.hamcrest.java7.clazz;
 
-import lombok.Data;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;

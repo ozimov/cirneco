@@ -13,7 +13,7 @@ import static it.ozimov.cirneco.hamcrest.java7.AssertFluently.assumeThat;
 import static java.lang.String.format;
 import static org.junit.Assert.fail;
 
-public class IsClassWithAnnotationTest  extends BaseMatcherTest {
+public class IsClassWithAnnotationTest extends BaseMatcherTest {
 
     private Class<? extends Annotation> runtimeAnnotation;
     private Class<? extends Annotation> sourceCodeAnnotation;

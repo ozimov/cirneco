@@ -407,7 +407,7 @@ public class IsDateTest extends BaseMatcherTest {
         // Act
         isDateMatcher = new IsDate(year, month, day);
 
-        assertThat(String.format("Created matcher for year %d, id %d and day %d", year, month, day),
+        assertThat(format("Created matcher for year %d, id %d and day %d", year, month, day),
                 not(is(nullValue())));
     }
 
