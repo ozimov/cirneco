@@ -1,0 +1,15 @@
+it.ozimov.cirneco.hamcrest.guava
+it.ozimov.cirneco.hamcrest.guava.base
+it.ozimov.cirneco.hamcrest.guava.collect
+it.ozimov.cirneco.hamcrest.java7
+it.ozimov.cirneco.hamcrest.java7.base
+it.ozimov.cirneco.hamcrest.java7.clazz
+it.ozimov.cirneco.hamcrest.java7.collect
+it.ozimov.cirneco.hamcrest.java7.collect.utils
+it.ozimov.cirneco.hamcrest.java7.date
+it.ozimov.cirneco.hamcrest.java7.date.utils
+it.ozimov.cirneco.hamcrest.java7.filetype
+it.ozimov.cirneco.hamcrest.java7.number
+it.ozimov.cirneco.hamcrest.java7.web
+it.ozimov.cirneco.hamcrest.java8
+it.ozimov.cirneco.hamcrest.java8.base
