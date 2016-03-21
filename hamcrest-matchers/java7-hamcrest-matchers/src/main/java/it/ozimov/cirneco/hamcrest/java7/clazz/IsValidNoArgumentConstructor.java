@@ -13,7 +13,7 @@ import java.lang.reflect.Constructor;
  */
 public class IsValidNoArgumentConstructor extends TypeSafeMatcher<Class> {
 
-    public IsValidNoArgumentConstructor() {
+    private IsValidNoArgumentConstructor() {
     }
 
     /**

@@ -7,6 +7,8 @@ import it.ozimov.cirneco.hamcrest.java7.base.IsBetweenLowerBoundInclusive;
 import it.ozimov.cirneco.hamcrest.java7.base.IsBetweenUpperBoundInclusive;
 import it.ozimov.cirneco.hamcrest.java7.base.IsSame;
 import it.ozimov.cirneco.hamcrest.java7.base.IsSameHashcode;
+import it.ozimov.cirneco.hamcrest.java7.clazz.IsClassWithAnnotation;
+import it.ozimov.cirneco.hamcrest.java7.clazz.IsValidNoArgumentConstructor;
 import it.ozimov.cirneco.hamcrest.java7.collect.IsEmptyIterable;
 import it.ozimov.cirneco.hamcrest.java7.collect.IsIterableContainingInAnyOrder;
 import it.ozimov.cirneco.hamcrest.java7.collect.IsIterableContainingInOrder;
@@ -34,6 +36,7 @@ import it.ozimov.cirneco.hamcrest.java7.web.IsEmail;
 import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
 
+import java.lang.annotation.Annotation;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.Map;
@@ -195,6 +198,25 @@ public class J7Matchers {
     public static <T> Matcher<T> hasToStringContainingInOrder(final Object... items) {
         return HasToStringContaining.hasToStringContainingInOrder(items);
     }
+
+    // CLAZZ
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Class} has the given runtime available annotation
+     */
+    public static Matcher<Class> hasRuntimeAnnotation(final Class<? extends Annotation> annotation) {
+        return IsClassWithAnnotation.hasRuntimeAnnotation(annotation);
+    }
+
+    /**
+     * Creates a matcher that matches when the examined {@linkplain Class} has a valid default constructor with no
+     * parameters.
+     */
+    public static Matcher<Class> hasNoArgumentConstructor() {
+        return IsValidNoArgumentConstructor.hasNoArgumentConstructor();
+    }
+
+
 
     // DATE
 

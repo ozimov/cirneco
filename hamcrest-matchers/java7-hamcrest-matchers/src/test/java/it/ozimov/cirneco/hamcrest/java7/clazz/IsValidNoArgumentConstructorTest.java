@@ -9,9 +9,9 @@ import static java.lang.String.format;
 
 public class IsValidNoArgumentConstructorTest extends BaseMatcherTest {
 
-    public Matcher<Class> isValidNoArgumentConstructorMatcher;
-    private Class validClass = TestClassOk.class;
-    private Class nonValidClass = TestClassNotOk.class;
+    private Matcher<Class> isValidNoArgumentConstructorMatcher;
+    private Class validClass = TestClassWithArgsConstructor.class;
+    private Class nonValidClass = TestClassWithNoArgsConstructor.class;
 
     @Before
     public void setUp() throws Exception {
@@ -20,7 +20,7 @@ public class IsValidNoArgumentConstructorTest extends BaseMatcherTest {
     }
 
     @Test
-    public void testGivenValidAnnotatedClassWhenMatchesIsCalledThenReturnTrue() throws Exception {
+    public void testGivenValidClassWhenMatchesIsCalledThenReturnTrue() throws Exception {
         // Act
         final boolean matches = isValidNoArgumentConstructorMatcher.matches(validClass);
 
@@ -29,7 +29,7 @@ public class IsValidNoArgumentConstructorTest extends BaseMatcherTest {
     }
 
     @Test
-    public void testGivenNonValidYamlStringWhenMatchesIsCalledThenReturnFalse() throws Exception {
+    public void testGivenNonValidClassWhenMatchesIsCalledThenReturnFalse() throws Exception {
         // Act
         final boolean matches = isValidNoArgumentConstructorMatcher.matches(nonValidClass);
 

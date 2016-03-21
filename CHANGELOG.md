@@ -3,6 +3,10 @@ All notable changes to Cirneco project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+## [0.9.0] - 2016-03-21
+### Added
+- Added matchers to check if runtime annotations are present. The matcher is `hasRuntimeAnnotation` from
+    class `it.ozimov.cirneco.hamcrest.java7.clazz.IsClassWithAnnotation`.
 
 ## [0.8.1] - 2016-03-17
 ### Changed
