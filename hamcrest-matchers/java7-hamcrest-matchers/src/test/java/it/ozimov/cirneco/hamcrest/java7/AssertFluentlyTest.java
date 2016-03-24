@@ -118,6 +118,27 @@ public class AssertFluentlyTest {
     }
 
     @Test
+    public void testWithReasonFailsOnNullMessageEvenWithParams() throws Exception {
+        //Arrange
+        expectedException.expect(NullPointerException.class);
+
+        //Act
+        AssertFluently.withReason(null, "param").assertIs(true);
+
+        //Assert
+        fail("NullPointerException expected");
+    }
+
+    @Test
+    public void testWithReasonSuccessOnFormattingWithParams() throws Exception {
+        //Arrange
+        final Object[] params = {"Param 1", new Integer(10)};
+
+        //Act
+        AssertFluently.withReason("%s has value %d", params).assertIs(true);
+    }
+
+    @Test
     public void testGivenWithReasonAssertThatSuccess() throws Exception {
         // Arrange
         final String actual = "Test";
@@ -163,7 +184,6 @@ public class AssertFluentlyTest {
         AssertFluently.given(actual).withReason("Unit test").assertIs(equalTo(expected));
 
     }
-
 
     @Test
     public void testGivenWithReasonAssertIsNotSuccess() throws Exception {
@@ -276,14 +296,30 @@ public class AssertFluentlyTest {
 
     @Test
     public void testAssertIsFailure() throws Exception {
-
         // Arrange
         expectedException.expect(AssertionError.class);
 
         // Act+Assert
         AssertFluently.assertIs(false);
 
-        fail("Should throw an exception");
+        fail("Should throw an AssertionError exception");
+    }
+
+    @Test
+    public void testFailMustThrowAssertionError() throws Exception {
+        // Arrange
+        expectedException.expect(AssertionError.class);
+
+        // Act+Assert
+        AssertFluently.fail();
+
+        fail("Should throw an AssertionError exception");
+    }
+
+    @Test
+    public void testSuccessNotFails() throws Exception {
+        // Act+Assert
+        AssertFluently.success();
     }
 
 }

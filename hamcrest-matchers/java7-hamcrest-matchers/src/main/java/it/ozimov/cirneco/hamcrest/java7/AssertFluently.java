@@ -5,6 +5,7 @@ import org.hamcrest.Matcher;
 import org.hamcrest.StringDescription;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 import static org.hamcrest.Matchers.not;
@@ -82,6 +83,20 @@ public class AssertFluently {
         checkNotNull(reason);
 
         return new AssertionBuilder().withReason(reason);
+    }
+
+    public static AssertionBuilder withReason(@Nonnull final String reason, @Nullable Object ... reasonArgs) {
+        checkNotNull(reason);
+
+        return new AssertionBuilder().withReason(String.format(reason, reasonArgs));
+    }
+
+    public static void fail(){
+        assertIs(false);
+    }
+
+    public static void success(){
+        assertIs(true);
     }
 
     public static void assumeThat(final boolean expression) {

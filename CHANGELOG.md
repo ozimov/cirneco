@@ -3,6 +3,14 @@ All notable changes to Cirneco project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [0.10.0] - 2016-03-24
+### Added
+- Possibility to provide a formatted string and the actual parameters in
+    message based methods from `AssertFluently`.
+- New `fail()` and `success()` methods in  `AssertFluently` to ensure consistency (e.g. in code quality,
+    when an assertion needs to be called in a unit test).
+
 ## [0.9.0] - 2016-03-21
 ### Added
 - Added matchers to check if runtime annotations are present. The matcher is `hasRuntimeAnnotation` from
