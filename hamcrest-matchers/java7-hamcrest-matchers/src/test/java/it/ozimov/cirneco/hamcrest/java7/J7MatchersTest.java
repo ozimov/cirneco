@@ -8,6 +8,7 @@ import it.ozimov.cirneco.hamcrest.java7.base.IsBetweenLowerBoundInclusive;
 import it.ozimov.cirneco.hamcrest.java7.base.IsBetweenUpperBoundInclusive;
 import it.ozimov.cirneco.hamcrest.java7.base.IsSame;
 import it.ozimov.cirneco.hamcrest.java7.base.IsSameHashcode;
+import it.ozimov.cirneco.hamcrest.java7.base.IsSimilar;
 import it.ozimov.cirneco.hamcrest.java7.clazz.IsClassWithAnnotation;
 import it.ozimov.cirneco.hamcrest.java7.clazz.IsValidNoArgumentConstructor;
 import it.ozimov.cirneco.hamcrest.java7.collect.IsEmptyIterable;
@@ -74,6 +75,11 @@ public class J7MatchersTest extends SameCallerMatchersTest {
     @Test
     public void testSameHashcode() throws Exception {
         testMethodCallsRightMethod(IsSameHashcode.class, "sameHashcode");
+    }
+
+    @Test
+    public void testIsSimilar() throws Exception {
+        testMethodCallsRightMethod(IsSimilar.class, "isSimilar");
     }
 
     @Test

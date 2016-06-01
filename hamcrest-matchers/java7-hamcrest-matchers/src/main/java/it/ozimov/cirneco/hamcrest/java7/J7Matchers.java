@@ -7,6 +7,7 @@ import it.ozimov.cirneco.hamcrest.java7.base.IsBetweenLowerBoundInclusive;
 import it.ozimov.cirneco.hamcrest.java7.base.IsBetweenUpperBoundInclusive;
 import it.ozimov.cirneco.hamcrest.java7.base.IsSame;
 import it.ozimov.cirneco.hamcrest.java7.base.IsSameHashcode;
+import it.ozimov.cirneco.hamcrest.java7.base.IsSimilar;
 import it.ozimov.cirneco.hamcrest.java7.clazz.IsClassWithAnnotation;
 import it.ozimov.cirneco.hamcrest.java7.clazz.IsValidNoArgumentConstructor;
 import it.ozimov.cirneco.hamcrest.java7.collect.IsEmptyIterable;
@@ -129,6 +130,14 @@ public class J7Matchers {
      */
     public static Matcher sameHashcode(final Object target) {
         return IsSameHashcode.sameHashcode(target);
+    }
+
+    /**
+     * Creates a matcher that matches only when the examined {@linkplain CharSequence} is within the given Levenshtein distance
+     * (inclusive) with the provided <code>target</code> {@linkplain CharSequence}.
+     */
+    public static Matcher<CharSequence> isSimilar(final CharSequence target, final int levenshteinDistance) {
+        return IsSimilar.isSimilar(target, levenshteinDistance);
     }
 
     /**

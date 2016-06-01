@@ -4,6 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.11.0] - 2016-06-01
+### Added
+- Added matcher `IsSimilar`, that calculates the _Levenshtein distance_ between two String objects to assert for
+    similarity.
+
 ## [0.10.0] - 2016-03-24
 ### Added
 - Possibility to provide a formatted string and the actual parameters in
