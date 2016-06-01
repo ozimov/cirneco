@@ -7,12 +7,12 @@
     <parent>
         <artifactId>hamcrest-matchers</artifactId>
         <groupId>it.ozimov</groupId>
-        <version>0.11.0-SNAPSHOT</version>
+        <version>0.11.0</version>
     </parent>
 
 
     <artifactId>java8-hamcrest-matchers</artifactId>
-    <version>0.11.0-SNAPSHOT</version>
+    <version>0.11.0</version>
     <packaging>jar</packaging>
 
     <name>Cirneco's Hamcrest Extensions for JDK8</name>
@@ -47,7 +47,7 @@
         <dependency>
             <groupId>it.ozimov</groupId>
             <artifactId>java7-hamcrest-matchers</artifactId>
-            <version>0.11.0-SNAPSHOT</version>
+            <version>0.11.0</version>
             <exclusions>
                 <exclusion>
                     <groupId>joda-time</groupId>
@@ -58,7 +58,7 @@
         <dependency>
             <groupId>it.ozimov</groupId>
             <artifactId>java7-hamcrest-matchers</artifactId>
-            <version>0.11.0-SNAPSHOT</version>
+            <version>0.11.0</version>
             <scope>test</scope>
             <classifier>tests</classifier>
         </dependency>
