@@ -43,7 +43,7 @@ public class IsSimilarTest extends BaseMatcherTest {
         // Arrange
         assumeTrue("Assumed that actual and comparison are equals",
                 actual.equals(comparison));
-        final Matcher isSimilarMatcher = IsSimilar.isSimilar(comparison, distanceWithActual);
+        final Matcher isSimilarMatcher = IsSimilar.similar(comparison, distanceWithActual);
 
         // Act
         final boolean matches = isSimilarMatcher.matches(actual);
@@ -57,7 +57,7 @@ public class IsSimilarTest extends BaseMatcherTest {
         // Arrange
         assumeFalse("Assumed that actual and comparison are not equals",
                 anotherActual.equals(comparison));
-        final Matcher isSimilarMatcher = IsSimilar.isSimilar(comparison, distanceWithAnotherActual);
+        final Matcher isSimilarMatcher = IsSimilar.similar(comparison, distanceWithAnotherActual);
 
         // Act
         final boolean matches = isSimilarMatcher.matches(anotherActual);
@@ -71,7 +71,7 @@ public class IsSimilarTest extends BaseMatcherTest {
         // Arrange
         assumeFalse("Assumed that actual and comparison are not equals",
                 anotherActual.equals(comparison));
-        final Matcher isSimilarMatcher = IsSimilar.isSimilar(comparison, Integer.MAX_VALUE);
+        final Matcher isSimilarMatcher = IsSimilar.similar(comparison, Integer.MAX_VALUE);
 
         // Act
         final boolean matches = isSimilarMatcher.matches(anotherActual);
@@ -85,7 +85,7 @@ public class IsSimilarTest extends BaseMatcherTest {
         // Arrange
         assumeFalse("Assumed that actual and comparison are not equals",
                 anotherActual.equals(comparison));
-        final Matcher isSimilarMatcher = IsSimilar.isSimilar(comparison, 0);
+        final Matcher isSimilarMatcher = IsSimilar.similar(comparison, 0);
 
         // Act
         final boolean matches = isSimilarMatcher.matches(anotherActual);
@@ -100,7 +100,7 @@ public class IsSimilarTest extends BaseMatcherTest {
         thrown.expect(NullPointerException.class);
 
         // Act
-        IsSimilar.isSimilar(null, 0).matches(actual);
+        IsSimilar.similar(null, 0).matches(actual);
 
         // Assert
         fail("NullPointerException expected but not thrown");
@@ -112,7 +112,7 @@ public class IsSimilarTest extends BaseMatcherTest {
         thrown.expect(IllegalArgumentException.class);
 
         // Act
-        IsSimilar.isSimilar("", -1).matches(actual);
+        IsSimilar.similar("", -1).matches(actual);
 
         // Assert
         fail("IllegalArgumentException expected but not thrown");
@@ -134,7 +134,7 @@ public class IsSimilarTest extends BaseMatcherTest {
     public void testDescribeTo() throws Exception {
         final int distance = 0;
         assertIsDescribedTo(String.format("has max Levenshtein distance <%d> from \"%s\"", distance, comparison),
-                IsSimilar.isSimilar(comparison, distance));
+                IsSimilar.similar(comparison, distance));
     }
 
 }

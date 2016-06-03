@@ -78,8 +78,8 @@ public class J7MatchersTest extends SameCallerMatchersTest {
     }
 
     @Test
-    public void testIsSimilar() throws Exception {
-        testMethodCallsRightMethod(IsSimilar.class, "isSimilar");
+    public void testSimilar() throws Exception {
+        testMethodCallsRightMethod(IsSimilar.class, "similar");
     }
 
     @Test

@@ -136,8 +136,8 @@ public class J7Matchers {
      * Creates a matcher that matches only when the examined {@linkplain CharSequence} is within the given Levenshtein distance
      * (inclusive) with the provided <code>target</code> {@linkplain CharSequence}.
      */
-    public static Matcher<CharSequence> isSimilar(final CharSequence target, final int levenshteinDistance) {
-        return IsSimilar.isSimilar(target, levenshteinDistance);
+    public static Matcher<CharSequence> similar(final CharSequence target, final int levenshteinDistance) {
+        return IsSimilar.similar(target, levenshteinDistance);
     }
 
     /**

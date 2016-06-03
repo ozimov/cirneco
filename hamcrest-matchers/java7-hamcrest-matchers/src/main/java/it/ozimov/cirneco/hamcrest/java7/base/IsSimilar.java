@@ -7,13 +7,11 @@ import org.hamcrest.Matcher;
 
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
-import static org.hamcrest.Matchers.stringContainsInOrder;
-import static org.hamcrest.object.HasToString.hasToString;
 
 /**
  * Is the value a number between two numbers?
  *
- * @since version 0.7.0 for JDK7
+ * @since version 0.11.0 for JDK7
  */
 public class IsSimilar extends BaseMatcher<CharSequence> {
 
@@ -22,7 +20,7 @@ public class IsSimilar extends BaseMatcher<CharSequence> {
 
     public IsSimilar(final CharSequence target, final int levenshteinDistance) {
         checkNotNull(target);
-        checkArgument(levenshteinDistance>=0, "Levenshtein distance cannot be negative");
+        checkArgument(levenshteinDistance >= 0, "Levenshtein distance cannot be negative");
         this.target = target;
         this.maxDistance = levenshteinDistance;
     }
@@ -31,7 +29,7 @@ public class IsSimilar extends BaseMatcher<CharSequence> {
      * Creates a matcher that matches only when the examined {@linkplain CharSequence} is within the given Levenshtein distance
      * (inclusive) with the provided <code>target</code> {@linkplain CharSequence}.
      */
-    public static Matcher<CharSequence> isSimilar(final CharSequence target, final int levenshteinDistance) {
+    public static Matcher<CharSequence> similar(final CharSequence target, final int levenshteinDistance) {
         return new IsSimilar(target, levenshteinDistance);
     }
 
@@ -39,7 +37,7 @@ public class IsSimilar extends BaseMatcher<CharSequence> {
     public boolean matches(final Object arg) {
         checkNotNull(arg);
         checkArgument(arg instanceof CharSequence, "Expected and instance of CharSequence");
-        return LevenshteinDistance.distance((CharSequence)arg, target) <= maxDistance;
+        return LevenshteinDistance.distance((CharSequence) arg, target) <= maxDistance;
     }
 
     @Override

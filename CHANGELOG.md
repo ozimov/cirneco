@@ -4,6 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [1.0.1] - 2016-06-03
+### Replaced
+- In `IsSimilar`, method `isSimilar` has been renamed in `similar`.
+
 ## [1.0.0] - 2016-06-03
 ### Replaced
 - In `AssertFluently`, method `withReason` has been renamed in `because` to make the assertion
