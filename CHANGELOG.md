@@ -4,6 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [1.0.0] - 2016-06-03
+### Replaced
+- In `AssertFluently`, method `withReason` has been renamed in `because` to make the assertion
+    more easy-to-read. **This introduced a backward incompatibility**.
+
 ## [0.11.0] - 2016-06-01
 ### Added
 - Added matcher `IsSimilar`, that calculates the _Levenshtein distance_ between two String objects to assert for

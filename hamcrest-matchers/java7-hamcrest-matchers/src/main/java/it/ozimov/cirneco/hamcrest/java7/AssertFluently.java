@@ -27,7 +27,7 @@ import static org.hamcrest.Matchers.not;
  * String actual = "Test"
  * <p>
  * given(actual)
- * .withReason("Actual object "\Test\" must not be equal to \"Something\"")
+ * .because("Actual object "\Test\" must not be equal to \"Something\"")
  * .assertIs(not("Something"));
  * }
  * <p>
@@ -46,13 +46,13 @@ import static org.hamcrest.Matchers.not;
  * </code>
  * </p>
  * <p>
- * <p>When using no "actual" object, but just an expression, it can be used the {@linkplain #withReason(String)}, e.g.
+ * <p>When using no "actual" object, but just an expression, it can be used the {@linkplain #because(String)}, e.g.
  * <p>
  * <code>
  * @Test public void testSomething(){
  * boolean expression = true;
  * <p>
- * withReason("Expected the expression to be true")
+ * because("Expected the expression to be true")
  * .assertIs(expression);
  * }
  * </code>
@@ -72,23 +72,22 @@ import static org.hamcrest.Matchers.not;
 public class AssertFluently {
 
     private AssertFluently() {
+    }
 
+    public static AssertionBuilder because(@Nonnull final String reason) {
+        checkNotNull(reason);
+
+        return new AssertionBuilder().because(reason);
+    }
+
+    public static AssertionBuilder because(@Nonnull final String reason, @Nullable Object ... reasonArgs) {
+        checkNotNull(reason);
+
+        return new AssertionBuilder().because(String.format(reason, reasonArgs));
     }
 
     public static <T> AssertionBuilder<T> given(@Nonnull final T actual) {
         return new AssertionBuilder<>(actual);
-    }
-
-    public static AssertionBuilder withReason(@Nonnull final String reason) {
-        checkNotNull(reason);
-
-        return new AssertionBuilder().withReason(reason);
-    }
-
-    public static AssertionBuilder withReason(@Nonnull final String reason, @Nullable Object ... reasonArgs) {
-        checkNotNull(reason);
-
-        return new AssertionBuilder().withReason(String.format(reason, reasonArgs));
     }
 
     public static void fail(){
@@ -145,7 +144,7 @@ public class AssertFluently {
             this.actual = actual;
         }
 
-        public AssertionBuilder withReason(@Nonnull final String reason) {
+        public AssertionBuilder because(@Nonnull final String reason) {
             checkNotNull(reason);
 
             this.reason = reason;
