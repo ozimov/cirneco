@@ -7,11 +7,11 @@
     <parent>
         <artifactId>cirneco-parent</artifactId>
         <groupId>it.ozimov</groupId>
-        <version>1.0.0</version>
+        <version>1.0.1-SNAPSHOT</version>
     </parent>
 
     <artifactId>hamcrest-matchers</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
