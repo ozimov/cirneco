@@ -5,7 +5,7 @@
 
     <groupId>it.ozimov</groupId>
     <artifactId>cirneco-parent</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Cirneco (Parent)</name>
