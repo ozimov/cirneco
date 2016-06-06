@@ -144,6 +144,11 @@ public class AssertFluently {
             this.actual = actual;
         }
 
+        public AssertionBuilder given(@Nonnull final T actual) {
+            this.actual = actual;
+            return this;
+        }
+
         public AssertionBuilder because(@Nonnull final String reason) {
             checkNotNull(reason);
 

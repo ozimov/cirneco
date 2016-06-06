@@ -4,6 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [1.0.2] - 2016-06-06
+### Replaced
+- In `AssertFluently`, method `because` can now be called before method `given`.
+
 ## [1.0.1] - 2016-06-03
 ### Replaced
 - In `IsSimilar`, method `isSimilar` has been renamed in `similar`.

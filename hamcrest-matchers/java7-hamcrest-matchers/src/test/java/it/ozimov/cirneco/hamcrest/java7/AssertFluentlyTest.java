@@ -106,7 +106,23 @@ public class AssertFluentlyTest {
     }
 
     @Test
-    public void testWithReasonFailsOnNullMessage() throws Exception {
+    public void testBecauseGivenAssumeIs() throws Exception {
+        // Act+Assert
+        AssertFluently.because("Unit test").given(true).assumeIs(true);
+    }
+
+    @Test
+    public void testBecauseGivenAssumeThat() throws Exception {
+        // Arrange
+        final String actual = "Test";
+        final String expected = "Test";
+
+        // Act+Assert
+        AssertFluently.because("Unit test").given(actual).assumeThat(is(expected));
+    }
+
+    @Test
+    public void testBecauseFailsOnNullMessage() throws Exception {
         //Arrange
         expectedException.expect(NullPointerException.class);
 
@@ -118,7 +134,7 @@ public class AssertFluentlyTest {
     }
 
     @Test
-    public void testWithReasonFailsOnNullMessageEvenWithParams() throws Exception {
+    public void testBecauseFailsOnNullMessageEvenWithParams() throws Exception {
         //Arrange
         expectedException.expect(NullPointerException.class);
 
@@ -130,7 +146,7 @@ public class AssertFluentlyTest {
     }
 
     @Test
-    public void testWithReasonSuccessOnFormattingWithParams() throws Exception {
+    public void testBecauseSuccessOnFormattingWithParams() throws Exception {
         //Arrange
         final Object[] params = {"Param 1", new Integer(10)};
 
@@ -139,7 +155,7 @@ public class AssertFluentlyTest {
     }
 
     @Test
-    public void testGivenWithReasonAssertThatSuccess() throws Exception {
+    public void testGivenBecauseAssertThatSuccess() throws Exception {
         // Arrange
         final String actual = "Test";
         final String expected = "Test";
@@ -150,7 +166,7 @@ public class AssertFluentlyTest {
     }
 
     @Test
-    public void testGivenWithReasonAssertThatNotSuccess() throws Exception {
+    public void testGivenBecauseAssertThatNotSuccess() throws Exception {
         // Arrange
         final String actual = "Test";
         final String expected = "Test";
@@ -160,7 +176,7 @@ public class AssertFluentlyTest {
     }
 
     @Test
-    public void testGivenWithReasonAssertThatFailure() throws Exception {
+    public void testGivenBecauseAssertThatFailure() throws Exception {
         // Arrange
         expectedException.expect(AssertionError.class);
         expectedException.expectMessage("Unit test");
@@ -175,7 +191,7 @@ public class AssertFluentlyTest {
     }
 
     @Test
-    public void testGivenWithReasonAssertIsSuccess() throws Exception {
+    public void testGivenBecauseAssertIsSuccess() throws Exception {
         // Arrange
         final String actual = "Test";
         final String expected = "Test";
@@ -186,7 +202,7 @@ public class AssertFluentlyTest {
     }
 
     @Test
-    public void testGivenWithReasonAssertIsNotSuccess() throws Exception {
+    public void testGivenBecauseAssertIsNotSuccess() throws Exception {
         // Arrange
         final String actual = "Test";
         final String expected = "Test";
@@ -197,7 +213,7 @@ public class AssertFluentlyTest {
     }
 
     @Test
-    public void testGivenWithReasonAssertIsFailure() throws Exception {
+    public void testGivenBecauseAssertIsFailure() throws Exception {
         // Arrange
         expectedException.expect(AssertionError.class);
         expectedException.expectMessage("Unit test");
@@ -212,19 +228,19 @@ public class AssertFluentlyTest {
     }
 
     @Test
-    public void testWithReasonAssertThatSuccess() throws Exception {
+    public void testBecauseAssertThatSuccess() throws Exception {
         // Act+Assert
         AssertFluently.because("Unit test").assertThat(true);
     }
 
     @Test
-    public void testWithReasonAssertThatNotSuccess() throws Exception {
+    public void testBecauseAssertThatNotSuccess() throws Exception {
         // Act+Assert
         AssertFluently.because("Unit test").assertThatNot(false);
     }
 
     @Test
-    public void testWithReasonAssertThatFailure() throws Exception {
+    public void testBecauseAssertThatFailure() throws Exception {
         // Arrange
         expectedException.expect(AssertionError.class);
         expectedException.expectMessage("Unit test");
@@ -236,19 +252,19 @@ public class AssertFluentlyTest {
     }
 
     @Test
-    public void testWithReasonAssertIsSuccess() throws Exception {
+    public void testBecauseAssertIsSuccess() throws Exception {
         // Act+Assert
         AssertFluently.because("Unit test").assertIs(true);
     }
 
     @Test
-    public void testWithReasonAssertIsNotSuccess() throws Exception {
+    public void testBecauseAssertIsNotSuccess() throws Exception {
         // Act+Assert
         AssertFluently.because("Unit test").assertIsNot(false);
     }
 
     @Test
-    public void testWithReasonAssertIsFailure() throws Exception {
+    public void testBecauseAssertIsFailure() throws Exception {
         // Arrange
         expectedException.expect(AssertionError.class);
         expectedException.expectMessage("Unit test");
