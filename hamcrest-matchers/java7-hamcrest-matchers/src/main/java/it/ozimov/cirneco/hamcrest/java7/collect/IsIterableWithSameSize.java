@@ -9,7 +9,7 @@ import org.hamcrest.TypeSafeMatcher;
  * Does the {@linkplain Iterable} has the same size of another?
  * <p>
  *
- * @since version 1.0.3 for JDK7
+ * @since version 1.1.0 for JDK7
  */
 public class IsIterableWithSameSize<T> extends TypeSafeMatcher<Iterable<? super T>> {
 

@@ -16,7 +16,7 @@ import static it.ozimov.cirneco.hamcrest.java7.collect.utils.IterableUtils.sorte
 /**
  * Is the {@linkplain Iterable} sorted according to natural ordering?
  *
- * @since version 1.0.3 for JDK7
+ * @since version 1.1.0 for JDK7
  */
 public class IsSubsetOfIterable<K> extends TypeSafeMatcher<Iterable<? super K>> {
 

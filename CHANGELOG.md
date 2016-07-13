@@ -4,7 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
-## [1.0.3] - 2016-07-13
+## [1.1.0] - 2016-07-13
 ### Added
 - Added matcher to verify if an `Iterable` is contained with elements repetitions in another. The matcher is `containedIn`
     from class `it.ozimov.cirneco.hamcrest.java7.collect.IsIterableContained`.
