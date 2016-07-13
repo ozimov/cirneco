@@ -7,11 +7,11 @@
     <parent>
         <artifactId>hamcrest-matchers</artifactId>
         <groupId>it.ozimov</groupId>
-        <version>1.1.1-SNAPSHOT</version>
+        <version>1.1.1</version>
     </parent>
 
     <artifactId>java7-hamcrest-matchers</artifactId>
-    <version>1.1.1-SNAPSHOT</version>
+    <version>1.1.1</version>
     <packaging>jar</packaging>
 
     <name>Cirneco's Hamcrest Extensions for JDK7</name>

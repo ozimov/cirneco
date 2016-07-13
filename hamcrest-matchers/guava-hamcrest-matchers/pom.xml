@@ -7,12 +7,12 @@
     <parent>
         <artifactId>hamcrest-matchers</artifactId>
         <groupId>it.ozimov</groupId>
-        <version>1.1.1-SNAPSHOT</version>
+        <version>1.1.1</version>
     </parent>
 
 
     <artifactId>guava-hamcrest-matchers</artifactId>
-    <version>1.1.1-SNAPSHOT</version>
+    <version>1.1.1</version>
     <packaging>jar</packaging>
 
     <name>Cirneco's Hamcrest Extensions for Google Guava library</name>
@@ -22,7 +22,7 @@
         <dependency>
             <groupId>it.ozimov</groupId>
             <artifactId>java7-hamcrest-matchers</artifactId>
-            <version>1.1.1-SNAPSHOT</version>
+            <version>1.1.1</version>
             <exclusions>
                 <exclusion>
                     <groupId>joda-time</groupId>
@@ -33,7 +33,7 @@
         <dependency>
             <groupId>it.ozimov</groupId>
             <artifactId>java7-hamcrest-matchers</artifactId>
-            <version>1.1.1-SNAPSHOT</version>
+            <version>1.1.1</version>
             <scope>test</scope>
             <classifier>tests</classifier>
         </dependency>
