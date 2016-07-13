@@ -4,6 +4,17 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [1.0.3] - 2016-07-13
+### Added
+- Added matcher to verify if an `Iterable` is contained with elements repetitions in another. The matcher is `containedIn`
+    from class `it.ozimov.cirneco.hamcrest.java7.collect.IsIterableContained`.
+
+- Added matcher to verify if an `Iterable` is subset of another. The matcher is `subsetOf`
+    from class `it.ozimov.cirneco.hamcrest.java7.collect.IsSubsetOfIterable`.
+
+- Added matcher to verify if two  `Iterable` instances have the same size. The matcher is `sameSizeOf`
+    from class `it.ozimov.cirneco.hamcrest.java7.collect.IsIterableWithSameSizeTest`.
+
 ## [1.0.2] - 2016-06-06
 ### Replaced
 - In `AssertFluently`, method `because` can now be called before method `given`.
@@ -31,7 +42,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.9.0] - 2016-03-21
 ### Added
-- Added matchers to check if runtime annotations are present. The matcher is `hasRuntimeAnnotation` from
+- Added matcher to check if runtime annotations are present. The matcher is `hasRuntimeAnnotation` from
     class `it.ozimov.cirneco.hamcrest.java7.clazz.IsClassWithAnnotation`.
 
 ## [0.8.1] - 2016-03-17

@@ -61,7 +61,7 @@ public class IsPresentOptionalAndTest extends BaseMatcherTest {
         final boolean matches = isPresentOptionalAndMatcher.matches(emptyOptional);
 
         // Assert
-        assertDoesNotMatch("Expected to be empty", matches);
+        assertDoesNotMatch("Expected to be withoutRepetitions", matches);
     }
 
     @Test

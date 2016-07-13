@@ -22,9 +22,6 @@ public class IsIterableContainingInOrder<T> extends org.hamcrest.collection.IsIt
      * {@linkplain Iterable} yields a series of items, each logically equal to the corresponding item in the specified
      * items. For a positive match, the examined iterable must be of the same length as the number of specified items.
      * For example:<br />
-     * <p>
-     * <p>
-     * <p>
      * <pre>
      * //Arrange
      * Iterable<String> actual = Arrays.asList("foo", "bar");

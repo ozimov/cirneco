@@ -14,10 +14,6 @@ import static it.ozimov.cirneco.hamcrest.java7.collect.utils.IterableUtils.size;
 
 /**
  * Is the {@linkplain Iterable} with distinct elements?
- * <p>
- * <p>
- * <p>
- * <p>
  * <p>To verify that only distinct elements are in the {@code Iterable},
  *
  * @since version 0.2 for JDK7
@@ -27,15 +23,7 @@ public class IsIterableWithDistinctElements<E> extends TypeSafeMatcher<Iterable<
     /**
      * Creates a matcher for {@linkplain Iterable}s that matches when the examined {@linkplain Iterable} has only
      * distinct elements.
-     * <p>
-     * <p>
-     * <p>
-     * <p>
      * <p>For example:
-     * <p>
-     * <p>
-     * <p>
-     * <p>
      * <pre>assertThat(new ArrayList<>(), empty())</pre>
      *
      * returns <code>true</code>.

@@ -19,7 +19,7 @@ public class IsEmptyGuavaOptionalTest extends BaseMatcherTest {
 
     @Test
     public void testDescribeMismatchSafely() throws Exception {
-        BaseMatcherTest.assertHasMismatchDescription("<Optional.of()> is not an empty optional",
+        BaseMatcherTest.assertHasMismatchDescription("<Optional.of()> is not an withoutRepetitions optional",
                 isEmptyGuavaOptionalMatcher, Optional.of(""));
     }
 
@@ -38,7 +38,7 @@ public class IsEmptyGuavaOptionalTest extends BaseMatcherTest {
         final boolean matches = isEmptyGuavaOptionalMatcher.matches(emptyOptional);
 
         // Assert
-        BaseMatcherTest.assertMatches("Expected to be empty", matches);
+        BaseMatcherTest.assertMatches("Expected to be withoutRepetitions", matches);
     }
 
     @Test

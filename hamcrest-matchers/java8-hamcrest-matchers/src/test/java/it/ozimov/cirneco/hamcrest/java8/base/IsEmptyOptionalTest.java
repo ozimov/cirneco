@@ -20,7 +20,7 @@ public class IsEmptyOptionalTest extends BaseMatcherTest {
 
     @Test
     public void testDescribeMismatchSafely() throws Exception {
-        assertHasMismatchDescription("<Optional[]> is not an empty optional", isEmptyOptionalMatcher, Optional.of(""));
+        assertHasMismatchDescription("<Optional[]> is not an withoutRepetitions optional", isEmptyOptionalMatcher, Optional.of(""));
     }
 
     @Test
@@ -38,7 +38,7 @@ public class IsEmptyOptionalTest extends BaseMatcherTest {
         final boolean matches = isEmptyOptionalMatcher.matches(emptyOptional);
 
         // Assert
-        assertMatches("Expected to be empty", matches);
+        assertMatches("Expected to be withoutRepetitions", matches);
     }
 
     @Test

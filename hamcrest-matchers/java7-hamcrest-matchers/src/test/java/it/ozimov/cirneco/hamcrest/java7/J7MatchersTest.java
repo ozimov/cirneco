@@ -12,14 +12,17 @@ import it.ozimov.cirneco.hamcrest.java7.base.IsSimilar;
 import it.ozimov.cirneco.hamcrest.java7.clazz.IsClassWithAnnotation;
 import it.ozimov.cirneco.hamcrest.java7.clazz.IsValidNoArgumentConstructor;
 import it.ozimov.cirneco.hamcrest.java7.collect.IsEmptyIterable;
+import it.ozimov.cirneco.hamcrest.java7.collect.IsIterableContained;
 import it.ozimov.cirneco.hamcrest.java7.collect.IsIterableContainingInAnyOrder;
 import it.ozimov.cirneco.hamcrest.java7.collect.IsIterableContainingInOrder;
 import it.ozimov.cirneco.hamcrest.java7.collect.IsIterableContainingInRelativeOrder;
 import it.ozimov.cirneco.hamcrest.java7.collect.IsIterableWithDistinctElements;
+import it.ozimov.cirneco.hamcrest.java7.collect.IsIterableWithSameSize;
 import it.ozimov.cirneco.hamcrest.java7.collect.IsIterableWithSize;
 import it.ozimov.cirneco.hamcrest.java7.collect.IsMapWithSameKeySet;
 import it.ozimov.cirneco.hamcrest.java7.collect.IsSortedIterable;
 import it.ozimov.cirneco.hamcrest.java7.collect.IsSortedIterableWithComparator;
+import it.ozimov.cirneco.hamcrest.java7.collect.IsSubsetOfIterable;
 import it.ozimov.cirneco.hamcrest.java7.date.IsDate;
 import it.ozimov.cirneco.hamcrest.java7.date.IsDateInDay;
 import it.ozimov.cirneco.hamcrest.java7.date.IsDateInLeapYear;
@@ -305,7 +308,6 @@ public class J7MatchersTest extends SameCallerMatchersTest {
         testMethodCallsRightMethod(HasToStringContaining.class, "hasToStringContainingInOrder", "hasToStringContainingInOrder");
     }
 
-
     @Test
     public void testEmpty() throws Exception {
         testMethodCallsRightMethod(IsEmptyIterable.class, "empty");
@@ -327,8 +329,18 @@ public class J7MatchersTest extends SameCallerMatchersTest {
     }
 
     @Test
+    public void testContainedIn() throws Exception {
+        testMethodCallsRightMethod(IsIterableContained.class, "containedIn");
+    }
+
+    @Test
     public void testHasDistinctElements() throws Exception {
         testMethodCallsRightMethod(IsIterableWithDistinctElements.class, "hasDistinctElements");
+    }
+
+    @Test
+    public void testSameSizeOf() throws Exception {
+        testMethodCallsRightMethod(IsIterableWithSameSize.class, "sameSizeOf", Iterable.class);
     }
 
     @Test
@@ -379,6 +391,11 @@ public class J7MatchersTest extends SameCallerMatchersTest {
     @Test
     public void testIsSortedReversedWithComparator() throws Exception {
         testMethodCallsRightMethod(IsSortedIterableWithComparator.class, "sortedReversed", Comparator.class);
+    }
+
+    @Test
+    public void testIsSubsetOf() throws Exception {
+        testMethodCallsRightMethod(IsSubsetOfIterable.class, "subsetOf", Iterable.class);
     }
 
     @Test

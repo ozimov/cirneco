@@ -10,11 +10,14 @@ import it.ozimov.cirneco.hamcrest.java7.base.IsSameHashcode;
 import it.ozimov.cirneco.hamcrest.java7.base.IsSimilar;
 import it.ozimov.cirneco.hamcrest.java7.clazz.IsClassWithAnnotation;
 import it.ozimov.cirneco.hamcrest.java7.clazz.IsValidNoArgumentConstructor;
+import it.ozimov.cirneco.hamcrest.java7.collect.IsIterableContained;
+import it.ozimov.cirneco.hamcrest.java7.collect.IsSubsetOfIterable;
 import it.ozimov.cirneco.hamcrest.java7.collect.IsEmptyIterable;
 import it.ozimov.cirneco.hamcrest.java7.collect.IsIterableContainingInAnyOrder;
 import it.ozimov.cirneco.hamcrest.java7.collect.IsIterableContainingInOrder;
 import it.ozimov.cirneco.hamcrest.java7.collect.IsIterableContainingInRelativeOrder;
 import it.ozimov.cirneco.hamcrest.java7.collect.IsIterableWithDistinctElements;
+import it.ozimov.cirneco.hamcrest.java7.collect.IsIterableWithSameSize;
 import it.ozimov.cirneco.hamcrest.java7.collect.IsIterableWithSize;
 import it.ozimov.cirneco.hamcrest.java7.collect.IsMapWithSameKeySet;
 import it.ozimov.cirneco.hamcrest.java7.collect.IsSortedIterable;
@@ -500,20 +503,21 @@ public class J7Matchers {
         return IsDateInDay.saturday();
     }
 
-    // ITERABLE
+    // COLLECT
 
     /**
      * Creates a matcher for {@link Iterable}s that matches when the examined {@link Iterable} has no items.
      * <p>
      * <p>For example:
      * <p>
-     * <pre>assertThat(new ArrayList<>(), empty())</pre>
+     * <pre>assertThat(new ArrayList<>(), withoutRepetitions())</pre>
      *
      * returns <code>true</code>.
      */
     public static <E> Matcher<Iterable<? extends E>> empty() {
         return IsEmptyIterable.empty();
     }
+
 
     /**
      * <p>Creates an order agnostic matcher for {@linkplain Iterable}s that matches when a single pass over the examined
@@ -584,18 +588,63 @@ public class J7Matchers {
         return IsIterableContainingInRelativeOrder.containsInRelativeOrder(items);
     }
 
+
+    /**
+     * Creates a matcher for {@link Iterable}s matching when the examined {@linkplain Iterable} has all
+     * the elements in the comparison {@linkplain Iterable}, without repetitions.
+     * For instance:
+     * {@code
+     * List<String> comparison = Arrays.asList("bar", "bar", "foo");
+     * List<String> given = Arrays.asList("bar", "bar", "bar");
+     * assertThat(given, is(containedIn(comparison));
+     * }
+     * returns {@code false} because element {@code bar} in {@code given} is not counted 3 times in {@code comparison}.
+     * While:
+     * {@code
+     * List<String> comparison = Arrays.asList("bar", "bar", "bar", "foo");
+     * List<String> given = Arrays.asList("bar", "bar", "bar");
+     * assertThat(given, is(containedIn(comparison));
+     * }
+     * returns {@code true} because all the elements in {@code given} are found in {@code comparison} with the same
+     * frequency.
+     */
+    public static <K> Matcher<Iterable<K>> containedIn(final Iterable<? super K> comparison) {
+        return IsIterableContained.containedIn(comparison);
+    }
+
     /**
      * Creates a matcher for {@link Iterable}s that matches when the examined {@link Iterable} has only distinct
      * elements.
      * <p>
      * <p>For example:
      * <p>
-     * <pre>assertThat(new ArrayList<>(), empty())</pre>
+     * <pre>assertThat(new ArrayList<>(), withoutRepetitions())</pre>
      *
      * returns <code>true</code>.
      */
     public static <E> Matcher<Iterable<? extends E>> hasDistinctElements() {
         return IsIterableWithDistinctElements.hasDistinctElements();
+    }
+
+    /**
+     * Creates a matcher for {@link Iterable}s matching when the examined {@linkplain Iterable} has all
+     * the elements in the comparison {@linkplain Iterable}, without repetitions.
+     * For instance:
+     * {@code
+     * List<String> comparison = Arrays.asList("bar", "foo");
+     * List<String> given = Arrays.asList("bar", "bar");
+     * assertThat(given, sameSizeOf(comparison));
+     * }
+     * returns {@code true} while
+     * {@code
+     * List<String> comparison = Arrays.asList("bar", "foo");
+     * List<String> given = Arrays.asList("bar");
+     * assertThat(given, sameSizeOf(comparison));
+     * }
+     * returns {@code false}.
+     */
+    public static <T> Matcher<Iterable<T>> sameSizeOf(final Iterable<? super T> comparison) {
+        return IsIterableWithSameSize.sameSizeOf(comparison);
     }
 
     /**
@@ -714,6 +763,24 @@ public class J7Matchers {
      */
     public static <K> Matcher<Iterable<K>> sortedReversed(final Comparator<K> comparator) {
         return IsSortedIterableWithComparator.sortedReversed(comparator);
+    }
+
+
+    /**
+     * Creates a matcher for {@link Iterable}s matching when the examined {@linkplain Iterable} has all
+     * the elements in the comparison {@linkplain Iterable}, without repetitions (i.e. it is a subset).
+     * For instance:
+     * {@code
+     * List<String> comparison = Arrays.asList("bar", "bar", "foo");
+     * List<String> given = Arrays.asList("bar", "bar", "bar");
+     * assertThat(given, is(subsetOf(comparison));
+     * }
+     * returns {@code true} because each element of {@code given} is included in {@code comparison}.
+     * Essentially, if the set view of the given iterables guarantee that {@code given} is a subset of {@code comparison},
+     * then the matcher returns true
+     */
+    public static <K> Matcher<Iterable<K>> subsetOf(final Iterable<? super K> comparison) {
+        return IsSubsetOfIterable.subsetOf(comparison);
     }
 
     // MAP

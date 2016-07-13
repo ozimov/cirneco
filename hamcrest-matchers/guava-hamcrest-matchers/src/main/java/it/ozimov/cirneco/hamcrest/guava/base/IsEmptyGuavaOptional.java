@@ -6,7 +6,7 @@ import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
 /**
- * Is the given {@linkplain Optional} instance empty?
+ * Is the given {@linkplain Optional} instance withoutRepetitions?
  *
  * @since version 0.1 for JDK7
  */
@@ -26,7 +26,7 @@ public class IsEmptyGuavaOptional extends TypeSafeMatcher<Optional> {
 
     @Override
     protected void describeMismatchSafely(final Optional item, final Description mismatchDescription) {
-        mismatchDescription.appendValue(item).appendText(" is not an empty optional");
+        mismatchDescription.appendValue(item).appendText(" is not an withoutRepetitions optional");
     }
 
     @Override

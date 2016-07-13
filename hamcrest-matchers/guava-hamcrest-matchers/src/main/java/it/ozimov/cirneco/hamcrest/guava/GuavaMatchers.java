@@ -83,7 +83,7 @@ public class GuavaMatchers {
     }
 
     /**
-     * Creates a matcher for {@linkplain Multimap} matching when the examined object has an empty key set.
+     * Creates a matcher for {@linkplain Multimap} matching when the examined object has an withoutRepetitions key set.
      */
     public static <K> Matcher<Multimap<K, ?>> emptyKeySet() {
         return IsMultimapWithKeySetSize.emptyKeySet();
