@@ -618,7 +618,7 @@ public class J7Matchers {
      * <p>
      * <p>For example:
      * <p>
-     * <pre>assertThat(new ArrayList<>(), withoutRepetitions())</pre>
+     * <pre>assertThat(Arrays.asList(1, 2, 3), hasDistinctElements())</pre>
      *
      * returns <code>true</code>.
      */

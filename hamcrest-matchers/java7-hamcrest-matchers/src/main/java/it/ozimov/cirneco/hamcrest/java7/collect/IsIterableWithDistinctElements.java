@@ -5,12 +5,9 @@ import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.Set;
-
-import static it.ozimov.cirneco.hamcrest.java7.collect.utils.IterableUtils.listCopy;
-import static it.ozimov.cirneco.hamcrest.java7.collect.utils.IterableUtils.size;
 
 /**
  * Is the {@linkplain Iterable} with distinct elements?
@@ -24,7 +21,7 @@ public class IsIterableWithDistinctElements<E> extends TypeSafeMatcher<Iterable<
      * Creates a matcher for {@linkplain Iterable}s that matches when the examined {@linkplain Iterable} has only
      * distinct elements.
      * <p>For example:
-     * <pre>assertThat(new ArrayList<>(), empty())</pre>
+     * <pre>assertThat(Arrays.asList(1, 2, 3), hasDistinctElements())</pre>
      *
      * returns <code>true</code>.
      */
@@ -34,18 +31,24 @@ public class IsIterableWithDistinctElements<E> extends TypeSafeMatcher<Iterable<
 
     @Override
     public boolean matchesSafely(final Iterable<? extends E> actual) {
-        return new HashSet<>(listCopy(actual)).size() == size(actual);
+        final Set<E> elements = new HashSet<>();
+
+        for (final E element : actual) {
+            if (!elements.add(element)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     @Override
     public void describeMismatchSafely(final Iterable<? extends E> actual, final Description mismatchDescription) {
-        final Collection<E> collection = listCopy(actual);
-        final Set<E> elements = new HashSet<>(collection);
-        final Set<E> nonDistinctElements = new HashSet<>();
+        final Set<E> elements = new HashSet<>();
+        final Collection<E> nonDistinctElements = new ArrayList<>(); // keep actual's order for reporting mismatch
 
-        for (final E element : elements) {
-
-            if (Collections.frequency(collection, element) > 1) {
+        for (final E element : actual) {
+            if (!elements.add(element)) {
                 nonDistinctElements.add(element);
             }
         }
