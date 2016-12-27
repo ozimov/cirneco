@@ -31,6 +31,7 @@ import it.ozimov.cirneco.hamcrest.java7.date.IsDateInWeekOfYear;
 import it.ozimov.cirneco.hamcrest.java7.date.IsDateWithTime;
 import it.ozimov.cirneco.hamcrest.java7.date.utils.ClockPeriod;
 import it.ozimov.cirneco.hamcrest.java7.filetype.IsYaml;
+import it.ozimov.cirneco.hamcrest.java7.javautils.IsUUID;
 import it.ozimov.cirneco.hamcrest.java7.number.IsInfinity;
 import it.ozimov.cirneco.hamcrest.java7.number.IsNegative;
 import it.ozimov.cirneco.hamcrest.java7.number.IsNegativeInfinity;
@@ -406,6 +407,11 @@ public class J7MatchersTest extends SameCallerMatchersTest {
     @Test
     public void testYaml() throws Exception {
         testMethodCallsRightMethod(IsYaml.class, "yaml");
+    }
+
+    @Test
+    public void testIsUUID() throws Exception {
+        testMethodCallsRightMethod(IsUUID.class, "UUID");
     }
 
     @Test

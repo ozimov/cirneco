@@ -3,6 +3,10 @@ All notable changes to Cirneco project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+## [1.2.0] - 2016-27-12
+### Fixed
+- Added a matcher for UUID `it.ozimov.cirneco.hamcrest.java7.javautils.IsUUID`.
+- Added new module for Mockito with a captor for results (see `it.ozimov.mockito.helpers.captors.ResultCaptor`)
 
 ## [1.1.2] - 2016-07-13
 ### Fixed

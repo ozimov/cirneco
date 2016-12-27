@@ -30,6 +30,7 @@ import it.ozimov.cirneco.hamcrest.java7.date.IsDateInWeekOfYear;
 import it.ozimov.cirneco.hamcrest.java7.date.IsDateWithTime;
 import it.ozimov.cirneco.hamcrest.java7.date.utils.ClockPeriod;
 import it.ozimov.cirneco.hamcrest.java7.filetype.IsYaml;
+import it.ozimov.cirneco.hamcrest.java7.javautils.IsUUID;
 import it.ozimov.cirneco.hamcrest.java7.number.IsInfinity;
 import it.ozimov.cirneco.hamcrest.java7.number.IsNegative;
 import it.ozimov.cirneco.hamcrest.java7.number.IsNegativeInfinity;
@@ -44,6 +45,7 @@ import java.lang.annotation.Annotation;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * {@inheritDoc} The {@code J7Matchers} class groups all the matchers introduced by Cirneco's Hamcrest extension for
@@ -808,6 +810,18 @@ public class J7Matchers {
     public static <T> Matcher<T> yaml() {
         return IsYaml.yaml();
     }
+
+    // JAVA UTILS
+
+
+    /**
+     * Creates a matcher that matches only when the examined {@linkplain Object} has a to String value that is a valid
+     * {@linkplain UUID}.
+     */
+    public static Matcher UUID() {
+        return IsUUID.UUID();
+    }
+
 
     // NUMBER
 
