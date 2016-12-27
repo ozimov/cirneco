@@ -7,11 +7,11 @@
     <parent>
         <artifactId>cirneco-parent</artifactId>
         <groupId>it.ozimov</groupId>
-        <version>1.2.0-SNAPSHOT</version>
+        <version>1.2.0</version>
     </parent>
 
     <artifactId>mockito-helpers</artifactId>
-    <version>1.2.0-SNAPSHOT</version>
+    <version>1.2.0</version>
     <packaging>jar</packaging>
 
     <name>Cirneco's Mockito Helpers</name>
@@ -32,13 +32,13 @@
         <dependency>
             <groupId>it.ozimov</groupId>
             <artifactId>java7-hamcrest-matchers</artifactId>
-            <version>1.2.0-SNAPSHOT</version>
+            <version>1.2.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>it.ozimov</groupId>
             <artifactId>guava-hamcrest-matchers</artifactId>
-            <version>1.2.0-SNAPSHOT</version>
+            <version>1.2.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
