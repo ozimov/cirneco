@@ -77,7 +77,7 @@ public class IsBetweenLowerBoundInclusiveTest extends BaseMatcherTest {
     }
 
     @Test
-    public void testGivenNumberSmallerThanLowerBoundWhenMatchesIsCalledThenReturnTrue() throws Exception {
+    public void testGivenNumberSmallerThanLowerBoundWhenMatchesIsCalledThenReturnFalse() throws Exception {
 
         // Act
         final boolean isBetweenLowerBoundInclusive = isBetweenLowerBoundInclusiveMatcher.matches(9);
@@ -107,7 +107,7 @@ public class IsBetweenLowerBoundInclusiveTest extends BaseMatcherTest {
     }
 
     @Test
-    public void testGivenNumberEqualsToUpperBoundWhenMatchesIsCalledThenReturnTrue() throws Exception {
+    public void testGivenNumberEqualsToUpperBoundWhenMatchesIsCalledThenReturnFalse() throws Exception {
 
         // Act
         final boolean isBetweenLowerBoundInclusive = isBetweenLowerBoundInclusiveMatcher.matches(12);

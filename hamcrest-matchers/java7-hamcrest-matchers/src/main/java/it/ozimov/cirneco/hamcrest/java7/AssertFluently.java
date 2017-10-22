@@ -28,7 +28,7 @@ import static org.hamcrest.Matchers.not;
  * <p>
  * given(actual)
  * .because("Actual object "\Test\" must not be equal to \"Something\"")
- * .assertIs(not("Something"));
+ * .assertIsNot("Something");
  * }
  * <p>
  * }

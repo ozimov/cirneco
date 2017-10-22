@@ -38,6 +38,7 @@ import it.ozimov.cirneco.hamcrest.java7.number.IsNegativeInfinity;
 import it.ozimov.cirneco.hamcrest.java7.number.IsNotANumber;
 import it.ozimov.cirneco.hamcrest.java7.number.IsPositive;
 import it.ozimov.cirneco.hamcrest.java7.number.IsPositiveInfinity;
+import it.ozimov.cirneco.hamcrest.java7.throwable.ExpectedException;
 import it.ozimov.cirneco.hamcrest.java7.web.IsEmail;
 import org.hamcrest.Matchers;
 import org.junit.Test;
@@ -447,6 +448,11 @@ public class J7MatchersTest extends SameCallerMatchersTest {
     @Test
     public void testEmail() throws Exception {
         testMethodCallsRightMethod(IsEmail.class, "email");
+    }
+
+    @Test
+    public void testExceptionWithMessage() throws Exception {
+        testMethodCallsRightMethod(ExpectedException.class, "exceptionWithMessage", Class.class, String.class);
     }
 
 }

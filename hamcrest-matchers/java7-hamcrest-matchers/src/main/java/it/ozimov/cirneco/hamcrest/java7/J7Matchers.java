@@ -37,6 +37,7 @@ import it.ozimov.cirneco.hamcrest.java7.number.IsNegativeInfinity;
 import it.ozimov.cirneco.hamcrest.java7.number.IsNotANumber;
 import it.ozimov.cirneco.hamcrest.java7.number.IsPositive;
 import it.ozimov.cirneco.hamcrest.java7.number.IsPositiveInfinity;
+import it.ozimov.cirneco.hamcrest.java7.throwable.ExpectedException;
 import it.ozimov.cirneco.hamcrest.java7.web.IsEmail;
 import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
@@ -937,6 +938,14 @@ public class J7Matchers {
      */
     public static <T> Matcher<T> email() {
         return IsEmail.email();
+    }
+
+    /**
+     * Creates a matcher for a {@link Throwable} that matches when the provided {@code Throwable} instance is the same or a subtype
+     * of the given class and has the same message in the error message or the message is contained in the error message
+     */
+    public static Matcher<Throwable> exceptionWithMessage(Class<? extends Throwable> type, String expectedMessage) {
+        return ExpectedException.exceptionWithMessage(type, expectedMessage);
     }
 
 }
