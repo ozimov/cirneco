@@ -3,6 +3,11 @@ All notable changes to Cirneco project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+## [1.3.0] - 2017-10-22
+- Added a matcher for exceptions with messages: `it.ozimov.cirneco.hamcrest.java7.throwable.ExpectedException`. It should be used in JUnit `ExpectedException`'s cause check.
+
+
 ## [1.2.0] - 2016-27-12
 ### Fixed
 - Added a matcher for UUID `it.ozimov.cirneco.hamcrest.java7.javautils.IsUUID`.
