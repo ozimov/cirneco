@@ -5,40 +5,47 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>cirneco-parent</artifactId>
+        <artifactId>hamcrest</artifactId>
         <groupId>it.ozimov</groupId>
         <version>2.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>mockito-helpers</artifactId>
+
+    <artifactId>guava-hamcrest-matchers</artifactId>
     <version>2.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Cirneco's Mockito Helpers</name>
-    <description>An extension to provide some helpers for Mockito.</description>
+    <name>Cirneco's Hamcrest Extensions for Google Guava library</name>
+    <description>An extension to make unit test easier with Hamcrest and Google Guava.</description>
 
     <dependencies>
-        <!--  OTHER DEPENDENCIES  -->
         <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>${com.google.guava}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>2.4.3</version>
+            <groupId>it.ozimov</groupId>
+            <artifactId>hamcrest-matchers</artifactId>
+            <version>2.0.0-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>joda-time</groupId>
+                    <artifactId>joda-time</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>it.ozimov</groupId>
             <artifactId>hamcrest-matchers</artifactId>
             <version>2.0.0-SNAPSHOT</version>
             <scope>test</scope>
+            <classifier>tests</classifier>
         </dependency>
         <dependency>
-            <groupId>it.ozimov</groupId>
-            <artifactId>guava-hamcrest-matchers</artifactId>
-            <version>2.0.0-SNAPSHOT</version>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${com.google.guava}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.20.0-GA</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -86,19 +93,6 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.19.1</version>
             </plugin>
-            <!--To reuse test utilities in other modules-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>test-jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
             <!--Deploy plugins -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>

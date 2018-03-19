@@ -1,8 +1,8 @@
 package it.ozimov.mockito.helpers.captors;
 
 import com.google.common.collect.ImmutableList;
+import it.ozimov.cirneco.hamcrest.collect.IsIterableContainingInOrder;
 import org.hamcrest.Matchers;
-import it.ozimov.cirneco.hamcrest.java7.collect.IsIterableContainingInOrder;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -15,7 +15,7 @@ import org.mockito.invocation.InvocationOnMock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 

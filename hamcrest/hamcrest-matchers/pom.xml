@@ -5,17 +5,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>cirneco-parent</artifactId>
+        <artifactId>hamcrest</artifactId>
         <groupId>it.ozimov</groupId>
         <version>2.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>mockito-helpers</artifactId>
+    <artifactId>hamcrest-matchers</artifactId>
     <version>2.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Cirneco's Mockito Helpers</name>
-    <description>An extension to provide some helpers for Mockito.</description>
+    <name>Cirneco's Hamcrest Extensions for JDK8</name>
+    <description>An extension to make unit test easier with Hamcrest.</description>
 
     <dependencies>
         <!--  OTHER DEPENDENCIES  -->
@@ -25,20 +25,27 @@
             <version>${com.google.guava}</version>
         </dependency>
         <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>2.4.3</version>
+            <groupId>commons-validator</groupId>
+            <artifactId>commons-validator</artifactId>
+            <version>1.5.0</version>
         </dependency>
         <dependency>
-            <groupId>it.ozimov</groupId>
-            <artifactId>hamcrest-matchers</artifactId>
-            <version>2.0.0-SNAPSHOT</version>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>1.17</version>
+        </dependency>
+
+        <!-- TESTING DEPENDENCIES -->
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.9.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>it.ozimov</groupId>
-            <artifactId>guava-hamcrest-matchers</artifactId>
-            <version>2.0.0-SNAPSHOT</version>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.20.0-GA</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
